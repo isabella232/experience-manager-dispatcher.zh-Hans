@@ -10,7 +10,7 @@ topic-tags: 调度程序
 content-type: 引用
 discoiquuid: aefee8e-bb34-42a7-9a5 e-b7 d0 e84391 a
 translation-type: tm+mt
-source-git-commit: bd8fff69a9c8a32eade60c68fc75c3aa411582af
+source-git-commit: 2f0ca874c23cb7aecbcedc22802c46a295bb4d75
 
 ---
 
@@ -567,20 +567,23 @@ Amazon Elastic Load Dialization(ELB)是一种可响应getaddrinfo的服务，它
 
 * **请求行的元素：** 包括 `/method``/url`、或 `/query``/protocol` 一个模式，用于根据HTTP请求的请求线部分的特定部分过滤请求。过滤请求行(而不是整个请求行上的元素)的元素是首选过滤器方法。
 
-* **glob属性**： `/glob` 此属性用于与HTTP请求的整个请求行匹配。
-
-有关/glob属性的信息，请参阅 [为glob属性设计图案](#designing-patterns-for-glob-properties)。在/glob属性中使用通配符字符的规则还适用于请求行中匹配元素的模式。
+* **请求行的高级元素：** 从调度程序4.2.0开始，可使用四个新的过滤元素。这些新元素分别为 `/path`、 `/selectors`和 `/extension``/suffix` 。包括一个或多个项目以进一步控制URL模式。
 
 >[!NOTE]
 >
->从调度程序4.2.0开始，已增加对过滤器配置和日志记录功能的若干增强：
->
->* [支持POSIX正则表达式](dispatcher-configuration.md#main-pars-title-1996763852)
->* [支持筛选请求URL的其他元素](dispatcher-configuration.md#main-pars-title-694578373)
->* [跟踪日志记录](dispatcher-configuration.md#main-pars-title-1950006642)
->
+>有关这些元素引用的请求行部分的详细信息，请参阅 [sling URL分解](https://sling.apache.org/documentation/the-sling-engine/url-decomposition.html) wiki页面。
 
+* **glob属性**： `/glob` 此属性用于与HTTP请求的整个请求行匹配。
 
+>[!CAUTION]
+>
+>使用globs过滤已在Dispatcher中弃用。因此，您应避免在 `/filter` 部分中使用全球化，因为它可能会导致安全问题。因此，不是：
+
+`/glob "* *.css *"`
+
+您应使用
+
+`/url "*.css"`
 
 #### HTTP请求的请求线部分 {#the-request-line-part-of-http-requests}
 
@@ -593,6 +596,18 @@ HTTP/1.1定义 [了请求线](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.
 GET/content/geometrixx-outdoors/en.htmlHTTP.1&lt; CRLF&gt;
 
 您的模式必须考虑请求行和&lt; CRLF&gt;字符中的空格字符。
+
+#### 双引号与单引号 {#double-quotes-vs-single-quotes}
+
+创建过滤器规则时，对简单图案使用 `"pattern"` 双引号。如果您使用Dispatcher4.2.0或更高版本并且模式包含正则表达式，则必须在单引号中包含正则表达式模式 `'(pattern1|pattern2)'` 。
+
+#### 正则表达式 {#regular-expressions}
+
+调度程序4.2.0之后，您可以在筛选模式中包含POSIX Extended正则表达式。
+
+#### 过滤器疑难解答 {#troubleshooting-filters}
+
+如果过滤器未按您预期的方式触发，请启用 [跟踪在调度程序](#trace-logging) 上的跟踪日志记录，这样您可以看到哪个过滤器正在拦截请求。
 
 #### 示例过滤器：拒绝全部 {#example-filter-deny-all}
 
@@ -659,15 +674,6 @@ GET/content/geometrixx-outdoors/en.htmlHTTP.1&lt; CRLF&gt;
 ```
 
 #### 示例过滤器：过滤请求URL的其他元素 {#example-filter-filter-additional-elements-of-a-request-url}
-
-调度程序4.2.0中引入的增强功能之一是筛选请求URL的其他元素。引入的新元素有：
-
-* 路径
-* 选择器
-* extension
-* 后缀
-
-可以通过将相同名称的属性添加到过滤规则来进行配置： `/path``/selectors``/extension``/suffix` 并分别使用。
 
 下面是一个规则示例，它使用路径、选择器和扩展过滤器阻止内容从 `/content` 路径及其子树抓取：
 
