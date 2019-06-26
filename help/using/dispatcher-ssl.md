@@ -13,12 +13,12 @@ index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: 8dd56f8b90331f0da43852e25893bc6f3e606a97
+source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
 
 ---
 
 
-# 将SSL与调度程序结合使用 {#using-ssl-with-dispatcher}
+# Using SSL with Dispatcher {#using-ssl-with-dispatcher}
 
 在Dispatcher和渲染计算机之间使用SSL连接：
 
@@ -29,17 +29,17 @@ source-git-commit: 8dd56f8b90331f0da43852e25893bc6f3e606a97
 >
 >与SSL证书相关的操作绑定到第三方产品。它们未被Adobe白金维护和支持合同覆盖。
 
-## 调度程序连接到AEM时使用SSL {#use-ssl-when-dispatcher-connects-to-aem}
+## Use SSL When Dispatcher Connects to AEM {#use-ssl-when-dispatcher-connects-to-aem}
 
 配置Dispatcher以使用SSL连接与AEM或CQ渲染实例进行通信。
 
 配置Dispatcher之前，请配置AEM或CQ以使用SSL：
 
-* AEM6.2： [启用HTTP over SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
-* AEM6.1： [启用HTTP over SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
-* 旧版AEM版本：查看 [此页面](https://helpx.adobe.com/experience-manager/aem-previous-versions.html)。
+* AEM 6.2: [Enabling HTTP Over SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
+* AEM 6.1: [Enabling HTTP Over SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
+* Older AEM versions: see [this page](https://helpx.adobe.com/experience-manager/aem-previous-versions.html).
 
-### SSL相关请求标题 {#ssl-related-request-headers}
+### SSL-Related Request Headers {#ssl-related-request-headers}
 
 当调度程序接收HTTPS请求时，调度程序在发送到AEM或CQ的后续请求中包含以下标题：
 
@@ -48,7 +48,7 @@ source-git-commit: 8dd56f8b90331f0da43852e25893bc6f3e606a97
 * `X-Forwarded-SSL-Keysize`
 * `X-Forwarded-SSL-Session-ID`
 
-通过Apache-2.2发出的请求 `mod_ssl` 包含类似于以下示例的标题：
+A request through Apache-2.4 with `mod_ssl` includes headers that are similar to the following example:
 
 ```shell
 X-Forwarded-SSL: on
@@ -56,17 +56,17 @@ X-Forwarded-SSL-Cipher: DHE-RSA-AES256-SHA
 X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239D5C771CB5B4D
 ```
 
-### 配置调度程序以使用SSL {#configuring-dispatcher-to-use-ssl}
+### Configuring Dispatcher to Use SSL {#configuring-dispatcher-to-use-ssl}
 
-要配置Dispatcher以通过SSL或CQ通过SSL连接 [到您](dispatcher-configuration.md) 的调度程序，请使用下列属性：
+To configure Dispatcher to connect with AEM or CQ over SSL, your [dispatcher.any](dispatcher-configuration.md) file requires the following properties:
 
 * 处理HTTPS请求的虚拟主机。
-* 虚拟主机的 `renders` 部分包括一个项目，用于标识使用HTTPS的CQ或AEM实例的主机名和端口。
+* The `renders` section of the virtual host includes an item that identifies the host name and port of the CQ or AEM instance that uses HTTPS.
 * `renders` 项目中包含一个名为 `secure` value `1`的属性。
 
 注意：根据需要创建其他虚拟主机以处理HTTP请求。
 
-以下示例调度程序。任何文件都显示使用HTTPS连接到主机 `localhost` 和端口上运行的CQ实例的属性值 `8443`：
+The following example dispatcher.any file shows the property values for connecting using HTTPS to a CQ instance that is running on host `localhost` and port `8443`:
 
 ```
 /farms
@@ -114,7 +114,7 @@ X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239
 }
 ```
 
-## 在调度程序和AEM之间配置相互SSL {#configuring-mutual-ssl-between-dispatcher-and-aem}
+## Configuring Mutual SSL Between Dispatcher and AEM {#configuring-mutual-ssl-between-dispatcher-and-aem}
 
 配置Dispatcher与渲染计算机(通常是AEM或CQ发布实例)之间的连接以使用相互SSL：
 
@@ -136,15 +136,15 @@ X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239
 1. [创建包含渲染证书的keystore](dispatcher-ssl.md#main-pars-title-6) 并配置渲染的HTTP服务以使用它。
 1. [为共同SSL配置Dispatcher Web服务器模块](dispatcher-ssl.md#main-pars-title-4) 。
 
-### 创建或获取CA签名的证书 {#creating-or-obtaining-ca-signed-certificates}
+### Creating or Obtaining CA-Signed Certificates {#creating-or-obtaining-ca-signed-certificates}
 
 创建或获取验证发布实例和调度程序的CA签名证书。
 
-#### 创建CA {#creating-your-ca}
+#### Creating Your CA {#creating-your-ca}
 
-如果您充当CA，请使用 [OpenSSL](https://www.openssl.org/) 创建签署服务器和客户端证书的证书颁发机构。(必须安装OpenSSL库。)如果您使用的是第三方CA，请勿执行此过程。
+If you are acting as the CA, use [OpenSSL](https://www.openssl.org/) to create the Certificate Authority that signs the server and client certificates. (必须安装OpenSSL库。)如果您使用的是第三方CA，请勿执行此过程。
 
-1. 打开一个终端并将当前目录更改为连接CA. sh文件的目录，如 `/usr/local/ssl/misc`。
+1. Open a terminal and change the current directory to the directory that contiains the CA.sh file, such as `/usr/local/ssl/misc`.
 1. 要创建CA，请输入以下命令，然后在promted时提供值：
 
    ```shell
@@ -155,11 +155,11 @@ X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239
    >
    >opensl. cnf文件中的几个属性控制CA. sh脚本的行为。在创建CA之前，应根据需要修改此文件。
 
-#### 创建证书 {#creating-the-certificates}
+#### Creating the Certificates {#creating-the-certificates}
 
 使用OpenSSL创建要发送给第三方CA或与CA签名的证书请求。
 
-创建证书时，OpenSSL使用“通用名称”属性标识证书持有人。对于渲染实例的证书，如果配置Dispatcher以仅接受证书的主机名(如果它与Publish实例的主机名匹配)，则使用实例计算机的主机名作为通用名称。(请参阅 [dispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) 属性。)
+创建证书时，OpenSSL使用“通用名称”属性标识证书持有人。对于渲染实例的证书，如果配置Dispatcher以仅接受证书的主机名(如果它与Publish实例的主机名匹配)，则使用实例计算机的主机名作为通用名称。(See the [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) property.)
 
 1. 打开一个终端并将当前目录更改为包含OPensSL库的CH. sh文件的目录。
 1. 输入以下命令，并在出现提示时提供值。如果需要，请使用发布实例的主机名作为通用名称。主机名是DNS地址的DNS可解析名称：
@@ -182,11 +182,11 @@ X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239
 1. 重复步骤和步骤3，为Dispatcher模块创建新证书和新公钥。确保您使用的是特定于调度程序实例的通用名称。
 1. 重命名newcert. pem以清除. pem，并将newkey. pem重命名为dispey. pem。
 
-### 在渲染计算机上配置SSL {#configuring-ssl-on-the-render-computer}
+### Configuring SSL on the Render Computer {#configuring-ssl-on-the-render-computer}
 
 使用渲染器. pem和renderkey. pem文件在渲染实例上配置SSL。
 
-#### 将渲染证书转换为JKS格式 {#converting-the-render-certificate-to-jks-format}
+#### Converting the Render Certificate to JKS Format {#converting-the-render-certificate-to-jks-format}
 
 使用以下逗号将渲染证书(即PEM文件)转换为PKCS#12文件。还包括签署渲染证书的CA证书：
 
@@ -209,7 +209,7 @@ X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239
    keytool -changealias -alias 1 -destalias jettyhttp -keystore render.keystore
    ```
 
-#### 将CA Cert添加到渲染的信任商店 {#adding-the-ca-cert-to-the-render-s-truststore}
+#### Adding the CA Cert to the Render&#39;s Truststore {#adding-the-ca-cert-to-the-render-s-truststore}
 
 如果您充当CA，请将CA证书导入keystore。然后，配置运行渲染实例以信任keystore的JVM。
 
@@ -247,21 +247,21 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
    CQ_JVM_OPTS='-server -Xmx2048m -XX:MaxPermSize=512M -Djavax.net.ssl.trustStore=/usr/lib/cq6.0/publish/ssl/cacerts.keystore'
    ```
 
-#### 配置渲染实例 {#configuring-the-render-instance}
+#### Configuring the Render Instance {#configuring-the-render-instance}
 
-使用渲染证书在Publish实例 ** 部分启用SSL中的说明，将渲染实例的HTTP服务配置为使用SSL：
+Use the render certificate with the instructions in the *Enable SSL on the Publish Instance* section to configure the HTTP service of the render instance to use SSL:
 
-* AEM6.2： [启用HTTP over SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
-* AEM6.1： [启用HTTP over SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
-* 旧版AEM版本：查看 [此页面。](https://helpx.adobe.com/experience-manager/aem-previous-versions.html)
+* AEM 6.2: [Enabling HTTP Over SSL](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/config-ssl.html)
+* AEM 6.1: [Enabling HTTP Over SSL](https://docs.adobe.com/content/docs/en/aem/6-1/deploy/configuring/config-ssl.html)
+* Older AEM versions: see [this page.](https://helpx.adobe.com/experience-manager/aem-previous-versions.html)
 
-### 为调度程序模块配置SSL {#configuring-ssl-for-the-dispatcher-module}
+### Configuring SSL for the Dispatcher Module {#configuring-ssl-for-the-dispatcher-module}
 
 要配置Dispatcher以使用共同SSL，请准备Dispatcher证书，然后配置Web服务器模块。
 
-### 创建统一的调度程序证书 {#creating-a-unified-dispatcher-certificate}
+### Creating a Unified Dispatcher Certificate {#creating-a-unified-dispatcher-certificate}
 
-将调度程序证书和未加密的私钥合并到一个PEM文件中。使用文本编辑器或 `cat` 命令创建类似于以下示例的文件：
+将调度程序证书和未加密的私钥合并到一个PEM文件中。Use a text editor or the `cat` command to create a file that is similar to the following example:
 
 1. 打开一个终端，并将当前目录更改为dispey. pem文件的位置。
 1. 要解密私钥，请输入以下命令：
@@ -270,7 +270,7 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
    openssl rsa -in dispkey.pem -out dispkey_unencrypted.pem
    ```
 
-1. 使用文本编辑器或 `cat` 命令将未加密的私钥和证书合并到一个文件中，该文件类似于以下示例：
+1. Use a text editor or the `cat` command to combine the unencrypted private key and the certificate in a single file that is similar to the following example:
 
    ```xml
    -----BEGIN RSA PRIVATE KEY-----
@@ -283,9 +283,9 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
    -----END CERTIFICATE-----
    ```
 
-### 指定要用于调度程序的证书 {#specifying-the-certificate-to-use-for-dispatcher}
+### Specifying the Certificate to Use for Dispatcher {#specifying-the-certificate-to-use-for-dispatcher}
 
-将以下属性添加到 [Dispatcher模块配置](dispatcher-install.md#main-pars-55-35-1022) (英寸 `httpd.conf`)：
+Add the following properties to the [Dispatcher module configuration](dispatcher-install.md#main-pars-55-35-1022) (in `httpd.conf`):
 
 * `DispatcherCertificateFile`：调度程序统一证书文件的路径，该文件包含公用证书和未加密的私钥。SSL服务器请求Dispatcher客户端证书时使用此文件。
 * `DispatcherCACertificateFile`：CA证书文件的路径，如果SSL服务器呈现不受根授权信任的CA。
