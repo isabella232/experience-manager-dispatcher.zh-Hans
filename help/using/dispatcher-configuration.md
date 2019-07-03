@@ -10,7 +10,7 @@ topic-tags: 调度程序
 content-type: 引用
 discoiquuid: aefee8e-bb34-42a7-9a5 e-b7 d0 e84391 a
 translation-type: tm+mt
-source-git-commit: 4f1e3740c7eb91023b819ffed0bb5d0b432002be
+source-git-commit: a997d2296e80d182232677af06a2f4ab5a14bfd5
 
 ---
 
@@ -413,7 +413,7 @@ The following example represents a snippet from a dispatcher.any file that defin
 >
 >`/allowAuthorized`**必须** 在 `"0"``/cache` 部分中设置才能启用此功能。
 
-创建一个安全会话以访问渲染农场，以便用户需要登录才能访问农场中的任何页面。登录后，用户可以访问农场中的所有页面。See [Creating a Closed User Group](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/cug.html#CreatingTheUserGroupToBeUsed) for information about using this feature with CUGs.
+创建一个安全会话以访问渲染农场，以便用户需要登录才能访问农场中的任何页面。登录后，用户可以在农场中访问页面。See [Creating a Closed User Group](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/cug.html#CreatingTheUserGroupToBeUsed) for information about using this feature with CUGs. Also, see the Dispatcher [Security Checklist](/help/using/security-checklist.md) before going live.
 
 `/sessionmanagement` 该属性是一个子属性 `/farms`。
 
@@ -426,6 +426,17 @@ The following example represents a snippet from a dispatcher.any file that defin
 **/directory** (强制)
 
 存储会话信息的目录。如果该目录不存在，则创建该目录。
+
+>[!CAUTION]
+>
+> When configuring the directory sub-parameter **do not** point to the root folder (`/directory "/"`) as it can cause serious problems. 应始终指定存储会话信息的文件夹的路径。例如：
+
+```xml
+/sessionmanagement 
+  { 
+  /directory "/usr/local/apache/.sessions"
+  }
+```
 
 **/encode** (可选)
 
@@ -1411,7 +1422,7 @@ Dispatcher最多支持个统计类别。如果定义超过个类别，则仅使�
 
 >[!NOTE]
 >
->如果您不使用负载平衡，则可忽略此部分。
+>如果您不使用负载平衡，则可以忽略此部分。
 
 ### Defining Statistics Categories {#defining-statistics-categories}
 
