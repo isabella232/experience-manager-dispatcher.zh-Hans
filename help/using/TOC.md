@@ -1,10 +1,11 @@
 ---
 cloud: experience-cloud
-product: AEM Dispatcher
-archtype: 管理员
+product: 体验经理
+sub-product: 体验管理器调度程序
+archetype: 管理员
 user-guide-title: Experience Manager调度程序帮助
 translation-type: tm+mt
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+source-git-commit: 5cd966c0e317949582084d3268c6914540b707b1
 
 ---
 
