@@ -1,17 +1,17 @@
 ---
 title: 调度程序问题疑难解答
-seo-title: AEM调度程序问题疑难解答
+seo-title: AEM Dispatcher问题疑难解答
 description: 了解如何解决Dispatcher问题。
-seo-description: 了解如何解决AEM调度程序问题。
-uuid: 9c109a48-d921-4b6 e-9626-1158cfc41 e7
-cmgrlastmodified: 01.11.2007082229[aheimoz]
+seo-description: 了解如何对AEM Dispatcher问题进行疑难解答。
+uuid: 9c109a48-d921-4b6e-9626-1158cebc41e7
+cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: '1193211344162'
 template: /apps/docs/templates/contentpage
 contentOwner: 用户
-products: SG_ EXPERIENCE MANAGER/Dispatcher
+products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: 调度程序
 content-type: 引用
-discoiquuid: a612e745-f1 e6-43de-b25 a-9adcaadab5 cf
+discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
 translation-type: tm+mt
 source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
 
@@ -22,69 +22,69 @@ source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
 
 >[!NOTE]
 >
->Dispatcher版本独立于AEM，但Dispatcher文档嵌入AEM文档。始终使用嵌入到最新版AEM文档中的Dispatcher文档。
+>调度程序版本与AEM无关，但Dispatcher文档已嵌入到AEM文档中。 请始终使用嵌入到AEM最新版本文档中的Dispatcher文档。
 >
->如果您遵循了一个指向Dispatcher文档的链接，则可能已重定向到该页面，该链接嵌入到AEM的先前版本的文档中。
+>如果您遵循了指向Dispatcher文档的链接（该链接嵌入在AEM先前版本的文档中），则您可能已被重定向到此页。
 
 >[!NOTE]
 >
->另请检查 [调度程序知识库](https://helpx.adobe.com/cq/kb/index/dispatcher.html)、 [疑难解答调度程序弹出问题](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) 和 [调度程序热点问题常见问题解答](dispatcher-faq.md) 以了解更多信息。
+>另请查阅调度程序 [知识库](https://helpx.adobe.com/cq/kb/index/dispatcher.html)、调度程序 [刷新问题疑难解答和调度程序热](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) 门问题常见问题解答 [](dispatcher-faq.md) ，以了解更多信息。
 
 ## 检查基本配置 {#check-the-basic-configuration}
 
-通常，第一步是检查基础知识：
+与往常一样，第一步是检查基础知识：
 
 * [确认基本操作](#ConfirmBasicOperation)
-* 检查Web服务器和调度程序的所有日志文件。如有必要，请增加用于调度 `loglevel`[程序日志记录](#Logging)的使用。
+* 检查Web服务器和调度程序的所有日志文件。 如有必要，请增 `loglevel` 加用于调度程序记 [录的](#Logging)。
 
-* [检查配置](#ConfiguringtheDispatcher)：
+* [检查配置](#ConfiguringtheDispatcher):
 
    * 您有多个调度程序吗？
 
-      * 您确定了哪些Dispatcher处理了正在调查的网站/页面？
-   * 是否已实现过滤器？
+      * 您确定哪个调度程序正在处理您正在调查的网站／页面？
+   * 您是否实施了过滤器？
 
-      * 这些影响您正在调查的事项吗？
+      * 这些是否会影响您所调查的事情？
 
 
-## IIS诊断工具 {#iis-diagnostic-tools}
+## IIS Diagnostic Tools {#iis-diagnostic-tools}
 
 IIS提供各种跟踪工具，具体取决于实际版本：
 
-* IIS-可下载和配置IIS诊断工具
-* IIS-跟踪完全集成
+* IIS 6 —— 可下载并配置IIS诊断工具
+* IIS 7 —— 跟踪完全集成
 
 这些功能可帮助您监控活动。
 
-## 找不到IIS和404 {#iis-and-not-found}
+## IIS and 404 Not Found {#iis-and-not-found}
 
-使用IIS时，您可能会遇到 `404 Not Found` 在各种情况下返回的体验。如果是，请参阅以下知识库文章。
+When using IIS you might experience `404 Not Found` being returned in various scenarios. 如果是，请参阅以下知识库文章。
 
-* [IIS6/7：POST方法返回404](https://helpx.adobe.com/dispatcher/kb/IIS6IsapiFilters.html)
-* [IIS6：对包含基本路径 `/bin` 返回的URL的请求 `404 Not Found`](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
+* [IIS 6/7: POST method returns 404](https://helpx.adobe.com/dispatcher/kb/IIS6IsapiFilters.html)
+* [IIS 6: Requests to URLs that contain the base path  return `/bin``404 Not Found`](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
 
-还应检查调度程序缓存根目录和IIS文档根目录是否已设置为同一目录。
+You should also check that the dispatcher cache root and the IIS document root are set to the same directory.
 
-## 删除工作流模型时出错 {#problems-deleting-workflow-models}
+## Problems Deleting Workflow Models {#problems-deleting-workflow-models}
 
-**症状**
+**Symptoms**
 
-通过Dispatcher访问AEM作者实例时尝试删除工作流模型的问题。
+Problems trying to delete workflow models when accessing an AEM author instance through the Dispatcher.
 
-**重现的步骤：**
+**Steps to reproduce:**
 
-1. 登录到您的作者实例(确认通过调度程序路由请求)。
-1. 创建新工作流程；例如，标题设置为WorkflowToDelete。
-1. 确认已成功创建工作流。
-1. 选择并右键单击工作流，然后单击 **删除**。
+1. Log in to your author instance (confirm that requests are being routed through the dispatcher).
+1. Create a new workflow; for example, with the Title set to workflowToDelete.
+1. Confirm that the workflow was successfully created.
+1. Select and right click on the workflow, then click Delete.****
 
-1. 单击**是**以确认。
-1. 此时将显示一条错误消息框：\
-   &quot; `ERROR 'Could not delete workflow model!!`&quot;.
+1. 单击&#x200B;**是**&#x200B;以确认。
+1. 将出现一个错误消息框，其中显示：\
+   " `ERROR 'Could not delete workflow model!!`".
 
 **分辨率**
 
-在文件 `/clientheaders` 的部分添加以下标题 `dispatcher.any` ：
+Add the following headers to the  section of your  file:`/clientheaders``dispatcher.any`
 
 * `x-http-method-override`
 * `x-requested-with`
@@ -98,29 +98,29 @@ IIS提供各种跟踪工具，具体取决于实际版本：
 "x-requested-with"  
 }`
 
-## 干扰mod_ dir(Apache) {#interference-with-mod-dir-apache}
+## Interference with mod_dir (Apache) {#interference-with-mod-dir-apache}
 
-这描述调度程序与Apache Webserver `mod_dir` 内部交互的方式，因为这可能会导致各种潜在的意外效果：
+这描述了调度程序如何与Apache `mod_dir` Web服务器内部进行交互，因为这可能导致各种可能意外的效果：
 
-### Apache1.3 {#apache}
+### Apache 1.3 {#apache}
 
-在Apache1.3 `mod_dir` 中，处理URL映射到文件系统中某个目录的每个请求。
+在Apache 1.3中， `mod_dir` 处理URL映射到文件系统中某个目录的每个请求。
 
-它将：
+它或者：
 
-* 将请求重定向到现有 `index.html` 文件
+* 将请求重定向到现有文 `index.html` 件
 * 生成目录列表
 
-启用调度程序后，它将此类请求注册为内容类型 `httpd/unix-directory`的处理函数，从而处理此类请求。
+当调度程序处于启用状态时，它通过将自身注册为内容类型的处理函数来处理此类请求 `httpd/unix-directory`。
 
-### Apache2.x {#apache-x}
+### Apache 2.x {#apache-x}
 
-Apache2.x中的内容有所不同。模块可以处理请求的不同阶段，如URL修正。`mod_dir` 通过将请求(URL映射到目录)重定向到带有 `/` 附加内容的URL来处理此阶段。
+在Apache 2.x中，情况不同。 模块可以处理请求的不同阶段，如URL修正。 `mod_dir` 通过将请求（当URL映射到目录时）重定向到附加了URL来处理此阶 `/` 段。
 
-Dispatcher不截取 `mod_dir` 修正，但将请求完全处理到重定向的URL(即 `/` 附加)。如果远程服务器(例如AEM)处理请求以与请求 `/a_path` 不同(映射到现有目录时 `/a_path/``/a_path` )，这可能会导致问题。
+调度程序不会截 `mod_dir` 取修正，但会完全处理对重定向URL的请求(即附加的 `/` 请求)。 如果远程服务器（如AEM）以不同方式处理请求（当映射到现有目录时）, `/a_path` 这可能会 `/a_path/` 造成 `/a_path` 问题。
 
-如果发生这种情况，您必须执行以下操作之一：
+如果发生这种情况，您必须执行以下任一操作：
 
-* 为 `mod_dir` 调度程序 `Directory` 处理的 `Location` 或子树禁用
+* 对调度 `mod_dir` 程序 `Directory` 处理的或 `Location` 子树禁用
 
-* 用于 `DirectorySlash Off` 配置 `mod_dir` 不追加 `/`
+* 使用 `DirectorySlash Off` 配置 `mod_dir` 不追加 `/`
