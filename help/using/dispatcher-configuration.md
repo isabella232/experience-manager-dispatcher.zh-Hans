@@ -10,7 +10,7 @@ topic-tags: 调度程序
 content-type: 引用
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: a997d2296e80d182232677af06a2f4ab5a14bfd5
+source-git-commit: 119f952439a59e51f769f285c79543aec8fdda37
 
 ---
 
@@ -23,20 +23,20 @@ source-git-commit: a997d2296e80d182232677af06a2f4ab5a14bfd5
 
 以下各节介绍了如何配置Dispatcher的各个方面。
 
-## Support for IPv4 and IPv6 {#support-for-ipv-and-ipv}
+## 支持IPv4和IPv6 {#support-for-ipv-and-ipv}
 
 AEM和Dispatcher的所有元素都可以安装在IPv4和IPv6网络中。 请参 [阅IPV4和IPV6](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html#AdditionalPlatformNotes)。
 
-## Dispatcher Configuration Files {#dispatcher-configuration-files}
+## 调度程序配置文件 {#dispatcher-configuration-files}
 
-By default the Dispatcher configuration is stored in the  text file, though you can change the name and location of this file during installation.`dispatcher.any`
+默认情况下，调度程序配置存储在文 `dispatcher.any` 本文件中，但您可以在安装过程中更改此文件的名称和位置。
 
-The configuration file contains a series of single-valued or multi-valued properties that control the behavior of Dispatcher:
+配置文件包含一系列单值或多值属性，这些属性控制Dispatcher的行为：
 
-* Property names are prefixed with a forward slash .`/`
-* Multi-valued properties enclose child items using braces .`{ }`
+* 属性名称前缀有正斜杠 `/`。
+* 多值属性使用大括号将子项圈起 `{ }`。
 
-An example configuration is structured as follows:
+示例配置的结构如下：
 
 ```xml
 # name of the dispatcher
@@ -104,12 +104,12 @@ An example configuration is structured as follows:
  }
 ```
 
-You can include other files that contribute to the configuration:
+您可以包括其他对配置有贡献的文件：
 
-* If your configuration file is large you can split it into several smaller files (that are easier to manage) then include these.
-* To include files that are generated automatically.
+* 如果配置文件很大，您可以将其拆分为多个较小的文件（更易于管理），然后包括这些文件。
+* 包含自动生成的文件。
 
-For example, to include the file myFarm.any in the /farms configuration use the following code:
+例如，要在/farms配置中包含文件myFarm.any，请使用以下代码：
 
 ```xml
 /farms
@@ -118,9 +118,9 @@ For example, to include the file myFarm.any in the /farms configuration use the 
   }
 ```
 
-Use the asterisk ("*") as a wildcard to specify a range of files to include.
+使用星号("*")作为通配符，指定要包含的文件范围。
 
-For example, if the files  through to  contain the configuration of farms one to five, you can include them as follows:`farm_1.any``farm_5.any`
+例如，如果文件包含 `farm_1.any` 一到五 `farm_5.any` 个农场的配置，则可以按如下方式包括这些文件：
 
 ```xml
 /farms
@@ -131,7 +131,7 @@ For example, if the files  through to  contain the configuration of farms one to
 
 ## 使用环境变量 {#using-environment-variables}
 
-You can use environment variables in string-valued properties in the dispatcher.any file instead of hard-coding the values. To include the value of an environment variable, use the format .`${variable_name}`
+您可以在dispatcher.any文件中的字符串值属性中使用环境变量，而不是硬编码这些值。 要包含环境变量的值，请使用格式 `${variable_name}`。
 
 例如，如果dispatcher.any文件与缓存目录位于同一目录中，则可以使用 [docroot](dispatcher-configuration.md#main-pars-title-30) 属性的以下值：
 
@@ -163,14 +163,14 @@ You can use environment variables in string-valued properties in the dispatcher.
 
 该 `/farms` 属性是配置结构中的顶级属性。 要定义农场，请向该属性添加子属 `/farms` 性。 使用属性名称可唯一标识Dispatcher实例中的农场。
 
-该属 `/*farmname*` 性是多值的，并且包含定义调度程序行为的其他属性：
+该属 `/farmname` 性是多值的，并且包含定义调度程序行为的其他属性：
 
 * 农场应用的页面的URL。
 * 用于渲染文档的一个或多个服务URL（通常为AEM发布实例）。
 * 用于负载平衡多个文档渲染器的统计信息。
 * 其他几种行为，如要缓存的文件和位置。
 
-该值可以包含任何字母数字(a-z, 0-9)字符。 The following example shows the skeleton definition for two farms named  and :`/daycom``/docsdaycom`
+该值可以包含任何字母数字(a-z, 0-9)字符。 以下示例显示了两个名为和的农场的骨架定 `/daycom` 义 `/docsdaycom`:
 
 ```xml
 #name of dispatcher
@@ -192,16 +192,16 @@ You can use environment variables in string-valued properties in the dispatcher.
 
 >[!NOTE]
 >
->If you use more than one render farm, the list is evaluated bottom-up. This is particularly relevant when defining Virtual Hosts for your websites.[](dispatcher-configuration.md#main-pars-117-15-0006)
+>如果您使用多个渲染场，则从下而上计算列表。 这在为网站定义虚拟主 [机时尤其重](dispatcher-configuration.md#main-pars-117-15-0006) 要。
 
-Each farm property can contain the following child properties:
+每个农场财产都可以包含以下子财产：
 
 | 属性名称 | 描述 |
 |--- |--- |
-| [/homepage](#specify-a-default-page-iis-only-homepage) | Default homepage (optional)(IIS only) |
-| [/clientheaders](#specifying-the-http-headers-to-pass-through-clientheaders) | The headers from the client HTTP request to pass through. |
-| [/virtualhosts](#identifying-virtual-hosts-virtual-hosts) | The virtual hosts for this farm. |
-| [/会话管理](#enabling-secure-sessions-session-management) | Support for session management and authentication. |
+| [/homepage](#specify-a-default-page-iis-only-homepage) | 默认主页（可选）（仅限IIS） |
+| [/clientheaders](#specifying-the-http-headers-to-pass-through-clientheaders) | 要传递的客户端HTTP请求的标头。 |
+| [/virtualhosts](#identifying-virtual-hosts-virtual-hosts) | 此农场的虚拟主机。 |
+| [/会话管理](#enabling-secure-sessions-session-management) | 支持会话管理和身份验证。 |
 | [/renders](#defining-page-renderers-renders) | 提供呈现页面的服务器（通常为AEM发布实例）。 |
 | [/filter](#configuring-access-to-content-filter) | 定义Dispatcher启用访问的URL。 |
 | [/vanity_urls](#enabling-access-to-vanity-urls-vanity-urls) | 配置对虚URL的访问。 |
@@ -209,18 +209,19 @@ Each farm property can contain the following child properties:
 | [/cache](#configuring-the-dispatcher-cache-cache) | 配置缓存行为。 |
 | [/statistics](#configuring-load-balancing-statistics) | 为负载平衡计算定义统计类别。 |
 | [/stickyConnectionsFor](#identifying-a-sticky-connection-folder-sticky-connections-for) | 包含粘性文档的文件夹。 |
-| [/health_check](#specifying-a-health-check-page) | The URL to use to determine server availability. |
-| [/retryDelay](#specifying-the-page-retry-delay) | The delay before retrying a failed connection. |
-| [/unavailableDestamy](#reflecting-server-unavailability-in-dispatcher-statistics) | Penalties that affect statistics for load-balancing calculations. |
-| [/failover](#using-the-fail-over-mechanism) | Resend requests to different renders when the original request fails. |
+| [/health_check](#specifying-a-health-check-page) | 用于确定服务器可用性的URL。 |
+| [/retryDelay](#specifying-the-page-retry-delay) | 重试失败的连接之前的延迟。 |
+| [/unavailableDestamy](#reflecting-server-unavailability-in-dispatcher-statistics) | 影响负载平衡计算统计的惩罚。 |
+| [/failover](#using-the-fail-over-mechanism) | 当原始请求失败时，向不同渲染重新发送请求。 |
+| [/auth_checker](permissions-cache.md) | 有关权限敏感型缓存，请参阅 [缓存安全内容](permissions-cache.md)。 |
 
-## Specify a Default Page (IIS Only) - /homepage {#specify-a-default-page-iis-only-homepage}
+## 指定默认页面（仅限IIS）- /homepage {#specify-a-default-page-iis-only-homepage}
 
 >[!CAUTION]
 >
 >参 `/homepage`数（仅限IIS）不再有效。 而应使用 [IIS URL重写模块](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module)。
 >
->If you are using Apache, you should use the  module. `mod_rewrite`有关Apache 2.4的信息，请参 `mod_rewrite` 阅Apache网站 [文档](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)。 使用时， `mod_rewrite`建议使用标志** ['passthrough|PT'（传递到下一个处理函数）](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)**，以强制重写引擎将内部结构的字段设置为字段 `uri` 的值 `request_rec``filename` 。
+>如果您使用的是Apache，则应使用该 `mod_rewrite` 模块。 有关Apache 2.4的信息，请参 `mod_rewrite` 阅Apache网站 [文档](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)。 使用时， `mod_rewrite`建议使用标志** ['passthrough|PT'（传递到下一个处理函数）](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)**，以强制重写引擎将内部结构的字段设置为字段 `uri` 的值 `request_rec``filename` 。
 
 <!-- 
 
@@ -545,7 +546,7 @@ Amazon Elastic Load Balancing(ELB)是一项服务，它通过一个可能按相�
 此外，当您遇到动态IP解决问题时，可以使用此属性，如下例所示：
 
 ```xml
-/rend {
+/renders {
   /0001 {
      /hostname "host-name-here"
      /port "4502"
@@ -974,6 +975,7 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 * /headers
 * /mode
 * /gracePeriod
+* /enableTTL
 
 
 缓存部分示例如下所示：
@@ -1505,7 +1507,7 @@ FileETag none
 
 ### 安全 {#secure}
 
-启用粘性连接后，调度程序模块将设置 `renderid` cookie。 此Cookie没有安全标 **志** ，为了增强安全性，应添加安全标志。 可以通过在配置文件的节 `secure` 点中设置属 `/stickyConnections` 性来执行 `dispatcher.any` 此操作。 属性的值（0或1）定义 `renderid` cookie是否附加了 `secure` 属性。 默认值为0，这意味着如果* *传入的请求是安全的，则将添加属性。 如果将该值设置为1，则无论传入的请求是否安全，都将添加安全标志。
+启用粘性连接后，调度程序模块将设置 `renderid` cookie。 此Cookie没有安全标 **志** ，为了增强安全性，应添加安全标志。 可以通过在配置文件的节 `secure` 点中设置属 `/stickyConnections` 性来执行 `dispatcher.any` 此操作。 属性的值（0或1）定义 `renderid` cookie是否附加了 `secure` 属性。 默认值为0，这意味着如果传入的请求是安全 **的** ，将添加属性。 如果将该值设置为1，则无论传入的请求是否安全，都将添加安全标志。
 
 ## 处理渲染连接错误 {#handling-render-connection-errors}
 
@@ -1842,7 +1844,7 @@ curl -v -H "X-Dispatcher-Info: true" https://localhost/content/we-retail/us/en.h
 * **不可缓存：包含查询字符串的请求**\
    请求包含查询字符串。 调度程序假定输出取决于给定的查询字符串，因此不进行缓存。
 * **不可缓存：会话管理器未验证**\
-   农场的缓存由会话管理器（配置包含节点）管 `sessionmanagement` 理，并且请求不包含相应的身份验证信息。
+   农场的缓存由会话管理器（配置包含节点）管 `sessionmanagement` 理，而请求不包含相应的身份验证信息。
 * **不可缓存：请求包含授权**\
    不允许群缓存输出( `allowAuthorized 0`)，并且请求包含身份验证信息。
 * **不可缓存：target是目录**\
