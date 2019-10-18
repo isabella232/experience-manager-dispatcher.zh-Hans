@@ -9,7 +9,7 @@ content-type: 参考文件
 products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 translation-type: tm+mt
-source-git-commit: f239338c2af0cfb1af2054367be3ae3d384f4059
+source-git-commit: 328bc82673783b4a2df2d68481fa7eec88b74b01
 
 ---
 
@@ -139,7 +139,7 @@ Adobe强烈建议使用最新版AEM Dispatcher来使用最新功能、最新错�
 
 ### Apache 2.4 {#apache}
 
-| 平台 | 架构 | OpenSSL | 下载 |
+| 平台 | 架构 | OpenSSL支持 | 下载 |
 |---|---|---|---|
 | Linux | i686（32位） | 无 | [dispatcher-apache2.4-linux-i686-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-4.3.3.tar.gz) |
 | Linux | i686（32位） | 1.0 | [dispatcher-apache2.4-linux-i686-ssl1.0-4.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.0-4.3.3.tar.gz) |
@@ -151,7 +151,7 @@ Adobe强烈建议使用最新版AEM Dispatcher来使用最新功能、最新错�
 
 ### IIS {#iis}
 
-| 平台 | 架构 | OpenSSL | 下载 |
+| 平台 | 架构 | OpenSSL支持 | 下载 |
 |---|---|---|---|
 | Windows | x86（32位） | 无 | [dispatcher-iis-windows-x86-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.3.zip) |
 | Windows | x86（32位） | 1.0 | [dispatcher-iis-windows-x86-ssl1.0-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.0-4.3.3.zip) |
