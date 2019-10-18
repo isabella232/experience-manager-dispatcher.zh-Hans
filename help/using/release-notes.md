@@ -1,29 +1,29 @@
 ---
-title: AEM Dispatcher发行说明
-seo-title: AEM Dispatcher发行说明
+title: AEM Dispatcher 发行说明
+seo-title: AEM Dispatcher 发行说明
 description: Adobe Experience Manager Dispatcher的发行说明
 seo-description: Adobe Experience Manager Dispatcher的发行说明
 uuid: ae3ccf62-0514-4c03-a3b9-7179a482cbd
 topic-tags: 发行说明
-content-type: 引用
+content-type: 参考文件
 products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 translation-type: tm+mt
-source-git-commit: 2d72839d459973cba40f6a938ee157198c7cf50a
+source-git-commit: cc838c5df8c0b65c86f21f45f1ca73cf14c0d545
 
 ---
 
 
-# AEM Dispatcher发行说明{#aem-dispatcher-release-notes}
+# AEM Dispatcher 发行说明{#aem-dispatcher-release-notes}
 
 ## 发行信息 {#release-information}
 
 |  |  |
 |--- |--- |
 | 产品 | Adobe Experience Manager(AEM)Dispatcher |
-| 版本 | 4.3.2 |
+| 版本 | 4.3.3 |
 | 类型 | 次要版本 |
-| 日期 | 2019年1月31日 |
+| 日期 | 2019年10月18日 |
 | 下载URL | <ul><li>[Apache 2.4](release-notes.md#apache)</li><li>[Microsoft Internet Information Services(IIS)](release-notes.md#iis)</li></ul> |
 | 兼容性 | AEM 6.1或更高版本 |
 
@@ -38,6 +38,30 @@ Adobe强烈建议使用最新版AEM Dispatcher来使用最新功能、最新错�
 有关详细说明，请参 [阅安装Dispatcher](dispatcher-install.md)。
 
 ## 发布历史 {#release-history}
+
+### 版本4.3.3（2019年10月18日） {#october}
+
+**错误修复**:
+
+* DISP-739 - LogLevel dispatcher: **级别** 不起作用
+* DISP-749 - Alpine linux调度程序因跟踪日志级别而崩溃
+
+**改进**:
+
+* DISP-813 - Dispatcher中的openssl 1.1.x支持
+* DISP-814 —— 缓存刷新期间出现Apache 40x错误
+* DISP-818 - mod_expires为不可访问的内容添加Cache-Control头
+* DISP-821 —— 不要在套接字中存储日志上下文
+* DISP-822 —— 调度程序应使用ppoll而不是pselect
+* DISP-824 —— 安全DispatcherUseForwardedHost
+* DISP-825 —— 当磁盘上没有更多空间时记录特殊消息
+* DISP-826 —— 支持使用查询字符串重取URI
+
+**新增功能**:
+
+* DISP-703 —— 特定于农场的缓存命中率
+* DISP-827 —— 用于测试的本地服务器
+* DISP-828 —— 为调度程序创建测试文档程序映像
 
 ### 版本4.3.2（2019年1月31日） {#jan}
 
@@ -107,7 +131,7 @@ Adobe强烈建议使用最新版AEM Dispatcher来使用最新功能、最新错�
 
 * DISP-652 - Dispatcher提供错误的日期标题
 
-## 实用资源 {#helpful-resources}
+## 有用资源 {#helpful-resources}
 
 * [AEM Dispatcher概述](dispatcher.md)
 
@@ -115,31 +139,23 @@ Adobe强烈建议使用最新版AEM Dispatcher来使用最新功能、最新错�
 
 ### Apache 2.4 {#apache}
 
-| 平台 | 架构 | SSL支持 | 下载 |
+| 平台 | 架构 | OpenSSL支持 | 下载 |
 |---|---|---|---|
-| AIX | PowerPC（32位） | 否 | [dispatcher-apache2.4.aix-powerpc-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-aix-powerpc-4.3.2.tar.gz) |
-| AIX | PowerPC（32位） | 是 | [dispatcher-apache2.4.aix-powerpc-ssl-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-aix-powerpc-ssl-4.3.2.tar.gz) |
-| AIX | PowerPC（64位） | 否 | [dispatcher-apache2.4-aix-powerpc64-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-aix-powerpc64-4.3.2.tar.gz) |
-| AIX | PowerPC（64位） | 是 | [dispatcher-apache2.4-aix-powerpc64-ssl-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-aix-powerpc64-ssl-4.3.2.tar.gz) |
-| Linux | i686（32位） | 否 | [dispatcher-apache2.4-linux-i686-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-4.3.2.tar.gz) |
-| Linux | i686（32位） | 是 | [dispatcher-apache2.4-linux-i686-ssl-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl-4.3.2.tar.gz) |
-| Linux | x86_64（64位） | 否 | [dispatcher-apache2.4-linux-x86_64-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.2.tar.gz) |
-| Linux | x86_64（64位） | 是 | [dispatcher-apache2.4-linux-x86_64-ssl-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl-4.3.2.tar.gz) |
-| macOS | x86_64（64位） | 否 | [dispatcher-apache2.4-darwin-x86_64-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.2.tar.gz) |
-| Solaris | AMD（32位） | 否 | [dispatcher-apache2.4-solaris-i386-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-solaris-i386-4.3.2.tar.gz) |
-| Solaris | AMD（32位） | 是 | [dispatcher-apache2.4-solaris-i386-ssl-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-solaris-i386-ssl-4.3.2.tar.gz) |
-| Solaris | AMD（64位） | 否 | [dispatcher-apache2.4-solaris-amd64-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-solaris-amd64-4.3.2.tar.gz) |
-| Solaris | AMD（64位） | 是 | [dispatcher-apache2.4-solaris-amd64-ssl-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-solaris-amd64-ssl-4.3.2.tar.gz) |
-| Solaris | SPARC（32位） | 否 | [dispatcher-apache2.4-solaris-sparc-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-solaris-sparc-4.3.2.tar.gz) |
-| Solaris | SPARC（32位） | 是 | [dispatcher-apache2.4-solaris-sparc-ssl-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-solaris-sparc-ssl-4.3.2.tar.gz) |
-| Solaris | SPARC（64位） | 否 | [dispatcher-apache2.4.solaris-sparcv9-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-solaris-sparcv9-4.3.2.tar.gz) |
-| Solaris | SPARC（64位） | 是 | [dispatcher-apache2.4.solaris-sparcv9-ssl-4.3.2.tar.gz](http://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-solaris-sparcv9-ssl-4.3.2.tar.gz) |
+| Linux | i686（32位） | 无 | [dispatcher-apache2.4-linux-i686-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-4.3.3.tar.gz) |
+| Linux | i686（32位） | 1.0 | [dispatcher-apache2.4-linux-i686-ssl1.0-4.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.0-4.3.3.tar.gz) |
+| Linux | i686（32位） | 1.1 | [dispatcher-apache2.4-linux-i686-ssl1.1-4.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.1-4.3.3.tar.gz) |
+| Linux | x86_64（64位） | 无 | [dispatcher-apache2.4-linux-x86_64-4.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.3.tar.gz) |
+| Linux | x86_64（64位） | 1.0 | [dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.3.tar.gz) |
+| Linux | x86_64（64位） | 1.1 | [dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.3.tar.gz) |
+| macOS | x86_64（64位） | 无 | [dispatcher-apache2.4-darwin-x86_64-4.3.3.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.3.tar.gz) |
 
 ### IIS {#iis}
 
-| 平台 | 架构 | SSL支持 | 下载 |
+| 平台 | 架构 | OpenSSL支持 | 下载 |
 |---|---|---|---|
-| Windows | x86（32位） | 否 | [dispatcher-iis-windows-x86-4.3.2.zip](http://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.2.zip) |
-| Windows | x86（32位） | 是 | [dispatcher-iis-windows-x86-ssl-4.3.2.zip](http://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl-4.3.2.zip) |
-| Windows | x64（64位） | 否 | [dispatcher-iis-windows-x64-4.3.2.zip](http://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.2.zip) |
-| Windows | x64（64位） | 是 | [dispatcher-iis-windows-x64-ssl-4.3.2.zip](http://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl-4.3.2.zip) |
+| Windows | x86（32位） | 无 | [dispatcher-iis-windows-x86-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.3.zip) |
+| Windows | x86（32位） | 1.0 | [dispatcher-iis-windows-x86-ssl1.0-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.0-4.3.3.zip) |
+| Windows | x86（32位） | 1.1 | [dispatcher-iis-windows-x86-ssl1.1-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.1-4.3.3.zip) |
+| Windows | x64（64位） | 无 | [dispatcher-iis-windows-x64-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.3.zip) |
+| Windows | x64（64位） | 1.0 | [dispatcher-iis-windows-x64-ssl1.0-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.0-4.3.3.zip) |
+| Windows | x64（64位） | 1.1 | [dispatcher-iis-windows-x64-ssl1.1-4.3.3.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.1-4.3.3.zip) |
