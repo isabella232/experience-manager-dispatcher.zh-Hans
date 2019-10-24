@@ -1,21 +1,21 @@
 ---
-title: 安装Dispatcher
+title: 安装 Dispatcher
 seo-title: 安装AEM Dispatcher
 description: 了解如何在Microsoft Internet Information Server、Apache Web server和Sun Java Web Server-iPlanet上安装Dispatcher模块。
 seo-description: 了解如何在Microsoft Internet Information Server、Apache Web server和Sun Java Web Server-iPlanet上安装AEM Dispatcher模块。
 uuid: 2384b907-1042-4707-b02f-fba2125618cf
 contentOwner: 用户
 converted: 'true'
-topic-tags: 调度程序
-content-type: 引用
+topic-tags: dispatcher
+content-type: 参考文件
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 translation-type: tm+mt
-source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
+source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 ---
 
 
-# 安装Dispatcher {#installing-dispatcher}
+# 安装 Dispatcher {#installing-dispatcher}
 
 <!-- 
 
@@ -27,7 +27,7 @@ Comment Type: draft
 
 >[!NOTE]
 >
->调度程序版本独立于AEM。 如果您遵循了指向Dispatcher文档的链接（该链接嵌入在AEM先前版本的文档中），则您可能已被重定向到此页。
+>各个 Dispatcher 版本与 AEM 相互独立。如果单击以前版本 AEM 文档中嵌入的 Dispatcher 文档链接，可能会重定向到此页面。
 
 使用“ [Dispatcher发行说明](release-notes.md) ”页可获取操作系统和Web服务器的最新Dispatcher安装文件。 调度程序发行号与Adobe Experience manager发行号无关，与Adobe Experience Manager 6.x、5.x和Adobe CQ 5.x发行版兼容。
 
@@ -250,7 +250,7 @@ replaceauthorization=0
    `IIS AppPool\DefaultAppPool`
 
 1. 单击“检查名称”按钮。 当Windows解析用户帐户时，单击“确定”。
-1. 在调度程序文件夹的“权限”对话框中，选择刚添加的帐户，为该帐户启用除“完全控制”外的所有权限**，然后单击“确定”。 单击确定以关闭文件夹属性对话框。
+1. 在调度程序文件夹的“权限”对话框中，选择刚添加的帐户，为该帐户启用除“完全控制”之外的所 **有权限，然后单击** “确定”。 单击确定以关闭文件夹属性对话框。
 1. 使用文本编辑器打开文 `disp_iis.ini` 件。
 1. 添加一行与以下示例类似的文本以配置日志文件的位置，然后保存文件：
 
@@ -624,7 +624,7 @@ keepalivetimeout="60"
 |--- |--- |
 | config | 配置文件的位置和名称 `dispatcher.any.` |
 | 日志文件 | 日志文件的位置和名称。 |
-| loglevel | 将消息写入日志文件时的日志级别：<br/>**0** 错误 <br/>**1** 警告 <br/>**2** Infos <br/>**3** Debugs <br/>**Note:** 建议在安装和测试过程中将日志级别设置为3，在生产环境中运行时将日志级别设置为0。 |
+| loglevel | <br/> 将消息写入日志文件时的日志级别：0 ****&#x200B;错误1<br/> 警告2 ****<br/> Info ****<br/> Debug Note(调 ****<br/>****&#x200B;试注：建议在安装和测试过程中将日志级别设置为3，在生产环境中运行时将日志级别设置为0。 |
 | keepalitimeout | 指定保持活动超时（以秒为单位）。 从Dispatcher版本4.2.0开始，默认保持有效值为60。 值0将禁用保持活动。 |
 
 根据您的要求，您可以将Dispatcher定义为对象的服务。 要为整个网站配置Dispatcher，请修改默认对象：
