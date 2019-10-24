@@ -4,14 +4,14 @@ seo-title: AEM Dispatcher的主要问题
 description: AEM Dispatcher的主要问题
 seo-description: Adobe AEM Dispatcher的主要问题
 translation-type: tm+mt
-source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
+source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 ---
 
 
 # AEM Dispatcher常见问题解答
 
-![配置Dispatcher](assets/CQDispatcher_workflow_v2.png)
+![配置 Dispatcher](assets/CQDispatcher_workflow_v2.png)
 
 ## 简介
 
@@ -23,17 +23,17 @@ Dispatcher是Adobe Experience manager的缓存和／或负载平衡工具，可�
 
 ### 调度程序如何执行缓存？
 
-Dispatcher使用Web服务器提供静态内容的能力。 Dispatcher将缓存的文档存储在Web服务器的文档根目录中。 调度程序有两种主要方法，用于在对网站进行更改时更新缓存内容。
+Dispatcher使用Web服务器提供静态内容的能力。 Dispatcher将缓存的文档存储在Web服务器的文档根目录中。 Dispatcher 有两种主要方法可用于在对网站进行更改后更新缓存内容。
 
-* **内容更新** ，删除已更改的页面以及与其直接关联的文件。
-* **自动失效** (Auto-Invalidation)会自动使更新后可能过期的缓存部分失效。 例如，它会将相关页面有效地标记为“过时”，而不会删除任何内容。
+* **内容更新**&#x200B;可删除已更改的页面以及与其直接关联的文件。
+* **自动失效**&#x200B;可在更新后自动使可能已过期的这部分缓存失效。例如，它会将相关页面有效地标记为“过时”，而不会删除任何内容。
 
 ### 负载平衡有哪些优点？
 
 Load Balancing在多个AEM实例中分发用户请求（负载）。以下列表描述了负载平衡的优点：
 
-* **增强的处理能力**:实际上，这意味着Dispatcher在AEM的多个实例之间共享文档请求。 由于每个实例处理的文档更少，因此您的响应时间更短。 调度程序保留每个文档类别的内部统计信息，以便能够估计负载并高效地分发查询。
-* **增加了故障保护范围**:如果调度程序未收到来自某个实例的响应，它将自动将请求中继到另一个实例中的一个。 因此，如果一个实例变得不可用，则唯一的效果是网站的减速，与计算能力损失成正比。
+* **增强的处理能力**:实际上，这意味着Dispatcher在AEM的多个实例之间共享文档请求。 由于每个实例处理的文档更少，因此您的响应时间更短。 Dispatcher 保留每个文档类别的内部统计信息，以便能够估计负载并高效分发查询。
+* **增加了故障保护范围**:如果调度程序未收到来自某个实例的响应，它将自动将请求中继到另一个实例中的一个。 因此，如果一个实例变得不可用，唯一的结果就是站点速度减慢，这与计算能力损失成正比。
 
 >[!NOTE]
 >
@@ -82,7 +82,7 @@ Load Balancing在多个AEM实例中分发用户请求（负载）。以下列表
 
 是的，如果机器足够强大。 但是，建议您在不同的计算机上设置调度程序和AEM发布实例。
 
-通常，Publish实例位于防火墙内，调度程序位于DMZ中。 如果您决定将Publish实例和Dispatcher放在同一台物理计算机上，请确保防火墙设置禁止从外部网络直接访问Publish实例。
+通常，Publish实例位于防火墙内，而Dispatcher位于DMZ中。 如果您决定将Publish实例和Dispatcher放在同一台物理计算机上，请确保防火墙设置禁止从外部网络直接访问Publish实例。
 
 ### 我是否只能缓存具有特定扩展名的文件？
 
@@ -117,7 +117,7 @@ Content-Length: 0
 
 ### 调度程序 `jcr:content` 问题更改为 `jcr%3acontent`
 
-**问题**:我们最近在调度程序级别遇到了一个问题，其中一个ajax调用从CQ存储库中获取某些数据，并且该调用被编码以导致 `jcr:content``jcr%3acontent` 错误的结果集。
+**问题**:我们最近在调度程序级别遇到了一个问题，其中一个ajax调用从CQ存储库中获取某个数据，并且该调用经过编码，导致 `jcr:content``jcr%3acontent` 错误的结果集。
 
 **答案**:请使 `ResourceResolver.map()` 用方法获取“友好”URL，以便使用／发出获取请求，并解决Dispatcher的缓存问题。 map()方法将冒号编码为下划线， `:` resolve()方法将其解码回SLING JCR可读格式。您需要使用map()方法生成Ajax调用中使用的URL。
 
@@ -153,20 +153,19 @@ Content-Length: 0
 调度程序如何确定文档是否为最新？
 要确定文档是否为最新，调度程序将执行以下操作：
 
-它检查文档是否会自动失效。 否则，文档将被视为最新文档。
-如果文档已配置为自动失效，调度程序将检查文档是否比上次可用更改旧或更新。 如果版本较旧，则调度程序从AEM实例请求当前版本，并替换缓存中的版本。
+它检查文档是否遵循自动失效机制。如果不遵循，则该文档是最新状态。如果该文档配置为自动失效，则 Dispatcher 检查它比最后一次可用更改旧还是新。如果较旧，则 Dispatcher 从 AEM 实例请求当前版本，并替换缓存中的版本。
 
 ### 调度程序如何返回文档？
 
-您可以使用 [Dispatcher配置文件定义Dispatcher是否缓存文](dispatcher-configuration.md) 档 `dispatcher.any`,。 调度程序根据可缓存文档列表检查请求。 如果文档不在此列表中，则调度程序将从AEM实例请求该文档。
+您可以使用 [Dispatcher配置文件定义Dispatcher是否缓存文](dispatcher-configuration.md) 档 `dispatcher.any`,。 Dispatcher 根据可缓存文档列表检查请求。如果文档不在此列表中，则 Dispatcher 从 AEM 实例中请求该文档。
 
 属性 `/rules` 控制根据文档路径缓存哪些文档。 无论属性如 `/rules` 何，在以下情况下，Dispatcher都不会缓存文档：
 
-* 如果请求URI包含问号 `(?)`。
+* If the request URI contains a question mark `(?)`.
 * 这通常指示动态页面，如无需缓存的搜索结果。
-* 缺少文件扩展名。
-* Web服务器需要扩展来确定文档类型（MIME类型）。
-* 身份验证头已设置（可以配置）
+* 缺失文件扩展名。
+* Web 服务器需要扩展名来确定文档类型（比如 MIME 类型）。
+* 设置了身份验证标头（此项可进行配置）
 * 如果AEM实例使用以下标题做出响应：
    * 无缓存
    * 无商店
@@ -176,7 +175,7 @@ Content-Length: 0
 
 >[!NOTE]
 >
->GET或HEAD（对于HTTP头）方法可由调度程序缓存。 有关响应头缓存的其他信息，请参阅 [缓存HTTP响应头部分](dispatcher-configuration.md#caching-http-response-headers) 。
+>GET 或 HEAD（针对 HTTP 标头）方法可由 Dispatcher 缓存。有关响应头缓存的其他信息，请参阅 [缓存HTTP响应头部分](dispatcher-configuration.md#caching-http-response-headers) 。
 
 ### 我是否可以在设置中实施多个调度程序？
 
