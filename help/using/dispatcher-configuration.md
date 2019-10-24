@@ -1,25 +1,25 @@
 ---
-title: 配置Dispatcher
-seo-title: 配置Dispatcher
+title: 配置 Dispatcher
+seo-title: 配置 Dispatcher
 description: 了解如何配置Dispatcher。
 seo-description: 了解如何配置Dispatcher。
 uuid: 253ef0f7-2491-4cec-ab22-97439df29fd6
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: '1193211344162'
-topic-tags: 调度程序
-content-type: 引用
+topic-tags: dispatcher
+content-type: 参考文件
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: 119f952439a59e51f769f285c79543aec8fdda37
+source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
 
 ---
 
 
-# 配置Dispatcher{#configuring-dispatcher}
+# 配置 Dispatcher{#configuring-dispatcher}
 
 >[!NOTE]
 >
->调度程序版本独立于AEM。 如果您遵循了指向Dispatcher文档的链接（该链接嵌入在AEM先前版本的文档中），则您可能已被重定向到此页。
+>各个 Dispatcher 版本与 AEM 相互独立。如果单击以前版本 AEM 文档中嵌入的 Dispatcher 文档链接，可能会重定向到此页面。
 
 以下各节介绍了如何配置Dispatcher的各个方面。
 
@@ -221,7 +221,7 @@ AEM和Dispatcher的所有元素都可以安装在IPv4和IPv6网络中。 请参 
 >
 >参 `/homepage`数（仅限IIS）不再有效。 而应使用 [IIS URL重写模块](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module)。
 >
->如果您使用的是Apache，则应使用该 `mod_rewrite` 模块。 有关Apache 2.4的信息，请参 `mod_rewrite` 阅Apache网站 [文档](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)。 使用时， `mod_rewrite`建议使用标志** ['passthrough|PT'（传递到下一个处理函数）](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)**，以强制重写引擎将内部结构的字段设置为字段 `uri` 的值 `request_rec``filename` 。
+>如果您使用的是Apache，则应使用该 `mod_rewrite` 模块。 有关Apache 2.4的信息，请参 `mod_rewrite` 阅Apache网站 [文档](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)。 使用时， `mod_rewrite`建议使用标志 **['passthrough|PT'（传递到下一个处理函数）](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)** ，以强制重写引擎将内部结构的字段设置为 `uri` 字段的值 `request_rec``filename` 。
 
 <!-- 
 
@@ -847,7 +847,7 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 请注意，您应该看到/content/add_valid_page.html?debug=layout的普通页面呈现。
 
 
-* /admin
+* /管理员
 * /system/console
 * /dav/crx.default
 * /crx
@@ -1055,9 +1055,9 @@ statfile没有内容。 更新内容时，Dispatcher会更新时间戳。 默认
 
 * 如果请求URI包含问号("?")。\
    这通常指示动态页面，如无需缓存的搜索结果。
-* 缺少文件扩展名。\
-   Web服务器需要扩展来确定文档类型（MIME类型）。
-* 身份验证头已设置（可以配置）
+* 缺失文件扩展名。\
+   Web 服务器需要扩展名来确定文档类型（比如 MIME 类型）。
+* 设置了身份验证标头（此项可进行配置）
 * 如果AEM实例使用以下标题做出响应：
 
    * `no-cache`
@@ -1066,7 +1066,7 @@ statfile没有内容。 更新内容时，Dispatcher会更新时间戳。 默认
 
 >[!NOTE]
 >
->GET或HEAD（对于HTTP头）方法可由调度程序缓存。 有关响应头缓存的其他信息，请参阅 [缓存HTTP响应头部分](dispatcher-configuration.md#caching-http-response-headers) 。
+>GET 或 HEAD（针对 HTTP 标头）方法可由 Dispatcher 缓存。有关响应头缓存的其他信息，请参阅 [缓存HTTP响应头部分](dispatcher-configuration.md#caching-http-response-headers) 。
 
 /rules属性中的每个项目都包括 [全局](#designing-patterns-for-glob-properties) 模式和类型：
 
@@ -1163,7 +1163,7 @@ Last Modified Date: 2017-11-13T09:23:24.326-0500
 
    * 例如：如果将属性设 `statfileslevel` 置为6，并且某个文件在级别5处无效，则将触及从 `.stat` docroot到5的每个文件。 继续此示例，如果文件在级别7时失效，则每次失效。 `stat` 文件（从docroot到6）将被触碰(自 `/statfileslevel = "6"`此)。
 
-仅无效文件路径**的资源**受到影响。 请考虑以下示例：网站使用结构如果 `/content/myWebsite/xx/.` 您将其设置为 `statfileslevel` 3，则会创 `.stat`建如下文件：
+仅无效文 **件路径中的资源** ，才会受到影响。 请考虑以下示例：网站使用结构如果 `/content/myWebsite/xx/.` 您将其设置为 `statfileslevel` 3，则会创 `.stat`建如下文件：
 
 * `docroot`
 * `/content`
@@ -1788,14 +1788,14 @@ https://localhost:80/libs/wcm/core/content/siteadmin.html
 1. 激活页面以检查缓存是否正在正确刷新。
 1. 如果一切正常，您可以将“”减 `loglevel` 少到 `0`。
 
-## 使用多个调度程序 {#using-multiple-dispatchers}
+## 使用多个 Dispatcher {#using-multiple-dispatchers}
 
-在复杂的设置中，您可以使用多个调度程序。 例如，您可以使用：
+在复杂设置中，您可以使用多个 Dispatcher。例如，您可以使用：
 
-* 一个调度程序，用于在Intranet上发布网站
-* 另一个调度程序位于不同的地址下，并具有不同的安全设置，用于在Internet上发布相同的内容。
+* 一个 Dispatcher 用于在内联网上发布网站
+* 第二个 Dispatcher，通过不同的地址和不同的安全设置，在内联网上发布相同的内容。
 
-在这种情况下，请确保每个请求只通过一个调度程序。 调度程序不处理来自其他调度程序的请求。 因此，请确保两个Dispatcher都直接访问AEM网站。
+在这种情况下，请确保每个请求只通过一个 Dispatcher。一个 Dispatcher 不能处理来自另一个 Dispatcher 的请求。因此，请确保两个 Dispatcher 都能直接访问 AEM 网站。
 
 ## 调试 {#debugging}
 
