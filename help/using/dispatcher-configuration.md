@@ -5,12 +5,12 @@ description: 了解如何配置Dispatcher。
 seo-description: 了解如何配置Dispatcher。
 uuid: 253ef0f7-2491-4cec-ab22-97439df29fd6
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
-pageversionid: '1193211344162'
+pageversionid: 1193211344162
 topic-tags: dispatcher
-content-type: 参考文件
+content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
+source-git-commit: 71bca4bea15ca8fa89888e10770743422c56b827
 
 ---
 
@@ -1383,19 +1383,13 @@ FileETag none
 
 有关其他详细信息，请阅读上 `/invalidate` 述和 `/statfileslevel`部分。
 
-## 配置基于时间的缓存失效- /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
+### 配置基于时间的缓存失效- /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
-如果设置， `enableTTL` 该属性将评估来自后端的响应标头，并且如果它们包含 `Cache-Control``Expires` max-age或date，则会在缓存文件旁边创建一个辅助的空文件，修改时间等于到期日期。 当在修改时间之后请求缓存的文件时，会从后端自动重新请求该文件。
-
-可通过向文件添加以下代码行来启用该 `dispatcher.any` 功能：
-
-```xml
-/enableTTL "1"
-```
+如果设置， `/enableTTL` 该属性将评估来自后端的响应标头，并且如果它们包含 `Cache-Control``Expires` max-age或date，则会在缓存文件旁边创建一个辅助的空文件，修改时间等于到期日期。 当在修改时间之后请求缓存的文件时，会从后端自动重新请求该文件。
 
 >[!NOTE]
 >
->此功能适用于 **Dispatcher版本4.1.11** 。
+>此功能在Dispatcher的 **4.1.11或更高版本中** 可用。
 
 ## 配置负载平衡- /statistics {#configuring-load-balancing-statistics}
 
@@ -1606,7 +1600,7 @@ read more data
 | `*` | 匹配字符串中任意字符的零个或多个连续实例。 匹配的最终字符由以下任一情况确定：字 <br/>符串中的字符与模式中的下一个字符匹配，并且模式字符具有以下特征：<br/><ul><li>不是*</li><li>不是？</li><li>文本字符（包括空格）或字符类。</li><li>到达图案的末尾。</li></ul>在字符类中，字符将按字面方式解释。 | `*/geo*` 匹配节点和节 `/content/geometrixx` 点下的任何 `/content/geometrixx-outdoors` 页面。 以下HTTP请求与全局模式匹配： <br/><ul><li>`"GET /content/geometrixx/en.html"`</li><li>`"GET /content/geometrixx-outdoors/en.html"` </li></ul><br/> `*outdoors/*` 匹 <br/>配节点下的任何 `/content/geometrixx-outdoors` 页面。 例如，以下HTTP请求与glob模式匹配： <br/><ul><li>`"GET /content/geometrixx-outdoors/en.html"`</li></ul> |
 | `?` | 匹配任何单个字符。 使用外部字符类。 在字符类中，将字面解释此字符。 | `*outdoors/??/*`<br/> 匹配geometrixx-outdoors站点中任何语言的页面。 例如，以下HTTP请求与glob模式匹配： <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>以下请求与全局模式不匹配： <br/><ul><li>“获取/content/geometrixx-outdoors/en.html”</li></ul> |
 | `[ and ]` | 取消标记字符类的开始和结尾。 字符类可以包括一个或多个字符范围和单个字符。<br/>如果目标字符与字符类中的任意字符或在定义的范围内匹配，则会发生匹配。<br/>如果不包括右括号，则图案不产生匹配项。 | `*[o]men.html*`<br/> 匹配以下HTTP请求：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>与以下HTTP请求不匹配：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*` 匹 <br/>配以下HTTP请求： <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
-| `-` | 表示字符范围。 用于字符类。  在字符类之外，将字面解释此字符。 | `*[m-p]men.html*` 匹配以下HTTP请求： <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul>与以下HTTP请求不匹配：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
+| `-` | 表示字符范围。 用于字符类。  在字符类之外，将字面解释此字符。 | `*[m-p]men.html*` 匹配以下HTTP请求： <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul> 与以下HTTP请求不匹配：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
 | `!` | 否定后面的字符或字符类。 仅用于否定字符类中的字符和字符范围。 等效于 `^ wildcard`。 <br/>在字符类之外，将字面解释此字符。 | `*[!o]men.html*`<br/> 匹配以下HTTP请求： <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>与以下HTTP请求不匹配： <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[!o!/]men.html*`<br/> 与以下HTTP请求不匹配：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` 或 `"GET /content/geometrixx-outdoors/en/men. html"`</li></ul> |
 | `^` | 否定后面的字符或字符范围。 仅用于否定字符类中的字符和字符范围。 等效于通配 `!` 符。 <br/>在字符类之外，将字面解释此字符。 | 通配符的示例 `!` 适用，用字符替 `!` 代示例模式中的字符 `^` 。 |
 
