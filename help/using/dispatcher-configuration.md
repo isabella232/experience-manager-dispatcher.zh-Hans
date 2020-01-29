@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: 71bca4bea15ca8fa89888e10770743422c56b827
+source-git-commit: fb7891406af215c59e9768b699a5d191ba4b1eb2
 
 ---
 
@@ -118,7 +118,7 @@ AEM和Dispatcher的所有元素都可以安装在IPv4和IPv6网络中。 请参 
   }
 ```
 
-使用星号("*")作为通配符，指定要包含的文件范围。
+使用星号(&quot;*&quot;)作为通配符，指定要包含的文件范围。
 
 例如，如果文件包含 `farm_1.any` 一到五 `farm_5.any` 个农场的配置，则可以按如下方式包括这些文件：
 
@@ -221,7 +221,7 @@ AEM和Dispatcher的所有元素都可以安装在IPv4和IPv6网络中。 请参 
 >
 >参 `/homepage`数（仅限IIS）不再有效。 而应使用 [IIS URL重写模块](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module)。
 >
->如果您使用的是Apache，则应使用该 `mod_rewrite` 模块。 有关Apache 2.4的信息，请参 `mod_rewrite` 阅Apache网站 [文档](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)。 使用时， `mod_rewrite`建议使用标志 **['passthrough|PT'（传递到下一个处理函数）](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)** ，以强制重写引擎将内部结构的字段设置为 `uri` 字段的值 `request_rec``filename` 。
+>如果您使用的是Apache，则应使用该 `mod_rewrite` 模块。 有关Apache 2.4的信息，请参 `mod_rewrite` 阅Apache网站 [文档](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)。 使用时， `mod_rewrite`建议使用标志 **[&#39;passthrough|PT&#39;（传递到下一个处理函数）](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)**，以强制重写引擎将内部结构的字段设置为`uri`字段的值`request_rec``filename`。
 
 <!-- 
 
@@ -322,7 +322,7 @@ Comment Type: draft
 
 ## 识别虚拟主机 {#identifying-virtual-hosts-virtualhosts}
 
-该属 `/virtualhosts` 性定义Dispatcher接受的此农场的所有主机名/URI组合的列表。 可以使用星号("*")作为通配符。 /属性的值 `virtualhosts` 使用以下格式：
+该属 `/virtualhosts` 性定义Dispatcher接受的此农场的所有主机名/URI组合的列表。 可以使用星号(&quot;*&quot;)作为通配符。 /属性的值 `virtualhosts` 使用以下格式：
 
 ```xml
 [scheme]host[uri][*]
@@ -405,7 +405,7 @@ Comment Type: draft
 
 | 请求URL | 已解析的虚拟主机 |
 |---|---|
-| `https://www.mycompany.com/products/gloves.html` | `www.mycompany.com/products/*;` |
+| `https://www.mycompany.com/products/gloves.html` | `www.mycompany.com/products/*` |
 | `https://www.mycompany.com/about.html` | `www.mycompany.com` |
 
 ## 启用安全会话- /sessionmanagement {#enabling-secure-sessions-sessionmanagement}
@@ -482,7 +482,7 @@ Comment Type: draft
   }
 ```
 
-以下示例/renders部分标识与Dispatcher在同一台计算机上运行的AEM实例：
+以下示例/renders部分标识与调度程序在同一台计算机上运行的AEM实例：
 
 ```xml
 /renders
@@ -601,13 +601,13 @@ Amazon Elastic Load Balancing(ELB)是一项服务，它通过一个可能按相�
 
 HTTP/1.1定义请 [求行](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html) ，如下所示：
 
-*方法Request-URI HTTP-Version*&lt;CRLF&gt;
+*方法Request-URI HTTP-Version*&lt;CRLF>
 
-&lt;CRLF&gt;字符表示回车符，后跟换行符。 以下示例是当客户端请求Geometrixx-Outoors站点的完整页面时收到的请求行：
+&lt;CRLF>字符表示回车符，后跟换行符。 以下示例是当客户端请求Geometrixx-Outoors站点的完整页面时收到的请求行：
 
-获取/content/geometrixx-outdoors/en.html HTTP.1.1&lt;CRLF&gt;
+获取/content/geometrixx-outdoors/en.html HTTP.1.1&lt;CRLF>
 
-您的模式必须考虑请求行中的空格字符和&lt;CRLF&gt;字符。
+您的模式必须考虑请求行中的空格字符和&lt;CRLF>字符。
 
 #### 双引号与单引号 {#double-quotes-vs-single-quotes}
 
@@ -1053,7 +1053,7 @@ statfile没有内容。 更新内容时，Dispatcher会更新时间戳。 默认
 
 属性 `/rules` 控制根据文档路径缓存哪些文档。 无论/rules属性如何，在以下情况下，Dispatcher都不会缓存文档：
 
-* 如果请求URI包含问号("?")。\
+* 如果请求URI包含问号(&quot;?&quot;)。\
    这通常指示动态页面，如无需缓存的搜索结果。
 * 缺失文件扩展名。\
    Web 服务器需要扩展名来确定文档类型（比如 MIME 类型）。
@@ -1600,7 +1600,7 @@ read more data
 | `*` | 匹配字符串中任意字符的零个或多个连续实例。 匹配的最终字符由以下任一情况确定：字 <br/>符串中的字符与模式中的下一个字符匹配，并且模式字符具有以下特征：<br/><ul><li>不是*</li><li>不是？</li><li>文本字符（包括空格）或字符类。</li><li>到达图案的末尾。</li></ul>在字符类中，字符将按字面方式解释。 | `*/geo*` 匹配节点和节 `/content/geometrixx` 点下的任何 `/content/geometrixx-outdoors` 页面。 以下HTTP请求与全局模式匹配： <br/><ul><li>`"GET /content/geometrixx/en.html"`</li><li>`"GET /content/geometrixx-outdoors/en.html"` </li></ul><br/> `*outdoors/*` 匹 <br/>配节点下的任何 `/content/geometrixx-outdoors` 页面。 例如，以下HTTP请求与glob模式匹配： <br/><ul><li>`"GET /content/geometrixx-outdoors/en.html"`</li></ul> |
 | `?` | 匹配任何单个字符。 使用外部字符类。 在字符类中，将字面解释此字符。 | `*outdoors/??/*`<br/> 匹配geometrixx-outdoors站点中任何语言的页面。 例如，以下HTTP请求与glob模式匹配： <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>以下请求与全局模式不匹配： <br/><ul><li>“获取/content/geometrixx-outdoors/en.html”</li></ul> |
 | `[ and ]` | 取消标记字符类的开始和结尾。 字符类可以包括一个或多个字符范围和单个字符。<br/>如果目标字符与字符类中的任意字符或在定义的范围内匹配，则会发生匹配。<br/>如果不包括右括号，则图案不产生匹配项。 | `*[o]men.html*`<br/> 匹配以下HTTP请求：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>与以下HTTP请求不匹配：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*` 匹 <br/>配以下HTTP请求： <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
-| `-` | 表示字符范围。 用于字符类。  在字符类之外，将字面解释此字符。 | `*[m-p]men.html*` 匹配以下HTTP请求： <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul> 与以下HTTP请求不匹配：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
+| `-` | 表示字符范围。 用于字符类。  在字符类之外，将字面解释此字符。 | `*[m-p]men.html*` 匹配以下HTTP请求： <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul>与以下HTTP请求不匹配：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
 | `!` | 否定后面的字符或字符类。 仅用于否定字符类中的字符和字符范围。 等效于 `^ wildcard`。 <br/>在字符类之外，将字面解释此字符。 | `*[!o]men.html*`<br/> 匹配以下HTTP请求： <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>与以下HTTP请求不匹配： <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[!o!/]men.html*`<br/> 与以下HTTP请求不匹配：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` 或 `"GET /content/geometrixx-outdoors/en/men. html"`</li></ul> |
 | `^` | 否定后面的字符或字符范围。 仅用于否定字符类中的字符和字符范围。 等效于通配 `!` 符。 <br/>在字符类之外，将字面解释此字符。 | 通配符的示例 `!` 适用，用字符替 `!` 代示例模式中的字符 `^` 。 |
 
@@ -1838,7 +1838,7 @@ curl -v -H "X-Dispatcher-Info: true" https://localhost/content/we-retail/us/en.h
 * **不可缓存：包含查询字符串的请求**\
    请求包含查询字符串。 调度程序假定输出取决于给定的查询字符串，因此不进行缓存。
 * **不可缓存：会话管理器未验证**\
-   农场的缓存由会话管理器（配置包含节点）管 `sessionmanagement` 理，而请求不包含相应的身份验证信息。
+   农场的缓存由会话管理器（配置包含节点）管 `sessionmanagement` 理，并且请求不包含相应的身份验证信息。
 * **不可缓存：请求包含授权**\
    不允许群缓存输出( `allowAuthorized 0`)，并且请求包含身份验证信息。
 * **不可缓存：target是目录**\
@@ -1850,5 +1850,5 @@ curl -v -H "X-Dispatcher-Info: true" https://localhost/content/we-retail/us/en.h
 * **不可缓存：授权检查器被拒绝访问**\
    农场的授权检查器拒绝访问缓存的文件。
 * **不可缓存：会话无效**`sessionmanagement` 群的缓存受会话管理器（配置包含节点）的管理，并且用户的会话无效或不再有效。
-* **不可缓存：响应包`no_cache `**&#x200B;含远程服务器返回一个 `Dispatcher: no_cache` 头，禁止调度程序缓存输出。
+* **不可缓存：响应包`no_cache `**含远程服务器返回一个`Dispatcher: no_cache`头，禁止调度程序缓存输出。
 * **不可缓存：响应内容长度为**&#x200B;零响应内容长度为零；调度程序将不创建零长度文件。
