@@ -1,26 +1,26 @@
 ---
-title: '将调度程序与多个域一起使用 '
-seo-title: '将调度程序与多个域一起使用 '
+title: '在多个域中使用 Dispatcher '
+seo-title: '在多个域中使用 Dispatcher '
 description: 了解如何使用Dispatcher处理多个Web域中的页面请求。
 seo-description: 了解如何使用Dispatcher处理多个Web域中的页面请求。
 uuid: 7342a1c2-fe61-49be-a240-b487d53c7ec1
-contentOwner: 用户
+contentOwner: User
 cq-exporttemplate: /etc/contentsync/templates/geometrixx/page/rewrite
 products: SG_EXPERIENCEMANAGER/DISPATCHER
-topic-tags: 调度程序
-content-type: 引用
+topic-tags: dispatcher
+content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 translation-type: tm+mt
-source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
+source-git-commit: 851202feff9b8fe3c6a44241d0ed12822b07b806
 
 ---
 
 
-# 将调度程序与多个域一起使用 {#using-dispatcher-with-multiple-domains}
+# 在多个域中使用 Dispatcher {#using-dispatcher-with-multiple-domains}
 
 >[!NOTE]
 >
->调度程序版本独立于AEM。 如果您遵循了指向嵌入在AEM或CQ文档中的Dispatcher文档的链接，则可能已将您重定向到此页。
+>各个 Dispatcher 版本与 AEM 相互独立。如果您遵循了指向嵌入在AEM或CQ文档中的Dispatcher文档的链接，则可能已将您重定向到此页。
 
 使用Dispatcher处理多个Web域中的页面请求，同时支持以下条件：
 
@@ -70,8 +70,8 @@ source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
 
 要启用域URL和内容路径以解析到缓存文件，在进程中的某个时刻，文件路径或页面URL必须进行翻译。 提供了以下常见策略的说明，其中路径或URL转换在进程中的不同点发生：
 
-* （建议）AEM发布实例使用Sling映射实现资源解析以实现内部URL重写规则。 域URL将转换为内容存储库路径。 (请参阅 [AEM重写传入的URL](dispatcher-domains.md#main-pars-title-2)。)
-* Web服务器使用将域URL转换为缓存路径的内部URL重写规则。 (请参 [阅Web服务器重写传入的URL](dispatcher-domains.md#main-pars-title-1)。)
+* （建议）AEM发布实例使用Sling映射实现资源解析以实现内部URL重写规则。 域URL将转换为内容存储库路径。 (请参阅 [AEM重写传入的URL](#aem-rewrites-incoming-urls)。)
+* Web服务器使用将域URL转换为缓存路径的内部URL重写规则。 (请参 [阅Web服务器重写传入的URL](#the-web-server-rewrites-incoming-urls)。)
 
 通常需要为网页使用短URL。 通常，页面URL会镜像包含Web内容的存储库文件夹的结构。 但是，URL不会显示最顶部的存储库节点，如 `/content`。 客户端不一定了解AEM存储库的结构。
 
