@@ -11,7 +11,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 translation-type: tm+mt
-source-git-commit: 851202feff9b8fe3c6a44241d0ed12822b07b806
+source-git-commit: 64d26d802dbc9bb0b6815011a16e24c63a7672aa
 
 ---
 
@@ -70,8 +70,8 @@ source-git-commit: 851202feff9b8fe3c6a44241d0ed12822b07b806
 
 要启用域URL和内容路径以解析到缓存文件，在进程中的某个时刻，文件路径或页面URL必须进行翻译。 提供了以下常见策略的说明，其中路径或URL转换在进程中的不同点发生：
 
-* （建议）AEM发布实例使用Sling映射实现资源解析以实现内部URL重写规则。 域URL将转换为内容存储库路径。 (请参阅 [AEM重写传入的URL](#aem-rewrites-incoming-urls)。)
-* Web服务器使用将域URL转换为缓存路径的内部URL重写规则。 (请参 [阅Web服务器重写传入的URL](#the-web-server-rewrites-incoming-urls)。)
+* （建议）AEM发布实例使用Sling映射实现资源解析以实现内部URL重写规则。 域URL将转换为内容存储库路径。 请参 [阅AEM重写传入的URL](#aem-rewrites-incoming-urls)。
+* Web服务器使用将域URL转换为缓存路径的内部URL重写规则。 请参 [阅Web服务器重写传入的URL](#the-web-server-rewrites-incoming-urls)。
 
 通常需要为网页使用短URL。 通常，页面URL会镜像包含Web内容的存储库文件夹的结构。 但是，URL不会显示最顶部的存储库节点，如 `/content`。 客户端不一定了解AEM存储库的结构。
 
