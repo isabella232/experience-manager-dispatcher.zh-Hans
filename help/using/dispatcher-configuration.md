@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: fb7891406af215c59e9768b699a5d191ba4b1eb2
+source-git-commit: 5b5ac8cdff27d6bc6664f1c18302c53649df7360
 
 ---
 
@@ -200,19 +200,19 @@ AEM和Dispatcher的所有元素都可以安装在IPv4和IPv6网络中。 请参 
 |--- |--- |
 | [/homepage](#specify-a-default-page-iis-only-homepage) | 默认主页（可选）（仅限IIS） |
 | [/clientheaders](#specifying-the-http-headers-to-pass-through-clientheaders) | 要传递的客户端HTTP请求的标头。 |
-| [/virtualhosts](#identifying-virtual-hosts-virtual-hosts) | 此农场的虚拟主机。 |
-| [/会话管理](#enabling-secure-sessions-session-management) | 支持会话管理和身份验证。 |
+| [/virtualhosts](#identifying-virtual-hosts-virtualhosts) | 此农场的虚拟主机。 |
+| [/会话管理](#enabling-secure-sessions-sessionmanagement) | 支持会话管理和身份验证。 |
 | [/renders](#defining-page-renderers-renders) | 提供呈现页面的服务器（通常为AEM发布实例）。 |
 | [/filter](#configuring-access-to-content-filter) | 定义Dispatcher启用访问的URL。 |
 | [/vanity_urls](#enabling-access-to-vanity-urls-vanity-urls) | 配置对虚URL的访问。 |
-| [/propagateSyndPost](#forwarding-syndication-requests-propagate-syndpost) | 支持转发联合请求。 |
+| [/propagateSyndPost](#forwarding-syndication-requests-propagatesyndpost) | 支持转发联合请求。 |
 | [/cache](#configuring-the-dispatcher-cache-cache) | 配置缓存行为。 |
 | [/statistics](#configuring-load-balancing-statistics) | 为负载平衡计算定义统计类别。 |
-| [/stickyConnectionsFor](#identifying-a-sticky-connection-folder-sticky-connections-for) | 包含粘性文档的文件夹。 |
+| [/stickyConnectionsFor](#identifying-a-sticky-connection-folder-stickyconnectionsfor) | 包含粘性文档的文件夹。 |
 | [/health_check](#specifying-a-health-check-page) | 用于确定服务器可用性的URL。 |
 | [/retryDelay](#specifying-the-page-retry-delay) | 重试失败的连接之前的延迟。 |
 | [/unavailableDestamy](#reflecting-server-unavailability-in-dispatcher-statistics) | 影响负载平衡计算统计的惩罚。 |
-| [/failover](#using-the-fail-over-mechanism) | 当原始请求失败时，向不同渲染重新发送请求。 |
+| [/failover](#using-the-failover-mechanism) | 当原始请求失败时，向不同渲染重新发送请求。 |
 | [/auth_checker](permissions-cache.md) | 有关权限敏感型缓存，请参阅 [缓存安全内容](permissions-cache.md)。 |
 
 ## 指定默认页面（仅限IIS）- /homepage {#specify-a-default-page-iis-only-homepage}
