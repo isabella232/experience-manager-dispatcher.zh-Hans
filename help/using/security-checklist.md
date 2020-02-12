@@ -1,25 +1,25 @@
 ---
-title: 调度程序安全核对清单
-seo-title: 调度程序安全核对清单
+title: Dispatcher 安全核对清单
+seo-title: Dispatcher 安全核对清单
 description: 应在开始生产之前完成的安全清单。
 seo-description: 应在开始生产之前完成的安全清单。
 uuid: 7bfa3202-03f6-48e9-8d2e-2a40e137ecbe
-contentOwner: 用户
+contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
-topic-tags: 调度程序
-content-type: 引用
+topic-tags: dispatcher
+content-type: reference
 discoiquuid: fbfafa55-c029-4ed7-ab3e-1bebfde18248
 jcr-lastmodifiedby: remove-legacypath-6-1
 index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: 6d3ff696780ce55c077a1d14d01efeaebcb8db28
+source-git-commit: 5b5ac8cdff27d6bc6664f1c18302c53649df7360
 
 ---
 
 
-# 调度程序安全核对清单{#the-dispatcher-security-checklist}
+# Dispatcher 安全核对清单{#the-dispatcher-security-checklist}
 
 <!-- 
 
@@ -93,7 +93,7 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
 配置调度程序时，应确保Web服务器由具有最低权限的专用用户运行。 建议仅授予对调度程序缓存文件夹的写访问权限。
 
-此外，IIS用户需要按如下方式配置其网站：
+此外，IIS用户需要如下配置其网站：
 
 1. 在网站的物理路径设置中，选择 **Connect作为特定用户**。
 1. 设置用户。
@@ -147,7 +147,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
  -->
 
-## 配置调度程序以防止CSRF攻击 {#configure-dispatcher-to-prevent-csrf-attacks}
+## Configure Dispatcher to prevent CSRF Attacks {#configure-dispatcher-to-prevent-csrf-attacks}
 
 AEM提供了一 [个框架](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) ，旨在防止跨站点请求伪造攻击。 为了正确利用此框架，您需要在调度程序中将CSRF令牌支持列入白名单。 您可以通过以下方式执行此操作：
 
