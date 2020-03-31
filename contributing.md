@@ -1,40 +1,59 @@
 ---
-source-git-commit: f35c79b487454059062aca6a7c989d5ab2afaf7b
+source-git-commit: 36c4ad10a9140d368fdbf3f0939e6756cc2bfbbf
 translation-type: tm+mt
 
 ---
-# 贡献
+# 为Adobe Experience Manager文档贡献内容
 
-感谢您选择贡献！
+感谢您选择为Adobe Experience Manager文档作贡献！ 我们欢迎来自整个读者社区以及Adobe同事的内容贡献。
 
-以下是在贡献此项目时遵循的指导方针。
+本文件描述了您如何做贡献，并指出了您做出贡献时应遵循的准则。
 
-## 行为准则
+## Adobe开放源代码行为准则
 
-此项目遵守Adobe行为 [准则](code-of-conduct.md)。参与计划后，您应遵守本准则。请将不可接受的行为报告给[Grp-opensourceoffice@adobe.com](mailto:Grp-opensourceoffice@adobe.com)。
+此项目已采用 [Adobe开放源代码行为准则](code-of-conduct.md)。 通过提供AEM文档，您同意遵守本行为准则。 Please report unacceptable behavior to [Grp-opensourceoffice@adobe.com](mailto:Grp-opensourceoffice@adobe.com).
 
-## 有问题？
+## 贡献指南
 
-首先提交问题。此项目上的现有提交者可以达成有关项目方向的共识，并在问题线程内(适时)提出解决方案。
+尽管我们欢迎为改进AEM文档而做出的任何贡献，但我们确实要求尽可能遵守某些准则和标准。 请查阅AEM文 [档贡献指南](guidelines.md) ，以了解更多信息。
 
-## 参与者许可协议
+## 如何使用Contribute
 
-对此项目的所有第三方贡献都必须附带一份签字的参与者许可协议。这将允许Adobe在项目中再分发您的贡献。[签署我们的CLA](http://opensource.adobe.com/cla.html)。您只需要提交一次Adobe
-CLA，因此如果您以前提交过一个Adobe CLA，您就很好了！
+我们希望尽可能轻松地提交您的贡献。 您可以通过两种方式进行贡献：
 
-## 代码审阅
+* [创建期刊](#create-an-issue)
+* [创建拉取请求](#create-a-pull-request)
 
-所有提交都应采用拉请求形式，并需要由项目提交者审查。阅读 [GitHub的提取请求文档，](https://help.github.com/articles/about-pull-requests/)了解有关发送请求请求的更多信息。
+您选择的方法取决于您自己在GitHub中编辑文档的舒适程度。
 
-<!--
-Lastly, please follow the [pull request template](PULL_REQUEST_TEMPLATE.md) when
-submitting a pull request!
--->
+>[!NOTE]
+>
+>您提交的稿件受 [Adobe使用条款的约束。](https://www.adobe.com/legal/terms.html)
 
-## 从参与者到提交者
+### 创建期刊 {#create-an-issue}
 
-我们喜欢社区的贡献！如果您希望在投稿人之外迈出一步，并成为具有完全写入权限和在项目中发表讲话的提交者，则必须受邀参加项目。现有提交者使用内部提名流程，在发出邀请之前必须达到延迟共识(沉默为批准)。如果您觉得自己符合资格并且希望更加深入地参与其中，请与现有提交者联系，就该问题提出意见。
+您是否有建议、对当前文档的观察或对某些内容的描述提出疑问？ 然后请创建期刊。 如果您有需要贡献的内容，但您对编辑文档或自行提出拉取请求感到不自在，问题也很出色。
 
-## 安全问题
+问题允许您轻松描述对文档进行改进的想法，AEM Docs团队成员可以对其进行审阅。 只需单击任 **何页面右侧导航面板顶部的** “记录问题”链接即可创建问题。
 
-不应在此问题跟踪器上报告安全问题。相反， [请向我们的安全专家发送一个问题](https://helpx.adobe.com/security/alertus.html)
+### 创建拉取请求 {#create-a-pull-request}
+
+如果您发现问题并且确切了解如何解决它，请考虑创建拉取请求。 拉取请求允许您对文档进行自己的编辑，文档随后将由AEM Docs团队成员进行审阅以包含在内。 只需单击任 **何页面右侧导航面板顶部的** “编辑此页面”链接，即可进行建议的更改并创建拉取请求。
+
+所有拉取请求都必须随附已签名的 [参与者许可协议或CLA。](https://opensource.adobe.com/cla.html)这将允许 Adobe 在项目中再次分发您的贡献。您只需提交一次Adobe CLA，因此，如果您之前已提交过一个CLA，您就可以了！
+
+### 快速视频简介
+
+观看以下视频，快速了解如何创建问题和提取请求。
+
+>[!VIDEO](https://video.tv.adobe.com/v/27069)
+
+### Adobe员工的贡献
+
+如果您是Adobe员工并且希望提出拉取请求，请使用上的专用存储库 `https://git.corp.adobe.com/AdobeDocs`。
+
+有关问题，请随时使用公共存储库。
+
+## 更多信息
+
+有关如何 [使用GitHub创作平台的更多详细信息，请参阅Adobe Docs Contributor Guide](https://docs.adobe.com/help/en/contributor/contributor-guide/introduction.html) 。
