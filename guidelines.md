@@ -1,17 +1,17 @@
 ---
-source-git-commit: 36c4ad10a9140d368fdbf3f0939e6756cc2bfbbf
+source-git-commit: 053f90d9a0574c7d470cec6794498919e3340713
 translation-type: tm+mt
 
 ---
-# AEM文档贡献准则
+# Adobe Experience Manager文档贡献指南
 
-## AEM文档理念
+## 文档哲学
 
 我们知道Adobe Experience Manager用户在竞争激烈的环境中工作，努力创建让他们与竞争对手分开的数字体验。 因此，当Adobe在AEM中提供高级新工具时，必须借助准确而清晰的文档来补充这些工具，以便让客户立即利用其AEM投资并最大化ROI。
 
 AEM文档的目标是尽快将文档交给AEM用户。 因此，我们优先考虑准确、可用的文档，并努力不断更新和改进它。
 
-## AEM文档贡献
+## 文档贡献
 
 为了不断改进AEM文档，欢迎整个AEM用户社区为文档做出贡献。 无论是通过拉取请求还是问题，对文档的改进都可以是更正、说明、扩展和其他示例。
 
@@ -35,9 +35,9 @@ AEM文档涵盖标准用例。 因此，通常不会记录bug、bug引起的效�
 
 您可能必须改进AEM文档的任何想法均欢迎作为贡献。 但是，评论、问题和拉取请求仅用于 *稿件* 。 它们不用于回答您有关如何使用AEM、实施AEM项目或解决技术问题的问题。
 
-如果您对AEM使用或技术错误有任何疑问，应通过 [Experience Manager支持门户通过常规支持流程报告](https://daycare.day.com/home.html) ，或在 [Experience Manager社区中讨论](http://help-forums.adobe.com/content/adobeforums/en/experience-manager-forum/adobe-experience-manager.html)。
+如果您对AEM的使用或技术错误有任何疑问，应通过 [Experience Cloud Enterprise Support门户通过常规支持流程报告](https://helpx.adobe.com/contact/enterprise-support.ec.html) ，或在 [Experience Manager社区中讨论](https://forums.adobe.com/community/experience-cloud/marketing-cloud/experience-manager)。
 
-***AEM 文档稿件不是 Adobe 支持的替代品***，此类寻求支持相关问题答案的任何稿件都将被拒绝。
+***AEM文档稿件不是Adobe客户关怀的替代品*** ，任何此类稿件将被拒绝，以寻求与支持相关的问题的答案。
 
 ### 稿件必须明确引用受影响的文档页面。
 
