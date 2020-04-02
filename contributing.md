@@ -1,5 +1,5 @@
 ---
-source-git-commit: 36c4ad10a9140d368fdbf3f0939e6756cc2bfbbf
+source-git-commit: a7f81343602253c16d7d3770b98b9a8e9fd32c8e
 translation-type: tm+mt
 
 ---
@@ -50,9 +50,9 @@ translation-type: tm+mt
 
 ### Adobe员工的贡献
 
-如果您是Adobe员工并且希望提出拉取请求，请使用上的专用存储库 `https://git.corp.adobe.com/AdobeDocs`。
+如果您是Adobe员工并且有贡献，请使用 `AdobeDocs` 公司git中的组织。
 
-有关问题，请随时使用公共存储库。
+我们当然对您的任何贡献感到高兴，如果您的贡献是在公共存储库中提供的，我们将审查您的贡献，但是，从Adobe员工那里提取的请求更容易处理，并且可以在公司回购协议中更快地获得批准。 请确保只在公司回购协议中讨论任何专有信息。
 
 ## 更多信息
 
