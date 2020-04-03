@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: 5b5ac8cdff27d6bc6664f1c18302c53649df7360
+source-git-commit: 183131dec51b67e152a8660c325ed980ae9ef458
 
 ---
 
@@ -139,7 +139,7 @@ AEM和Dispatcher的所有元素都可以安装在IPv4和IPv6网络中。 请参 
 /docroot "${PWD}/cache"
 ```
 
-另一个示例是，如果您创建了名为的环境变量，该变量 `PUBLISH_IP` 存储了AEM发布实例的主机名，则可以使用 [](dispatcher-configuration.md#main-pars-127-25-0008) /renders属性的以下配置：
+另一个示例是，如果创建名为的环境变量 `PUBLISH_IP` ，该变量存储AEM发布实例的主机名，则可以使用 [](dispatcher-configuration.md#main-pars-127-25-0008) /renders属性的以下配置：
 
 ```xml
 /renders {
@@ -167,7 +167,7 @@ AEM和Dispatcher的所有元素都可以安装在IPv4和IPv6网络中。 请参 
 
 * 农场应用的页面的URL。
 * 用于渲染文档的一个或多个服务URL（通常为AEM发布实例）。
-* 用于负载平衡多个文档渲染器的统计信息。
+* 用于负载平衡多文档呈示器的统计信息。
 * 其他几种行为，如要缓存的文件和位置。
 
 该值可以包含任何字母数字(a-z, 0-9)字符。 以下示例显示了两个名为和的农场的骨架定 `/daycom` 义 `/docsdaycom`:
@@ -192,7 +192,7 @@ AEM和Dispatcher的所有元素都可以安装在IPv4和IPv6网络中。 请参 
 
 >[!NOTE]
 >
->如果您使用多个渲染场，则从下而上计算列表。 这在为网站定义虚拟主 [机时尤其重](dispatcher-configuration.md#main-pars-117-15-0006) 要。
+>如果您使用多个渲染场，则从下到上计算列表。 这在为网站定义虚拟主 [机时尤其重](dispatcher-configuration.md#main-pars-117-15-0006) 要。
 
 每个农场财产都可以包含以下子财产：
 
@@ -208,7 +208,7 @@ AEM和Dispatcher的所有元素都可以安装在IPv4和IPv6网络中。 请参 
 | [/propagateSyndPost](#forwarding-syndication-requests-propagatesyndpost) | 支持转发联合请求。 |
 | [/cache](#configuring-the-dispatcher-cache-cache) | 配置缓存行为。 |
 | [/statistics](#configuring-load-balancing-statistics) | 为负载平衡计算定义统计类别。 |
-| [/stickyConnectionsFor](#identifying-a-sticky-connection-folder-stickyconnectionsfor) | 包含粘性文档的文件夹。 |
+| [/stickyConnectionsFor](#identifying-a-sticky-connection-folder-stickyconnectionsfor) | 包含附注文档的文件夹。 |
 | [/health_check](#specifying-a-health-check-page) | 用于确定服务器可用性的URL。 |
 | [/retryDelay](#specifying-the-page-retry-delay) | 重试失败的连接之前的延迟。 |
 | [/unavailableDestamy](#reflecting-server-unavailability-in-dispatcher-statistics) | 影响负载平衡计算统计的惩罚。 |
@@ -263,7 +263,7 @@ Comment Type: draft
 
 ## 指定要传递的HTTP头 {#specifying-the-http-headers-to-pass-through-clientheaders}
 
-该属 `/clientheaders` 性定义一个HTTP头列表，调度程序从客户端HTTP请求传递给渲染器（AEM实例）。
+该属 `/clientheaders` 性定义一列表HTTP头，调度程序从客户端HTTP请求传递给呈示器（AEM实例）。
 
 默认情况下，Dispatcher将标准HTTP头转发到AEM实例。 在某些情况下，您可能希望转发其他标题或删除特定的标题：
 
@@ -322,7 +322,7 @@ Comment Type: draft
 
 ## 识别虚拟主机 {#identifying-virtual-hosts-virtualhosts}
 
-该属 `/virtualhosts` 性定义Dispatcher接受的此农场的所有主机名/URI组合的列表。 可以使用星号(&quot;*&quot;)作为通配符。 /属性的值 `virtualhosts` 使用以下格式：
+该属 `/virtualhosts` 性定义了列表调度程序为此农场接受的所有主机名/URI组合。 可以使用星号(&quot;*&quot;)作为通配符。 /属性的值 `virtualhosts` 使用以下格式：
 
 ```xml
 [scheme]host[uri][*]
@@ -357,7 +357,7 @@ Comment Type: draft
 当Dispatcher收到HTTP或HTTPS请求时，它会查找最匹配请求的虚拟主 `host,` 机 `uri`值 `scheme` 和头。 调度程序按以下顺序计 `virtualhosts` 算属性中的值：
 
 * 调度程序从最低的农场开始，并在dispatcher.any文件中向上进行。
-* 对于每个农场，Dispatcher以属性中最顶部的值开 `virtualhosts` 头，并向下进入值列表。
+* 对于每个农场，Dispatcher从属性中最顶部的值开 `virtualhosts` 始，向下展开值列表。
 
 调度程序通过以下方式查找最匹配的虚拟主机值：
 
@@ -405,14 +405,14 @@ Comment Type: draft
 
 | 请求URL | 已解析的虚拟主机 |
 |---|---|
-| `https://www.mycompany.com/products/gloves.html` | `www.mycompany.com/products/*` |
+| `https://www.mycompany.com/products/gloves.html` | `www.mycompany.com/products/` |
 | `https://www.mycompany.com/about.html` | `www.mycompany.com` |
 
 ## 启用安全会话- /sessionmanagement {#enabling-secure-sessions-sessionmanagement}
 
 >[!CAUTION]
 >
->`/allowAuthorized` 必 **须在部**`"0"``/cache` 分中设置为才能启用此功能。
+>`/allowAuthorized` 要 **启用此功能** ，必须在部 `"0"``/cache` 分中将其设置为。
 
 创建安全会话以访问渲染场，以便用户需要登录才能访问场中的任何页面。 登录后，用户可以访问农场中的页面。 有关 [将此功能用于CUG的信息](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/cug.html#CreatingTheUserGroupToBeUsed) ，请参阅创建已关闭的用户组。 此外，请在上线前参阅 [调度程序安全核对清单](/help/using/security-checklist.md) 。
 
@@ -528,9 +528,9 @@ Comment Type: draft
 
 指定Dispatcher是使用函 `getaddrinfo` 数（对于IPv6）还是函数 `gethostbyname` （对于IPv4）来获取渲染的IP地址。 值为0将 `getaddrinfo` 使用。 值1表示 `gethostbyname` 使用。 默认值为 0。
 
-getaddrinfo函数返回IP地址列表。 调度程序会重复该地址列表，直到它建立TCP/IP连接。 因此，当呈现主机名与多个IP地址关联时，ipv4属性很重要，而主机响应getaddrinfo函数返回始终按相同顺序排列的IP地址列表。 在这种情况下，您应使用gethostbyname函数，以便Dispatcher连接的IP地址是随机的。
+getaddrinfo函数返回IP地址列表。 调度程序重复列表地址，直到它建立TCP/IP连接。 因此，当呈现主机名与多个IP地址关联时，ipv4属性很重要，而主机响应getaddrinfo函数返回一列表始终按相同顺序排列的IP地址。 在这种情况下，您应使用gethostbyname函数，以便Dispatcher连接的IP地址是随机的。
 
-Amazon Elastic Load Balancing(ELB)是一项服务，它通过一个可能按相同顺序排列的IP地址列表响应getaddrinfo。
+Amazon Elastic Load Balancing(ELB)是一种服务，它通过可能的同序列表IP地址响应getaddrinfo。
 
 **/secure**
 
@@ -560,7 +560,7 @@ Amazon Elastic Load Balancing(ELB)是一项服务，它通过一个可能按相�
 
 使用该 `/filter` 部分指定Dispatcher接受的HTTP请求。 所有其他请求都会以404错误代码（找不到页面）发送回Web服务器。 如果不存 `/filter` 在任何部分，则接受所有请求。
 
-**** 注意：始终拒绝 [对statfile](dispatcher-configuration.md#main-pars-title-28) 的请求。
+**注意：** 始终拒绝 [对statfile](dispatcher-configuration.md#main-pars-title-28) 的请求。
 
 >[!CAUTION]
 >
@@ -577,9 +577,9 @@ Amazon Elastic Load Balancing(ELB)是一项服务，它通过一个可能按相�
 
 * **类型**:指示 `/type` 是允许还是拒绝对与模式匹配的请求的访问。 该值可以是 `allow` 或 `deny`。
 
-* **** 请求行的要素：包 `/method`括、 `/url`、 `/query``/protocol` 或，以及根据HTTP请求的请求行部分的这些特定部分过滤请求的模式。 对请求行的元素（而不是整个请求行）进行筛选是首选的筛选方法。
+* **请求行的要素：** 包 `/method`括、 `/url`、 `/query``/protocol` 或，以及根据HTTP请求的请求行部分的这些特定部分过滤请求的模式。 对请求行的元素（而不是整个请求行）进行筛选是首选的筛选方法。
 
-* **** 请求行的高级要素：从Dispatcher 4.2.0开始，有四个新的过滤器元素可供使用。 这些新元素分 `/path`别是 `/selectors`、 `/extension` 和 `/suffix` 。 包括一个或多个这些项目以进一步控制URL模式。
+* **请求行的高级要素：** 从Dispatcher 4.2.0开始，有四个新的过滤器元素可供使用。 这些新元素分 `/path`别是 `/selectors`、 `/extension` 和 `/suffix` 。 包括一个或多个这些项目以进一步控制URL模式。
 
 >[!NOTE]
 >
@@ -609,17 +609,17 @@ HTTP/1.1定义请 [求行](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.htm
 
 您的模式必须考虑请求行中的空格字符和&lt;CRLF>字符。
 
-#### 双引号与单引号 {#double-quotes-vs-single-quotes}
+#### 多次语与单引号 {#double-quotes-vs-single-quotes}
 
-创建过滤器规则时，请对简单模式使用 `"pattern"` 双引号。 如果您使用的是Dispatcher 4.2.0或更高版本，并且您的模式包含正则表达式，则必须将正则表达式模式用单引 `'(pattern1|pattern2)'` 号括起来。
+在创建过滤器规则时，请对简单模式使用多次 `"pattern"` 引号。 如果您使用的是Dispatcher 4.2.0或更高版本，并且您的模式包含常规表达式，则必须将正则表达式模式用单引 `'(pattern1|pattern2)'` 号括起来。
 
 #### Regular Expressions {#regular-expressions}
 
-在Dispatcher 4.2.0之后，您可以在过滤器模式中包含POSIX Extended正则表达式。
+在Dispatcher 4.2.0之后，您可以在过滤器模式中包含POSIX Extended Regular表达式。
 
-#### 过滤器疑难解答 {#troubleshooting-filters}
+#### 疑难解答过滤器 {#troubleshooting-filters}
 
-如果您的过滤器没有按照您期望的方式触发，请在调度程序上启用 [Trace Logging](#trace-logging) （跟踪日志记录），以便您能够看到哪个过滤器正在拦截请求。
+如果您的过滤器没有按您期望的方式触发，请在调度程序上启用 [Trace Logging](#trace-logging) ，以便您能够看到哪个过滤器正在拦截请求。
 
 #### 示例过滤器：全部拒绝 {#example-filter-deny-all}
 
@@ -652,7 +652,7 @@ HTTP/1.1定义请 [求行](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.htm
 
 #### 示例过滤器：允许访问工作流控制台 {#example-filter-allow-access-to-the-workflow-console}
 
-以下示例显示了一个用于拒绝外部访问工作流控制台的过滤器：
+以下示例展示了一个用于拒绝外部访问工作流控制台的过滤器：
 
 ```xml
 /filter {
@@ -675,11 +675,11 @@ HTTP/1.1定义请 [求行](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.htm
 
 >[!NOTE]
 >
->当多个过滤器模式应用于请求时，应用的最后一个过滤器模式是有效的。
+>当多个过滤器模式应用于请求时，应用的最后一个过滤模式是有效的。
 
-#### 示例过滤器：使用正则表达式 {#example-filter-using-regular-expressions}
+#### 示例过滤器：使用常规表达式 {#example-filter-using-regular-expressions}
 
-此过滤器使用正则表达式在非公共内容目录中启用扩展，该表达式在单引号之间定义：
+此过滤器使用常规表达式在非公共内容目录中启用扩展，该扩展在单引号之间定义：
 
 ```xml
 /005  {  /type "allow" /extension '(css|gif|ico|js|png|swf|jpe?g)' }
@@ -687,7 +687,7 @@ HTTP/1.1定义请 [求行](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.htm
 
 #### 示例过滤器：筛选请求URL的其他元素 {#example-filter-filter-additional-elements-of-a-request-url}
 
-下面是一个规则示例，它使用路径、选择器和扩展的 `/content` 过滤器阻止从路径及其子树捕获的内容：
+以下是一个规则示例，它使用路径、选择器和扩展的过滤器阻止从 `/content` 路径及其子树捕获的内容：
 
 ```xml
 /006 {
@@ -785,7 +785,7 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 
 >[!NOTE]
 >
->有关Dynamic media的过滤器0030和0031适用于AEM 6.0及更高版本。
+>有关Dynamic Media的过滤器0030和0031适用于AEM 6.0及更高版本。
 
 如果您选择扩展访问权限，请考虑以下建议：
 
@@ -805,17 +805,17 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 
 >[!CAUTION]
 >
->对控制台和目录的访问可能会对生产环境带来安全风险。 除非您有明确的理由，否则它们应保持停用（已注释）。
+>访问控制台和目录可能会对生产环境带来安全风险。 除非您有明确的理由，否则它们应保持停用（已注释）。
 
 >[!CAUTION]
 >
->如果您在发 [布环境中使用报告](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/reporting.html#UsingReportsinaPublishEnvironment) ，应将Dispatcher配置为拒绝外部访客 `/etc/reports` 的访问。
+>如果在发 [布环境中使用报告](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/reporting.html#UsingReportsinaPublishEnvironment) ，应将Dispatcher配置为拒绝对外部访客 `/etc/reports` 的访问。
 
 ### 限制查询字符串 {#restricting-query-strings}
 
-自Dispatcher版本4.1.5起，使用该部 `/filter` 分限制查询字符串。 强烈建议显式允许查询字符串并通过筛选器元素排除通 `allow` 用允许。
+自Dispatcher 4.1.5版起，请使用该部 `/filter` 分限制查询字符串。 强烈建议明确允许查询字符串并通过筛选器元素排除通 `allow` 用允许。
 
-单个条目可以有 *glob* ，也可以有方 *法*,url,***url* , *queryVersion和* NotBloy。 以下示例允许查询 `a=*` 字符串并拒绝解析到节点的URL的所有其他查询 `/etc` 字符串：
+单个条目可以有 *glob* ，也可以有 *method*,url *,**查询和rul* , ** rul和rul的某种组合。 以下示例允许查询字 `a=*` 符串并拒绝解析到节点的URL的所有其他查询字符 `/etc` 串：
 
 ```xml
 /filter {
@@ -826,9 +826,9 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 
 >[!NOTE]
 >
->如果规则包含一个 `/query`规则，则它将仅匹配包含查询字符串的请求并匹配提供的查询模式。
+>如果规则包含查询, `/query`则它将仅匹配包含查询字符串的请求，并匹配提供的模式。
 >
->在上例中，如果对没有查 `/etc` 询字符串的请求也应允许，则需要以下规则：
+>在上例中，如果对没有查询 `/etc` 字符串的请求也应该被允许，则需要以下规则：
 
 
 ```xml
@@ -842,7 +842,7 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 
 ### 测试调度程序安全性 {#testing-dispatcher-security}
 
-调度程序过滤器应阻止对AEM发布实例上的以下页面和脚本的访问。 使用Web浏览器尝试像站点访问者那样打开以下页面并验证是否返回代码404。 如果获得了任何其他结果，请调整滤镜。
+调度程序过滤器应阻止对AEM发布实例上的以下页面和脚本的访问。 使用Web浏览器尝试打开以下页面，如站点访客所愿，并验证返回的代码为404。 如果获得了任何其他结果，请调整您的过滤器。
 
 请注意，您应该看到/content/add_valid_page.html?debug=layout的普通页面呈现。
 
@@ -921,7 +921,7 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 
 配置Dispatcher以启用对为您的CQ或AEM页面配置的虚URL的访问。
 
-启用对虚URL的访问后，Dispatcher会定期调用在渲染实例上运行的服务以获取虚URL列表。 调度程序将此列表存储在本地文件中。 当由于部分中的过滤器而拒绝页面请求时，调度程 `/filter` 序会咨询虚URL列表。 如果已拒绝的URL在列表中，则Dispatcher允许访问虚URL。
+启用对虚URL的访问后，Dispatcher会定期调用在渲染实例上运行的服务，以获取虚URL的列表。 调度程序将此列表存储在本地文件中。 当由于部分中的过滤器而拒绝页面请求时，调度程 `/filter` 序会咨询虚URL的列表。 如果已拒绝的URL在列表上，则Dispatcher允许访问虚URL。
 
 要启用对虚URL的访问，请向该 `/vanity_urls` 部分添加一 `/farms` 个部分，如下例所示：
 
@@ -949,7 +949,7 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 1. 如果您的渲染服务是AEM实例，请在发布实例上安装com.adobe.granite.dispatcher.vanityurl.content包（请参阅上面的说明）。
 1. 对于您为AEM或CQ页面配置的每个虚URL，请确保该配置 ` [/filter](dispatcher-configuration.md#main-pars_134_32_0009)` 拒绝该URL。 如有必要，请添加一个拒绝该URL的过滤器。
 1. 添加下 `/vanity_urls` 面的部分 `/farms`。
-1. 重新启动Apache web服务器。
+1. 重新启动Apache Web服务器。
 
 ## 转发联合请求- /propagateSyndPost {#forwarding-syndication-requests-propagatesyndpost}
 
@@ -959,7 +959,7 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 
 ## 配置调度程序缓存- /cache {#configuring-the-dispatcher-cache-cache}
 
-该部 `/cache` 分控制Dispatcher如何缓存文档。 配置多个子属性以实施缓存策略：
+该部 `/cache` 分控制Dispatcher缓存文档的方式。 配置多个子属性以实施缓存策略：
 
 
 * /docroot
@@ -1013,7 +1013,7 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 >该值必须与Web服务器的文档根路径完全相同，这样调度程序和Web服务器才能处理相同的文件。\
 >Web服务器负责在使用调度程序缓存文件时提供正确的状态代码，因此，它也能找到它很重要。
 
-如果您使用多个农场，则每个农场必须使用不同的文档根。
+如果使用多个农场，则每个农场必须使用不同的文档根。
 
 ### 命名Statfile {#naming-the-statfile}
 
@@ -1025,7 +1025,7 @@ statfile没有内容。 更新内容时，Dispatcher会更新时间戳。 默认
 >
 >如果 `/statfileslevel` 已配置，则Dispatcher将忽略该 `/statfile` 属性，并使用。stat作为名称。
 
-### 出错时提供过时文档 {#serving-stale-documents-when-errors-occur}
+### 出错时提供陈旧文档 {#serving-stale-documents-when-errors-occur}
 
 该属 `/serveStaleOnError` 性控制当渲染服务器返回错误时，Dispatcher是否返回无效文档。 默认情况下，当触及statfile并使缓存内容无效时，Dispatcher会在下次请求缓存内容时删除该内容。
 
@@ -1039,7 +1039,7 @@ statfile没有内容。 更新内容时，Dispatcher会更新时间戳。 默认
 * 名为的Cookie `authorization`。
 * 名为的Cookie `login-token`。
 
-默认情况下，包含此身份验证信息的请求不会缓存，因为当缓存的文档返回到客户端时，不会执行身份验证。 此配置可阻止Dispatcher向没有必要权限的用户提供缓存的文档。
+默认情况下，包含此身份验证信息的请求不会缓存，因为当缓存的文档返回到客户端时，不会执行身份验证。 此配置可阻止Dispatcher向没有必要权限的用户提供缓存文档。
 
 但是，如果您的要求允许缓存已验证的文档，请将/allowAuthorized设置为：
 
@@ -1051,7 +1051,7 @@ statfile没有内容。 更新内容时，Dispatcher会更新时间戳。 默认
 
 ### 指定要缓存的文档 {#specifying-the-documents-to-cache}
 
-属性 `/rules` 控制根据文档路径缓存哪些文档。 无论/rules属性如何，在以下情况下，Dispatcher都不会缓存文档：
+属性 `/rules` 控制根据文档路径缓存哪些文档。 无论/rules属性如何，在以下情况下，Dispatcher都不会缓存文档:
 
 * 如果请求URI包含问号(&quot;?&quot;)。\
    这通常指示动态页面，如无需缓存的搜索结果。
@@ -1071,7 +1071,7 @@ statfile没有内容。 更新内容时，Dispatcher会更新时间戳。 默认
 /rules属性中的每个项目都包括 [全局](#designing-patterns-for-glob-properties) 模式和类型：
 
 * 全局模式用于匹配文档的路径。
-* 类型指示是否缓存与全局模式匹配的文档。 该值可以是允许（缓存文档）或拒绝（始终渲染文档）。
+* 类型指示是否缓存与全局模式匹配的文档。 该值可以是允许(缓存文档)或拒绝(始终呈现文档)。
 
 如果您没有动态页（超出上述规则已排除的页面），则可以配置Dispatcher以缓存所有内容。 此部分的规则部分如下所示：
 
@@ -1101,7 +1101,7 @@ statfile没有内容。 更新内容时，Dispatcher会更新时间戳。 默认
 
 **压缩**
 
-在Apache web服务器上，您可以压缩缓存的文档。 如果客户端要求Apache以压缩形式返回文档，则使用压缩。 通过启用Apache模块自动进行压 `mod_deflate`缩，例如：
+在Apache Web服务器上，您可以压缩缓存的文档。 Compression允许Apache在客户端请求时以压缩形式返回文档。 通过启用Apache模块自动进行压 `mod_deflate`缩，例如：
 
 ```xml
 AddOutputFilterByType DEFLATE text/plain
@@ -1157,7 +1157,7 @@ Last Modified Date: 2017-11-13T09:23:24.326-0500
 使用属 `/statfileslevel` 性根据缓存文件的路径使其无效：
 
 * 调度程 `.stat`序在每个文件夹中从Docroot文件夹创建到您指定的级别的文件。 docroot文件夹为0级。
-* 通过触摸文件使文件失 `.stat` 效。 将文 `.stat` 件的上次修改日期与缓存文档的上次修改日期进行比较。 如果文件较新，则重新获取 `.stat` 文档。
+* 通过触摸文件使文件失 `.stat` 效。 文件 `.stat` 的上次修改日期与缓存文档的上次修改日期进行比较。 如果文件较新，将重新获取 `.stat` 文档。
 
 * 当某个级别的文件失效时，从 **Docroot到**`.stat` Willever的所有文件 ****`statsfilevel` （以小为准）都将失效。
 
@@ -1198,13 +1198,13 @@ HTML页面通常使用自动失效。 HTML页面通常包含指向其他页面�
 
 有关全局属性的信息，请参阅 [设计全局属性的模式](#designing-patterns-for-glob-properties)。
 
-此配置在激活/content/geometrixx/cn时导致以下活动：
+此配置在/content/geometrixx/cn被激活时导致以下活动:
 
 * 所有文件均采用模式en。*已从/content/geometrixx/文件夹中删除。
 * /content/geometrixx/cn/_jcr_content文件夹已删除。
 * 不会立即删除与/invalidate配置匹配的所有其他文件。 下一个请求发生时，这些文件将被删除。 在我们的示例中，/content/geometrixx.html未被删除，将在请求/content/geometrixx.html时将其删除。
 
-如果您提供自动生成的PDF和ZIP文件供下载，则可能也必须自动使这些文件失效。 配置示例如下所示：
+如果您优惠自动生成的PDF和ZIP文件进行下载，则可能还必须自动使这些文件失效。 配置示例如下所示：
 
 ```xml
 /invalidate
@@ -1377,9 +1377,9 @@ FileETag none
 
 ### 限制。stat文件触控 {#throttling-stat-file-touching}
 
-使用默认属 `/invalidate` 性时，每次激活都会有效地使所 `.html` 有文件失效(当其路径与部分相 `/invalidate` 匹配时)。 在流量较大的网站上，多次后续激活会增加后端的CPU负载。 在这种情况下，最好“限制”文件触摸，以 `.stat` 使网站保持响应。 您可以使用属性执行此操作 `/gracePeriod` 操作。
+使用default属 `/invalidate` 性时，每个激活都会有效地使所有 `.html` 文件失效(当其路径与章节相 `/invalidate` 匹配时)。 在具有相当大流量的网站上，多个后续激活会增加后端的CPU负载。 在这种情况下，最好“限制”文件触摸，以 `.stat` 使网站保持响应。 您可以使用属性执行此操作 `/gracePeriod` 操作。
 
-该属 `/gracePeriod` 性定义在上次激活之后，过时的自动失效的资源仍可从缓存中服务的秒数。 该属性可用于设置中，如果进行批量激活，则会重复使整个缓存失效。 建议的值为2秒。
+该属 `/gracePeriod` 性定义在上次发生激活后，过时的自动失效的资源仍可从缓存中服务的秒数。 该属性可用于一个设置，在该设置中，一批激活会以其他方式重复使整个缓存失效。 建议的值为2秒。
 
 有关其他详细信息，请阅读上 `/invalidate` 述和 `/statfileslevel`部分。
 
@@ -1393,14 +1393,14 @@ FileETag none
 
 ## 配置负载平衡- /statistics {#configuring-load-balancing-statistics}
 
-该部 `/statistics` 分定义了文件的类别，Dispatcher为这些类别对每个渲染的响应性进行评分。 调度程序使用得分确定要发送请求的渲染。
+该部 `/statistics` 分定义一类别文件，Dispatcher为这些文件对每个渲染的响应性进行评分。 调度程序使用得分确定要发送请求的渲染。
 
-您创建的每个类别都定义全局模式。 调度程序将所请求内容的URI与这些模式进行比较，以确定所请求内容的类别：
+您创建的每个类别都定义全局模式。 调度程序将所请求内容的URI与这些模式进行比较，以确定所请求内容的类别:
 
 * 类别的顺序决定了它们与URI的比较顺序。
 * 与URI匹配的第一个类别模式是文件的类别。 不再评估类别模式。
 
-调度程序最多支持8个统计数据类别。 如果定义的类别超过8个，则只使用前8个类别。
+调度程序最多支持8个统计类别。 如果定义的类别数超过8个，则只使用前8个。
 
 **渲染选择**
 
@@ -1410,11 +1410,11 @@ FileETag none
 1. 如果请求不包含 `renderid` cookie，则Dispatcher将比较渲染统计信息：
 
    1. 调度程序确定请求URI的类别。
-   1. 调度程序确定哪个渲染对该类别的响应得分最低，并选择该渲染。
+   1. 调度程序确定哪个渲染具有该类别的最低响应得分，并选择该渲染。
 
-1. 如果尚未选择任何渲染，请使用列表中的第一个渲染。
+1. 如果尚未选择任何渲染，请在列表中使用第一个渲染。
 
-渲染器类别的得分基于以前的响应时间以及调度程序尝试的先前失败和成功连接。 对于每次尝试，将更新所请求URI类别的得分。
+渲染器类别的得分基于以前的响应时间以及调度程序尝试的以前失败和成功的连接。 对于每次尝试，将更新所请求URI类别的得分。
 
 >[!NOTE]
 >
@@ -1422,15 +1422,15 @@ FileETag none
 
 ### 定义统计信息类别 {#defining-statistics-categories}
 
-为要保留用于渲染选择的统计信息的每种类型的文档定义一个类别。 /statistics部分包含/categories部分。 要定义类别，请在/categories部分下添加一行，其格式如下：
+为每种类型的文档定义一个类别，您要保留其用于渲染选择的统计信息。 /statistics部分包含/类别部分。 要定义类别，请在/类别部分下添加一行，其格式如下：
 
 `/name { /glob "pattern"}`
 
-该类别 `name` 必须是农场特有的。 有关 `pattern` 信息，请参阅全局属 [性的设计模式部分](#designing-patterns-for-glob-properties) 。
+类别 `name` 必须是农场特有的。 有关 `pattern` 信息，请参阅全局属 [性的设计模式部分](#designing-patterns-for-glob-properties) 。
 
-要确定URI的类别，调度程序会将URI与每个类别模式进行比较，直到找到匹配项。 调度程序从列表中的第一个类别开始，并按顺序继续。 因此，请首先放置具有更具体模式的类别。
+要确定URI的类别，调度程序会将URI与每个类别模式进行比较，直到找到匹配项。 调度程序从列表中的第一个类别开始，并按顺序继续。 因此，首先放置具有更具体模式的类别。
 
-例如，默认dispatcher.any文件的Dispatcher定义了HTML类别和其他类别。 HTML类别更具体，因此它首先显示：
+例如，默认dispatcher.any文件是Dispatcher定义的HTML类别和其他类别。 HTML类别更加具体，因此它首先显示：
 
 ```xml
 /statistics
@@ -1443,7 +1443,7 @@ FileETag none
   }
 ```
 
-以下示例还包括搜索页面的类别：
+以下示例还包括搜索页面的类别:
 
 ```xml
 /statistics
@@ -1459,7 +1459,7 @@ FileETag none
 
 ### 在调度程序统计中反映服务器不可用性 {#reflecting-server-unavailability-in-dispatcher-statistics}
 
-该属 `/unavailablePenalty` 性设置当与渲染器的连接失败时应用于渲染统计信息的时间（以十分之一秒为单位）。 调度程序将时间添加到与请求的URI匹配的统计信息类别。
+该属 `/unavailablePenalty` 性设置当与渲染器的连接失败时应用于渲染统计信息的时间（以十分之一秒为单位）。 调度程序将时间添加到与请求的URI匹配的统计类别。
 
 例如，当由于AEM未运行（且未侦听）或由于网络相关问题而无法建立到指定主机名／端口的TCP/IP连接时，将应用惩罚。
 
@@ -1473,7 +1473,7 @@ FileETag none
 
 ## 识别粘性连接文件夹- /stickyConnectionsFor {#identifying-a-sticky-connection-folder-stickyconnectionsfor}
 
-该属 `/stickyConnectionsFor` 性定义了一个包含粘性文档的文件夹；这将使用URL进行访问。 调度程序将位于此文件夹中的所有请求从单个用户发送到同一个渲染实例。 粘性连接可确保所有文档都具有一致的会话数据。 此机制使用 `renderid` cookie。
+该属 `/stickyConnectionsFor` 性定义一个包含粘性文档的文件夹；这将使用URL进行访问。 调度程序将位于此文件夹中的所有请求从单个用户发送到同一个渲染实例。 粘性连接可确保所有文档都有一致的会话数据。 此机制使用 `renderid` cookie。
 
 以下示例定义到/products文件夹的粘性连接：
 
@@ -1481,7 +1481,7 @@ FileETag none
 /stickyConnectionsFor "/products"
 ```
 
-当页面由来自多个内容节点的内容组成时，请包 `/paths` 含列出内容路径的属性。 例如，页面包含来自、 `/content/image`和 `/content/video`的内容 `/var/files/pdfs`。 以下配置为页面上的所有内容启用了粘性连接：
+当页面由来自多个内容节点的内容组成时，请包 `/paths` 含列表内容路径的属性。 例如，页面包含来自、 `/content/image`和 `/content/video`的内容 `/var/files/pdfs`。 以下配置为页面上的所有内容启用了粘性连接：
 
 ```xml
 /stickyConnections {
@@ -1529,9 +1529,9 @@ FileETag none
 /retryDelay "1"
 ```
 
-### 配置重试次数 {#configuring-the-number-of-retries}
+### 配置重试数 {#configuring-the-number-of-retries}
 
-该属 `/numberOfRetries` 性设置调度程序对渲染器执行的最大连接尝试次数。 如果Dispatcher在此次重试次数后无法成功连接到渲染器，则Dispatcher返回失败的响应。
+该属 `/numberOfRetries` 性设置调度程序对渲染器执行的最大连接尝试次数。 如果Dispatcher在此数量的重试后无法成功连接到渲染器，则Dispatcher将返回失败的响应。
 
 对于每轮，调度程序尝试连接到渲染器的最大次数是农场中的渲染数量。 因此，调度程序尝试连接的最大次数是( `/numberOfRetries`)x（渲染次数）。
 
@@ -1543,7 +1543,7 @@ FileETag none
 
 ### 使用故障转移机制 {#using-the-failover-mechanism}
 
-在原始请求失败时，启用Dispatcher群上的故障转移机制以向不同渲染器重新发送请求。 启用故障转移后，Dispatcher具有以下行为：
+在原始请求失败时，启用Dispatcher群上的故障切换机制以向不同渲染器重新发送请求。 启用故障转移后，Dispatcher具有以下行为：
 
 * 当对渲染器的请求返回HTTP状态503(UNAVAILABLE)时，调度程序会将该请求发送到其他渲染器。
 * 当对渲染器的请求返回HTTP状态50x（除503之外）时，调度程序会发送为属性配置的页面的请 `health_check` 求。
@@ -1708,7 +1708,7 @@ The following table describes the wildcard characters.
 
 **Apache旋转／管道日志**
 
-如果使用 **Apache** web服务器，则可以对旋转和／或管道日志使用标准功能。 例如，使用管道日志：
+如果使用 **Apache** Web服务器，则可以对旋转和／或管道日志使用标准功能。 例如，使用管道日志：
 
 `DispatcherLog "| /usr/apache/bin/rotatelogs logs/dispatcher.log%Y%m%d 604800"`
 
@@ -1717,7 +1717,7 @@ The following table describes the wildcard characters.
 * 调度程序日志文件；带有扩展中的时间戳(logs/dispatcher.log%Y%m%d)。
 * 每周（60 x 60 x 24 x 7 = 604800秒）。
 
-请参见Log Rotation和Pinual Logs上的Apache web服务器文档；例如 [Apache 2.4](https://httpd.apache.org/docs/2.4/logs.html)。
+请参见Log Rotation和Pinual Logs上的Apache Web服务器文档；例如 [Apache 2.4](https://httpd.apache.org/docs/2.4/logs.html)。
 
 >[!NOTE]
 >
@@ -1752,7 +1752,7 @@ The following table describes the wildcard characters.
 [Thu Mar 03 16:05:38 2016] [T] [17183] request.headers[Server-Agent] = "Communique-Dispatcher"
 ```
 
-并且请求与阻止规则匹配的文件时记录的事件：
+当请求与阻止规则匹配的文件时，将记录一个事件:
 
 ```xml
 [Thu Mar 03 14:42:45 2016] [T] [11831] 'GET /content.infinity.json HTTP/1.1' was blocked because of /0082
@@ -1764,8 +1764,8 @@ The following table describes the wildcard characters.
 
 1. 将设置 `loglevel` 为 `3`。
 
-1. 启动Web服务器；这也会启动调度程序。
-1. 启动AEM实例。
+1. 开始Web服务器；这也会开始调度程序。
+1. 开始AEM实例。
 1. 检查Web服务器和调度程序的日志和错误文件。\
    根据Web服务器的不同，您应当看到如下消息：\
    `[Thu May 30 05:16:36 2002] [notice] Apache/2.0.50 (Unix) configured`\
@@ -1793,7 +1793,7 @@ https://localhost:80/libs/wcm/core/content/siteadmin.html
 
 ## 调试 {#debugging}
 
-在向请求中添 `X-Dispatcher-Info` 加标题时，Dispatcher会回答目标是否已缓存、从缓存中返回还是根本不可缓存。 响应标题以可 `X-Cache-Info` 读形式包含此信息。 您可以使用这些响应标头来调试与由调度程序缓存的响应有关的问题。
+在向请求中添 `X-Dispatcher-Info` 加标题时，Dispatcher会回答是缓存目标、从缓存中返回还是根本不可缓存。 响应标题以可 `X-Cache-Info` 读形式包含此信息。 您可以使用这些响应标头来调试与由调度程序缓存的响应有关的问题。
 
 默认情况下，此功能未启用，因此要包含响应标 `X-Cache-Info` 题，群必须包含以下条目：
 
@@ -1820,28 +1820,28 @@ https://localhost:80/libs/wcm/core/content/siteadmin.html
 curl -v -H "X-Dispatcher-Info: true" https://localhost/content/we-retail/us/en.html
 ```
 
-以下是包含将返回的响应标题 `X-Dispatcher-Info` 的列表：
+以下是包含将返回的响应标题 `X-Dispatcher-Info` 的列表:
 
 * **缓存**\
    目标文件包含在缓存中，调度程序已确定传送该文件是有效的。
 * **缓存**\
    目标文件不包含在缓存中，调度程序已确定缓存输出并传送输出是有效的。
-* **缓存：stat文件是较新的**。目标文件包含在缓存中，但是，由较新的stat文件使其失效。 调度程序将删除目标文件，从输出中重新创建并传送它。
-* **不可缓存：无文档根**&#x200B;农场的配置不包含文档根(配置元素 `cache.docroot`)。
+* **缓存：stat文件是较新的**&#x200B;目标文件包含在缓存中，但是，它由较新的stat文件使其失效。 调度程序将删除目标文件，从输出中重新创建并传送该文件。
+* **不可缓存：无文档**&#x200B;根农场的配置不包含文档根(配置元 `cache.docroot`素)。
 * **不可缓存：缓存文件路径过长**\
-   目标文件（文档根文件和URL文件的串联）超过系统上最长的可能文件名。
+   目标文件(文档根文件和URL文件的串连)超过系统上最长的可能文件名。
 * **不可缓存：临时文件路径过长**\
-   临时文件名模板超出系统上最长的可能文件名。 调度程序首先创建临时文件，然后实际创建或覆盖缓存的文件。 临时文件名是目标文件名，并附加字符， `_YYYYXXXXXX` 其中将替换和 `Y``X` 以创建唯一的名称。
+   临时文件名模板超出系统上最长的可能文件名。 调度程序首先创建临时文件，然后实际创建或覆盖缓存的文件。 临时文件名是目标文件名，后面附加 `_YYYYXXXXXX` 字符，将替换和 `Y` 以 `X` 创建唯一的名称。
 * **不可缓存：请求URL没有扩展名**\
    请求URL没有扩展名，或者文件扩展名后面有一个路径，例如： `/test.html/a/path`.
 * **不可缓存：请求不是GET或HEAD** HTTP方法既不是GET也不是HEAD。 调度程序假定输出将包含不应缓存的动态数据。
-* **不可缓存：包含查询字符串的请求**\
-   请求包含查询字符串。 调度程序假定输出取决于给定的查询字符串，因此不进行缓存。
+* **不可缓存：请求包含查询字符串**\
+   该请求包含一个查询字符串。 调度程序假定输出取决于给定的查询字符串，因此不进行缓存。
 * **不可缓存：会话管理器未验证**\
-   农场的缓存由会话管理器（配置包含节点）管 `sessionmanagement` 理，并且请求不包含相应的身份验证信息。
+   农场的缓存由会话管理器（配置包含节点）管 `sessionmanagement` 理，而请求不包含相应的身份验证信息。
 * **不可缓存：请求包含授权**\
    不允许群缓存输出( `allowAuthorized 0`)，并且请求包含身份验证信息。
-* **不可缓存：target是目录**\
+* **不可缓存：目标是目录**\
    目标文件是目录。 这可能指出某些概念性错误，即URL和某些子URL都包含可缓存输出，例如，如果请求首先出现并且包含可缓存输出，则调度程序将无法缓存后续请求的输出 `/test.html/a/file.ext``/test.html`。
 * **不可缓存：request URL有尾随斜杠**\
    请求URL具有尾随斜杠。
