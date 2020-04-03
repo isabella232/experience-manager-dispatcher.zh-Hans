@@ -1,30 +1,30 @@
 ---
-title: 从AEM中使缓存的页面无效
+title: 使从 AEM 中缓存的页面失效
 seo-title: 从Adobe AEM中使缓存的页面无效
 description: 了解如何配置Dispatcher与AEM之间的交互，以确保有效的缓存管理。
 seo-description: 了解如何配置Adobe AEM Dispatcher与AEM之间的交互以确保有效的缓存管理。
 uuid: 66533299-55c0-4864-9beb-77e281af9359
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
-pageversionid: '1193211344162'
+pageversionid: 1193211344162
 template: /apps/docs/templates/contentpage
-contentOwner: 用户
+contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
-topic-tags: 调度程序
-content-type: 引用
+topic-tags: dispatcher
+content-type: reference
 discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
 translation-type: tm+mt
-source-git-commit: 76cffbfb616cd5601aed36b7076f67a2faf3ed3b
+source-git-commit: 85497651ce29c8564da4b52c60819a48b776af7b
 
 ---
 
 
-# 从AEM中使缓存的页面无效 {#invalidating-cached-pages-from-aem}
+# 使从 AEM 中缓存的页面失效 {#invalidating-cached-pages-from-aem}
 
-将Dispatcher与AEM一起使用时，必须配置交互以确保有效的缓存管理。 根据您的环境，该配置还可以提高性能。
+将Dispatcher与AEM一起使用时，必须配置交互以确保有效的缓存管理。 根据您的环境，配置还可以提高性能。
 
 ## 设置AEM用户帐户 {#setting-up-aem-user-accounts}
 
-默认用 `admin` 户帐户用于验证默认安装的复制代理。 您应该创建一个专用用户帐户以与复制代理一起使用。 [](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps)
+默认用 `admin` 户帐户用于验证默认安装的复制代理。 您应该创建一个专用用户帐户以与复制代理一起使用。
 
 有关详细信息，请参 [阅AEM安全核对清单的“配置复制和传输用户](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps) ”部分。
 
@@ -58,9 +58,9 @@ Last Modified Date: 2017-05-25T10:37:23.679-0400
 
 1. （可选）要启用别名或虚路径失效请求，请选择“别 **名更新** ”选项。
 1. 在“传输”选项卡上，输入访问调度程序所需的URI。\
-   如果您使用标准Dispatcher Flush代理，您可能需要更新主机名和端口；例如，https://&lt;*dispatcherHost*&gt;:&lt;*portApache*&gt;/dispatcher/invalidate.cache
+   如果您使用标准Dispatcher Flush代理，您可能需要更新主机名和端口；例如，https://&lt;*dispatcherHost*>:&lt;*portApache*>/dispatcher/invalidate.cache
 
-   **** 注意：对于Dispatcher Flush代理，仅当使用基于路径的虚拟主机条目来区分农场时，才使用URI属性。 您使用此字段来定位要失效的农场。 例如，农场#1的虚拟主机为， `www.mysite.com/path1/*` 而农场#2的虚拟主机为 `www.mysite.com/path2/*`。 您可以使用的URL来 `/path1/invalidate.cache` 定位第一个农场和 `/path2/invalidate.cache` 第二个农场。 有关详细信息，请参 [阅将Dispatcher与多个域一起使用](dispatcher-domains.md)。
+   **注意：** 对于Dispatcher Flush代理，仅当使用基于路径的虚拟主机条目来区分农场时，才使用URI属性。 您使用此字段目标要失效的农场。 例如，农场#1的虚拟主机为， `www.mysite.com/path1/*` 而农场#2的虚拟主机为 `www.mysite.com/path2/*`。 您可以使用的URL `/path1/invalidate.cache` 目标第一个农场和 `/path2/invalidate.cache` 目标第二个农场。 有关详细信息，请参 [阅将Dispatcher与多个域一起使用](dispatcher-domains.md)。
 
 1. 根据需要配置其他参数。
 1. 单击确定以激活代理。
@@ -81,7 +81,7 @@ Last Modified Date: 2017-05-25T10:37:23.679-0400
 
 ## 从发布实例使调度程序缓存失效 {#invalidating-dispatcher-cache-from-a-publishing-instance}
 
-在某些情况下，可通过将缓存管理从创作环境转移到发布实例来提高性能。 随后，接收到已发布页面时，将向Dispatcher发送缓存失效请求的发布环境（而非AEM创作环境）。
+在某些情况下，可通过将缓存管理从创作环境转移到发布实例来提高性能。 随后，它将是在收到已发布页面时向Dispatcher发送缓存失效请求的发布环境(而非AEM创作环境)。
 
 此类情况包括：
 
@@ -93,14 +93,14 @@ Comment Type: draft
 
  -->
 
-* 防止Dispatcher与发布实例之间可能发生的时间冲突(请参阅从创 [作环境中使Dispatcher缓存失效](#invalidating-dispatcher-cache-from-the-authoring-environment))。
+* 防止Dispatcher与发布实例之间可能发生的时间冲突(请参阅“创作”环境 [中的“使Dispatcher缓存失效](#invalidating-dispatcher-cache-from-the-authoring-environment)”)。
 * 该系统包括驻留在高性能服务器上的多个发布实例，并且只包括一个创作实例。
 
 >[!NOTE]
 >
 >使用此方法的决定应由经验丰富的AEM管理员做出。
 
-调度程序刷新由在发布实例上操作的复制代理控制。 但是，配置是在创作环境中进行的，然后通过激活代理来传输：
+调度程序刷新由在发布实例上操作的复制代理控制。 但是，配置是在创作环境上进行的，然后通过激活代理来传输：
 
 1. 打开AEM工具控制台。
 1. 在发布时，在“工具”/“复制”/“代理”下打开所需的复制代理。 您可以使用默认安装的Dispatcher Flush代理。
@@ -109,7 +109,7 @@ Comment Type: draft
 1. 在“传输”选项卡上，输入访问调度程序所需的URI。\
    如果您使用标准Dispatcher Flush代理，您可能需要更新主机名和端口；例如， `http://<dispatcherHost>:<portApache>/dispatcher/invalidate.cache`
 
-   **** 注意：对于Dispatcher Flush代理，仅当使用基于路径的虚拟主机条目来区分农场时，才使用URI属性。 您使用此字段来定位要失效的农场。 例如，农场#1的虚拟主机为， `www.mysite.com/path1/*` 而农场#2的虚拟主机为 `www.mysite.com/path2/*`。 您可以使用的URL来 `/path1/invalidate.cache` 定位第一个农场和 `/path2/invalidate.cache` 第二个农场。 有关详细信息，请参 [阅将Dispatcher与多个域一起使用](dispatcher-domains.md)。
+   **注意：** 对于Dispatcher Flush代理，仅当使用基于路径的虚拟主机条目来区分农场时，才使用URI属性。 您使用此字段目标要失效的农场。 例如，农场#1的虚拟主机为， `www.mysite.com/path1/*` 而农场#2的虚拟主机为 `www.mysite.com/path2/*`。 您可以使用的URL `/path1/invalidate.cache` 目标第一个农场和 `/path2/invalidate.cache` 目标第二个农场。 有关详细信息，请参 [阅将Dispatcher与多个域一起使用](dispatcher-domains.md)。
 
 1. 根据需要配置其他参数。
 1. 对受影响的每个发布实例重复上述步骤。
@@ -143,7 +143,7 @@ Content-Length: 0
 
 * en目录下名 `_jcr_content`为“”的任何目录（如果存在，则包含页面子节点的缓存呈现）
 
-调度程序缓存中的所有其他文件（或者，根据设置，最高达到特定级别） `/statfileslevel` 通过触摸文件而失效 `.stat` 。 将此文件的上次修改日期与缓存文档的上次修改日期进行比较，如果文件较新，则重新获取 `.stat` 文档。 有关详 [细信息，请参阅按文件夹级别使文件失效](dispatcher-configuration.md#main-pars_title_26) 。
+调度程序缓存中的所有其他文件（或者，根据设置，最高达到特定级别） `/statfileslevel` 通过触摸文件而失效 `.stat` 。 将此文件的上次修改日期与缓存的文档的上次修改日期进行比较，如果文件较新，则重新获取该 `.stat` 文档。 有关详 [细信息，请参阅按文件夹级别使文件失效](dispatcher-configuration.md#main-pars_title_26) 。
 
 通过发送其他标题可以防止失效（即。stat文件的触摸） `CQ-Action-Scope: ResourceOnly`。 这可用于刷新特定资源而不使缓存的其他部分失效，例如动态创建并需要定期刷新的JSON数据（例如，表示从第三方系统获取的数据以显示新闻、股票行情等）。
 
@@ -151,7 +151,7 @@ Content-Length: 0
 
 发出HTTP请求，使Dispatcher删除缓存的文件，并立即检索并重新缓存文件。 当网站可能收到同一页面的同时客户端请求时，删除并立即重新缓存文件。 立即重新缓存可确保Dispatcher只检索并缓存页面一次，而不是同时为每个客户端请求一次。
 
-**** 注意：应仅对发布实例执行删除和重新缓存文件。 当从作者实例执行时，当重新缓存资源尝试在发布之前发生时，会发生竞争条件。
+**注意：** 应仅对发布实例执行删除和重新缓存文件。 当从作者实例执行时，当重新缓存资源尝试在发布之前发生时，会发生竞争条件。
 
 HTTP请求具有以下形式：
 
