@@ -1,8 +1,8 @@
 ---
 title: Dispatcher 安全核对清单
 seo-title: Dispatcher 安全核对清单
-description: 应在开始生产之前完成的安全清单。
-seo-description: 应在开始生产之前完成的安全清单。
+description: 在开始生产之前应完成的安全清单。
+seo-description: 在开始生产之前应完成的安全清单。
 uuid: 7bfa3202-03f6-48e9-8d2e-2a40e137ecbe
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
@@ -14,7 +14,10 @@ index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: 5b5ac8cdff27d6bc6664f1c18302c53649df7360
+source-git-commit: 9ffdc1d85d1a0da45f95e0780227ee6569cd4b3d
+workflow-type: tm+mt
+source-wordcount: '672'
+ht-degree: 1%
 
 ---
 
@@ -32,15 +35,15 @@ Last Modified Date: 2015-06-05T05:14:35.365-0400
 
  -->
 
-作为前端系统的调度程序为您的Adobe Experience manager基础结构提供了额外的安全层。 Adobe强烈建议您在开始生产之前先完成以下核对清单。
+调度程序作为前端系统，为您的优惠基础架构Adobe Experience Manager额外的安全层。 Adobe强烈建议您在开始生产之前先完成以下核对清单。
 
 >[!CAUTION]
 >
->您还必须先完成AEM版本的安全核对清单，然后才能上线。 请参阅相应的 [Adobe Experience manager文档](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html)。
+>您还必须先完成AEM版本的安全核对清单，然后才能上线。 请参阅相应的 [Adobe Experience Manager文档](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html)。
 
 ## 使用最新版Dispatcher {#use-the-latest-version-of-dispatcher}
 
-您应安装适用于您的平台的最新版本。 您应升级Dispatcher实例以使用最新版本来利用产品和安全增强功能。 请参 [阅安装Dispatcher](dispatcher-install.md)。
+您应安装适用于您的平台的最新可用版本。 您应升级Dispatcher实例，以使用最新版本来充分利用产品和安全增强。 请参 [阅安装Dispatcher](dispatcher-install.md)。
 
 >[!NOTE]
 >
@@ -52,11 +55,11 @@ Last Modified Date: 2015-06-05T05:14:35.365-0400
 
 ## 限制可刷新缓存的客户端 {#restrict-clients-that-can-flush-your-cache}
 
-Adobe建议您限 [制可刷新缓存的客户端。](dispatcher-configuration.md#limiting-the-clients-that-can-flush-the-cache)
+Adobe建议您限 [制可以刷新缓存的客户端。](dispatcher-configuration.md#limiting-the-clients-that-can-flush-the-cache)
 
 ## 为传输层安全启用HTTPS {#enable-https-for-transport-layer-security}
 
-Adobe建议在创作实例和发布实例上启用HTTPS传输层。
+Adobe建议在创作和发布实例上启用HTTPS传输层。
 
 <!-- 
 
@@ -77,36 +80,36 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
 ## 限制访问 {#restrict-access}
 
-配置调度程序时，应尽可能限制外部访问。 请参 [阅调度程序文档中的示例](dispatcher-configuration.md#main-pars_184_1_title) /filter部分。
+配置Dispatcher时，应尽可能限制外部访问。 请参 [阅Dispatcher文档中](dispatcher-configuration.md#main-pars_184_1_title) 的示例/filter部分。
 
-## 确保拒绝对管理URL的访问 {#make-sure-access-to-administrative-urls-is-denied}
+## 确保拒绝访问管理URL {#make-sure-access-to-administrative-urls-is-denied}
 
 确保使用过滤器阻止对任何管理URL（如Web控制台）的外部访问。
 
-请参 [阅测试调度程序安全](dispatcher-configuration.md#testing-dispatcher-security) ，以获取需要阻止的URL列表。
+请参 [阅测试Dispatcher安](dispatcher-configuration.md#testing-dispatcher-security) 全性，以了解需要阻止的URL的列表。
 
-## 使用白名单而不是黑名单 {#use-whitelists-instead-of-blacklists}
+## 使用Allowlists代替块列表 {#use-allowlists-instead-of-blocklists}
 
-白名单是提供访问控制的更好方法，因为白名单本身就认为，除非所有访问请求明确地包含在白名单中，否则应拒绝所有访问请求。 此模型对某些配置阶段可能尚未审查或考虑的新请求提供更严格的控制。
+Allowlist是一种提供访问控制的更好方法，因为它们本身就假定所有访问请求都应被拒绝，除非它们明确地属于allowlist。 此模型对某些配置阶段可能尚未审核或考虑的新请求提供更严格的控制。
 
-## 与专用系统用户一起运行调度程序 {#run-dispatcher-with-a-dedicated-system-user}
+## 与专用系统用户一起运行Dispatcher {#run-dispatcher-with-a-dedicated-system-user}
 
-配置调度程序时，应确保Web服务器由具有最低权限的专用用户运行。 建议仅授予对调度程序缓存文件夹的写访问权限。
+配置Dispatcher时，您应确保Web服务器由专用用户以最少的权限运行。 建议仅授予对调度程序缓存文件夹的写访问权限。
 
-此外，IIS用户需要如下配置其网站：
+此外，IIS用户需要按如下方式配置其网站：
 
-1. 在网站的物理路径设置中，选择 **Connect作为特定用户**。
+1. 在网站的物理路径设置中，选择Connect **作为特定用户**。
 1. 设置用户。
 
 ## 防止拒绝服务(DoS)攻击 {#prevent-denial-of-service-dos-attacks}
 
-拒绝服务(DoS)攻击是使计算机资源对其目标用户不可用的尝试。
+拒绝服务(DoS)攻击是试图使计算机资源对其预期用户不可用。
 
-在调度程序级别，有两种配置方法可防止DoS攻击：滤 [](https://docs.adobe.com/content/docs/en/dispatcher.html#/filter (镜))
+在调度程序级别，有两种配置方法可防止DoS攻击： [](https://docs.adobe.com/content/docs/en/dispatcher.html#/filter (筛选器))
 
 * 使用mod_rewrite模块(例如， [Apache 2.4](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html))执行URL验证（如果URL模式规则不太复杂）。
 
-* 防止调度程序使用过滤器缓存具有虚假扩展的 [URL](dispatcher-configuration.md#configuring-access-to-conten-tfilter)。\
+* 通过使用过滤器，防止调度程序缓存具有虚假扩展的 [URL](dispatcher-configuration.md#configuring-access-to-conten-tfilter)。\
    例如，更改缓存规则以将缓存限制为预期的mime类型，例如：
 
    * `.html`
@@ -117,9 +120,10 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
    * `.doc`
    * `.pdf`
    * `.ppt`
-   可以看到一个用于限制外部访问 [的示例配置文件](#restrict-access)，其中包括MIME类型的限制。
 
-要安全地启用发布实例的完整功能，请配置过滤器以阻止对以下节点的访问：
+   可以看到限制外部访问的 [示例配置文件](#restrict-access)，这包括MIME类型的限制。
+
+要安全地在发布实例上启用完整功能，请配置过滤器以阻止访问以下节点：
 
 * `/etc/`
 * `/libs/`
@@ -149,16 +153,16 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## Configure Dispatcher to prevent CSRF Attacks {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM提供了一 [个框架](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) ，旨在防止跨站点请求伪造攻击。 为了正确利用此框架，您需要在调度程序中将CSRF令牌支持列入白名单。 您可以通过以下方式执行此操作：
+AEM提供了一 [个旨在](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) 防止跨站点请求伪造攻击的框架。 为了正确利用此框架，您需要允许在调度程序中列出CSRF令牌支持。 可通过以下方式执行此操作：
 
-1. 创建允许路径的过 `/libs/granite/csrf/token.json` 滤器；
-1. 将头添 `CSRF-Token` 加到调度程 `clientheaders` 序配置的部分。
+1. 创建允许路径的 `/libs/granite/csrf/token.json` 过滤器；
+1. 将标 `CSRF-Token` 头添加到Dispatcher `clientheaders` 配置的一节。
 
-## 防止Clickjacking {#prevent-clickjacking}
+## 防止点击劫持 {#prevent-clickjacking}
 
 为防止点击劫持，我们建议您配置Web服务器以提供 `X-FRAME-OPTIONS` 设置为的HTTP头 `SAMEORIGIN`。
 
-有关Clickjacking [的更多信息，请参阅OWASP站点](https://www.owasp.org/index.php/Clickjacking)。
+有关点击 [劫持的更多信息，请参阅OWASP站点](https://www.owasp.org/index.php/Clickjacking)。
 
 ## 执行渗透测试 {#perform-a-penetration-test}
 
