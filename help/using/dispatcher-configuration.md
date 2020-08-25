@@ -10,9 +10,9 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: aeffee8e-bb34-42a7-9a5e-b7d0e848391a
 translation-type: tm+mt
-source-git-commit: 5734e601379fda9a62eda46bded493b8dbd49a4c
+source-git-commit: 31dc02adc1d16ec61d5191b86d0d1276c2e1da46
 workflow-type: tm+mt
-source-wordcount: '8802'
+source-wordcount: '8582'
 ht-degree: 2%
 
 ---
@@ -155,7 +155,7 @@ AEM和Dispatcher的所有元素都可以安装在IPv4和IPv6网络中。 请参 
 
 ## 命名调度程序实例 {#naming-the-dispatcher-instance-name}
 
-使用该 `/name` 属性指定唯一名称以标识Dispatcher实例。 该 `/name` 属性是配置结构中的顶级属性。
+使用属 `/name` 性指定唯一名称以标识Dispatcher实例。 该 `/name` 属性是配置结构中的顶级属性。
 
 ## 定义场 {#defining-farms-farms}
 
@@ -543,7 +543,7 @@ Amazon弹性负载平衡(ELB)是一种对getaddrinfo做出响应的服务，其I
 
 在Dispatcher版 **本4.1.6中**，您可以按如 `/always-resolve` 下方式配置属性：
 
-* 如果设置为“1”，则将解析每个请求的主机名（调度程序永远不会缓存任何IP地址）。 由于需要额外的呼叫来获取每个请求的主机信息，因此可能会对性能产生轻微影响。
+* 如果设置为“1”，则将解析每个请求的主机名（调度程序将不会缓存任何IP地址）。 由于需要额外的呼叫来获取每个请求的主机信息，因此可能会对性能产生轻微影响。
 * 如果未设置属性，则默认情况下将缓存IP地址。
 
 此外，当您遇到动态IP解决问题时，可使用此属性，如以下示例所示：
@@ -576,7 +576,7 @@ Amazon弹性负载平衡(ELB)是一种对getaddrinfo做出响应的服务，其I
 
 ### 定义筛选器 {#defining-a-filter}
 
-该部分中的每 `/filter` 个项目都包括类型和与请求行或整个请求行的特定元素相匹配的模式。 每个筛选器都可包含以下项：
+该部分中的每 `/filter` 个项目都包括类型和与请求行或整个请求行的特定元素匹配的模式。 每个筛选器都可包含以下项：
 
 * **类型**:指示 `/type` 是否允许或拒绝对与模式匹配的请求进行访问。 该值可以是 `allow` 或 `deny`。
 
@@ -847,60 +847,60 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 
 调度程序过滤器应阻止访问AEM发布实例上的以下页面和脚本。 使用Web浏览器尝试像站点访客一样打开以下页面并验证是否返回代码404。 如果获得了任何其他结果，请调整过滤器。
 
-请注意，您应当看到/content/add_valid_page.html?debug=layout的普通页面呈现。
+请注意，您应当看到的是的普通页面呈 `/content/add_valid_page.html?debug=layout`现。
 
 
-* /管理员
-* /system/console
-* /dav/crx.default
-* /crx
-* /bin/crxde/logs
-* /jcr:system/jcr:versionStorage.json
-* /_jcr_system/_jcr_versionStorage.json
-* /libs/wcm/core/content/siteadmin.html
-* /libs/collab/core/content/admin.html
-* /libs/cq/ui/content/dumplibs.html
-* /var/linkchecker.html
-* /etc/linkchecker.html
-* /home/users/a/admin/profile.json
-* /home/users/a/admin/profile.xml
-* /libs/cq/core/content/login.json
-* ../libs/foundation/components/text/text.jsp
-* /content/.{.}/libs/foundation/components/text/text.jsp
-* /apps/sling/config/org.apache.felix.webconsole.internal.servlet.OsgiManager.config/jcr%3acontent/jcr%3adata
-* /libs/foundation/components/primary/cq/workflow/components/participants/json.GET.servlet
-* /content.pages.json
-* /content.languages.json
-* /content.blueprint.json
-* /content.-1.json
-* /content.10.json
-* /content.infinity.json
-* /content.tidy.json
-* /content.tidy。-1.blubber.json
-* /content/dam.tidy。-100.json
-* /content/content/geometrixx.sitemap.txt
-* /content/add_valid_page.query.json?statement=//*
-* /content/add_valid_page.qu%65ry.js%6Fn?statement=//*
-* /content/add_valid_page.query.json?statement=//*[@transportPassword]/(@transportPassword%20|%20@transportUri%20|%20@transportUser)
-* /content/add_valid_path_to_a_page/_jcr_content.json
-* /content/add_valid_path_to_a_page/jcr:content_json
-* /content/add_valid_path_to_a_page/_jcr_content.feed
-* /content/add_valid_path_to_a_page/jcr:content.feed
-* /content/add_valid_path_to_a_page/pagename。_jcr_content.feed
-* /content/add_valid_path_to_a_page/pagename.jcr:content.feed
-* /content/add_valid_path_to_a_page/pagename.docview.xml
-* /content/add_valid_path_to_a_page/pagename.docview.json
-* /content/add_valid_path_to_a_page/pagename.sysview.xml
-* /etc.xml
-* /content.feed.xml
-* /content.rss.xml
-* /content.feed.html
-* /content/add_valid_page.html?debug=layout
-* /项目
-* /标记
-* /etc/replication.html
-* /etc/cloudservices.html
-* /欢迎
+* `/admin`
+* `/system/console`
+* `/dav/crx.default`
+* `/crx`
+* `/bin/crxde/logs`
+* `/jcr:system/jcr:versionStorage.json`
+* `/_jcr_system/_jcr_versionStorage.json`
+* `/libs/wcm/core/content/siteadmin.html`
+* `/libs/collab/core/content/admin.html`
+* `/libs/cq/ui/content/dumplibs.html`
+* `/var/linkchecker.html`
+* `/etc/linkchecker.html`
+* `/home/users/a/admin/profile.json`
+* `/home/users/a/admin/profile.xml`
+* `/libs/cq/core/content/login.json`
+* `/content/../libs/foundation/components/text/text.jsp`
+* `/content/.{.}/libs/foundation/components/text/text.jsp`
+* `/apps/sling/config/org.apache.felix.webconsole.internal.servlet.OsgiManager.config/jcr%3acontent/jcr%3adata`
+* `/libs/foundation/components/primary/cq/workflow/components/participants/json.GET.servlet`
+* `/content.pages.json`
+* `/content.languages.json`
+* `/content.blueprint.json`
+* `/content.-1.json`
+* `/content.10.json`
+* `/content.infinity.json`
+* `/content.tidy.json`
+* `/content.tidy.-1.blubber.json`
+* `/content/dam.tidy.-100.json`
+* `/content/content/geometrixx.sitemap.txt `
+* `/content/add_valid_page.query.json?statement=//*`
+* `/content/add_valid_page.qu%65ry.js%6Fn?statement=//*`
+* `/content/add_valid_page.query.json?statement=//*[@transportPassword]/(@transportPassword%20|%20@transportUri%20|%20@transportUser)`
+* `/content/add_valid_path_to_a_page/_jcr_content.json`
+* `/content/add_valid_path_to_a_page/jcr:content.json`
+* `/content/add_valid_path_to_a_page/_jcr_content.feed`
+* `/content/add_valid_path_to_a_page/jcr:content.feed`
+* `/content/add_valid_path_to_a_page/pagename._jcr_content.feed`
+* `/content/add_valid_path_to_a_page/pagename.jcr:content.feed`
+* `/content/add_valid_path_to_a_page/pagename.docview.xml`
+* `/content/add_valid_path_to_a_page/pagename.docview.json`
+* `/content/add_valid_path_to_a_page/pagename.sysview.xml`
+* `/etc.xml`
+* `/content.feed.xml`
+* `/content.rss.xml`
+* `/content.feed.html`
+* `/content/add_valid_page.html?debug=layout`
+* `/projects`
+* `/tagging`
+* `/etc/replication.html`
+* `/etc/cloudservices.html`
+* `/welcome`
 
 在终端或命令提示符下发出以下命令以确定是否启用了匿名写入访问。 您不应能够将数据写入节点。
 
@@ -1155,7 +1155,7 @@ Last Modified Date: 2017-11-13T09:23:24.326-0500
 
  -->
 
-### 按文件夹级别使文件失效 {#invalidating-files-by-folder-level}
+### 按文件夹级别验证文件 {#invalidating-files-by-folder-level}
 
 使用属 `/statfileslevel` 性根据缓存文件的路径使其失效：
 
@@ -1511,7 +1511,7 @@ FileETag none
 
 当渲染服务器返回500错误或不可用时配置调度程序行为。
 
-### 指定运行状况检查页面 {#specifying-a-health-check-page}
+### 指定运行状况检查页 {#specifying-a-health-check-page}
 
 使用属 `/health_check` 性指定在发生500状态代码时检查的URL。 如果此页还返回500个状态代码，则该实例被视为不可用，在重试之前，将对渲染应用可配置的 `/unavailablePenalty`时间惩罚()。
 
@@ -1838,7 +1838,7 @@ curl -v -H "X-Dispatcher-Info: true" https://localhost/content/we-retail/us/en.h
 * **无法缓存：缓存文件路径太长**\
    目标文件(文档根文件和URL文件的串连)超过系统上最长的可能文件名。
 * **无法缓存：临时文件路径太长**\
-   临时文件名模板超出系统上最长的可能文件名。 调度程序首先创建临时文件，然后实际创建或覆盖缓存的文件。 临时文件名是目标文件名，其中附加 `_YYYYXXXXXX` 了字符，将替换 `Y` 和 `X` 以创建唯一的名称。
+   临时文件名模板超出系统上最长的可能文件名。 调度程序首先创建临时文件，然后实际创建或覆盖缓存的文件。 临时文件名是目标文件名，并附加 `_YYYYXXXXXX` 字符，将替换 `Y` 和 `X` 以创建唯一名称。
 * **无法缓存：请求URL没有扩展名**\
    请求URL没有扩展名，或者文件扩展名后面有一个路径，例如： `/test.html/a/path`.
 * **无法缓存：请求不是GET或HEAD** HTTP方法既不是GET也不是HEAD。 调度程序假定输出将包含不应缓存的动态数据。
