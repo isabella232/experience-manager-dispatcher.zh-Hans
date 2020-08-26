@@ -9,7 +9,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
 translation-type: tm+mt
-source-git-commit: 3bf255c54b46f571fab64f0754b71e050c3bda3f
+source-git-commit: 88ea38c9ad7fe67edbaf68c4882a01c3f9a475d9
+workflow-type: tm+mt
+source-wordcount: '3222'
+ht-degree: 91%
 
 ---
 
@@ -24,17 +27,20 @@ Dispatcher 是 Adobe Experience Manager 的缓存和/或负载平衡工具。使
 
 Dispatcher 部署流程与所选的 Web 服务器和操作系统平台无关：
 
-1. 了解 Dispatcher（此页面）。此外，请参阅有 [关调度程序的常见问题解答](https://helpx.adobe.com/experience-manager/using/dispatcher-faq.html)。
-1. 根据Web服 [务器文档](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html) ，安装支持的Web服务器。
-
+1. 了解 Dispatcher（此页面）。另请参阅有 [关调度程序的常见问题](https://helpx.adobe.com/experience-manager/using/dispatcher-faq.html)。
+1. 根据Web [服务器文档](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html) ，安装支持的Web服务器。
 1. 在 Web 服务器上[安装 Dispatcher 模块](dispatcher-install.md)，并相应地配置 Web 服务器。
 1. [配置 Dispatcher](dispatcher-configuration.md)（dispatcher.any 文件）。
-
 1. [配置 AEM](page-invalidate.md)，以便内容更新后，使缓存失效。
 
 >[!NOTE]
 >
->要更详细地了解 Dispatcher 如何与 AEM 协同工作，请参阅 [2017 年 7 月咨询 AEM 社区专家](https://bit.ly/ATACE0717)。
+>要更好地了解Dispatcher如何与AEM协作，请执行以下操作：
+>
+>* 请参 [阅2017年7月的AEM社区专家咨询](https://bit.ly/ATACE0717)。
+>* 访问 [此存储库](https://github.com/adobe/aem-dispatcher-experiments)。 它包含一组以“回家”实验室格式进行的实验。
+
+
 
 根据需要使用以下信息：
 
@@ -99,7 +105,7 @@ Dispatcher 包含根据动态站点内容生成和更新静态 HTML 的机制。
 
 >[!NOTE]
 >
->如果没有配置 HTTP 标头缓存，则 Dispatcher 仅存储页面的 HTML 代码 - 它不会存储 HTTP 标头。如果您在网站内使用不同的编码，这可能是个问题，因为这些编码可能会丢失。要启用 HTTP 标头缓存，请参阅[配置 Dispatcher 缓存。](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html)
+>如果没有配置 HTTP 标头缓存，则 Dispatcher 仅存储页面的 HTML 代码 - 它不会存储 HTTP 标头。如果您在网站内使用不同的编码，这可能是个问题，因为这些编码可能会丢失。要启用 HTTP 标头缓存，请参阅[配置 Dispatcher 缓存。](https://helpx.adobe.com/cn/experience-manager/dispatcher/using/dispatcher-configuration.html)
 
 >[!NOTE]
 >
@@ -153,7 +159,7 @@ Dispatcher 有一个遵循自动失效机制的文件列表。当请求该列表
 
 ### 确定文档是否实施了缓存
 
-您可以 [定义配置文件中Dispatcher缓存的文档](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html)。 Dispatcher 根据可缓存文档列表检查请求。如果文档不在此列表中，则 Dispatcher 从 AEM 实例中请求该文档。
+您可以 [定义配置文件中Dispatcher缓存的文档](https://helpx.adobe.com/cn/experience-manager/dispatcher/using/dispatcher-configuration.html)。 Dispatcher 根据可缓存文档列表检查请求。如果文档不在此列表中，则 Dispatcher 从 AEM 实例中请求该文档。
 
 在以下情况下，Dispatcher *始终*&#x200B;直接从 AEM 实例请求文档：
 
@@ -163,7 +169,7 @@ Dispatcher 有一个遵循自动失效机制的文件列表。当请求该列表
 
 >[!NOTE]
 >
->GET 或 HEAD（针对 HTTP 标头）方法可由 Dispatcher 缓存。有关响应头缓存的其他信息，请参阅 [缓存HTTP响应头部分](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html) 。
+>GET 或 HEAD（针对 HTTP 标头）方法可由 Dispatcher 缓存。有关响应头缓存的其他信息，请参 [阅缓存HTTP响应头](https://helpx.adobe.com/cn/experience-manager/dispatcher/using/dispatcher-configuration.html) 。
 
 ### 确定文档是否已缓存
 
@@ -306,7 +312,7 @@ Dispatcher 可在创作实例之前使用以提高创作性能。要配置创作
 1. 在文本编辑器中打开 `author_dispatcher.any`，并进行以下更改：
 
    1. 将 `/renders` 部分的 `/hostname` 和 `/port` 更改为指向创作实例。
-   1. 将 `/cache` 部分的 `/docroot` 更改为指向缓存目录。如果您正在将 [AEM与触屏UI结合使用](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html)，请参阅上述警告。
+   1. 将 `/cache` 部分的 `/docroot` 更改为指向缓存目录。如果您正在将AEM [与触屏UI结合使用](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html)，请参阅上面的警告。
    1. 保存更改。
 
 1. 删除您在前面配置的 `/cache` > `/docroot` 目录中的所有现有文件。
