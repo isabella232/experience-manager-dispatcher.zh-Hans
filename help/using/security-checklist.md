@@ -14,9 +14,9 @@ index: y
 internal: n
 snippet: y
 translation-type: tm+mt
-source-git-commit: 9ffdc1d85d1a0da45f95e0780227ee6569cd4b3d
+source-git-commit: 7889c025fb8fb29e6f11ea01c5248470556d3160
 workflow-type: tm+mt
-source-wordcount: '672'
+source-wordcount: '653'
 ht-degree: 1%
 
 ---
@@ -35,15 +35,15 @@ Last Modified Date: 2015-06-05T05:14:35.365-0400
 
  -->
 
-调度程序作为前端系统，为您的优惠基础架构Adobe Experience Manager额外的安全层。 Adobe强烈建议您在开始生产之前先完成以下核对清单。
+Adobe强烈建议您在开始生产之前完成以下核对清单。
 
 >[!CAUTION]
 >
->您还必须先完成AEM版本的安全核对清单，然后才能上线。 请参阅相应的 [Adobe Experience Manager文档](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html)。
+>您还必须在AEM上市前完成版本的安全核对清单。 请参阅相应的Adobe Experience Manager [文件](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html)。
 
-## 使用最新版Dispatcher {#use-the-latest-version-of-dispatcher}
+## 使用最新版的Dispatcher {#use-the-latest-version-of-dispatcher}
 
-您应安装适用于您的平台的最新可用版本。 您应升级Dispatcher实例，以使用最新版本来充分利用产品和安全增强。 请参 [阅安装Dispatcher](dispatcher-install.md)。
+您应安装适用于您的平台的最新可用版本。 您应升级Dispatcher实例，以使用最新版本来利用产品和安全增强功能。 请参 [阅安装Dispatcher](dispatcher-install.md)。
 
 >[!NOTE]
 >
@@ -80,21 +80,21 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
 ## 限制访问 {#restrict-access}
 
-配置Dispatcher时，应尽可能限制外部访问。 请参 [阅Dispatcher文档中](dispatcher-configuration.md#main-pars_184_1_title) 的示例/filter部分。
+配置调度程序时，应尽可能限制外部访问。 请参 [阅调度程序文档中](dispatcher-configuration.md#main-pars_184_1_title) 的示例/filter部分。
 
 ## 确保拒绝访问管理URL {#make-sure-access-to-administrative-urls-is-denied}
 
 确保使用过滤器阻止对任何管理URL（如Web控制台）的外部访问。
 
-请参 [阅测试Dispatcher安](dispatcher-configuration.md#testing-dispatcher-security) 全性，以了解需要阻止的URL的列表。
+请参 [阅测试Dispatcher](dispatcher-configuration.md#testing-dispatcher-security) Security以获取需要阻止的URL列表。
 
-## 使用Allowlists代替块列表 {#use-allowlists-instead-of-blocklists}
+## 使允许列表用代替阻止列表 {#use-allowlists-instead-of-blocklists}
 
-Allowlist是一种提供访问控制的更好方法，因为它们本身就假定所有访问请求都应被拒绝，除非它们明确地属于allowlist。 此模型对某些配置阶段可能尚未审核或考虑的新请求提供更严格的控制。
+允许列表是提供访问控制的更好方式，因为它们本身就认为，除非明确属于，否则应拒绝所有访问请求允许列表。 此模型对某些配置阶段可能尚未审核或考虑的新请求提供更严格的控制。
 
-## 与专用系统用户一起运行Dispatcher {#run-dispatcher-with-a-dedicated-system-user}
+## 与专用系统用户一起运行调度程序 {#run-dispatcher-with-a-dedicated-system-user}
 
-配置Dispatcher时，您应确保Web服务器由专用用户以最少的权限运行。 建议仅授予对调度程序缓存文件夹的写访问权限。
+配置调度程序时，您应确保Web服务器由具有最少权限的专用用户运行。 建议仅授予对调度程序缓存文件夹的写访问权限。
 
 此外，IIS用户需要按如下方式配置其网站：
 
@@ -120,6 +120,7 @@ Allowlist是一种提供访问控制的更好方法，因为它们本身就假�
    * `.doc`
    * `.pdf`
    * `.ppt`
+
    可以看到限制外部访问的 [示例配置文件](#restrict-access)，这包括MIME类型的限制。
 
 要安全地在发布实例上启用完整功能，请配置过滤器以阻止访问以下节点：
@@ -152,10 +153,10 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## Configure Dispatcher to prevent CSRF Attacks {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM提供了一 [个旨在](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) 防止跨站点请求伪造攻击的框架。 为了正确利用此框架，您需要允许在调度程序中列出CSRF令牌支持。 可通过以下方式执行此操作：
+AEM提供了 [旨在](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) 防止跨站点请求伪造攻击的框架。 为了正确利用此框架，您需要在调度程允许列表序中CSRF令牌支持。 可通过以下方式执行此操作：
 
 1. 创建允许路径的 `/libs/granite/csrf/token.json` 过滤器；
-1. 将标 `CSRF-Token` 头添加到Dispatcher `clientheaders` 配置的一节。
+1. 将标 `CSRF-Token` 头添加到调 `clientheaders` 度程序配置的部分。
 
 ## 防止点击劫持 {#prevent-clickjacking}
 
