@@ -1,16 +1,19 @@
 ---
 title: 安装 Dispatcher
 seo-title: 安装AEM Dispatcher
-description: 了解如何在Microsoft Internet Information Server、Apache Web server和Sun Java Web Server-iPlanet上安装Dispatcher模块。
-seo-description: 了解如何在Microsoft Internet Information Server、Apache Web server和Sun Java Web Server-iPlanet上安装AEM Dispatcher模块。
+description: 了解如何在Microsoft Internet Information Server、Apache Web Server和Sun Java Web Server-iPlanet上安装Dispatcher模块。
+seo-description: 了解如何在Microsoft Internet Information Server、Apache Web Server和Sun Java Web Server-iPlanet上安装AEM Dispatcher模块。
 uuid: 2384b907-1042-4707-b02f-fba2125618cf
-contentOwner: 用户
-converted: 'true'
+contentOwner: User
+converted: true
 topic-tags: dispatcher
-content-type: 参考文件
+content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 translation-type: tm+mt
-source-git-commit: eed7c3f77ec64f2e7c5cfff070ef96108886a059
+source-git-commit: ef0fc34cbf2f07090f39613811d6f015ba2305ab
+workflow-type: tm+mt
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
@@ -29,36 +32,36 @@ Comment Type: draft
 >
 >各个 Dispatcher 版本与 AEM 相互独立。如果单击以前版本 AEM 文档中嵌入的 Dispatcher 文档链接，可能会重定向到此页面。
 
-使用“ [Dispatcher发行说明](release-notes.md) ”页可获取操作系统和Web服务器的最新Dispatcher安装文件。 调度程序发行号与Adobe Experience manager发行号无关，与Adobe Experience Manager 6.x、5.x和Adobe CQ 5.x发行版兼容。
+使用“ [调度程序发行说明](release-notes.md) ”页可获取操作系统和Web服务器的最新Dispatcher安装文件。 调度程序发行号与Adobe Experience Manager发行号无关，与Adobe Experience Manager6.x、5.x和Adobe CQ5.x发行版兼容。
 
 使用以下文件命名约定：
 
 `dispatcher-<web-server>-<operating-system>-<dispatcher-version-number>.<file-format>`
 
-例如，该文 `dispatcher-apache2.4-linux-x86_64-ssl-4.3.1.tar.gz` 件包含适用于运行于Linux i686上的Apache 2.4 web服务器的Dispatcher版本4.3.1，并使用 **tar** 格式打包。
+例如，该文 `dispatcher-apache2.4-linux-x86_64-ssl-4.3.1.tar.gz` 件包含适用于运行于Linux i686上的Apache 2.4 Web服务器的Dispatcher版本4.3.1，并使用tar格式 **打包** 。
 
-下表列出了在每个Web服务器的文件名中使用的Web服务器标识符：
+下表列表了用于每个Web服务器的文件名的Web服务器标识符：
 
 | Web 服务器 | 安装套件 |
 |--- |--- |
-| Apache 2.4 | dispatcher-apache **2.4**-&lt;other parameters&gt; |
-| Microsoft Internet Information Server 7.5、8、8.5 | dispatcher-**iis**-&lt;other parameters&gt; |
-| Sun Java Web Server iPlanet | dispatcher-**ns**-&lt;其他参数&gt; |
+| Apache 2.4 | dispatcher-apache **2.4**-&lt;other parameters> |
+| Microsoft Internet Information Server 7.5、8、8.5 | dispatcher-**iis**-&lt;other parameters> |
+| Sun Java Web Server iPlanet | dispatcher-**ns**-&lt;其他参数> |
 
 >[!NOTE]
 >
 >您应安装适用于您的平台的最新版本的Dispatcher。 您应每年升级Dispatcher实例，以使用最新版本来利用产品改进。
 
-每个存档都包含以下文件：
+每个归档都包含以下文件：
 
 * 调度程序模块
 * 示例配置文件
 * 包含安装说明和最后一分钟信息的自述文件
-* 列出当前和过去版本中修复的问题的CHANGES文件
+* 列表在当前和过去版本中修复的问题的CHANGES文件
 
 >[!NOTE]
 >
->在开始安装之前，请查看README文件，了解最后一刻所做的任何更改／平台特定的说明。
+>在开始安装之前，请查看README文件，了解任何最后时刻的更改／平台特定说明。
 
 <!-- 
 
@@ -88,18 +91,18 @@ Comment Type: draft
 
 有关如何安装此Web服务器的信息，请参阅以下资源：
 
-* Internet Information server上的Microsoft自己的文档
-* ["The Official Microsoft IIS site"](https://www.iis.net/)
+* Internet Information Server上Microsoft自己的文档
+* [&quot;The Official Microsoft IIS site&quot;（官方的Microsoft IIS站点）](https://www.iis.net/)
 
 ### 所需的IIS组件 {#required-iis-components}
 
-IIS版本8.5和10要求安装以下IIS组件：
+IIS 8.5和10版要求安装以下IIS组件：
 
 * ISAPI扩展
 
 此外，还必须添加Web服务器(IIS)角色。 使用服务器管理器添加角色和组件。
 
-## Microsoft IIS —— 安装Dispatcher模块 {#microsoft-iis-installing-the-dispatcher-module}
+## Microsoft IIS —— 安装调度程序模块 {#microsoft-iis-installing-the-dispatcher-module}
 
 Microsoft Internet Information System所需的存档为：
 
@@ -109,18 +112,18 @@ ZIP文件包含以下文件：
 
 | 文件 | 描述 |
 |--- |--- |
-| `disp_iis.dll` | Dispatcher动态链接库文件。 |
-| `disp_iis.ini` | IIS的配置文件。 此示例可以根据您的要求进行更新。 **注意**:ini文件必须具有与dll相同的name-root。 |
-| `dispatcher.any` | Dispatcher的示例配置文件。 |
-| `author_dispatcher.any` | Dispatcher使用作者实例的示例配置文件。 |
-| 自述文件 | 自述文件，其中包含安装说明和最后一分钟信息。 **注意**:请在开始安装之前检查此文件。 |
-| 更改 | 更改列出当前和过去版本中修复的问题的文件。 |
+| `disp_iis.dll` | 调度程序动态链接库文件。 |
+| `disp_iis.ini` | IIS的配置文件。 此示例可以根据您的要求进行更新。 **注意**:ini文件必须与dll具有相同的name-root。 |
+| `dispatcher.any` | 调度程序的示例配置文件。 |
+| `author_dispatcher.any` | Dispatcher使用创作实例的示例配置文件。 |
+| 自述文件 | 自述文件，包含安装说明和最后一分钟信息。 **注意**:请在开始安装之前检查此文件。 |
+| 更改 | 更改列表在当前和过去版本中已修复的问题的文件。 |
 
 请按照以下过程将调度程序文件复制到正确的位置。
 
 1. 使用Windows资源管理器 `<IIS_INSTALLDIR>/Scripts` 创建目录，例如 `C:\inetpub\Scripts`。
 
-1. 将以下文件从Dispatcher包解压到此Scripts目录中：
+1. 将以下文件从调度程序包解压到此Scripts目录中：
 
    * `disp_iis.dll`
    * `disp_iis.ini`
@@ -140,15 +143,15 @@ servervariables=0|1
 replaceauthorization=0|1
 ```
 
-下表描述了每个属性。
+下表介绍了各个属性。
 
 | 参数 | 描述 |
 |--- |--- |
 | configpath | 本地文件 `dispatcher.any` 系统内的位置（绝对路径）。 |
-| 日志文件 | 文件的位 `dispatcher.log` 置。 如果未设置此设置，则日志消息将转到Windows事件日志。 |
-| loglevel | 定义用于将消息输出到事件日志的日志级别。 可以指定以下值：日志文件的日志级别： <br/>0 —— 仅错误消息。 <br/>1 —— 错误和警告。 <br/>2 —— 错误、警告和信息性消 <br/>息3 —— 错误、警告、信息性和调试消息。 <br/>**注意**:建议在安装和测试过程中将日志级别设置为3，然后在生产环境中运行时将日志级别设置为0。 |
-| replaceauthorization | 指定如何处理HTTP请求中的授权头。 以下值是有效的：<br/>0 —— 不修改授权标题。 <br/>1 —— 将名为“Authorization”（授权）而非“Basic”的任何标题替换为相应的标 `Basic <IIS:LOGON\_USER>` 题。<br/> |
-| servervariables | 定义如何处理服务器变量。<br/>0 - IIS服务器变量既不发送给Dispatcher也不发送给AEM。 <br/>1 —— 所有IIS服务器变量(如 `LOGON\_USER, QUERY\_STRING, ...`)都会与请求标头一起发送到Dispatcher（如果未缓存，也会发送到AEM实例）。  <br/>服务器变量包 `AUTH\_USER, LOGON\_USER, HTTPS\_KEYSIZE` 括许多其他变量。 有关变量的完整列表，请参阅IIS文档，并提供详细信息。 |
+| 日志文件 | 文件的位 `dispatcher.log` 置。 如果未设置，则日志消息将转到windows事件日志。 |
+| 逻辑级别 | 定义用于将消息输出到事件日志的日志级别。 可以指定以下值：日志文件的日志级别： <br/>0 —— 仅错误消息。 <br/>1 —— 错误和警告。 <br/>2 —— 错误、警告和信息性消 <br/>息3 —— 错误、警告、信息性和调试消息。 <br/>**注意**:建议在安装和测试过程中将日志级别设置为3，在生产环境中运行时将日志级别设置为0。 |
+| replaceauthorization | 指定如何处理HTTP请求中的授权标头。 以下值有效：<br/>0 —— 不修改授权标头。 <br/>1 —— 将名为“Authorization”（授权）而非“Basic”的任何标头替换为其等效 `Basic <IIS:LOGON\_USER>` 标头。<br/> |
+| servervariables | 定义如何处理服务器变量。<br/>0 - IIS服务器变量既不发送给调度程序也不发送给AEM。 <br/>1 —— 所有IIS服务器变量(如 `LOGON\_USER, QUERY\_STRING, ...`)都与请求标头(如果未缓存，也发送到AEM实例)一起发送到调度程序。  <br/>服务器变量 `AUTH\_USER, LOGON\_USER, HTTPS\_KEYSIZE` 包括许多其他变量。 有关变量的完整列表，请参阅IIS文档，并提供详细信息。 |
 | enable_chunked_transfer | 定义是启用(1)还是禁用(0)客户端响应的分组传输。 默认值为 0。 |
 
 配置示例：
@@ -171,86 +174,86 @@ replaceauthorization=0
 
 如果您的网站使用身份验证方法，则必须相应地配置刷新复制代理。
 
-1. 打开IIS Manager并选择您用作Disptcher缓存的网站。
-1. 使用功能视图模式，在IIS部分中双击身份验证。
-1. 如果未启用“匿名身份验证”，请选择“匿名身份验证”，然后在“操作”区域单击“启用”。
+1. 打开IIS管理器，并选择您用作Disptcher缓存的网站。
+1. 使用功能视图模式，在IIS部分多次中单击身份验证。
+1. 如果未启用匿名身份验证，请选择匿名身份验证，并在“操作”区域单击启用。
 
-### 集成Dispatcher ISAPI模块- IIS 8.5和10 {#integrating-the-dispatcher-isapi-module-iis-and}
+### 集成调度程序ISAPI模块- IIS 8.5和10 {#integrating-the-dispatcher-isapi-module-iis-and}
 
-请按照以下过程将Dispatcher ISAPI模块添加到IIS。
+请按照以下过程将调度程序ISAPI模块添加到IIS。
 
-1. 打开IIS Manager。
+1. 打开IIS管理器。
 1. 选择用作调度程序缓存的网站。
-1. 使用“功能视图”模式，在IIS部分中双击“处理函数映射”。
-1. 在“处理函数映射”页面的“操作”面板中，单击“添加通配符脚本映射”，添加以下属性值，然后单击“确定”:
+1. 使用功能视图模式，在IIS部分多次中单击处理程序映射。
+1. 在“处理程序映射”页的“操作”面板中，单击“添加通配符脚本映射”，添加以下属性值，然后单击“确定”:
 
    * 请求路径：*
-   * 可执行文件：例如，disp_iis.dll文件的绝对路径 `C:\inetpub\Scripts\disp_iis.dll`。
-   * 名称：例如，处理函数映射的描述性名称 `Dispatcher`。
+   * 可执行文件：disp_iis.dll文件的绝对路径，例如 `C:\inetpub\Scripts\disp_iis.dll`。
+   * 名称：处理函数映射的描述性名称，例如 `Dispatcher`。
 
 1. 在显示的对话框中，要将disp_iis.dll库添加到ISAPI和CGI限制列表，请单击是。
 
    对于IIS 7.0和7.5，配置已完成。 如果要配置IIS 8.0，请继续执行其余步骤。
 
-1. (IIS 8.0)在处理函数映射列表中，选择刚刚创建的映射，然后在“操作”区域单击“编辑”。
+1. (IIS 8.0)在处理函数映射的列表下，选择刚创建的一个，在“操作”区域单击“编辑”。
 1. (IIS 8.0)在“编辑脚本映射”对话框中，单击“请求限制”按钮。
 1. (IIS 8.0)要确保该处理函数用于尚未缓存的文件和文件夹，请取消选择“仅在请求映射到时调用处理函数”，然后单击“确定”。
 1. (IIS 8.0)在“编辑脚本映射”对话框中，单击“确定”。
 
 ### 配置对缓存的访问- IIS 8.5和10 {#configuring-access-to-the-cache-iis-and}
 
-为默认的应用程序池用户提供对用作调度程序缓存的文件夹的写访问权限。
+为默认的“应用程序池”用户提供对用作调度程序缓存的文件夹的写访问权限。
 
 1. 右键单击用作调度程序缓存的网站的根文件夹，然后单击属性，如 `C:\inetpub\wwwroot`。
 1. 在“安全性”选项卡上，单击“编辑”，然后在“权限”对话框中，单击“添加”。 将打开一个用于选择用户帐户的对话框。 单击“位置”按钮，选择计算机名称，然后单击“确定”。
 
    完成下一步时，保持该对话框打开。
 
-1. 在IIS Manager中，选择您用于Dispatcher缓存的IIS站点，然后在窗口的右侧单击“Advanced Settings（高级设置）”。
+1. 在IIS管理器中，选择您用于调度程序缓存的IIS站点，并在窗口的右侧单击“高级设置”。
 1. 选择“应用程序池”属性的值，并将其复制到剪贴板。
-1. 返回打开对话框。 在“输入要选择的对象名称”框中，键 `IIS AppPool\` 入并粘贴剪贴板的内容。 该值应类似于以下示例：
+1. 返回打开对话框。 在“输入要选择的对象名称”框中， `IIS AppPool\` 键入并粘贴剪贴板的内容。 该值应类似于以下示例：
 
    `IIS AppPool\DefaultAppPool`
 
 1. 单击“检查名称”按钮。 当Windows解析用户帐户时，单击“确定”。
-1. 在调度程序文件夹的“权限”对话框中，选择刚添加的帐户，为该帐户启用除“完全控制”之外的所 **有权限** ，然后单击“确定”。 单击确定以关闭文件夹属性对话框。
+1. 在调度程序文件夹的“权限”对话框中，选择刚刚添加的帐户，为该帐户启用除“完全控制”外 **的所有权限** ，然后单击“确定”。 单击确定以关闭文件夹属性对话框。
 
 ### 注册JSON Mime类型- IIS 8.5和10 {#registering-the-json-mime-type-iis-and}
 
 当您希望Dispatcher允许JSON调用时，请按照以下过程注册JSON MIME类型。
 
-1. 在IIS manager中，选择您的网站，然后使用功能视图双击MIME类型。
+1. 在IIS管理器中，选择您的网站，然后使用功能视图,多次单击MIME类型。
 1. 如果JSON扩展不在列表中，请在“操作”面板中单击“添加”，输入以下属性值，然后单击“确定”:
 
-   * 文件名扩展名： `.json`
+   * 文件扩展名： `.json`
    * MIME类型： `application/json`
 
-### 删除bin隐藏区段- IIS 8.5和10 {#removing-the-bin-hidden-segment-iis-and}
+### 删除Bin隐藏区段- IIS 8.5和10 {#removing-the-bin-hidden-segment-iis-and}
 
-请按照以下过程删除隐 `bin` 藏的区段。 新网站可包含此隐藏区段。
+请按照以下过程删除隐 `bin` 藏的段。 新网站可包含此隐藏区段。
 
-1. 在IIS manager中，选择您的网站，然后使用功能视图，双击请求过滤。
+1. 在IIS管理器中，选择您的网站，然后使用功能视图,多次单击请求筛选。
 1. 选择区 `bin` 段，单击删除，然后在确认对话框中单击是。
 
 ### 将IIS消息记录到文件- IIS 8.5和10 {#logging-iis-messages-to-a-file-iis-and}
 
 请按照以下过程将调度程序日志消息写入日志文件，而不是写入Windows事件日志。 您需要配置Dispatcher以使用日志文件，并向IIS提供对该文件的写访问。
 
-1. 使用Windows资源管理器在IIS安装的 `dispatcher` logs文件夹下创建一个名为的文件夹。 典型安装的此文件夹路径为 `C:\inetpub\logs\dispatcher`。
+1. 使用Windows资源管理器在IIS安装 `dispatcher` 的logs文件夹下创建一个名为的文件夹。 典型安装的此文件夹路径为 `C:\inetpub\logs\dispatcher`。
 
 1. 右键单击调度程序文件夹，然后单击属性。
 1. 在“安全性”选项卡上，单击“编辑”，然后在“权限”对话框中，单击“添加”。 将打开一个用于选择用户帐户的对话框。 单击“位置”按钮，选择计算机名称，然后单击“确定”。
 
    完成下一步时，保持该对话框打开。
 
-1. 在IIS Manager中，选择您用于Dispatcher缓存的IIS站点，然后在窗口的右侧单击“Advanced Settings（高级设置）”。
+1. 在IIS管理器中，选择您用于调度程序缓存的IIS站点，并在窗口的右侧单击“高级设置”。
 1. 选择“应用程序池”属性的值，并将其复制到剪贴板。
-1. 返回打开对话框。 在“输入要选择的对象名称”框中，键 `IIS AppPool\` 入并粘贴剪贴板的内容。 该值应类似于以下示例：
+1. 返回打开对话框。 在“输入要选择的对象名称”框中， `IIS AppPool\` 键入并粘贴剪贴板的内容。 该值应类似于以下示例：
 
    `IIS AppPool\DefaultAppPool`
 
 1. 单击“检查名称”按钮。 当Windows解析用户帐户时，单击“确定”。
-1. 在调度程序文件夹的“权限”对话框中，选择刚添加的帐户，为该帐户启用除“完全控制”之外的所 **有权限，然后单击** “确定”。 单击确定以关闭文件夹属性对话框。
+1. 在调度程序文件夹的“权限”对话框中，选择您刚添加的帐户，为该帐户启用除“完全控制”外 **的所有权限，然后** 单击“确定”。 单击确定以关闭文件夹属性对话框。
 1. 使用文本编辑器打开文 `disp_iis.ini` 件。
 1. 添加一行与以下示例类似的文本以配置日志文件的位置，然后保存文件：
 
@@ -260,75 +263,75 @@ replaceauthorization=0
 
 ### 后续步骤 {#next-steps}
 
-在开始使用Dispatcher之前，您必须知道：
+在使用调度程序进行开始之前，您必须知道：
 
-* [配置](dispatcher-configuration.md) Dispatcher
-* [配置AEM](page-invalidate.md) 以与Dispatcher结合使用。
+* [配置调度程序](dispatcher-configuration.md)
+* [配置AEM](page-invalidate.md) 以与Dispatcher配合使用。
 
 ## Apache Web Server {#apache-web-server}
 
 >[!CAUTION]
 >
->此处介绍有关在 **Windows** 和 **Unix下安装的说明** 。 执行这些步骤时请小心。
+>此处介绍了在Windows和 **Unix** 下 **进行** 安装的说明。 执行这些步骤时请小心。
 
 ### 安装Apache Web Server {#installing-apache-web-server}
 
-有关如何安装Apache Web server的信息，请阅读安装手册——联机 [或分发](https://httpd.apache.org/) 中的安装手册。
+有关如何安装Apache Web Server的信息，请阅读安装手册——在线 [或](https://httpd.apache.org/) 分发中。
 
 >[!CAUTION]
 >
->如果要通过编译源文件来创建Apache二进制文件，请确保打开动态 **模块支持**。 这可以通过使用任意 **-enable-shared选项** 。 至少包括该模 `mod_so` 块。
+>如果要通过编译源文件创建Apache二进制文件，请确保打开动态 **模块支持**。 这可以通过使用任意“启 **用共享”选项** 。 至少包括该模 `mod_so` 块。
 >
->有关详细信息，请参阅Apache Web server安装手册。
+>有关详细信息，请参阅Apache Web Server安装手册。
 
-另请参阅Apache HTTP Server [Security Tips](https://httpd.apache.org/docs/2.4/misc/security_tips.html) and [Security Reports](https://httpd.apache.org/security_report.html)。
+另请参阅Apache HTTP Server安 [全提示](https://httpd.apache.org/docs/2.4/misc/security_tips.html) 和 [安全报告](https://httpd.apache.org/security_report.html)。
 
 ### Apache Web Server —— 添加调度程序模块 {#apache-web-server-add-the-dispatcher-module}
 
-调度程序是以下任一方式提供的：
+调度程序是以下任一形式：
 
 * **Windows**:动态链接库(DLL)
 * **Unix**:动态共享对象(DSO)
 
-安装归档文件包含以下文件——具体取决于您是选择了Windows还是Unix:
+安装归档文件包含以下文件——取决于您是选择了Windows还是Unix:
 
 | 文件 | 描述 |
 |--- |--- |
-| disp_apache&lt;x.y&gt;.dll | Windows:Dispatcher动态链接库文件。 |
-| dispatcher-apache&lt;x.y&gt;-&lt;rel-nr&gt;.so | Unix:Dispatcher共享对象库文件。 |
+| disp_apache&lt;x.y>.dll | Windows:调度程序动态链接库文件。 |
+| dispatcher-apache&lt;x.y>-&lt;rel-nr>.so | Unix:调度程序共享对象库文件。 |
 | mod_dispatcher.so | Unix:示例链接。 |
-| http.conf.disp&lt;x&gt; | Apache服务器的示例配置文件。 |
-| dispatcher.any | Dispatcher的示例配置文件。 |
-| 自述文件 | 自述文件，其中包含安装说明和最后一分钟信息。 **注意**:请在开始安装之前检查此文件。 |
-| 更改 | 更改列出当前版本和先前版本中修复的问题的文件。 |
+| http.conf.disp&lt;x> | Apache服务器的示例配置文件。 |
+| dispatcher.any | 调度程序的示例配置文件。 |
+| 自述文件 | 自述文件，包含安装说明和最后一分钟信息。 **注意**:请在开始安装之前检查此文件。 |
+| 更改 | 更改列表在当前和过去版本中修复的问题的文件。 |
 
-使用以下步骤将Dispatcher添加到Apache Web Server:
+请按照以下步骤将Dispatcher添加到Apache Web Server:
 
-1. 将调度程序文件放入相应的Apache模块目录中：
+1. 将调度程序文件放在相应的Apache模块目录中：
 
-   * **Windows**:置入 `disp_apache<x.y>.dll``<APACHE_ROOT>/modules`
-   * **Unix**:根据您的 `<APACHE_ROOT>/libexec` 安装 `<APACHE_ROOT>/modules`找到或目录。\
-      复制到 `dispatcher-apache<options>.so` 此目录中。\
-      为简化长期维护，您还可以创建一个名为Dispatcher的符号 `mod_dispatcher.so` 链接：\
+   * **Windows**:Place `disp_apache<x.y>.dll` `<APACHE_ROOT>/modules`
+   * **Unix**:根据您的 `<APACHE_ROOT>/libexec` 安 `<APACHE_ROOT>/modules`装找到或目录。\
+      复 `dispatcher-apache<options>.so` 制到此目录。\
+      为了简化长期维护，您还可以创建一个名为Dispatcher的符 `mod_dispatcher.so` 号链接：\
       `ln -s dispatcher-apache<x>-<os>-<rel-nr>.so mod_dispatcher.so`
 
 1. 将dispatcher.any文件复制到目 `<APACHE_ROOT>/conf` 录。
 
-   **** 注意：只要相应地配置了Dispatcher模块的DispatcherLog属性，就可以将此文件放在其他位置。 （请参阅下面的调度程序特定配置条目。）
+   **注意：** 只要相应配置了调度程序模块的DispatcherLog属性，就可以将此文件放置到其他位置。 （请参阅下面的调度程序特定配置条目。）
 
 ### Apache Web Server —— 配置SELinux属性 {#apache-web-server-configure-selinux-properties}
 
-如果在启用了SELinux的RedHat Linux Kernel 2.6上运行Dispatcher，则可能会在调度程序日志文件中遇到类似这样的错误消息。
+如果在启用了SELinux的RedHat Linux Kernel 2.6上运行Dispatcher，则可能会在调度程序日志文件中遇到类似此类的错误消息。
 
 `Mon Jun 30 00:03:59 2013] [E] [16561(139642697451488)] Unable to connect to backend rend01 (10.122.213.248:4502): Permission denied`
 
-这可能是由于启用了SELinux安全性。 然后，您需要执行以下任务：
+这可能是由于启用了SELinux安全性。 然后，您需要执行以下任务:
 
 * 配置调度程序模块文件的SELinux上下文。
 * 启用HTTPD脚本和模块以建立网络连接。
 * 配置Docroot的SELinux上下文，其中存储缓存的文件。
 
-在终端窗口中输入以下命令，替 `[path to the dispatcher.so file]` 换为您安装到Apache Web server的Dispatcher模块的路径和 *`path to the docroot`* docroot所在的路径(例如， `/opt/cq/cache`):
+在终端窗口中输入以下命令 `[path to the dispatcher.so file]` ，替换为您安装到Apache Web Server的Dispatcher模块的路径 *`path to the docroot`* ，以及Docroot所在的路径(例如， `/opt/cq/cache`):
 
 ```shell
 semanage fcontext -a -t httpd_modules_t [path to the dispatcher.so file]
@@ -337,9 +340,9 @@ chcon -R --type httpd_sys_content_t [path to the docroot]
 semanage fcontext -a -t httpd_sys_content_t "[path to the docroot](/.*)?"
 ```
 
-### Apache Web Server —— 为Dispatcher配置Apache Web Server {#apache-web-server-configure-apache-web-server-for-dispatcher}
+### Apache Web Server —— 为调度程序配置Apache Web Server {#apache-web-server-configure-apache-web-server-for-dispatcher}
 
-需要使用配置Apache Web Server `httpd.conf`。 在Dispatcher安装工具包中，您将找到一个名为的示例配置文件 `httpd.conf.disp<x>`。
+需要使用配置Apache Web Server `httpd.conf`。 在调度程序安装工具包中，您将找到一个名为的示例配置文件 `httpd.conf.disp<x>`。
 
 这些步骤是强制性的：
 
@@ -347,14 +350,14 @@ semanage fcontext -a -t httpd_sys_content_t "[path to the docroot](/.*)?"
 1. 打开 `httpd.conf`进行编辑。
 1. 必须按列出的顺序添加以下配置条目：
 
-   * **LoadModule** ，在启动时加载模块。
-   * 特定于调度程序的配置条目， **包括DispatcherConfig、DispatcherLog** 和 **DispatcherLogLevel**。
+   * **LoadModule** ，在开始时加载模块。
+   * 特定于调度程序的配置条 **目，包括DispatcherConfig** 、DispatcherLog **和DispatcherLogLevel**。
    * **SetHandler** ，用于激活调度程序。 **LoadModule**。
    * **ModMimeUsePathInfo** ，用于配置 **mod_mime的行为**。
 
-1. （可选）建议您更改htdocs目录的所有者：
+1. （可选）建议更改htdocs目录的所有者：
 
-   * apache服务器以root身份启动，但子进程以守护程序身份启动（出于安全目的）。 DocumentRoot(`<APACHE_ROOT>/htdocs`)必须属于用户守护程序：
+   * apache服务器开始为根，但子进程开始为守护进程（出于安全目的）。 DocumentRoot()必`<APACHE_ROOT>/htdocs`须属于用户守护进程：
 
       ```xml
       cd <APACHE_ROOT>  
@@ -363,7 +366,7 @@ semanage fcontext -a -t httpd_sys_content_t "[path to the docroot](/.*)?"
 
 **LoadModule**
 
-下表列出了可用的示例；具体条目取决于您特定的Apache Web Server:
+下表列表了可用的示例；具体条目取决于您的特定Apache Web Server:
 
 |  |  |
 |--- |--- |
@@ -372,13 +375,13 @@ semanage fcontext -a -t httpd_sys_content_t "[path to the docroot](/.*)?"
 
 >[!NOTE]
 >
->每个语句的第一个参数必须与上述示例中完全相同地编写。
+>每个语句的第一个参数必须完全按照上述示例的方式编写。
 >
->有关此命令的完整详细信息，请参阅提供的示例配置文件和Apache Web server文档。
+>有关此命令的完整详细信息，请参阅提供的示例配置文件和Apache Web Server文档。
 
 **调度程序特定配置条目**
 
-特定于Dispatcher的配置条目位于LoadModule条目之后。 下表列出了适用于Unix和Windows的示例配置：
+调度程序特定的配置条目放在LoadModule条目之后。 下表列表了适用于Unix和Windows的示例配置：
 
 **Windows和Unix**
 
@@ -395,39 +398,39 @@ DispatcherKeepAliveTimeout 60
 ...
 ```
 
-各个配置参数：
+单个配置参数：
 
 | 参数 | 描述 |
 |--- |--- |
-| DispatcherConfig | 调度程序配置文件的位置和名称。 <br/>当此属性位于主服务器配置中时，所有虚拟主机都将继承属性值。 但是，虚拟主机可以包含DispatcherConfig属性以覆盖主服务器配置。 |
-| DispatcherLog | 日志文件的位置和名称。 |
-| DispatcherLogLevel | 日志文件的日志级别： <br/>0 —— 错 <br/>误1 —— 警告 <br/>2 —— 信息 <br/>3 —— 调试 <br/>**说明**:建议在安装和测试过程中将日志级别设置为3，然后在生产环境中运行时将日志级别设置为0。 |
-| DispatcherNoServerHeader | *此参数已弃用，不再具有任何效果。*<br/><br/> 定义要使用的服务器标题： <br/><ul><li>undefined或0 - HTTP服务器头包含AEM版本。 </li><li>1 —— 使用Apache服务器头。</li></ul> |
-| DispatcherDeclineRoot | 定义是否拒绝对根“/”的请求： <br/>**0** —— 接受对/ <br/>**1的请求** -请求／未由调度程序处理；使用mod_alias进行正确的映射。 |
-| DispatcherUseProcessedURL | 定义是否将预处理的URL用于Dispatcher进行的所有进一步处理： <br/>**0** —— 使用传递到Web服务器的原始URL。 <br/>**1** —— 调度程序使用调度程序之前的处理程序已处理的URL(即 `mod_rewrite`)而不是传递到Web服务器的原始URL。  例如，原始URL或已处理的URL与Dispatcher过滤器匹配。 URL还用作缓存文件结构的基础。   有关mod_rewrite；的信息，请参阅Apache网站文档；例如，Apache 2.4。使用mod_rewrite时，建议使用标志“passthrough” | PT'（传递到下一个处理函数）强制重写引擎将内部request_rec结构的uri字段设置为文件名字段的值。 |
-| DispatcherPassError | 定义如何支持ErrorDocument处理的错误代码： <br/>**0** —— 调度程序对客户端的所有错误响应进行假脱机处理。 <br/>**1** —— 调度程序不会对客户端（其中状态代码大于或等于400）进行错误响应，而是将状态代码传递给Apache，例如，允许ErrorDocument指令处理此类状态代码。 <br/>**代码范围** -指定将响应传递到Apache的错误代码范围。 其他错误代码会传递到客户端。 例如，以下配置将错误412的响应传递给客户端，所有其他错误都会传递到Apache:DispatcherPassError 400-411,413-417 |
-| DispatcherKeepAliveTimeout | 指定保持活动超时（以秒为单位）。 从Dispatcher版本4.2.0开始，默认保持有效值为60。 值0将禁用保持活动。 |
-| DispatcherNoCanonURL | 将此参数设置为“开”会将原始URL传递给后端而不是规范化的URL，并将覆盖DispatcherUseProcessedURL的设置。 默认值为“关闭”。 <br/>**注意**:调度程序配置中的过滤器规则将始终根据经过清理的URL而不是原始URL进行评估。 |
+| DispatcherConfig | 调度程序配置文件的位置和名称。 <br/>当此属性位于主服务器配置中时，所有虚拟主机都将继承该属性值。 但是，虚拟主机可以包含DispatcherConfig属性以覆盖主服务器配置。 |
+| 调度程序日志 | 日志文件的位置和名称。 |
+| DispatcherLogLevel | 日志文件的日志级别： <br/>0 —— 错误1 <br/>-警告2 <br/>-信息3 <br/>-调试 <br/>**说明**:建议在安装和测试过程中将日志级别设置为3，在生产环境中运行时将日志级别设置为0。 |
+| DispatcherNoServerHeader | *此参数已弃用，不再具有任何效果。*<br/><br/> 定义要使用的服务器头： <br/><ul><li>undefined或0 - HTTP服务器头包含AEM版本。 </li><li>1 —— 使用Apache服务器头。</li></ul> |
+| DispatcherDeliceRoot | 定义是否拒绝对根“/”的请求： <br/>**0** —— 接受对/1 <br/>**的请** 求——请求／不由调度程序处理；使用mod_alias进行正确的映射。 |
+| DispatcherUseProcessedURL | 定义是否将预处理的URL用于调度程序进行的所有进一步处理： <br/>**0** —— 使用传递到Web服务器的原始URL。 <br/>**1** —— 调度程序使用调度程序之前的处理程序已处理的URL(即 `mod_rewrite`)，而不是传递给web服务器的原始URL。  例如，原始URL或已处理的URL与调度程序过滤器匹配。 URL还用作缓存文件结构的基础。   有关mod_rewrite；的信息，请参阅Apache网站文档；例如，Apache 2.4。使用mod_rewrite时，建议使用标志“passthrough” | PT&#39;（传递到下一个处理程序）强制重写引擎将内部request_rec结构的uri字段设置为文件名字段的值。 |
+| DispatcherPassError | 定义如何支持ErrorDocument处理的错误代码： <br/>**0** —— 调度程序对客户端进行所有错误响应。 <br/>**1** —— 调度程序不会对客户端（其状态代码大于或等于400）执行错误响应，而是将状态代码传递给Apache，例如允许ErrorDocument指令处理此类状态代码。 <br/>**代码范围** -指定响应传递到Apache的错误代码范围。 其他错误代码会传递给客户端。 例如，以下配置将错误412的响应传递给客户端，而所有其他错误都传递给Apache:DispatcherPassError 400-411,413-417 |
+| DispatcherKeepAliveTimeout | 指定保持活动超时（以秒为单位）。 从Dispatcher 4.2.0版开始，默认的保持有效值为60。 值0将禁用保持活动。 |
+| DispatcherNoCanonURL | 将此参数设置为“开”将将原始URL传递给后端，而不是规范化的URL，并将覆盖DispatcherUseProcessedURL的设置。 默认值为Off。 <br/>**注意**:调度程序配置中的筛选器规则将始终根据经过清理的URL（而非原始URL）进行评估。 |
 
 
 
 
 >[!NOTE]
 >
->路径条目相对于Apache Web server的根目录。
+>路径项相对于Apache Web Server的根目录。
 
 >[!NOTE]
 >
->Server Header的默认设置为： `  
+>服务器标题的默认设置为： `  
 ServerTokens Full` `  
 DispatcherNoServerHeader 0`\
 显示AEM版本（用于统计目的）。 如果要禁用标题中提供的此类信息，可以设置： `  
 ServerTokens Prod`\
-有关详 [细信息，请参阅ServerTokens指令的Apache文档（例如，对于Apache 2.4）](https://httpd.apache.org/docs/2.4/mod/core.html) 。
+有关详 [细信息，请参阅Apache Documentation about](https://httpd.apache.org/docs/2.4/mod/core.html) ServerTokens Directive（例如，对于Apache 2.4）。
 
 **SetHandler**
 
-在这些条目之后，您必须将 **SetHandler** 语句添加到您的配置上下文( `<Directory>`, `<Location>`)中，调度程序才能处理传入的请求。 以下示例将调度程序配置为处理完整网站的请求：
+在这些条目之后，您必 **须将SetHandler** 语句添加到配置的上下文( `<Directory>`, `<Location>`)中，调度程序才能处理传入请求。 以下示例将调度程序配置为处理整个网站的请求：
 
 **Windows和Unix**
 
@@ -481,24 +484,24 @@ AllowOverride None
 ```
 
 >[!NOTE]
-SetHandler语句的参数必 **须与上述示例中的参数完全相同****，因为这是模块中定义的处理函数的名称。
-有关此命令的完整详细信息，请参阅提供的示例配置文件和Apache Web server文档。
+SetHandler语句 **的参数必须** 与上例中的参数完全一样编写 **，因为这是模块中定义的处理函数的名称。
+有关此命令的完整详细信息，请参阅提供的示例配置文件和Apache Web Server文档。
 
 **ModMimeUsePathInfo**
 
-在 **SetHandler语句之后** ，您还应添加 **ModMimeUsePathInfo定义** 。
+在SetHandler **语句之后** ，您还应添加 **ModMimeUsePathInfo定义** 。
 
 >[!NOTE]
-仅当 `ModMimeUsePathInfo` 您使用Dispatcher版本4.0.9或更高版本时，才应使用和配置该参数。
+仅当 `ModMimeUsePathInfo` 您使用的是Dispatcher版本4.0.9或更高版本时，才应使用和配置该参数。
 (请注意，Dispatcher 4.0.9版已在2011年发布。 如果您使用的是旧版本，则升级到最新的Dispatcher版本是合适的)。
 
-应为 **所有Apache配置设置ModMimeUsePathInfo**`On` 参数：
+应 **为所有Apache** 配置 `On` 设置ModMimeUsePathInfo参数：
 
 `ModMimeUsePathInfo On`
 
-mod_mime模块(例如， [Apache Module mod_mime](https://httpd.apache.org/docs/2.4/mod/mod_mime.html))用于将内容元数据分配给为HTTP响应选择的内容。 默认设置意味着，当mod_mime确定内容类型时，将仅考虑映射到文件或目录的URL部分。
+mod_mime模块(请参阅 [Apache Mod_mime](https://httpd.apache.org/docs/2.4/mod/mod_mime.html))用于将内容元数据分配给为HTTP响应选择的内容。 默认设置意味着，当mod_mime确定内容类型时，只考虑映射到文件或目录的URL部分。
 
-当 `On`时，参 `ModMimeUsePathInfo` 数指定 `mod_mime` 根据完整URL确定内容 *类型* ;这意味着虚拟资源将根据其扩展应用元信息。
+当 `On`时， `ModMimeUsePathInfo` 参数指 `mod_mime` 定根据完整URL确定内容 *类型* ;这意味着虚拟资源将根据其扩展应用元信息。
 
 以下示例激活 **ModMimeUsePathInfo**:
 
@@ -518,9 +521,9 @@ AllowOverride None
 ...
 ```
 
-### 支持HTTPS（Unix和Linux） {#enable-support-for-https-unix-and-linux}
+### 启用HTTPS（Unix和Linux）支持 {#enable-support-for-https-unix-and-linux}
 
-调度程序使用OpenSSL通过HTTP实现安全通信。 从Dispatcher **4.2.0版开始**，支持OpenSSL 1.0.0和OpenSSL 1.0.1。 默认情况下，调度程序使用OpenSSL 1.0.0。 要使用OpenSSL 1.0.1，请按照以下过程创建符号链接，以便Dispatcher使用已安装的OpenSSL库。
+调度程序使用OpenSSL通过HTTP实现安全通信。 从Dispatcher 4. **2.0版开始**，支持OpenSSL 1.0.0和OpenSSL 1.0.1。 默认情况下，调度程序使用OpenSSL 1.0.0。 要使用OpenSSL 1.0.1，请按照以下过程创建符号链接，以便调度程序使用已安装的OpenSSL库。
 
 1. 打开终端，将当前目录更改为安装OpenSSL库的目录，例如：
 
@@ -536,77 +539,77 @@ AllowOverride None
    ```
 
 >[!NOTE]
-如果您使用的是Apache的自定义版本，请确保Apache和Dispatcher是使用相同版本的 [OpenSSL编译的](https://www.openssl.org/source/)。
+如果您使用的是Apache的自定义版本，请确保Apache和Dispatcher是使用相同版本的OpenSSL进 [行编译](https://www.openssl.org/source/)。
 
 ### 后续步骤 {#next-steps-1}
 
-在开始使用Dispatcher之前，您必须立即：
+在使用调度程序进行开始之前，您现在必须：
 
-* [配置](dispatcher-configuration.md) Dispatcher
-* [配置AEM](page-invalidate.md) 以与Dispatcher结合使用。
+* [配置调度程序](dispatcher-configuration.md)
+* [配置AEM](page-invalidate.md) 以与Dispatcher配合使用。
 
-## Sun Java System Web Server / iPlanet {#sun-java-system-web-server-iplanet}
+## Sun Java System Web Server/iPlanet {#sun-java-system-web-server-iplanet}
 
 >[!NOTE]
-此处介绍有关Windows和Unix环境的说明。
-在选择要执行的时候请务必小心。
+此处介绍Windows和Unix环境的说明。
+选择要执行的时候请小心。
 
-### Sun Java System Web Server / iPlanet —— 安装Web服务器 {#sun-java-system-web-server-iplanet-installing-your-web-server}
+### Sun Java System Web Server/iPlanet —— 安装Web服务器 {#sun-java-system-web-server-iplanet-installing-your-web-server}
 
 有关如何安装这些Web服务器的完整信息，请参阅其各自的文档：
 
 * Sun Java System Web Server
 * iPlanet Web Server
 
-### Sun Java System Web Server / iPlanet —— 添加调度程序模块 {#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
+### Sun Java System Web Server/ iPlanet —— 添加调度程序模块 {#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
 
-调度程序是以下任一方式提供的：
+调度程序是以下任一形式：
 
 * **Windows**:动态链接库(DLL)
 * **Unix**:动态共享对象(DSO)
 
-安装归档文件包含以下文件——具体取决于您是选择了Windows还是Unix:
+安装归档文件包含以下文件——取决于您是选择了Windows还是Unix:
 
 | 文件 | 描述 |
 |---|---|
-| `disp_ns.dll` | Windows:Dispatcher动态链接库文件。 |
-| `dispatcher.so` | Unix:Dispatcher共享对象库文件。 |
+| `disp_ns.dll` | Windows:调度程序动态链接库文件。 |
+| `dispatcher.so` | Unix:调度程序共享对象库文件。 |
 | `dispatcher.so` | Unix:示例链接。 |
-| `obj.conf.disp` | iPlanet/Sun Java System web服务器的示例配置文件。 |
-| `dispatcher.any` | Dispatcher的示例配置文件。 |
-| 自述文件 | 自述文件，其中包含安装说明和最后一分钟信息。 注意：请在开始安装之前检查此文件。 |
-| 更改 | 更改列出当前版本和先前版本中修复的问题的文件。 |
+| `obj.conf.disp` | iPlanet/Sun Java System Web服务器的示例配置文件。 |
+| `dispatcher.any` | 调度程序的示例配置文件。 |
+| 自述文件 | 自述文件，包含安装说明和最后一分钟信息。 注意：请在开始安装之前检查此文件。 |
+| 更改 | 更改列表在当前和过去版本中修复的问题的文件。 |
 
-使用以下步骤将Dispatcher添加到Web服务器：
+使用以下步骤将调度程序添加到Web服务器：
 
 1. 将调度程序文件放在Web服务器的目 `plugin` 录中：
 
-### Sun Java System Web Server / iPlanet —— 为调度程序配置 {#sun-java-system-web-server-iplanet-configure-for-the-dispatcher}
+### Sun Java System Web Server/ iPlanet —— 为调度程序配置 {#sun-java-system-web-server-iplanet-configure-for-the-dispatcher}
 
-需要使用配置Web服务器 `obj.conf`。 在Dispatcher安装工具包中，您将找到一个名为的示例配置文件 `obj.conf.disp`。
+需要使用配置Web服务器 `obj.conf`。 在调度程序安装工具包中，您将找到一个名为的示例配置文件 `obj.conf.disp`。
 
 1. 导航至 `<WEBSERVER_ROOT>/config`.
 1. 打开 `obj.conf`进行编辑。
 1. 复制开始的行：\
    `Service fn="dispService"`\
-   从 `obj.conf.disp` 到的初始化部分 `obj.conf`。
+   的 `obj.conf.disp` 初始化部分 `obj.conf`。
 
 1. 保存更改。
 1. 打开 `magnus.conf` 进行编辑。
-1. 复制以下两行：\
+1. 复制开始的两行：\
    `Init funcs="dispService, dispInit"`\
    和\
    `Init fn="dispInit"`\
-   从 `obj.conf.disp` 到的初始化部分 `magnus.conf`。
+   的 `obj.conf.disp` 初始化部分 `magnus.conf`。
 
 1. 保存更改。
 
 >[!NOTE]
-以下配置应全部在一行上，并且 `$(SERVER_ROOT)` 必须 `$(PRODUCT_SUBDIR)` 由相应的值替换。
+以下配置应全部在一行上，并且 `$(SERVER_ROOT)` 必须 `$(PRODUCT_SUBDIR)` 由各个值替换。
 
 **初始化**
 
-下表列出了可用的示例；具体条目取决于您的特定Web服务器：
+下表列表了可用的示例；具体条目根据您的特定web服务器而定：
 
 **Windows和Unix**
 
@@ -622,12 +625,12 @@ keepalivetimeout="60"
 
 | 参数 | 描述 |
 |--- |--- |
-| config | 配置文件的位置和名称 `dispatcher.any.` |
+| 配置 | 配置文件的位置和名称 `dispatcher.any.` |
 | 日志文件 | 日志文件的位置和名称。 |
-| loglevel | <br/> 将消息写入日志文件时的日志级别：0 ****&#x200B;错误1<br/> 警告2 ****<br/> Info ****<br/> Debug Note(调 ****<br/>****&#x200B;试注：建议在安装和测试过程中将日志级别设置为3，在生产环境中运行时将日志级别设置为0。 |
-| keepalitimeout | 指定保持活动超时（以秒为单位）。 从Dispatcher版本4.2.0开始，默认保持有效值为60。 值0将禁用保持活动。 |
+| 逻辑级别 | 将消息写入日志文件时的日志级别： <br/>**0** 错误1 <br/>**警告** 2信 <br/>**息** 3调 <br/>**试注** 释 <br/>**:** 建议在安装和测试过程中将日志级别设置为3，在生产环境中运行时将日志级别设置为0。 |
+| keepalitimeout | 指定保持活动超时（以秒为单位）。 从Dispatcher 4.2.0版开始，默认的保持有效值为60。 值0将禁用保持活动。 |
 
-根据您的要求，您可以将Dispatcher定义为对象的服务。 要为整个网站配置Dispatcher，请修改默认对象：
+根据您的要求，您可以将调度程序定义为对象的服务。 要为整个网站配置Dispatcher，请修改默认对象：
 
 
 **Windows**
@@ -652,7 +655,7 @@ Service fn="dispService" method="(GET|HEAD|POST)" type="\*/\*"
 
 ### 后续步骤 {#next-steps-2}
 
-在开始使用Dispatcher之前，您必须立即：
+在使用调度程序进行开始之前，您现在必须：
 
-* [配置](dispatcher-configuration.md) Dispatcher
-* [配置AEM](page-invalidate.md) 以与Dispatcher结合使用。
+* [配置调度程序](dispatcher-configuration.md)
+* [配置AEM](page-invalidate.md) 以与Dispatcher配合使用。
