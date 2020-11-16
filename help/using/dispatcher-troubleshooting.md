@@ -13,7 +13,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
 translation-type: tm+mt
-source-git-commit: 5734e601379fda9a62eda46bded493b8dbd49a4c
+source-git-commit: 9af0dc22d32f1176b84c28a70b1a4701414d434e
 workflow-type: tm+mt
 source-wordcount: '553'
 ht-degree: 7%
@@ -37,10 +37,10 @@ ht-degree: 7%
 
 与往常一样，第一步是检查基础知识：
 
-* [确认基本操作](#ConfirmBasicOperation)
-* 检查Web服务器和调度程序的所有日志文件。 如有必要，请增 `loglevel` 加用于调度程序日 [志记录](#Logging)。
+* [确认基本操作](/help/using/dispatcher-configuration.md#confirming-basic-operation)
+* 检查Web服务器和调度程序的所有日志文件。 如有必要，请增 `loglevel` 加用于调度程序日 [志记录](/help/using/dispatcher-configuration.md#logging)。
 
-* [检查配置](#ConfiguringtheDispatcher):
+* [检查配置](/help/using/dispatcher-configuration.md):
 
    * 您有多个调度程序吗？
 
