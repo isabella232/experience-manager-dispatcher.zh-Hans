@@ -10,9 +10,9 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 translation-type: tm+mt
-source-git-commit: ef0fc34cbf2f07090f39613811d6f015ba2305ab
+source-git-commit: 024348672c2a9a4f8a01429572eba27ea8b8a490
 workflow-type: tm+mt
-source-wordcount: '0'
+source-wordcount: '3684'
 ht-degree: 0%
 
 ---
@@ -28,11 +28,11 @@ Comment Type: draft
 
  -->
 
+使用“ [调度程序发行说明](release-notes.md) ”页可获取操作系统和Web服务器的最新Dispatcher安装文件。 调度程序发行号与Adobe Experience Manager发行号无关，与Adobe Experience Manager6.x、5.x和Adobe CQ5.x发行版兼容。
+
 >[!NOTE]
 >
->各个 Dispatcher 版本与 AEM 相互独立。如果单击以前版本 AEM 文档中嵌入的 Dispatcher 文档链接，可能会重定向到此页面。
-
-使用“ [调度程序发行说明](release-notes.md) ”页可获取操作系统和Web服务器的最新Dispatcher安装文件。 调度程序发行号与Adobe Experience Manager发行号无关，与Adobe Experience Manager6.x、5.x和Adobe CQ5.x发行版兼容。
+>请注意，Adobe Experience Manager6.5需要Dispatcher 4.3.2或更高版本。 也就是说，调度程序版本独立于AEM，例如，调度程序版本4.3.2也与Adobe Experience Manager6.4兼容。
 
 使用以下文件命名约定：
 
@@ -48,7 +48,7 @@ Comment Type: draft
 | Microsoft Internet Information Server 7.5、8、8.5 | dispatcher-**iis**-&lt;other parameters> |
 | Sun Java Web Server iPlanet | dispatcher-**ns**-&lt;其他参数> |
 
->[!NOTE]
+>[!CAUTION]
 >
 >您应安装适用于您的平台的最新版本的Dispatcher。 您应每年升级Dispatcher实例，以使用最新版本来利用产品改进。
 
