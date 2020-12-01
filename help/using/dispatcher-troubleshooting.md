@@ -31,14 +31,14 @@ ht-degree: 7%
 
 >[!NOTE]
 >
->另请查阅调度程 [序知识库](https://helpx.adobe.com/cq/kb/index/dispatcher.html)、调 [度程序刷新问题疑难解答](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html) 和调度程 [序热点问题常见问题解答](dispatcher-faq.md) ，以获取更多信息。
+>另请查阅[调度程序知识库](https://helpx.adobe.com/cq/kb/index/dispatcher.html)、[调度程序刷新问题疑难解答](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html)和[调度程序热门问题常见问题解答](dispatcher-faq.md)以获取更多信息。
 
-## 检查基本配置 {#check-the-basic-configuration}
+## 检查基本配置{#check-the-basic-configuration}
 
 与往常一样，第一步是检查基础知识：
 
 * [确认基本操作](/help/using/dispatcher-configuration.md#confirming-basic-operation)
-* 检查Web服务器和调度程序的所有日志文件。 如有必要，请增 `loglevel` 加用于调度程序日 [志记录](/help/using/dispatcher-configuration.md#logging)。
+* 检查Web服务器和调度程序的所有日志文件。 如果需要，请增加用于调度程序[日志记录](/help/using/dispatcher-configuration.md#logging)的`loglevel`。
 
 * [检查配置](/help/using/dispatcher-configuration.md):
 
@@ -50,7 +50,7 @@ ht-degree: 7%
       * 这些是否会影响你调查的事情？
 
 
-## IIS诊断工具 {#iis-diagnostic-tools}
+## IIS诊断工具{#iis-diagnostic-tools}
 
 IIS提供各种跟踪工具，具体取决于实际版本：
 
@@ -61,14 +61,14 @@ IIS提供各种跟踪工具，具体取决于实际版本：
 
 ## 找不到IIS和404 {#iis-and-not-found}
 
-使用IIS时，您可能会 `404 Not Found` 遇到在各种情况下返回的情况。 如果是，请参阅以下知识库文章。
+使用IIS时，您可能会遇到在各种情况下返回`404 Not Found`的情况。 如果是，请参阅以下知识库文章。
 
 * [IIS 6/7:POST方法返回404](https://helpx.adobe.com/dispatcher/kb/IIS6IsapiFilters.html)
-* [IIS 6:对包含基本路径的URL的请求将返 `/bin` 回 `404 Not Found`](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
+* [IIS 6:对包含基本路径的URL的请 `/bin` 求  `404 Not Found`](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
 
 还应检查调度程序缓存根目录和IIS文档根目录是否设置为同一目录。
 
-## 删除工作流模型时出现问题 {#problems-deleting-workflow-models}
+## 删除工作流模型{#problems-deleting-workflow-models}时出现问题
 
 **症状**
 
@@ -79,15 +79,15 @@ IIS提供各种跟踪工具，具体取决于实际版本：
 1. 登录到您的作者实例（确认请求是通过调度程序发送的）。
 1. 创建新的工作流；例如，将“标题”设置为workflowToDelete。
 1. 确认已成功创建工作流。
-1. 选择并右键单击工作流，然后单击“ **删除**”。
+1. 选择并右键单击工作流，然后单击&#x200B;**删除**。
 
 1. 单击&#x200B;**是**&#x200B;以确认。
 1. 将出现一个错误消息框，其中显示：\
-   &quot; `ERROR 'Could not delete workflow model!!`&quot;.
+   &quot; `ERROR 'Could not delete workflow model!!`&quot;。
 
 **分辨率**
 
-将以下标题添加到文 `/clientheaders` 件的部分 `dispatcher.any` 中：
+在`dispatcher.any`文件的`/clientheaders`部分添加以下标头：
 
 * `x-http-method-override`
 * `x-requested-with`
@@ -103,29 +103,29 @@ IIS提供各种跟踪工具，具体取决于实际版本：
 }
 ```
 
-## 与mod_dir(Apache)的干扰 {#interference-with-mod-dir-apache}
+## 与mod_dir(Apache){#interference-with-mod-dir-apache}的干扰
 
-这描述了调度程序如何与Apache `mod_dir` Web服务器内部进行交互，因为这会导致各种可能意外的效果：
+这描述了调度程序如何与Apache Web服务器中的`mod_dir`交互，因为这可能导致各种可能意外的效果：
 
 ### Apache 1.3 {#apache}
 
-在Apache 1.3 `mod_dir` 中，处理URL映射到文件系统目录的每个请求。
+在Apache 1.3 `mod_dir`中，处理URL映射到文件系统中某个目录的每个请求。
 
 它会：
 
-* 将请求重定向到现有文 `index.html` 件
+* 将请求重定向到现有的`index.html`文件
 * 生成目录列表
 
-启用调度程序后，它将自身注册为内容类型的处理程序，从而处理此类请求 `httpd/unix-directory`。
+启用调度程序后，它通过将自身注册为内容类型`httpd/unix-directory`的处理程序来处理此类请求。
 
 ### Apache 2.x {#apache-x}
 
 在Apache 2.x中，情况不同。 模块可以处理请求的不同阶段，如URL修正。 `mod_dir` 通过将请求（当URL映射到目录时）重定向到附加的URL来处理此 `/` 阶段。
 
-调度程序不会截 `mod_dir` 取修正，但会完全处理对重定向URL(即附加的 `/` 请求)。 如果远程服务器(如AEM)以不同方式处理请求(当映射到现 `/a_path` 有目录时), `/a_path/` 这 `/a_path` 可能会造成问题。
+调度程序不截取`mod_dir`修正，但完全处理对重定向URL的请求（即附加了`/`）。 如果远程服务器(如AEM)以不同方式处理对`/a_path`的请求（当`/a_path/`映射到现有目录时），这可能会造成问题。`/a_path`
 
 如果发生这种情况，您必须执行以下任一操作：
 
-* 禁 `mod_dir` 用调度 `Directory` 程序处 `Location` 理的或子树
+* 对调度程序处理的`Directory`或`Location`子树禁用`mod_dir`
 
-* 使用 `DirectorySlash Off` 配置 `mod_dir` 不追加 `/`
+* 使用`DirectorySlash Off`将`mod_dir`配置为不追加`/`
