@@ -39,11 +39,11 @@ Adobe强烈建议您在开始生产之前完成以下核对清单。
 
 >[!CAUTION]
 >
->您还必须在AEM上市前完成版本的安全核对清单。 请参阅相应的Adobe Experience Manager [文件](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html)。
+>您还必须在AEM上市前完成版本的安全核对清单。 请参阅相应的[Adobe Experience Manager文档](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html)。
 
-## 使用最新版的Dispatcher {#use-the-latest-version-of-dispatcher}
+## 使用最新版本的调度程序{#use-the-latest-version-of-dispatcher}
 
-您应安装适用于您的平台的最新可用版本。 您应升级Dispatcher实例，以使用最新版本来利用产品和安全增强功能。 请参 [阅安装Dispatcher](dispatcher-install.md)。
+您应安装适用于您的平台的最新可用版本。 您应升级Dispatcher实例，以使用最新版本来利用产品和安全增强功能。 请参阅[安装Dispatcher](dispatcher-install.md)。
 
 >[!NOTE]
 >
@@ -51,13 +51,13 @@ Adobe强烈建议您在开始生产之前完成以下核对清单。
 >
 >`[Thu Apr 30 17:30:49 2015] [I] [23171(140735307338496)] Dispatcher initialized (build 4.1.9)`
 >
->要查找日志文件，请检查您的调度程序配置 `httpd.conf`。
+>要查找日志文件，请检查`httpd.conf`中的调度程序配置。
 
-## 限制可刷新缓存的客户端 {#restrict-clients-that-can-flush-your-cache}
+## 限制可刷新缓存的客户端{#restrict-clients-that-can-flush-your-cache}
 
-Adobe建议您限 [制可以刷新缓存的客户端。](dispatcher-configuration.md#limiting-the-clients-that-can-flush-the-cache)
+Adobe建议您[限制可刷新缓存的客户端。](dispatcher-configuration.md#limiting-the-clients-that-can-flush-the-cache)
 
-## 为传输层安全启用HTTPS {#enable-https-for-transport-layer-security}
+## 为传输层安全性启用HTTPS {#enable-https-for-transport-layer-security}
 
 Adobe建议在创作和发布实例上启用HTTPS传输层。
 
@@ -78,38 +78,38 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
  -->
 
-## 限制访问 {#restrict-access}
+## 限制访问{#restrict-access}
 
-配置调度程序时，应尽可能限制外部访问。 请参 [阅调度程序文档中](dispatcher-configuration.md#main-pars_184_1_title) 的示例/filter部分。
+配置调度程序时，应尽可能限制外部访问。 请参阅调度程序文档中的[示例/filter Section](dispatcher-configuration.md#main-pars_184_1_title)。
 
 ## 确保拒绝访问管理URL {#make-sure-access-to-administrative-urls-is-denied}
 
 确保使用过滤器阻止对任何管理URL（如Web控制台）的外部访问。
 
-请参 [阅测试Dispatcher](dispatcher-configuration.md#testing-dispatcher-security) Security以获取需要阻止的URL列表。
+有关需要阻止的URL的列表，请参阅[测试调度程序安全性](dispatcher-configuration.md#testing-dispatcher-security)。
 
-## 使允许列表用代替阻止列表 {#use-allowlists-instead-of-blocklists}
+## 使允许列表用阻止列表代替{#use-allowlists-instead-of-blocklists}
 
 允许列表是提供访问控制的更好方式，因为它们本身就认为，除非明确属于，否则应拒绝所有访问请求允许列表。 此模型对某些配置阶段可能尚未审核或考虑的新请求提供更严格的控制。
 
-## 与专用系统用户一起运行调度程序 {#run-dispatcher-with-a-dedicated-system-user}
+## 使用专用系统用户{#run-dispatcher-with-a-dedicated-system-user}运行调度程序
 
 配置调度程序时，您应确保Web服务器由具有最少权限的专用用户运行。 建议仅授予对调度程序缓存文件夹的写访问权限。
 
 此外，IIS用户需要按如下方式配置其网站：
 
-1. 在网站的物理路径设置中，选择Connect **作为特定用户**。
+1. 在网站的物理路径设置中，选择&#x200B;**作为特定用户连接**。
 1. 设置用户。
 
-## 防止拒绝服务(DoS)攻击 {#prevent-denial-of-service-dos-attacks}
+## 防止拒绝服务(DoS)攻击{#prevent-denial-of-service-dos-attacks}
 
 拒绝服务(DoS)攻击是试图使计算机资源对其预期用户不可用。
 
-在调度程序级别，有两种配置方法可防止DoS攻击： [](https://docs.adobe.com/content/docs/en/dispatcher.html#/filter (筛选器))
+在调度程序级别，有两种配置方法可防止DoS攻击：[](https://docs.adobe.com/content/docs/en/dispatcher.html#/filter (筛选器))
 
-* 使用mod_rewrite模块(例如， [Apache 2.4](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html))执行URL验证（如果URL模式规则不太复杂）。
+* 使用mod_rewrite模块（例如，[Apache 2.4](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html)）执行URL验证（如果URL模式规则不太复杂）。
 
-* 通过使用过滤器，防止调度程序缓存具有虚假扩展的 [URL](dispatcher-configuration.md#configuring-access-to-conten-tfilter)。\
+* 通过使用[过滤器](dispatcher-configuration.md#configuring-access-to-conten-tfilter)防止调度程序缓存具有虚假扩展的URL。\
    例如，更改缓存规则以将缓存限制为预期的mime类型，例如：
 
    * `.html`
@@ -121,7 +121,7 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
    * `.pdf`
    * `.ppt`
 
-   可以看到限制外部访问的 [示例配置文件](#restrict-access)，这包括MIME类型的限制。
+   可以为限制外部访问](#restrict-access)的[看到一个配置文件示例，其中包括MIME类型的限制。
 
 要安全地在发布实例上启用完整功能，请配置过滤器以阻止访问以下节点：
 
@@ -151,20 +151,20 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
  -->
 
-## Configure Dispatcher to prevent CSRF Attacks {#configure-dispatcher-to-prevent-csrf-attacks}
+## 配置调度程序以防止CSRF攻击{#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM提供了 [旨在](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps) 防止跨站点请求伪造攻击的框架。 为了正确利用此框架，您需要在调度程允许列表序中CSRF令牌支持。 可通过以下方式执行此操作：
+AEM提供[framework](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps)，旨在防止跨站点请求伪造攻击。 为了正确利用此框架，您需要在调度程允许列表序中CSRF令牌支持。 可通过以下方式执行此操作：
 
-1. 创建允许路径的 `/libs/granite/csrf/token.json` 过滤器；
-1. 将标 `CSRF-Token` 头添加到调 `clientheaders` 度程序配置的部分。
+1. 创建允许`/libs/granite/csrf/token.json`路径的过滤器；
+1. 将`CSRF-Token`头添加到调度程序配置的`clientheaders`部分。
 
-## 防止点击劫持 {#prevent-clickjacking}
+## 防止Clickjacking {#prevent-clickjacking}
 
-为防止点击劫持，我们建议您配置Web服务器以提供 `X-FRAME-OPTIONS` 设置为的HTTP头 `SAMEORIGIN`。
+为防止点击劫持，我们建议您配置Web服务器以提供设置为`SAMEORIGIN`的`X-FRAME-OPTIONS` HTTP头。
 
-有关点击 [劫持的更多信息，请参阅OWASP站点](https://www.owasp.org/index.php/Clickjacking)。
+有关点击劫持的更多[信息，请参阅OWASP站点](https://www.owasp.org/index.php/Clickjacking)。
 
-## 执行渗透测试 {#perform-a-penetration-test}
+## 执行渗透测试{#perform-a-penetration-test}
 
 Adobe强烈建议在开始生产之前对AEM基础架构执行渗透测试。
 
