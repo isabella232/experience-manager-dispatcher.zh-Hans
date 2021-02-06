@@ -24,7 +24,7 @@ ht-degree: 9%
 |  |  |
 |--- |--- |
 | 产品 | Adobe Experience Manager(AEM)调度程序 |
-| 版本 | 4.3.3 |
+| 版本号 | 4.3.3 |
 | 类型 | 次要版本 |
 | 日期 | 2019 年 18 月 10 日 |
 | 下载 URL | <ul><li>[Apache 2.4](release-notes.md#apache)</li><li>[Microsoft Internet信息服务(IIS)](release-notes.md#iis)</li></ul> |
@@ -49,7 +49,7 @@ Adobe强烈建议使用最新版AEM Dispatcher来使用最新功能、最新错�
 * DISP-739 - LogLevel调度程序：**level**&#x200B;无效
 * DISP-749 - Alpine Linux调度程序因跟踪日志级别崩溃
 
-**改进**:
+**改进功能**:
 
 * DISP-813 - Dispatcher中的openssl 1.1.x支持
 * DISP-814 —— 缓存刷新期间出现Apache 40x错误
@@ -75,7 +75,7 @@ Adobe强烈建议使用最新版AEM Dispatcher来使用最新功能、最新错�
 * DISP-740 —— 默认情况下，在macOS Mojave中加载调度程序处于禁用状态
 * DISP-742 —— 被阻止的请求可能会将信息泄露给身份验证检查器受保护的资源
 
-**改进**:
+**改进功能**:
 
 * DISP-746 —— 调度程序。any中未标记的字符串应生成警告
 
@@ -103,7 +103,7 @@ Adobe强烈建议使用最新版AEM Dispatcher来使用最新功能、最新错�
 * DISP-732 —— 调度程序应删除URL中连续的“/”
 * DISP-733 —— 调度程序应设置（计算）年龄报头
 
-**改进**:
+**改进功能**:
 
 * DISP-656 - Dispatcher服务错误的ETag标头
 * DISP-694 —— 当保持活动连接失效时禁止警告
@@ -130,7 +130,7 @@ Adobe强烈建议使用最新版AEM Dispatcher来使用最新功能、最新错�
 * DISP-709 —— 阻止某些虚URL扩展
 * DISP-710 —— 针对Linux的内部版本在Cent OS 6上不可用
 
-**改进**:
+**改进功能**:
 
 * DISP-652 - Dispatcher服务错误的日期标头
 
