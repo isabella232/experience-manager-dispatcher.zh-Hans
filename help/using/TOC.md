@@ -8,12 +8,11 @@ breadcrumb-title: Dispatcher 指南
 user-guide-description: 了解如何使用 Dispatcher 进行缓存、负载平衡和提高 AEM 服务器的安全性。
 feature-set: Experience Manager
 feature: Dispatcher
-topic: Administration
+topic: 管理
 role: Administrator
-translation-type: tm+mt
 source-git-commit: da6af93fa3dec8e3b2f146e9c8c6183a3185199b
 workflow-type: tm+mt
-source-wordcount: '90'
+source-wordcount: '89'
 ht-degree: 85%
 
 ---
@@ -29,7 +28,7 @@ ht-degree: 85%
 + 配置 {#configuring}
    + [配置 Dispatcher](dispatcher-configuration.md)
    + [使从 AEM 中缓存的页面失效](page-invalidate.md)
-   + [为缓存性能优化网站](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
+   + [优化网站以提高缓存性能](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
    + [缓存受保护内容](permissions-cache.md)
    + [在多个域中使用 Dispatcher ](dispatcher-domains.md)
    + [将 SSL 与 Dispatcher 结合使用](dispatcher-ssl.md)
