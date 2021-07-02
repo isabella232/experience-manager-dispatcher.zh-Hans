@@ -10,7 +10,7 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+source-git-commit: 35739785aa835a0b995fab4710a0e37bd0ff62b4
 workflow-type: tm+mt
 source-wordcount: '3684'
 ht-degree: 0%
@@ -93,7 +93,7 @@ Comment Type: draft
 * Internet Information Server上Microsoft自己的文档
 * [“The Formical Microsoft IIS site”（官方的Microsoft IIS站点）](https://www.iis.net/)
 
-### 所需的IIS组件{#required-iis-components}
+### 必需的IIS组件 {#required-iis-components}
 
 IIS版本8.5和10要求安装以下IIS组件：
 
@@ -101,7 +101,7 @@ IIS版本8.5和10要求安装以下IIS组件：
 
 此外，您还必须添加Web服务器(IIS)角色。 使用服务器管理器添加角色和组件。
 
-## Microsoft IIS — 安装调度程序模块{#microsoft-iis-installing-the-dispatcher-module}
+## Microsoft IIS — 安装调度程序模块 {#microsoft-iis-installing-the-dispatcher-module}
 
 Microsoft Internet Information System所需的存档是：
 
@@ -130,7 +130,7 @@ ZIP文件包含以下文件：
       * 创作实例：`author_dispatcher.any`
       * 发布实例：`dispatcher.any`
 
-## Microsoft IIS — 配置Dispatcher INI文件{#microsoft-iis-configure-the-dispatcher-ini-file}
+## Microsoft IIS — 配置Dispatcher INI文件 {#microsoft-iis-configure-the-dispatcher-ini-file}
 
 编辑`disp_iis.ini`文件以配置Dispatcher安装。 `.ini`文件的基本格式如下：
 
@@ -260,7 +260,7 @@ replaceauthorization=0
    logfile=C:\inetpub\logs\dispatcher\dispatcher.log
    ```
 
-### 后续步骤{#next-steps}
+### 后续步骤 {#next-steps}
 
 在开始使用Dispatcher之前，您必须知道：
 
@@ -285,7 +285,7 @@ replaceauthorization=0
 
 另请参阅Apache HTTP Server [安全提示](https://httpd.apache.org/docs/2.4/misc/security_tips.html)和[安全报告](https://httpd.apache.org/security_report.html)。
 
-### Apache Web Server — 添加调度程序模块{#apache-web-server-add-the-dispatcher-module}
+### Apache Web Server — 添加调度程序模块 {#apache-web-server-add-the-dispatcher-module}
 
 Dispatcher具有以下任一形式：
 
@@ -318,7 +318,7 @@ Dispatcher具有以下任一形式：
 
    **注意：** 只要相应地配置了Dispatcher模块的DispatcherLog属性，您就可以将此文件放置到其他位置。（请参阅下面的“特定于调度程序的配置条目”。）
 
-### Apache Web Server — 配置SELinux属性{#apache-web-server-configure-selinux-properties}
+### Apache Web Server — 配置SELinux属性 {#apache-web-server-configure-selinux-properties}
 
 如果在启用SELinux的RedHat Linux Kernel 2.6上运行Dispatcher，则可能会在Dispatcher日志文件中遇到类似此类的错误消息。
 
@@ -339,7 +339,7 @@ chcon -R --type httpd_sys_content_t [path to the docroot]
 semanage fcontext -a -t httpd_sys_content_t "[path to the docroot](/.*)?"
 ```
 
-### Apache Web Server — 为Dispatcher {#apache-web-server-configure-apache-web-server-for-dispatcher}配置Apache Web Server
+### Apache Web Server — 为Dispatcher配置Apache Web Server {#apache-web-server-configure-apache-web-server-for-dispatcher}
 
 需要使用`httpd.conf`配置Apache Web服务器。 在Dispatcher安装工具包中，您将找到一个名为`httpd.conf.disp<x>`的示例配置文件。
 
@@ -420,12 +420,17 @@ DispatcherKeepAliveTimeout 60
 
 >[!NOTE]
 >
->服务器标题的默认设置为：`  
-ServerTokens Full` `  
-DispatcherNoServerHeader 0`\
-显示AEM版本（用于统计目的）。 如果要禁用此类信息在标题中可用，可以设置：`  
-ServerTokens Prod`\
-有关更多信息，请参阅[Apache Documentation about ServerTokens Directive（例如，适用于Apache 2.4）](https://httpd.apache.org/docs/2.4/mod/core.html)。
+>服务器标题的默认设置为：
+>
+>`ServerTokens Full`
+>
+>`DispatcherNoServerHeader 0`
+>
+>显示AEM版本（用于统计目的）。 如果要禁用此类信息在标题中可用，可以设置：
+>
+>`ServerTokens Prod`
+>
+>有关更多信息，请参阅[Apache Documentation about ServerTokens Directive（例如，适用于Apache 2.4）](https://httpd.apache.org/docs/2.4/mod/core.html)。
 
 **SetHandler**
 
@@ -483,16 +488,20 @@ AllowOverride None
 ```
 
 >[!NOTE]
-**SetHandler**&#x200B;语句的参数必须与上述示例&#x200B;*中的参数完全一样编写，因为这是模块中定义的处理程序的名称。*
-有关此命令的完整详细信息，请参阅提供的示例配置文件和Apache Web Server文档。
+>
+>**SetHandler**&#x200B;语句的参数必须与上述示例&#x200B;*中的参数完全一样编写，因为这是模块中定义的处理程序的名称。*
+>
+>有关此命令的完整详细信息，请参阅提供的示例配置文件和Apache Web Server文档。
 
 **ModMimeUsePathInfo**
 
 在&#x200B;**SetHandler**&#x200B;语句之后，还应添加&#x200B;**ModMimeUsePathInfo**&#x200B;定义。
 
 >[!NOTE]
-仅当您使用的是Dispatcher版本4.0.9或更高版本时，才应使用和配置`ModMimeUsePathInfo`参数。
-(请注意，Dispatcher版本4.0.9已于2011年发布。 如果您使用的是旧版本，则升级到最新的Dispatcher版本是合适的)。
+>
+>仅当您使用的是Dispatcher版本4.0.9或更高版本时，才应使用和配置`ModMimeUsePathInfo`参数。
+>
+>(请注意，Dispatcher版本4.0.9已于2011年发布。 如果您使用的是旧版本，则升级到最新的Dispatcher版本是合适的)。
 
 对于所有Apache配置，应设置&#x200B;**ModMimeUsePathInfo**&#x200B;参数`On`:
 
@@ -520,7 +529,7 @@ AllowOverride None
 ...
 ```
 
-### 启用对HTTPS（Unix和Linux）的支持{#enable-support-for-https-unix-and-linux}
+### 启用对HTTPS（Unix和Linux）的支持 {#enable-support-for-https-unix-and-linux}
 
 Dispatcher使用OpenSSL通过HTTP实施安全通信。 从Dispatcher版本&#x200B;**4.2.0**&#x200B;开始，支持OpenSSL 1.0.0和OpenSSL 1.0.1。 默认情况下，Dispatcher使用OpenSSL 1.0.0。 要使用OpenSSL 1.0.1，请使用以下过程创建符号链接，以便Dispatcher使用已安装的OpenSSL库。
 
@@ -538,9 +547,10 @@ Dispatcher使用OpenSSL通过HTTP实施安全通信。 从Dispatcher版本&#x200
    ```
 
 >[!NOTE]
-如果您使用的是Apache的自定义版本，请确保Apache和Dispatcher是使用相同版本的[OpenSSL](https://www.openssl.org/source/)编译的。
+>
+>如果您使用的是Apache的自定义版本，请确保Apache和Dispatcher是使用相同版本的[OpenSSL](https://www.openssl.org/source/)编译的。
 
-### 后续步骤{#next-steps-1}
+### 后续步骤 {#next-steps-1}
 
 现在，在开始使用Dispatcher之前，您必须：
 
@@ -550,17 +560,19 @@ Dispatcher使用OpenSSL通过HTTP实施安全通信。 从Dispatcher版本&#x200
 ## Sun Java System Web Server / iPlanet {#sun-java-system-web-server-iplanet}
 
 >[!NOTE]
-此处介绍了Windows和Unix环境的说明。
-选择要执行的时候请务必小心。
+>
+>此处介绍了Windows和Unix环境的说明。
+>
+>选择要执行的时候请务必小心。
 
-### Sun Java System Web Server / iPlanet — 安装Web服务器{#sun-java-system-web-server-iplanet-installing-your-web-server}
+### Sun Java System Web Server / iPlanet — 安装Web服务器 {#sun-java-system-web-server-iplanet-installing-your-web-server}
 
 有关如何安装这些Web服务器的完整信息，请参阅其各自的文档：
 
 * Sun Java System Web服务器
 * iPlanet Web Server
 
-### Sun Java System Web Server / iPlanet — 添加调度程序模块{#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
+### Sun Java System Web Server / iPlanet — 添加调度程序模块 {#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
 
 Dispatcher具有以下任一形式：
 
@@ -583,7 +595,7 @@ Dispatcher具有以下任一形式：
 
 1. 将Dispatcher文件放在Web服务器的`plugin`目录中：
 
-### Sun Java System Web Server / iPlanet — 为调度程序{#sun-java-system-web-server-iplanet-configure-for-the-dispatcher}配置
+### Sun Java System Web Server / iPlanet — 为调度程序配置 {#sun-java-system-web-server-iplanet-configure-for-the-dispatcher}
 
 需要使用`obj.conf`配置Web服务器。 在Dispatcher安装工具包中，您将找到一个名为`obj.conf.disp`的示例配置文件。
 
@@ -604,7 +616,8 @@ Dispatcher具有以下任一形式：
 1. 保存更改。
 
 >[!NOTE]
-以下配置应全部位于一行中，且`$(SERVER_ROOT)`和`$(PRODUCT_SUBDIR)`必须替换为相应的值。
+>
+>以下配置应全部位于一行中，且`$(SERVER_ROOT)`和`$(PRODUCT_SUBDIR)`必须替换为相应的值。
 
 **初始化**
 
@@ -652,7 +665,7 @@ Service fn="dispService" method="(GET|HEAD|POST)" type="\*/\*"
 ...
 ```
 
-### 后续步骤{#next-steps-2}
+### 后续步骤 {#next-steps-2}
 
 现在，在开始使用Dispatcher之前，您必须：
 
