@@ -2,9 +2,9 @@
 title: 配置 Dispatcher
 description: 了解如何配置Dispatcher。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
+source-git-commit: 35739785aa835a0b995fab4710a0e37bd0ff62b4
 workflow-type: tm+mt
-source-wordcount: '8513'
+source-wordcount: '8512'
 ht-degree: 2%
 
 ---
@@ -21,7 +21,7 @@ ht-degree: 2%
 
 AEM和Dispatcher的所有元素都可以安装在IPv4和IPv6网络中。 请参阅[IPV4和IPV6](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/introduction/technical-requirements.html?lang=en#ipv-and-ipv)。
 
-## 调度程序配置文件{#dispatcher-configuration-files}
+## 调度程序配置文件 {#dispatcher-configuration-files}
 
 默认情况下，Dispatcher配置存储在`dispatcher.any`文本文件中，不过您可以在安装过程中更改此文件的名称和位置。
 
@@ -123,7 +123,7 @@ AEM和Dispatcher的所有元素都可以安装在IPv4和IPv6网络中。 请参�
   }
 ```
 
-## 使用环境变量{#using-environment-variables}
+## 使用环境变量 {#using-environment-variables}
 
 您可以在dispatcher.any文件中的字符串值属性中使用环境变量，而不是硬编码值。 要包含环境变量的值，请使用格式`${variable_name}`。
 
@@ -144,11 +144,11 @@ AEM和Dispatcher的所有元素都可以安装在IPv4和IPv6网络中。 请参�
 }
 ```
 
-## 命名调度程序实例{#naming-the-dispatcher-instance-name}
+## 命名调度程序实例 {#naming-the-dispatcher-instance-name}
 
 使用`/name`属性指定唯一名称以标识Dispatcher实例。 `/name`属性是配置结构中的顶级属性。
 
-## 定义场{#defining-farms-farms}
+## 定义场 {#defining-farms-farms}
 
 `/farms`属性定义一组或多组Dispatcher行为，其中每组都与不同的网站或URL关联。 `/farms`属性可以包含单个场或多个场：
 
@@ -255,7 +255,7 @@ Comment Type: draft
 
  -->
 
-## 指定要传递{#specifying-the-http-headers-to-pass-through-clientheaders}的HTTP标头
+## 指定要传递的HTTP头 {#specifying-the-http-headers-to-pass-through-clientheaders}
 
 `/clientheaders`属性定义Dispatcher从客户端HTTP请求传递到呈现器(AEM实例)的HTTP标头列表。
 
@@ -314,7 +314,7 @@ Comment Type: draft
   }
 ```
 
-## 识别虚拟主机{#identifying-virtual-hosts-virtualhosts}
+## 识别虚拟主机 {#identifying-virtual-hosts-virtualhosts}
 
 `/virtualhosts`属性定义Dispatcher接受此场的所有主机名/URI组合的列表。 可以使用星号(`*`)字符作为通配符。 / `virtualhosts`属性的值使用以下格式：
 
@@ -346,7 +346,7 @@ Comment Type: draft
     }
 ```
 
-### 解析虚拟主机{#resolving-the-virtual-host}
+### 解析虚拟主机 {#resolving-the-virtual-host}
 
 当Dispatcher收到HTTP或HTTPS请求时，它会找到与请求的`host,` `uri`和`scheme`标头最匹配的虚拟主机值。 Dispatcher按以下顺序计算`virtualhosts`属性中的值：
 
@@ -361,7 +361,7 @@ Dispatcher通过以下方式查找最匹配的虚拟主机值：
 
 因此，您应将默认虚拟主机放在`virtualhosts`属性的顶部，位于`dispatcher.any`文件最上方的场中。
 
-### 虚拟主机分辨率{#example-virtual-host-resolution}示例
+### 虚拟主机分辨率示例 {#example-virtual-host-resolution}
 
 以下示例代表`dispatcher.any`文件中定义两个Dispatcher场的代码片段，每个场定义一个`virtualhosts`属性。
 
@@ -457,7 +457,7 @@ Dispatcher通过以下方式查找最匹配的虚拟主机值：
   }
 ```
 
-## 定义页面渲染器{#defining-page-renderers-renders}
+## 定义页面渲染器 {#defining-page-renderers-renders}
 
 /renders属性定义Dispatcher将请求发送到的URL以呈现文档。 以下示例`/renders`部分标识要渲染的单个AEM实例：
 
@@ -507,7 +507,7 @@ Dispatcher通过以下方式查找最匹配的虚拟主机值：
   }
 ```
 
-### 呈现选项{#renders-options}
+### 渲染选项 {#renders-options}
 
 **/timeout**
 
@@ -551,7 +551,7 @@ Amazon Elastic Load Balancing(ELB)是一项服务，它以可能相同的IP地�
   }
 ```
 
-## 配置对内容的访问{#configuring-access-to-content-filter}
+## 配置对内容的访问 {#configuring-access-to-content-filter}
 
 使用`/filter`部分指定Dispatcher接受的HTTP请求。 所有其他请求都将发送回带有404错误代码（页面未找到）的Web服务器。 如果不存在`/filter`部分，则接受所有请求。
 
@@ -566,7 +566,7 @@ Amazon Elastic Load Balancing(ELB)是一项服务，它以可能相同的IP地�
 * 首先，拒绝访问所有内容。
 * 允许根据需要访问内容。
 
-### 定义过滤器{#defining-a-filter}
+### 定义过滤器 {#defining-a-filter}
 
 `/filter`部分中的每个项目都包括与请求行或整个请求行的特定元素匹配的类型和模式。 每个过滤器可以包含以下项目：
 
@@ -592,7 +592,7 @@ Amazon Elastic Load Balancing(ELB)是一项服务，它以可能相同的IP地�
 >
 >`/url "*.css"`
 
-#### HTTP请求的请求行部分{#the-request-line-part-of-http-requests}
+#### HTTP请求的请求行部分 {#the-request-line-part-of-http-requests}
 
 HTTP/1.1定义[request-line](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html)，如下所示：
 
@@ -604,19 +604,19 @@ HTTP/1.1定义[request-line](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.h
 
 您的模式必须考虑请求行中的空格字符和`<CRLF>`字符。
 
-#### 双引号与单引号{#double-quotes-vs-single-quotes}
+#### 双引号与单引号 {#double-quotes-vs-single-quotes}
 
 创建过滤器规则时，对于简单模式，请使用双引号`"pattern"`。 如果您使用的是Dispatcher 4.2.0或更高版本并且您的模式包含正则表达式，则必须在单引号内括住正则表达式模式`'(pattern1|pattern2)'`。
 
-#### 正则表达式{#regular-expressions}
+#### 正则表达式 {#regular-expressions}
 
 在高于4.2.0的Dispatcher版本中，您可以在过滤器模式中包含POSIX扩展正则表达式。
 
-#### 过滤器{#troubleshooting-filters}故障诊断
+#### 过滤器疑难解答 {#troubleshooting-filters}
 
 如果您的过滤器未按预期方式触发，请在调度程序上启用[跟踪日志记录](#trace-logging)，以便您能够看到哪个过滤器正在拦截请求。
 
-#### 示例过滤器：全部拒绝{#example-filter-deny-all}
+#### 示例过滤器：全部拒绝 {#example-filter-deny-all}
 
 以下示例过滤器部分使Dispatcher拒绝所有文件的请求。 您应拒绝访问所有文件，然后允许访问特定区域。
 
@@ -626,7 +626,7 @@ HTTP/1.1定义[request-line](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.h
 
 对明确拒绝区域的请求会导致返回404错误代码（页面未找到）。
 
-#### 示例过滤器：拒绝访问特定区域{#example-filter-deny-access-to-specific-areas}
+#### 示例过滤器：拒绝访问特定区域 {#example-filter-deny-access-to-specific-areas}
 
 过滤器还允许您拒绝访问各种元素，例如ASP页面和发布实例中的敏感区域。 以下过滤器拒绝访问ASP页面：
 
@@ -634,7 +634,7 @@ HTTP/1.1定义[request-line](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.h
 /0002  { /type "deny" /url "*.asp"  }
 ```
 
-#### 示例过滤器：启用POST请求{#example-filter-enable-post-requests}
+#### 示例过滤器：启用POST请求 {#example-filter-enable-post-requests}
 
 以下示例过滤器允许使用POST方法提交表单数据：
 
@@ -645,7 +645,7 @@ HTTP/1.1定义[request-line](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.h
 }
 ```
 
-#### 示例过滤器：允许访问工作流控制台{#example-filter-allow-access-to-the-workflow-console}
+#### 示例过滤器：允许访问工作流控制台 {#example-filter-allow-access-to-the-workflow-console}
 
 以下示例显示了用于拒绝外部访问工作流控制台的过滤器：
 
@@ -672,7 +672,7 @@ HTTP/1.1定义[request-line](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.h
 >
 >当多个过滤器模式应用于请求时，应用的最后一个过滤器模式将有效。
 
-#### 示例过滤器：使用正则表达式{#example-filter-using-regular-expressions}
+#### 示例过滤器：使用正则表达式 {#example-filter-using-regular-expressions}
 
 此过滤器使用正则表达式在非公共内容目录中启用扩展，此处在单引号之间定义此表达式：
 
@@ -680,7 +680,7 @@ HTTP/1.1定义[request-line](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.h
 /005  {  /type "allow" /extension '(css|gif|ico|js|png|swf|jpe?g)' }
 ```
 
-#### 示例过滤器：筛选请求URL的其他元素{#example-filter-filter-additional-elements-of-a-request-url}
+#### 示例过滤器：筛选请求URL的其他元素 {#example-filter-filter-additional-elements-of-a-request-url}
 
 下面是一个规则示例，它使用路径、选择器和扩展的过滤器阻止从`/content`路径及其子树中捕获内容：
 
@@ -693,7 +693,7 @@ HTTP/1.1定义[request-line](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.h
         }
 ```
 
-### 示例/filter部分{#example-filter-section}
+### 示例/filter部分 {#example-filter-section}
 
 配置Dispatcher时，应尽可能限制外部访问。 以下示例为外部访客提供了最少的访问权限：
 
@@ -806,7 +806,7 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 >
 >如果您[在发布环境中使用报表](https://experienceleague.adobe.com/docs/experience-manager-65/administering/operations/reporting.html?lang=en#using-reports-in-a-publish-environment)，则应将Dispatcher配置为拒绝外部访客访问`/etc/reports`。
 
-### 限制查询字符串{#restricting-query-strings}
+### 限制查询字符串 {#restricting-query-strings}
 
 自Dispatcher版本4.1.5起，使用`/filter`部分限制查询字符串。 强烈建议通过`allow`筛选器元素明确允许查询字符串并排除一般允许。
 
@@ -835,7 +835,7 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 }  
 ```
 
-### 测试Dispatcher安全性{#testing-dispatcher-security}
+### 测试Dispatcher安全性 {#testing-dispatcher-security}
 
 Dispatcher过滤器应阻止访问AEM发布实例上的以下页面和脚本。 使用Web浏览器尝试像站点访客那样打开以下页面，并验证是否返回了代码404。 如果获得任何其他结果，请调整过滤器。
 
@@ -901,7 +901,7 @@ Dispatcher过滤器应阻止访问AEM发布实例上的以下页面和脚本。 
 
 `curl -H "CQ-Handle: /content" -H "CQ-Path: /content" https://yourhostname/dispatcher/invalidate.cache`
 
-## 启用对虚URL的访问{#enabling-access-to-vanity-urls-vanity-urls}
+## 启用对虚URL的访问 {#enabling-access-to-vanity-urls-vanity-urls}
 
 <!-- 
 
@@ -940,7 +940,7 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 
 请按照以下过程启用对虚URL的访问权限。
 
-1. 如果您的呈现服务是AEM实例，请在发布实例上安装“com.adobe.granite.dispatcher.vanityurl.content”包（请参阅上面的注释）。
+1. 如果您的渲染服务是AEM实例，请在发布实例上安装`com.adobe.granite.dispatcher.vanityurl.content`包（请参阅上面的注释）。
 1. 对于您为AEM或CQ页面配置的每个虚URL，请确保[`/filter`](#configuring-access-to-content-filter)配置拒绝该URL。 如有必要，请添加一个过滤器以拒绝URL。
 1. 在`/farms`下添加`/vanity_urls`部分。
 1. 重新启动Apache Web服务器。
@@ -996,7 +996,7 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 >
 >对于权限敏感型缓存，请阅读[Caching Secured Content](permissions-cache.md)。
 
-### 指定缓存目录{#specifying-the-cache-directory}
+### 指定缓存目录 {#specifying-the-cache-directory}
 
 `/docroot`属性标识存储缓存文件的目录。
 
@@ -1017,13 +1017,13 @@ statfile没有内容。 更新内容后，Dispatcher会更新时间戳。 默认
 >
 >如果配置了`/statfileslevel`，则Dispatcher将忽略`/statfile`属性并使用`.stat`作为名称。
 
-### 在出现{#serving-stale-documents-when-errors-occur}错误时提供过时的文档
+### 在发生错误时提供过时的文档 {#serving-stale-documents-when-errors-occur}
 
 `/serveStaleOnError`属性控制当渲染服务器返回错误时，Dispatcher是否返回无效的文档。 默认情况下，当处理statfile并使缓存内容失效时，Dispatcher会在下次请求时删除缓存内容。
 
 如果将`/serveStaleOnError`设置为`"1"`，则除非呈现服务器返回成功响应，否则Dispatcher不会从缓存中删除无效的内容。 来自AEM的5xx响应或连接超时导致Dispatcher提供过时的内容，并使用HTTP状态111做出响应（重新验证失败）。
 
-### 使用身份验证时缓存{#caching-when-authentication-is-used}
+### 使用身份验证时缓存 {#caching-when-authentication-is-used}
 
 `/allowAuthorized`属性控制是否缓存包含以下任何身份验证信息的请求：
 
@@ -1041,7 +1041,7 @@ statfile没有内容。 更新内容后，Dispatcher会更新时间戳。 默认
 >
 >要启用会话管理（使用`/sessionmanagement`属性），必须将`/allowAuthorized`属性设置为`"0"`。
 
-### 指定要缓存的文档{#specifying-the-documents-to-cache}
+### 指定要缓存的文档 {#specifying-the-documents-to-cache}
 
 `/rules`属性控制根据文档路径缓存哪些文档。 无论`/rules`属性如何，Dispatcher在以下情况下都永远不会缓存文档：
 
@@ -1144,7 +1144,7 @@ Last Modified Date: 2017-11-13T09:23:24.326-0500
 
  -->
 
-### 按文件夹级别{#invalidating-files-by-folder-level}使文件失效
+### 按文件夹级别使文件失效 {#invalidating-files-by-folder-level}
 
 使用`/statfileslevel`属性根据缓存文件的路径使其失效：
 
@@ -1172,7 +1172,7 @@ Last Modified Date: 2017-11-13T09:23:24.326-0500
 >
 >如果为`/statfileslevel`属性指定值，则将忽略`/statfile`属性。
 
-### 自动使缓存文件{#automatically-invalidating-cached-files}失效
+### 自动使缓存文件失效 {#automatically-invalidating-cached-files}
 
 `/invalidate`属性定义更新内容时自动失效的文档。
 
@@ -1216,7 +1216,7 @@ AEM与Adobe Analytics的集成可在您网站的`analytics.sitecatalyst.js`文�
 }
 ```
 
-### 使用自定义失效脚本{#using-custom-invalidation-scripts}
+### 使用自定义失效脚本 {#using-custom-invalidation-scripts}
 
 利用`/invalidateHandler`属性，可定义一个脚本，该脚本将为Dispatcher收到的每个失效请求调用。
 
@@ -1234,7 +1234,7 @@ AEM与Adobe Analytics的集成可在您网站的`analytics.sitecatalyst.js`文�
 /invalidateHandler "/opt/dispatcher/scripts/invalidate.sh"
 ```
 
-#### 失效处理程序脚本{#sample-invalidation-handler-script}
+#### 失效处理程序脚本 {#sample-invalidation-handler-script}
 
 ```shell
 #!/bin/bash
@@ -1242,7 +1242,7 @@ AEM与Adobe Analytics的集成可在您网站的`analytics.sitecatalyst.js`文�
 printf "%-15s: %s %s" $1 $2 $3>> /opt/dispatcher/logs/invalidate.log
 ```
 
-### 限制可刷新缓存{#limiting-the-clients-that-can-flush-the-cache}的客户端
+### 限制可刷新缓存的客户端 {#limiting-the-clients-that-can-flush-the-cache}
 
 `/allowedClients`属性定义允许刷新缓存的特定客户端。 通配模式与IP匹配。
 
@@ -1267,7 +1267,7 @@ printf "%-15s: %s %s" $1 $2 $3>> /opt/dispatcher/logs/invalidate.log
 >
 >如果未执行此操作，任何客户端都可以发出调用以清除缓存；如果反复执行此操作，可能会严重影响网站性能。
 
-### 忽略URL参数{#ignoring-url-parameters}
+### 忽略URL参数 {#ignoring-url-parameters}
 
 `ignoreUrlParams`部分定义在确定页面是缓存还是从缓存中传送时，将忽略哪些URL参数：
 
@@ -1305,7 +1305,7 @@ GET /mypage.html?q=5&p=4
 
 有关全局属性的信息，请参阅[为全局属性设计模式](#designing-patterns-for-glob-properties)。
 
-### 缓存HTTP响应标头{#caching-http-response-headers}
+### 缓存HTTP响应头 {#caching-http-response-headers}
 
 >[!NOTE]
 >
@@ -1347,7 +1347,7 @@ GET /mypage.html?q=5&p=4
 >FileETag none
 >```
 
-### 调度程序缓存文件权限{#dispatcher-cache-file-permissions}
+### 调度程序缓存文件权限 {#dispatcher-cache-file-permissions}
 
 `mode`属性指定将哪些文件权限应用于缓存中的新目录和文件。 此设置受调用进程`umask`的限制。 它是使用以下一个或多个值之和构建的八进制数字：
 
@@ -1363,7 +1363,7 @@ GET /mypage.html?q=5&p=4
 
 默认值为`0755`，该值允许所有者读取、写入或搜索，组和其他人读取或搜索。
 
-### 限制.stat文件处理{#throttling-stat-file-touching}
+### 限制.stat文件处理 {#throttling-stat-file-touching}
 
 使用默认的`/invalidate`属性，每次激活都会有效地使所有`.html`文件失效（当其路径与`/invalidate`部分匹配时）。 如果某个网站的流量很大，则多次后续激活会增加后端的cpu负载。 在这种情况下，最好“限制”`.stat`文件接触以保持网站响应。 您可以使用`/gracePeriod`属性执行此操作。
 
@@ -1408,7 +1408,7 @@ Dispatcher最多支持8个统计类别。 如果定义的类别超过8个，则�
 >
 >如果不使用负载平衡，则可以忽略此部分。
 
-### 定义统计类别{#defining-statistics-categories}
+### 定义统计类别 {#defining-statistics-categories}
 
 为要保留用于呈现选择的统计信息的每种类型的文档定义类别。 `/statistics`部分包含`/categories`部分。 要定义类别，请在`/categories`部分下添加一行，该行的格式如下：
 
@@ -1445,7 +1445,7 @@ Dispatcher最多支持8个统计类别。 如果定义的类别超过8个，则�
   }
 ```
 
-### 在调度程序统计数据{#reflecting-server-unavailability-in-dispatcher-statistics}中反映服务器不可用性
+### 在调度程序统计信息中反映服务器不可用性 {#reflecting-server-unavailability-in-dispatcher-statistics}
 
 `/unavailablePenalty`属性设置在与渲染器的连接失败时应用于渲染统计信息的时间（以秒为单位）。 Dispatcher将时间添加到与请求的URI匹配的统计类别中。
 
@@ -1459,7 +1459,7 @@ Dispatcher最多支持8个统计类别。 如果定义的类别超过8个，则�
 /unavailablePenalty "1"
 ```
 
-## 识别粘性连接文件夹 — {#identifying-a-sticky-connection-folder-stickyconnectionsfor}的/stickyConnections
+## 识别粘性连接文件夹 — /stickyConnectionsFor {#identifying-a-sticky-connection-folder-stickyconnectionsfor}
 
 `/stickyConnectionsFor`属性定义一个包含粘性文档的文件夹；将使用URL访问该地址。 Dispatcher将此文件夹中的所有请求从单个用户发送到同一呈现实例。 粘性连接可确保所有文档的会话数据都存在且一致。 此机制使用`renderid` Cookie。
 
@@ -1491,11 +1491,11 @@ Dispatcher最多支持8个统计类别。 如果定义的类别超过8个，则�
 
 启用粘性连接后，调度程序模块会设置`renderid` Cookie。 此Cookie没有`secure`标记，应添加该标记以增强安全性。 为此，可以在`dispatcher.any`配置文件的`/stickyConnections`节点中设置`secure`属性。 属性的值（`0`或`1`）定义`renderid` Cookie是否附加了`secure`属性。 默认值为`0`，这表示如果&#x200B;**传入请求安全，将添加属性**。 如果将该值设置为`1`，则将添加安全标志，无论传入请求是否安全。
 
-## 处理渲染连接错误{#handling-render-connection-errors}
+## 处理渲染连接错误 {#handling-render-connection-errors}
 
 在呈现服务器返回500错误或不可用时配置Dispatcher行为。
 
-### 指定运行状况检查页面{#specifying-a-health-check-page}
+### 指定运行状况检查页面 {#specifying-a-health-check-page}
 
 使用`/health_check`属性指定在发生500状态代码时要检查的URL。 如果此页还返回500状态代码，则实例将被视为不可用，并且在重试之前对渲染应用可配置的时间惩罚(`/unavailablePenalty`)。
 
@@ -1507,7 +1507,7 @@ Dispatcher最多支持8个统计类别。 如果定义的类别超过8个，则�
   }
 ```
 
-### 指定页面重试延迟{#specifying-the-page-retry-delay}
+### 指定页面重试延迟 {#specifying-the-page-retry-delay}
 
 `/retryDelay`属性可设置Dispatcher在场呈现的连接尝试轮次之间等待的时间（以秒为单位）。 对于每轮，Dispatcher尝试连接到渲染器的最大次数是场中的渲染次数。
 
@@ -1517,7 +1517,7 @@ Dispatcher最多支持8个统计类别。 如果定义的类别超过8个，则�
 /retryDelay "1"
 ```
 
-### 配置重试次数{#configuring-the-number-of-retries}
+### 配置重试次数 {#configuring-the-number-of-retries}
 
 `/numberOfRetries`属性设置Dispatcher对呈现器执行的连接尝试的最大轮次数。 如果Dispatcher在进行此次重试后无法成功连接到呈现器，则Dispatcher返回失败的响应。
 
@@ -1529,7 +1529,7 @@ Dispatcher最多支持8个统计类别。 如果定义的类别超过8个，则�
 /numberOfRetries "5"
 ```
 
-### 使用故障转移机制{#using-the-failover-mechanism}
+### 使用故障切换机制 {#using-the-failover-mechanism}
 
 在原始请求失败时，在Dispatcher场上启用故障转移机制，以向不同呈现器重新发送请求。 启用故障转移后，Dispatcher的行为如下：
 
@@ -1578,7 +1578,7 @@ read more data
 
 将`/ignoreEINTR`设置为`"1"`会导致Dispatcher继续尝试读取数据，直到读取完整响应。 默认值为`0`并停用选项。
 
-## 设计全局属性的模式{#designing-patterns-for-glob-properties}
+## 设计全局属性的模式 {#designing-patterns-for-glob-properties}
 
 Dispatcher配置文件的几个部分使用`glob`属性作为客户端请求的选择标准。 `glob`属性的值是Dispatcher与请求方面（如请求资源的路径或客户端的IP地址）进行比较的模式。 例如，`/filter`部分中的项目使用`glob`模式来标识Dispatcher执行或拒绝操作的页面的路径。
 
@@ -1714,7 +1714,7 @@ The following table describes the wildcard characters.
 >
 >但是，这需要额外的资源，因此当Dispatcher根据您的要求&#x200B;*顺利运行*&#x200B;时，您可以（应该）降低日志级别。
 
-### 跟踪日志记录{#trace-logging}
+### 跟踪日志记录 {#trace-logging}
 
 在Dispatcher的其他增强功能中，版本4.2.0还引入了跟踪日志记录。
 
@@ -1747,7 +1747,7 @@ The following table describes the wildcard characters.
 [Thu Mar 03 14:42:45 2016] [T] [11831] 'GET /content.infinity.json HTTP/1.1' was blocked because of /0082
 ```
 
-## 确认基本操作{#confirming-basic-operation}
+## 确认基本操作 {#confirming-basic-operation}
 
 要确认Web服务器、Dispatcher和AEM实例的基本操作和交互，您可以执行以下步骤：
 
