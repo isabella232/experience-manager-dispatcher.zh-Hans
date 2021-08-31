@@ -1,8 +1,8 @@
 ---
-title: 优化网站以提高缓存性能
-seo-title: 优化网站以提高缓存性能
-description: 了解如何设计您的网站以最大限度地利用缓存的好处。
-seo-description: Dispatcher提供了许多可用于优化性能的内置机制。 了解如何设计您的网站以最大限度地利用缓存的好处。
+title: 优化网站缓存性能
+seo-title: 优化网站缓存性能
+description: 了解如何设计您的网站以最大限度地提高缓存优势。
+seo-description: Dispatcher 提供了大量可用于优化性能的内置机制。了解如何设计您的网站以最大限度地提高缓存优势。
 uuid: 2d4114d1-f464-4e10-b25c-a1b9a9c715d1
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
@@ -14,14 +14,14 @@ index: y
 internal: n
 snippet: y
 source-git-commit: 2ca816ac0776d72be651b76ff4f45e0c3ed1450f
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1167'
-ht-degree: 3%
+ht-degree: 100%
 
 ---
 
 
-# 优化网站以提高缓存性能{#optimizing-a-website-for-cache-performance}
+# 优化网站缓存性能 {#optimizing-a-website-for-cache-performance}
 
 <!-- 
 
@@ -35,41 +35,41 @@ Last Modified Date: 2017-10-25T04:13:34.919-0400
 
 >[!NOTE]
 >
->各个 Dispatcher 版本与 AEM 相互独立。如果单击以前版本 AEM 文档中嵌入的 Dispatcher 文档链接，可能会重定向到此页面。
+>Dispatcher 版本独立于 AEM。您可能是在单击以前版本的 AEM 文档中嵌入的 Dispatcher 文档链接后重定向到此页面。
 
-Dispatcher提供了许多可用于优化性能的内置机制。 本节将介绍如何设计网站以最大限度地发挥缓存的优势。
+Dispatcher 提供了大量可用于优化性能的内置机制。此部分介绍了如何设计您的网站以最大限度地提高缓存优势。
 
 >[!NOTE]
 >
->它可能有助于您记住，Dispatcher将缓存存储在标准Web服务器上。 这意味着您：
+>Dispatcher 将缓存存储在标准 Web 服务器上，记住这一点可能会对您有所帮助。这意味着您：
 >
->* 可以使用URL缓存可存储为页面和请求的所有内容
->* 无法存储其他内容，如HTTP头、Cookie、会话数据和表单数据。
+>* 可以缓存可存储为页面并使用 URL 请求的所有内容
+>* 无法存储其他内容，例如 HTTP 标头、cookie、会话数据和表单数据。
 
 >
 >
-通常，许多缓存策略都涉及选择良好的URL，而不依赖这些附加数据。
+通常，许多缓存策略涉及选择完好的 URL，并且不依赖此类额外数据。
 
-## 使用一致的页面编码{#using-consistent-page-encoding}
+## 使用一致的页面编码 {#using-consistent-page-encoding}
 
-HTTP请求标头不会缓存，因此，如果将页面编码信息存储在标头中，则可能会出现问题。 在这种情况下，当Dispatcher从缓存中提供页面时，将使用Web服务器的默认编码来进行页面。 有两种方法可以避免此问题：
+由于不会缓存 HTTP 请求标头，因此如果您将页面编码信息存储在标头中，则会出现问题。在此情况下，当 Dispatcher 从缓存中提供一个页面时，Web 服务器的默认编码将用于该页面。可通过两种方式避免此问题：
 
-* 如果只使用一种编码，请确保Web服务器上使用的编码与AEM网站的默认编码相同。
-* 在HTML `head`部分中使用`<META>`标记来设置编码，如以下示例中所示：
+* 如果您只使用一种编码，请确保 Web 服务器上使用的编码与 AEM 网站的默认编码相同。
+* 使用 HTML `head` 部分中的 `<META>` 标记设置编码，如以下示例所示：
 
 ```xml
         <META http-equiv="Content-Type" content="text/html; charset=EUC-JP">
 ```
 
-## 避免URL参数{#avoid-url-parameters}
+## 消除 URL 参数 {#avoid-url-parameters}
 
-如有可能，请避免为要缓存的页面使用URL参数。 例如，如果您有图片库，则永远不会缓存以下URL（除非Dispatcher已相应地配置[](dispatcher-configuration.md#main-pars_title_24)）：
+如果可能，请消除要缓存的页面的 URL 参数。例如，如果您有一个图片库，则绝不会缓存以下 URL（除非对 Dispatcher 进行[相应配置](dispatcher-configuration.md#main-pars_title_24)）：
 
 ```xml
 www.myCompany.com/pictures/gallery.html?event=christmas&amp;page=1
 ```
 
-但是，您可以将这些参数放入页面URL中，如下所示：
+不过，您可以将这些参数放入页面 URL 中，如下所示：
 
 ```xml
 www.myCompany.com/pictures/gallery.christmas.1.html
@@ -77,15 +77,15 @@ www.myCompany.com/pictures/gallery.christmas.1.html
 
 >[!NOTE]
 >
->此URL调用与gallery.html相同的页面和模板。 在模板定义中，您可以指定渲染页面的脚本，也可以对所有页面使用相同的脚本。
+>此 URL 调用与 gallery.html 相同的页面和模板。在模板定义中，您可以指定用于渲染页面的脚本，也可以对所有页面使用同一脚本。
 
-## 通过URL {#customize-by-url}自定义
+## 按 URL 进行自定义  {#customize-by-url}
 
-如果允许用户更改字体大小（或任何其他布局自定义），请确保URL中反映了不同的自定义设置。
+如果您允许用户更改字体大小（或任何其他版面自定义设置），请确保各种自定义设置都反映在 URL 中。
 
-例如，Cookie未缓存，因此如果您将字体大小存储在Cookie（或类似机制）中，则不会为缓存的页面保留字体大小。 因此，Dispatcher会随机返回任何字体大小的文档。
+例如，由于不会缓存 cookie，因此如果您将字体大小存储在 cookie（或类似机制）中，则不会为缓存的页面保留字体大小。因此，Dispatcher 会随机返回任意字体大小的文档。
 
-在URL中作为选择器包含字体大小可避免此问题：
+在 URL 中包含字体大小作为选择器可避免出现此问题：
 
 ```xml
 www.myCompany.com/news/main.large.html
@@ -93,83 +93,83 @@ www.myCompany.com/news/main.large.html
 
 >[!NOTE]
 >
->对于大多数布局方面，还可以使用样式表和/或客户端脚本。 这些功能通常在缓存方面非常有效。
+>对于大多数版面，也可以使用样式表和/或客户端脚本。它们通常可以很好地与缓存配合使用。
 >
->此外，对于打印版本，在该版本中，您可以使用URL，例如：&quot;
+>这对于打印版本也很有用，您可以在其中使用 URL，例如：``
 >
 >`www.myCompany.com/news/main.print.html`
 >
->使用模板定义的脚本代位，您可以指定一个单独的脚本来呈现打印页面。
+>通过使用模板定义的脚本通配，您可以指定单独的脚本来渲染打印页面。
 
-## 使用作标题的图像文件失效{#invalidating-image-files-used-as-titles}
+## 使用作标题的图像文件失效 {#invalidating-image-files-used-as-titles}
 
-如果您将页面标题或其他文本渲染为图片，则建议存储这些文件，以便在页面上的内容更新时将其删除：
+如果您将页面标题或其他文本渲染为图片，建议您存储文件，以便在更新页面内容时将其删除：
 
-1. 将图像文件放置在与页面相同的文件夹中。
+1. 将图像文件放入与页面相同的文件夹中。
 1. 对图像文件使用以下命名格式：
 
    `<page file name>.<image file name>`
 
-例如，您可以将页面myPage.html的标题存储在文件myPage.title.gif中。 如果页面已更新，则会自动删除此文件，因此对页面标题所做的任何更改都会自动反映在缓存中。
+例如，您可以将页面 myPage.html 的标题存储在文件 myPage.title.gif 中。由于此文件会在页面更新时自动被删除，因此对页面标题进行的任何更改都会自动反映在缓存中。
 
 >[!NOTE]
 >
->图像文件不一定在AEM实例上存在。 您可以使用动态创建图像文件的脚本。 然后，Dispatcher将文件存储在Web服务器上。
+>图像文件不一定会实际存在于 AEM 实例上。您可以使用动态创建图像文件的脚本。随后，Dispatcher 会将文件存储在 Web 服务器上。
 
-## 使用于导航的图像文件失效{#invalidating-image-files-used-for-navigation}
+## 使用于导航的图像文件失效 {#invalidating-image-files-used-for-navigation}
 
-如果将图片用于导航条目，则方法与标题基本相同，只是略微复杂一些。 将所有导航图像与目标页面一起存储。 如果您使用两张图片用于正常和活动，则可以使用以下脚本：
+如果将图片用于导航条目，则采用的方法与标题的大致相同，只不过会稍微复杂一些。将所有导航图像与目标页面一起存储。如果将两张图片用于一般或活动场景，则可以使用以下脚本：
 
-* 正常情况下显示页面的脚本。
-* 处理“.normal”的脚本请求并返回正常图片。
-* 处理“.active”请求并返回激活图片的脚本。
+* 一个正常显示页面的脚本。
+* 一个处理“.normal”请求并返回正常图片的脚本。
+* 一个处理“.active”请求并返回活动图片的脚本。
 
-请务必使用与页面相同的命名句柄创建这些图片，以确保内容更新会删除这些图片和页面。
+请务必使用与页面相同的命名句柄创建这些图片，以确保内容更新将删除这些图片以及页面。
 
-对于未修改的页面，图片仍保留在缓存中，尽管页面本身通常会自动失效。
+对于未修改的页面，图片仍保留在缓存中，但页面本身通常会自动失效。
 
 ## 个性化 {#personalization}
 
-Dispatcher无法缓存个性化数据，因此建议您将个性化限制为必要时。 说明原因：
+Dispatcher 无法缓存个性化数据，因此建议您仅允许在必要时进行个性化设置。原因如下：
 
-* 如果您使用可自由自定义的开始页面，则每次用户请求时都必须撰写该页面。
-* 相反，如果您提供了10个不同的开始页，则可以缓存其中每个开始页，从而提高性能。
+* 如果您使用可随意自定义的开始页面，则用户每次请求该页面时都必须对它进行编辑。
+* 相反，如果您有 10 个不同的开始页面可供选择，则可以缓存其中的每个页面，从而提高性能。
 
 >[!NOTE]
 >
->如果个性化每个页面（例如，将用户名放入标题栏中），则无法缓存该页面，这可能会对性能产生重大影响。
+>如果您对每个页面进行个性化设置（例如，将用户名放入标题栏中），则无法对它们进行缓存，从而会对性能造成重大影响。
 >
->但是，如果必须执行此操作，您可以：
+>不过，如果您必须执行此操作，则可以：
 >
->* 使用iFrame将页面拆分为一个部分，该部分对所有用户都是相同的，而另一个部分对用户的所有页面是相同的。 然后，可以缓存这两个部分。
->* 使用客户端JavaScript来显示个性化信息。 但是，您必须确保在用户关闭JavaScript时，页面仍能正确显示。
+>* 使用 iFrame 将页面分成两个部分，一个部分是所有用户共用的，另一个部分是用户的所有页面共用的。随后，您可以缓存这两个部分。
+>* 使用客户端 JavaScript 显示个性化的信息。但您必须确保页面在用户禁用 JavaScript 后仍正常显示。
 
 >
 
 
 
-## 粘性连接{#sticky-connections}
+## 粘性连接 {#sticky-connections}
 
-[置顶](dispatcher.md#TheBenefitsofLoadBalancing) 连接确保同一用户的文档全部在同一服务器上撰写。如果用户离开此文件夹，稍后又返回到该文件夹，则连接仍会保持。 定义一个文件夹，以保存要求网站具有粘性连接的所有文档。 尽量不要在其中包含其他文档。 如果您使用个性化的页面和会话数据，这会影响负载平衡。
+[粘性连接](dispatcher.md#TheBenefitsofLoadBalancing)可确保同一个用户的文档全部在同一服务器上撰写。如果用户在退出此文件夹不久后返回，则此连接仍保持粘性。定义一个文件夹来保存所有需要网站的粘性连接的文档。尽量不要在该文件夹中放入其他文件。如果您使用个性化的页面和会话数据，这将影响负载平衡。
 
-## MIME类型{#mime-types}
+## MIME 类型 {#mime-types}
 
-浏览器可通过两种方式来确定文件类型：
+浏览器可通过两种方式确定文件的类型：
 
-1. 扩展(例如.html、.gif、.jpg等)
-1. 按服务器随文件发送的MIME类型。
+1. 按文件扩展名（例如 .html、.gif、.jpg、etc）
+1. 按服务器随文件一起发送的 MIME 类型。
 
-对于大多数文件，文件扩展名中包含MIME类型。 i.e.:
+对于大多数文件，MIME 类型隐含在文件扩展名中。即：
 
-1. 扩展(例如.html、.gif、.jpg等)
-1. 按服务器随文件发送的MIME类型。
+1. 按文件扩展名（例如 .html、.gif、.jpg、etc）
+1. 按服务器随文件一起发送的 MIME 类型。
 
-如果文件名没有扩展名，则会显示为纯文本。
+如果文件名没有扩展名，则以纯文本形式显示。
 
-MIME类型是HTTP标头的一部分，因此，Dispatcher不会缓存它。 如果您的AEM应用程序返回的文件没有可识别的文件结尾，而是依赖MIME类型，则这些文件可能会被错误地显示。
+MIME 类型是 HTTP 标头的一部分，因此 Dispatcher 不会缓存它。如果 AEM 应用程序返回的文件没有可识别的文件结尾，而是依赖 MIME 类型，则这些文件可能会错误显示。
 
 要确保正确缓存文件，请遵循以下准则：
 
-* 确保文件的扩展名始终正确。
-* 避免使用通用文件服务脚本，这些脚本具有URL，如download.jsp?file=2214。 重写脚本以使用包含文件规范的URL;对于上一个示例，此为download.2214.pdf。
+* 确保文件始终具有正确的扩展名。
+* 避免使用通用的文件服务脚本，这些脚本具有 download.jsp?file=2214 等 URL。重新编写脚本以使用包含文件规范的 URL；对于上一个示例，这将是 download.2214.pdf。
 
