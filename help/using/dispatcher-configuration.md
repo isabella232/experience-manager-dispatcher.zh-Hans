@@ -1340,10 +1340,8 @@ GET /mypage.html?q=5&p=4
 >
 >* 在 `/cache/headers` 部分中添加标头名称。
 >* 在 Dispatcher 相关部分中添加以下 [Apache 指令](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag)：
-
 >
->
-```xml
+>```xml
 >FileETag none
 >```
 
