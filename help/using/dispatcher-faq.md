@@ -1,100 +1,100 @@
 ---
-title: Dispatcher主要问题
-seo-title: AEM Dispatcher的主要问题
-description: AEM Dispatcher的主要问题
-seo-description: AdobeAEM Dispatcher的主要问题
+title: Dispatcher 常见问题
+seo-title: AEM Dispatcher 常见问题
+description: AEM Dispatcher 常见问题
+seo-description: Adobe AEM Dispatcher 常见问题
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
 source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1644'
-ht-degree: 13%
+ht-degree: 100%
 
 ---
 
-# AEM Dispatcher常见问题解答
+# AEM Dispatcher 常见问题解答
 
 ![配置 Dispatcher](assets/CQDispatcher_workflow_v2.png)
 
 ## 简介
 
-### 什么是Dispatcher?
+### 什么是 Dispatcher？
 
-Dispatcher是Adobe Experience Manager的缓存和/或负载平衡工具，可帮助实现快速、动态的Web创作环境。 对于缓存，Dispatcher作为HTTP服务器（如Apache）的一部分工作，其目的是尽可能多地存储（或“缓存”）静态网站内容，并尽可能少地访问网站的布局引擎。 在负载平衡角色中，Dispatcher在不同的AEM实例（呈现）间分发用户请求（负载）。
+Dispatcher 是 Adobe Experience Manager 的缓存和/或负载平衡工具，可帮助实现快速且动态的 Web 创作环境。对于缓存，Dispatcher 作为 HTTP 服务器（例如 Apache）的一部分工作，旨在存储（或“缓存”）尽可能多的静态网站内容，并尽可能少地访问网站的布局引擎。用于负载平衡时，Dispatcher 跨不同的 AEM 实例（渲染器）分发用户请求（负载）。
 
-对于缓存，Dispatcher模块使用Web服务器的功能来提供静态内容。 Dispatcher将缓存的文档放在Web服务器的文档根目录中。
+对于执行缓存，Dispatcher 模块利用 Web 服务器的功能来提供静态内容。Dispatcher 将缓存文档放在 Web 服务器的文档根目录下。
 
-### Dispatcher如何执行缓存？
+### Dispatcher 如何执行缓存？
 
-Dispatcher使用Web服务器的功能来提供静态内容。 Dispatcher将缓存的文档存储在Web服务器的文档根目录中。 Dispatcher 有两种主要方法可用于在对网站进行更改后更新缓存内容。
+Dispatcher 利用 Web 服务器的功能来提供静态内容。Dispatcher 将缓存文档存储在 Web 服务器的文档根目录下。Dispatcher 有两种主要方法可用于在对网站进行更改后更新缓存内容。
 
 * **内容更新**&#x200B;可删除已更改的页面以及与其直接关联的文件。
 * **自动失效**&#x200B;可在更新后自动使可能已过期的这部分缓存失效。例如，它可以有效地将相关页面标记为已过期，而不会删除任何内容。
 
 ### 负载平衡有哪些好处？
 
-负载平衡在多个AEM实例中分发用户请求（负载）。以下列表描述了负载平衡的优势：
+负载平衡跨多个 AEM 实例分发用户请求（负载）。以下列表描述了负载平衡的优势：
 
-* **增强的处理能力**:在实践中，这意味着Dispatcher在多个AEM实例之间共享文档请求。由于每个实例处理的文档较少，因此响应时间更快。 Dispatcher 保留每个文档类别的内部统计信息，以便能够估计负载并高效分发查询。
-* **增加了故障保护范围**:如果Dispatcher未收到来自实例的响应，它将自动将请求中继到另一个实例中的一个。因此，如果一个实例变得不可用，唯一的结果就是站点速度减慢，这与计算能力损失成正比。
+* **更大的处理能力**：在实践中，这意味着 Dispatcher 在多个 AEM 实例之间共享文档请求。由于每个实例处理的文档数量减少，您的响应速度将加快。Dispatcher 保留每个文档类别的内部统计信息，以便能够估计负载并高效分发查询。
+* **更大的故障保护范围**：如果 Dispatcher 未收到实例的响应，它会自动将请求中继到另一个实例。因此，如果一个实例变得不可用，唯一的影响就是站点速度减慢，这与计算能力损失成正比。
 
 >[!NOTE]
 >
->有关更多详细信息，请参阅[Dispatcher概述页面](dispatcher.md)
+>有关详细信息，请参阅 [Dispatcher 概述页面](dispatcher.md)
 
 ## 安装和配置
 
-### 我应从何处下载Dispatcher模块？
+### 从何处下载 Dispatcher 模块？
 
-您可以从[Dispatcher发行说明](release-notes.md)页面下载最新的Dispatcher模块。
+您可以从 [Dispatcher 发行说明](release-notes.md)页面下载最新的 Dispatcher 模块。
 
-### 如何安装Dispatcher模块？
+### 如何安装 Dispatcher 模块？
 
-请参阅[安装Dispatcher](dispatcher-install.md)页面
+请参阅[安装 Dispatcher](dispatcher-install.md) 页面
 
-### 如何配置Dispatcher模块？
+### 如何配置 Dispatcher 模块？
 
-请参阅[配置Dispatcher](dispatcher-configuration.md)页面。
+请参阅[配置 Dispatcher](dispatcher-configuration.md) 页面。
 
-### 如何为创作实例配置Dispatcher?
+### 如何为创作实例配置 Dispatcher？
 
-有关详细步骤，请参阅[将Dispatcher与创作实例一起使用](dispatcher.md#using-a-dispatcher-with-an-author-server)。
+有关详细步骤，请参阅[将 Dispatcher 与创作实例结合使用](dispatcher.md#using-a-dispatcher-with-an-author-server)。
 
-### 如何使用多个域配置Dispatcher?
+### 如何配置 Dispatcher 以在多个域中使用？
 
-您可以使用多个域配置CQ Dispatcher，前提是这些域满足以下条件：
+您可以配置 CQ Dispatcher 以在多个域中使用，前提是这些域满足以下条件：
 
-* 两个域的Web内容都存储在单个AEM存储库中
-* Dispatcher缓存中的文件对于每个域可单独失效
+* 这些域的 Web 内容都存储在一个 AEM 存储库中
+* 可单独为每个域使 Dispatcher 缓存中的文件失效
 
-有关更多详细信息，请参阅[将Dispatcher与多个域结合使用](dispatcher-domains.md) 。
+有关详细信息，请参阅[在多个域中使用 Dispatcher](dispatcher-domains.md)。
 
-### 如何配置Dispatcher，以便将用户的所有请求路由到同一发布实例？
+### 如何配置 Dispatcher，以便将来自某个用户的所有请求路由到同一个发布实例？
 
-您可以使用[置顶连接](dispatcher-configuration.md#identifying-a-sticky-connection-folder-stickyconnectionsfor)功能，该功能可确保用户的所有文档都在AEM的同一实例上处理。 如果您使用个性化页面和会话数据，则此功能很重要。 数据存储在实例上。 因此，来自同一用户的后续请求必须返回到该实例，否则数据将丢失。
+您可以使用[粘性连接](dispatcher-configuration.md#identifying-a-sticky-connection-folder-stickyconnectionsfor)功能，从而确保在同一 AEM 实例上处理某个用户的所有文档。如果您使用个性化的页面和会话数据，则此功能很重要。数据存储在实例上。因此，来自同一用户的后续请求必须返回到该实例，否则数据将丢失。
 
-由于粘性连接会限制Dispatcher优化请求的能力，因此仅在必要时才应使用此方法。 您可以指定包含“粘滞”文档的文件夹，从而确保该文件夹中的所有文档都在用户的同一实例上进行处理。
+由于粘性连接会限制 Dispatcher 优化请求的能力，因此应仅在需要时使用此方法。您可以指定包含“粘性”文档的文件夹，从而确保在同一个实例上处理该文件夹中某个用户的所有文档。
 
-### 我是否可以将粘性连接和缓存结合使用？
+### 是否能将粘性连接和缓存结合使用？
 
-对于使用粘性连接的大多数页面，应关闭缓存。 否则，无论会话内容如何，都会向所有用户显示该页面的同一实例。
+对于大多数使用粘性连接的页面，您应禁用缓存。否则，无论会话内容如何，都会向所有用户显示同一页面实例。
 
-对于某些应用程序，可以同时使用粘性连接和缓存。 例如，如果显示将数据写入会话的表单，则可以同时使用粘性连接和缓存。
+对于某些应用程序，可以同时使用粘性连接和缓存。例如，如果您显示的表单将数据写入会话中，则可以将粘性连接和缓存结合使用。
 
-### 调度程序和AEM发布实例是否可以驻留在同一物理计算机上？
+### Dispatcher 和 AEM 发布实例是否能驻留在同一台物理计算机上？
 
-是的，如果机器足够强大。 但是，建议您在不同的计算机上设置Dispatcher和AEM Publish实例。
+可以，但前提是计算机的功能足够强大。不过，建议您在不同的计算机上设置 Dispatcher 和 AEM 发布实例。
 
-通常，发布实例位于防火墙内，调度程序位于DMZ内。 如果您决定将发布实例和调度程序都位于同一物理计算机上，请确保防火墙设置禁止从外部网络直接访问发布实例。
+通常，发布实例驻留在防火墙内，而 Dispatcher 驻留在 DMZ 中。如果您决定让发布实例和 Dispatcher 驻留在同一台物理计算机上，请确保防火墙设置禁止从外部网络直接访问发布实例。
 
-### 我是否可以仅缓存具有特定扩展名的文件？
+### 是否能仅缓存带特定扩展名的文件？
 
-是. 例如，如果只想缓存GIF文件，请在dispatcher.any配置文件的缓存部分中指定*.gif。
+可以。例如，如果您只想缓存 GIF 文件，请在 dispatcher.any 配置文件的缓存部分中指定 *.gif。
 
 ### 如何从缓存中删除文件？
 
-您可以使用HTTP请求从缓存中删除文件。 收到HTTP请求后，Dispatcher将从缓存中删除文件。 仅当Dispatcher收到页面的客户端请求时，才会再次缓存文件。 以这种方式删除缓存文件对于不太可能同时收到同一页面请求的网站是合适的。
+您可以使用 HTTP 请求从缓存中删除文件。在收到 HTTP 请求时，Dispatcher 会从缓存中删除文件。Dispatcher 仅在收到对页面的客户端请求时才重新缓存文件。对于不太可能同时收到对同一页面的请求的网站，可通过此方式删除缓存的文件。
 
-HTTP请求具有以下语法：
+HTTP 请求具有以下语法：
 
 ```
 POST /dispatcher/invalidate.cache HTTP/1.1
@@ -103,84 +103,85 @@ CQ-Handle: path-pattern
 Content-Length: 0
 ```
 
-Dispatcher将删除名称与CQ-Handle标头值匹配的缓存文件和文件夹。 例如，`/content/geomtrixx-outdoors/en`的CQ-Handle匹配以下项：
+Dispatcher 删除名称与 CQ-Handle 标头值匹配的缓存的文件和文件夹。例如，`/content/geomtrixx-outdoors/en` 的 CQ-Handle 与以下项匹配：
 
-在geometrixx-outdoors目录中名为en的所有文件（任何文件扩展名的）
-en目录下任何名为`_jcr_content`的目录（如果存在，则包含页面子节点的缓存渲染）
-仅当`CQ-Action`为`Delete`或`Deactivate`时，才会删除目录en。
+geometrixx-outdoors 目录中名称（任何文件扩展名）为 en 的所有文件
+en 目录下任何名为 `_jcr_content` 的目录（如果存在，则包含页面的子节点的缓存渲染）
+仅在 `CQ-Action` 为 `Delete` 或 `Deactivate` 时删除目录 en。
 
-有关本主题的更多详细信息，请参阅[手动使调度程序缓存失效](page-invalidate.md)。
+有关此主题的其他详细信息，请参阅[手动使 Dispatcher 缓存失效](page-invalidate.md)。
 
 ### 如何实施权限敏感型缓存？
 
 请参阅[缓存安全内容](permissions-cache.md)页面。
 
-### 如何保护Dispatcher与CQ实例之间通信的安全？
+### 如何保护 Dispatcher 和 CQ 实例之间的通信？
 
-请参阅[Dispatcher安全检查表](security-checklist.md)和[AEM安全检查表](https://helpx.adobe.com/experience-manager/6-4/sites/administering/using/security-checklist.html)页面。
+请参阅 [Dispatcher 安全核对清单](security-checklist.md)和 [AEM 安全核对清单](https://helpx.adobe.com/experience-manager/6-4/sites/administering/using/security-checklist.html)页面。
 
-### 调度程序问题`jcr:content`更改为`jcr%3acontent`
+### Dispatcher 问题 `jcr:content` 已更改为 `jcr%3acontent`
 
-**问题**:我们最近在调度程序级别遇到了一个问题，即ajax调用中的一个问题，该调用正在获取CQ存储库中包含的某 `jcr:content` 些数据，并且进行了编码以 `jcr%3acontent` 导致错误的结果集。
+**问题**：我们最近遇到了一个 Dispatcher 层面的问题，其中一个从 CQ 存储库获取一些数据的 ajax 调用包含了 `jcr:content` 并且编码为 `jcr%3acontent`，从而产生了错误的结果集。
 
-**答案**:请使 `ResourceResolver.map()` 用方法获取要使用/发出的获取请求的“友好”URL，并解决Dispatcher的缓存问题。map()方法将`:`冒号编码为下划线，resolve()方法会将其解码为SLING JCR可读格式。您需要使用map()方法生成Ajax调用中使用的URL。
+**回答**：请使用 `ResourceResolver.map()` 方法以使用/发出从中获取请求的“友好”URL 并解决与 Dispatcher 相关的缓存问题。map() 方法将 `:` 冒号编码为下划线，resolve() 方法将它们解码回 SLING JCR 可读格式。您需要使用 map() 方法生成在 Ajax 调用中使用的 URL。
 
-进一步阅读：[https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
+有关详细信息，请参阅：[https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
 
-## 刷新调度程序
+## 刷新 Dispatcher
 
-### 如何在发布实例上配置调度程序刷新代理？
+### 如何在发布实例上配置 Dispatcher 刷新代理？
 
-请参阅[Replication](https://helpx.adobe.com/content/help/en/experience-manager/6-4/sites/deploying/using/replication.html#ConfiguringyourReplicationAgents)页面。
+请参阅[复制](https://helpx.adobe.com/content/help/en/experience-manager/6-4/sites/deploying/using/replication.html#ConfiguringyourReplicationAgents)页面。
 
-### 如何对Dispatcher刷新问题进行故障诊断？
+### 如何解决 Dispatcher 刷新问题？
 
-[请参阅本疑难解答文](https://helpx.adobe.com/content/help/en/experience-manager/kb/troubleshooting-dispatcher-flushing-issues.html) 章，以回答以下问题：
+[请参阅本疑难解答文章](https://helpx.adobe.com/content/help/en/experience-manager/kb/troubleshooting-dispatcher-flushing-issues.html)，其中解答了以下问题：
 
-* 如何调试Dispatcher缓存中未保存任何内容的情况？
-* 如何调试缓存文件未更新的情况？
-* 如何调试与调度程序刷新无关的情况？
+* 我应如何针对 Dispatcher 缓存中未保存任何内容的情况进行调试？
+* 我如何针对缓存文件未更新的情况进行调试？
+* 我如何针对与 Dispatcher 刷新相关的任何功能不起作用的情况进行调试？
 
-如果删除操作导致Dispatcher刷新，请[使用Sensei Martin](https://mkalugin-cq.blogspot.in/2012/04/i-have-been-working-on-following.html)在此社区博客文章中的解决方法。
+如果删除操作促使 Dispatcher 进行刷新，请[使用由 Sensei Martin 撰写的本社区博客帖子中提供的解决方法](https://mkalugin-cq.blogspot.in/2012/04/i-have-been-working-on-following.html)。
 
-### 如何从调度程序缓存刷新DAM资产？
+### 如何从 Dispatcher 缓存刷新 DAM 资产？
 
-您可以使用“链式复制”功能。  启用此功能后，当从作者处收到复制时，调度程序刷新代理会发送刷新请求。
+您可以使用“链复制”功能。启用此功能后，Dispatcher 刷新代理会在收到来自创作实例的复制时发送刷新请求。
 
-要启用它，请执行以下操作：
+要启用该功能：
 
-1. [按照以下步骤](page-invalidate.md#invalidating-dispatcher-cache-from-a-publishing-instance) 在发布时创建刷新代理
-1. 转到这些代理的每个配置，并在&#x200B;**Triggers**&#x200B;选项卡中选中&#x200B;**On Receive**&#x200B;框。
+1. [执行此处的步骤](page-invalidate.md#invalidating-dispatcher-cache-from-a-publishing-instance)以在发布实例上创建刷新代理
+1. 转至每个代理的配置，在&#x200B;**“触发器”**&#x200B;选项卡上，选中&#x200B;**“接收时”**&#x200B;框。
 
 ## 其他
 
-Dispatcher如何确定文档是否为最新？
-为确定文档是否为最新，Dispatcher会执行以下操作：
+Dispatcher 如何确定文档是否为最新版本？
+为了确定文档是否为最新版本，Dispatcher 会执行以下操作：
 
-它检查文档是否遵循自动失效机制。如果不遵循，则该文档是最新状态。如果该文档配置为自动失效，则 Dispatcher 检查它比最后一次可用更改旧还是新。如果较旧，则 Dispatcher 从 AEM 实例请求当前版本，并替换缓存中的版本。
+它检查文档是否遵循自动失效机制。如果不遵循，则该文档是最新状态。
+如果该文档配置为自动失效，则 Dispatcher 检查它比最后一次可用更改旧还是新。如果较旧，则 Dispatcher 从 AEM 实例请求当前版本，并替换缓存中的版本。
 
-### Dispatcher如何返回文档？
+### Dispatcher 如何返回文档？
 
-您可以使用[Dispatcher配置](dispatcher-configuration.md)文件`dispatcher.any`来定义Dispatcher是否缓存文档。 Dispatcher 根据可缓存文档列表检查请求。如果文档不在此列表中，则 Dispatcher 从 AEM 实例中请求该文档。
+您可以使用 [Dispatcher 配置](dispatcher-configuration.md)文件 `dispatcher.any` 来定义 Dispatcher 是否缓存文档。Dispatcher 根据可缓存文档列表检查请求。如果文档不在此列表中，则 Dispatcher 从 AEM 实例中请求该文档。
 
-`/rules`属性控制根据文档路径缓存哪些文档。 无论`/rules`属性如何，Dispatcher在以下情况下都永远不会缓存文档：
+`/rules` 属性根据文档路径控制要缓存哪些文档。不论 `/rules` 属性如何，在以下情况下，Dispatcher 绝不会缓存文档：
 
-* 如果请求URI包含问号`(?)`。
-* 这通常表示动态页面，例如不需要缓存的搜索结果。
+* 请求 URI 包含问号 `(?)`。
+* 这通常指示动态页面，例如无需缓存的搜索结果。
 * 缺失文件扩展名。
 * Web 服务器需要扩展名来确定文档类型（比如 MIME 类型）。
 * 设置了身份验证标头（此项可进行配置）
-* 如果AEM实例使用以下标头做出响应：
-   * 无缓存
-   * 无存储
-   * 必须重新验证
+* AEM 实例使用以下标头进行响应：
+   * no-cache
+   * no-store
+   * must-revalidate
 
-Dispatcher将缓存文件存储在Web服务器上，就像它们是静态网站的一部分。 如果用户请求缓存的文档，则Dispatcher检查该文档是否存在于Web服务器的文件系统中。 如果是，则Dispatcher返回文档。 如果没有，则Dispatcher从AEM实例请求文档。
+Dispatcher 将缓存文件存储在 Web 服务器上，当做静态网站的一部分。如果用户请求一个缓存文档，则 Dispatcher 会检查该文档是否存在于 Web 服务器的文件系统中。如果存在，则 Dispatcher 将返回该文档。如果不存在，则 Dispatcher 将从 AEM 实例请求该文档。
 
 >[!NOTE]
 >
->GET 或 HEAD（针对 HTTP 标头）方法可由 Dispatcher 缓存。有关响应标头缓存的其他信息，请参阅[缓存HTTP响应标头](dispatcher-configuration.md#caching-http-response-headers)一节。
+>GET 或 HEAD（针对 HTTP 标头）方法可由 Dispatcher 缓存。有关响应标头缓存的其他信息，请参阅[缓存 HTTP 响应标头](dispatcher-configuration.md#caching-http-response-headers)部分。
 
-### 我能否在设置中实施多个Dispatcher?
+### 是否能在设置中实施多个 Dispatcher？
 
-是. 在这种情况下，请确保两个Dispatcher都可以直接访问AEM网站。 Dispatcher无法处理来自其他Dispatcher的请求。
+是。在此类情况下，请确保两个 Dispatcher 都能直接访问 AEM 网站。一个 Dispatcher 无法处理来自另一个 Dispatcher 的请求。
