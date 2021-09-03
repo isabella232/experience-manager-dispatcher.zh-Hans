@@ -1,8 +1,8 @@
 ---
 title: AEM Dispatcher 发行说明
-seo-title: AEM Dispatcher 发行说明
+seo-title: AEM Dispatcher Release Notes
 description: 特定于 Adobe Experience Manager Dispatcher 的发行说明
-seo-description: 特定于 Adobe Experience Manager Dispatcher 的发行说明
+seo-description: Release notes specific to Adobe Experience Manager Dispatcher
 uuid: ae3ccf62-0514-4c03-a3b9-71799a482cbd
 topic-tags: release-notes
 content-type: reference
@@ -11,7 +11,7 @@ discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
 source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: ht
-source-wordcount: '805'
+source-wordcount: '793'
 ht-degree: 100%
 
 ---
