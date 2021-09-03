@@ -825,7 +825,6 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 >
 >在以上示例中，如果还应该允许对 `/etc` 的没有查询字符串的请求，则需要以下规则：
 
-
 ```xml
 /filter {  
 >/0001 { /type "deny" /method “*" /url "/path/*" }  
@@ -1340,6 +1339,7 @@ GET /mypage.html?q=5&p=4
 >
 >* 在 `/cache/headers` 部分中添加标头名称。
 >* 在 Dispatcher 相关部分中添加以下 [Apache 指令](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag)：
+
 >
 >```xml
 >FileETag none
