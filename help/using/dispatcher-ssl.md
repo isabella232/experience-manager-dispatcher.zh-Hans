@@ -1,8 +1,8 @@
 ---
 title: 将 SSL 与 Dispatcher 结合使用
-seo-title: 将 SSL 与 Dispatcher 结合使用
+seo-title: Using SSL with Dispatcher
 description: 了解如何将 Dispatcher 配置为使用 SSL 连接与 AEM 进行通信。
-seo-description: 了解如何将 Dispatcher 配置为使用 SSL 连接与 AEM 进行通信。
+seo-description: Learn how to configure Dispatcher to communicate with AEM using SSL connections.
 uuid: 1a8f448c-d3d8-4798-a5cb-9579171171ed
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
@@ -15,7 +15,7 @@ snippet: y
 exl-id: ec378409-ddb7-4917-981d-dbf2198aca98
 source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: ht
-source-wordcount: '1375'
+source-wordcount: '1359'
 ht-degree: 100%
 
 ---
