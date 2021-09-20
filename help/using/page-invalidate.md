@@ -1,8 +1,8 @@
 ---
 title: 使从 AEM 中缓存的页面失效
-seo-title: 使从 Adobe AEM 中缓存的页面失效
+seo-title: Invalidating Cached Pages From Adobe AEM
 description: 了解如何配置 Dispatcher 和 AEM 之间的交互以确保高效的缓存管理。
-seo-description: 了解如何配置 Adobe AEM Dispatcher 和 AEM 之间的交互以确保高效的缓存管理。
+seo-description: Learn how to configure the interaction between Adobe AEM Dispatcher and AEM to ensure effective cache management.
 uuid: 66533299-55c0-4864-9beb-77e281af9359
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: 1193211344162
@@ -15,7 +15,7 @@ discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
 exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
 source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: ht
-source-wordcount: '1427'
+source-wordcount: '1404'
 ht-degree: 100%
 
 ---
@@ -28,7 +28,7 @@ ht-degree: 100%
 
 默认 `admin` 用户帐户用于对默认安装的复制代理进行身份验证。您应创建一个用于复制代理的专用用户帐户。
 
-有关更多信息，请参阅 AEM 安全检查清单的[配置复制和传输用户](https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps)部分。
+有关更多信息，请参阅 AEM 安全检查清单的[配置复制和传输用户](https://helpx.adobe.com/cn/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps)部分。
 
 ## 使创作环境中的 Dispatcher 缓存失效 {#invalidating-dispatcher-cache-from-the-authoring-environment}
 
@@ -67,7 +67,7 @@ Last Modified Date: 2017-05-25T10:37:23.679-0400
 1. 根据需要配置其他参数。
 1. 单击“确定”以激活代理。
 
-或者，您也可以从 [AEM Touch UI](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/replication.html#ConfiguringaDispatcherFlushagent) 访问和配置 Dispatcher Flush 代理。
+或者，您也可以从 [AEM Touch UI](https://helpx.adobe.com/cn/experience-manager/6-2/sites/deploying/using/replication.html#ConfiguringaDispatcherFlushagent) 访问和配置 Dispatcher Flush 代理。
 
 有关如何启用对虚名 URL 的访问的其他详细信息，请参阅[启用对虚名 URL 的访问](dispatcher-configuration.md#enabling-access-to-vanity-urls-vanity-urls)。
 
@@ -192,7 +192,6 @@ Content-Length: 36
 >[!NOTE]
 >
 >此示例 servlet 不安全，并且仅演示对 HTTP Post 请求消息的使用。您的解决方案应保护对 servlet 的访问。
-
 
 ```java
 package com.adobe.example;
