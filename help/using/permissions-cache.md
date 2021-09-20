@@ -1,8 +1,8 @@
 ---
 title: 缓存受保护内容
-seo-title: 在 AEM Dispatcher 中缓存受保护内容
+seo-title: Caching Secured Content in AEM Dispatcher
 description: 了解权限敏感缓存在 Dispatcher 中的工作方式。
-seo-description: 了解权限敏感缓存在 AEM Dispatcher 中的工作方式。
+seo-description: Learn how permission-sensitive caching works in AEM Dispatcher.
 uuid: abfed68a-2efe-45f6-bdf7-2284931629d6
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
@@ -12,7 +12,7 @@ discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
 source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: ht
-source-wordcount: '762'
+source-wordcount: '748'
 ht-degree: 100%
 
 ---
@@ -67,7 +67,6 @@ Dispatcher 包含实现权限敏感型缓存的 AuthChecker 模块。在激活�
 >[!NOTE]
 >
 >通常，安全资源存储在与非安全文件不同的文件夹中。例如，/content/secure/
-
 
 ## 创建授权 servlet {#create-the-authorization-servlet}
 
