@@ -1,8 +1,8 @@
 ---
 title: Dispatcher 概述
-seo-title: Adobe AEM Dispatcher 概述
+seo-title: Adobe AEM Dispatcher Overview
 description: 本文提供 Dispatcher 的一般概述。
-seo-description: 本文提供 Adobe Experience Manager Dispatcher 的一般概述。
+seo-description: This article provides a general overview of Adobe Experience Manager Dispatcher.
 uuid: 71766f86-5e91-446b-a078-061b179d090d
 pageversionid: 1193211344162
 topic-tags: dispatcher
@@ -11,7 +11,7 @@ discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
 source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: ht
-source-wordcount: '3199'
+source-wordcount: '3184'
 ht-degree: 100%
 
 ---
@@ -26,8 +26,8 @@ Dispatcher 是 Adobe Experience Manager 的缓存和/或负载平衡工具，可
 
 Dispatcher 的部署流程与所选的 Web 服务器和操作系统平台无关：
 
-1. 了解 Dispatcher（此页面）。另请参阅[有关 Dispatcher 的常见问题解答](https://helpx.adobe.com/experience-manager/using/dispatcher-faq.html)。
-1. 按照 Web 服务器文档安装[支持的 Web 服务器](https://helpx.adobe.com/experience-manager/6-3/sites/deploying/using/technical-requirements.html)。
+1. 了解 Dispatcher（此页面）。另请参阅[有关 Dispatcher 的常见问题解答](https://helpx.adobe.com/cn/experience-manager/using/dispatcher-faq.html)。
+1. 按照 Web 服务器文档安装[支持的 Web 服务器](https://helpx.adobe.com/cn/experience-manager/6-3/sites/deploying/using/technical-requirements.html)。
 1. 在 Web 服务器上[安装 Dispatcher 模块](dispatcher-install.md)，并相应地配置 Web 服务器。
 1. [配置 Dispatcher](dispatcher-configuration.md)（dispatcher.any 文件）。
 1. [配置 AEM](page-invalidate.md)，以便内容更新后，使缓存失效。
@@ -44,8 +44,8 @@ Dispatcher 的部署流程与所选的 Web 服务器和操作系统平台无关�
 根据需要使用以下信息：
 
 * [Dispatcher 安全核对清单](security-checklist.md)
-* [Dispatcher 知识库](https://helpx.adobe.com/cq/kb/index/dispatcher.html)
-* [优化网站缓存性能](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
+* [Dispatcher 知识库](https://helpx.adobe.com/cn/cq/kb/index/dispatcher.html)
+* [优化网站缓存性能](https://helpx.adobe.com/cn/experience-manager/6-4/sites/deploying/using/configuring-performance.html)
 * [在多个域中使用 Dispatcher](dispatcher-domains.md)
 * [将 SSL 与 Dispatcher 结合使用](dispatcher-ssl.md)
 * [实施权限敏感型缓存](permissions-cache.md)
@@ -104,7 +104,7 @@ Dispatcher 包含根据动态站点内容生成和更新静态 HTML 的机制。
 
 >[!NOTE]
 >
->如果没有配置 HTTP 标头缓存，则 Dispatcher 仅存储页面的 HTML 代码 - 它不会存储 HTTP 标头。如果您在网站内使用不同的编码，这可能是个问题，因为这些编码可能会丢失。要启用 HTTP 标头缓存，请参阅[配置 Dispatcher 缓存。](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html)
+>如果没有配置 HTTP 标头缓存，则 Dispatcher 仅存储页面的 HTML 代码 - 它不会存储 HTTP 标头。如果您在网站内使用不同的编码，这可能是个问题，因为这些编码可能会丢失。要启用 HTTP 标头缓存，请参阅[配置 Dispatcher 缓存。](https://helpx.adobe.com/cn/experience-manager/dispatcher/using/dispatcher-configuration.html)
 
 >[!NOTE]
 >
@@ -158,7 +158,7 @@ Dispatcher 有一个遵循自动失效机制的文件列表。当请求该列表
 
 ### 确定文档是否实施了缓存
 
-您可以[在配置文件中定义 Dispatcher 缓存的文档](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html)。Dispatcher 根据可缓存文档列表检查请求。如果文档不在此列表中，则 Dispatcher 从 AEM 实例中请求该文档。
+您可以[在配置文件中定义 Dispatcher 缓存的文档](https://helpx.adobe.com/cn/experience-manager/dispatcher/using/dispatcher-configuration.html)。Dispatcher 根据可缓存文档列表检查请求。如果文档不在此列表中，则 Dispatcher 从 AEM 实例中请求该文档。
 
 在以下情况下，Dispatcher *始终*&#x200B;直接从 AEM 实例请求文档：
 
@@ -168,7 +168,7 @@ Dispatcher 有一个遵循自动失效机制的文件列表。当请求该列表
 
 >[!NOTE]
 >
->GET 或 HEAD（针对 HTTP 标头）方法可由 Dispatcher 缓存。有关响应标头缓存的其他信息，请参阅[缓存 HTTP 响应标头](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html)部分。
+>GET 或 HEAD（针对 HTTP 标头）方法可由 Dispatcher 缓存。有关响应标头缓存的其他信息，请参阅[缓存 HTTP 响应标头](https://helpx.adobe.com/cn/experience-manager/dispatcher/using/dispatcher-configuration.html)部分。
 
 ### 确定文档是否已缓存
 
@@ -282,7 +282,7 @@ Dispatcher 保留有关 AEM 每个实例处理文档的速度的内部统计信�
 
 如果将此方法用于缓存受管内容，则意味着仅在配置的缓存期限到期且再次从 Dispatcher 中获取文档后，内容变更才对最终用户可见。
 
-为实现更细粒度的控制，基于 API 的失效允许您在 Dispatcher 缓存失效时使 CDN 的缓存失效。基于 CDN API，您可以实施自己的 [ContentBuilder](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/com/day/cq/replication/ContentBuilder.html) 和 [TransportHandler](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/com/day/cq/replication/TransportHandler.html)（如果 API 不是基于 REST 的类型）并设置复制代理，它将利用这两个工具来使 CDN 的缓存失效。
+为实现更细粒度的控制，基于 API 的失效允许您在 Dispatcher 缓存失效时使 CDN 的缓存失效。基于 CDN API，您可以实施自己的 [ContentBuilder](https://helpx.adobe.com/cn/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/com/day/cq/replication/ContentBuilder.html) 和 [TransportHandler](https://helpx.adobe.com/cn/experience-manager/6-5/sites/developing/using/reference-materials/javadoc/com/day/cq/replication/TransportHandler.html)（如果 API 不是基于 REST 的类型）并设置复制代理，它将利用这两个工具来使 CDN 的缓存失效。
 
 >[!NOTE]
 >
@@ -292,7 +292,7 @@ Dispatcher 保留有关 AEM 每个实例处理文档的速度的内部统计信�
 
 >[!CAUTION]
 >
->如果您正在将 [AEM 与 Touch UI](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) 一起使用，则&#x200B;**不**&#x200B;应缓存创作实例内容。如果为创作实例启用了缓存，则需要禁用缓存并删除缓存目录的内容。要禁用缓存，应编辑 `author_dispatcher.any` 文件并修改 `/cache` 部分的 `/rule` 属性，如下所示：
+>如果您正在将 [AEM 与 Touch UI](https://helpx.adobe.com/cn/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) 一起使用，则&#x200B;**不**&#x200B;应缓存创作实例内容。如果为创作实例启用了缓存，则需要禁用缓存并删除缓存目录的内容。要禁用缓存，应编辑 `author_dispatcher.any` 文件并修改 `/cache` 部分的 `/rule` 属性，如下所示：
 
 ```xml
 /rules
@@ -311,7 +311,7 @@ Dispatcher 可在创作实例之前使用以提高创作性能。要配置创作
 1. 在文本编辑器中打开 `author_dispatcher.any`，并进行以下更改：
 
    1. 将 `/renders` 部分的 `/hostname` 和 `/port` 更改为指向创作实例。
-   1. 将 `/cache` 部分的 `/docroot` 更改为指向缓存目录。如果您将 [AEM 与 Touch UI](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) 一起使用，请查看上面的警告。
+   1. 将 `/cache` 部分的 `/docroot` 更改为指向缓存目录。如果您将 [AEM 与 Touch UI](https://helpx.adobe.com/cn/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) 一起使用，请查看上面的警告。
    1. 保存更改。
 
 1. 删除您在前面配置的 `/cache` > `/docroot` 目录中的所有现有文件。
