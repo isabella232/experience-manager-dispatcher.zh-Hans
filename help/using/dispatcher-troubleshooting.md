@@ -1,8 +1,8 @@
 ---
 title: Dispatcher 问题疑难解答
-seo-title: AEM Dispatcher 问题疑难解答
+seo-title: Troubleshooting AEM Dispatcher Problems
 description: 了解如何解决 Dispatcher 问题。
-seo-description: 了解如何解决 AEM Dispatcher 问题。
+seo-description: Learn to troubleshoot AEM Dispatcher issues.
 uuid: 9c109a48-d921-4b6e-9626-1158cebc41e7
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: 1193211344162
@@ -15,7 +15,7 @@ discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
 exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
 source-git-commit: 3a0e237278079a3885e527d7f86989f8ac91e09d
 workflow-type: ht
-source-wordcount: '553'
+source-wordcount: '543'
 ht-degree: 100%
 
 ---
@@ -30,7 +30,7 @@ ht-degree: 100%
 
 >[!NOTE]
 >
->此外，请查看 [Dispatcher 知识库](https://helpx.adobe.com/cq/kb/index/dispatcher.html)、[解决 Dispatcher 刷新问题](https://helpx.adobe.com/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html)和 [Dispatcher 常见问题解答](dispatcher-faq.md)以了解更多信息。
+>此外，请查看 [Dispatcher 知识库](https://helpx.adobe.com/cn/cq/kb/index/dispatcher.html)、[解决 Dispatcher 刷新问题](https://helpx.adobe.com/cn/adobe-cq/kb/troubleshooting-dispatcher-flushing-issues.html)和 [Dispatcher 常见问题解答](dispatcher-faq.md)以了解更多信息。
 
 ## 检查基本配置 {#check-the-basic-configuration}
 
@@ -62,8 +62,8 @@ IIS 提供了各种跟踪工具，具体取决于实际版本：
 
 在使用 IIS 时，您可能会在各种场景中遇到返回 `404 Not Found` 的情况。如果是这样，请参阅以下知识库文章。
 
-* [IIS 6/7：POST 方法返回 404](https://helpx.adobe.com/dispatcher/kb/IIS6IsapiFilters.html)
-* [IIS 6：对包含基本路径 `/bin` 的 URL 的请求返回 `404 Not Found`](https://helpx.adobe.com/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
+* [IIS 6/7：POST 方法返回 404](https://helpx.adobe.com/cn/dispatcher/kb/IIS6IsapiFilters.html)
+* [IIS 6：对包含基本路径 `/bin` 的 URL 的请求返回 `404 Not Found`](https://helpx.adobe.com/cn/dispatcher/kb/RequestsToBinDirectoryFailInIIS6.html)
 
 您还应检查 Dispatcher 缓存根目录和 IIS 文档根目录是否已设为同一目录。
 
