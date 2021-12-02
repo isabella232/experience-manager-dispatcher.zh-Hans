@@ -10,9 +10,9 @@ products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
 source-git-commit: 4f37bc2571c3272beeb1764ca0bf0347e086cc07
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '852'
-ht-degree: 93%
+ht-degree: 100%
 
 ---
 
@@ -31,7 +31,7 @@ ht-degree: 93%
 
 ## 系统要求和先决条件 {#system-requirements-and-prerequisites}
 
-有关要求和先决条件的更多信息，请参阅[支持的平台](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/technical-requirements.html)页面。
+有关要求和先决条件的更多信息，请参阅[支持的平台](https://helpx.adobe.com/cn/experience-manager/6-4/sites/deploying/using/technical-requirements.html)页面。
 
 Adobe 强烈推荐使用最新版本的 AEM Dispatcher 以便获得最新功能、最新错误修复和最佳性能。
 
@@ -41,20 +41,20 @@ Adobe 强烈推荐使用最新版本的 AEM Dispatcher 以便获得最新功能�
 
 ## 版本历史记录 {#release-history}
 
-### 4.3.4版（2021年11月29日） {#nov}
+### 版本 4.3.4（2021 年 11 月 29 日） {#nov}
 
 **错误修复**：
 
-* DISP-833 - X-Forwarded-Host标头可能包含逗号分隔的主机名列表
-* DISP-835 - DispatcherUseForwardedHost swallows主机标头（如果它最后出现）
+* DISP-833 - X-Forwarded-Host 标题可能包含以逗号分隔的主机名列表
+* DISP-835 - DispatcherUseForwardedHost 忽略最后出现的主机标头
 
 
 **改进功能**：
 
-* DISP-841 - Dispatcher对504响应代码不遵循/serverStaleOnError
-* DISP-874 — 创建调度程序配置以打开或关闭DISP-818的实施
-* DISP-883 — 显示Dispatcher中URL请求分解的跟踪
-* DISP-944 — 预加载虚URL
+* DISP-841 - Dispatcher 不遵循 504 响应代码的 /serverStaleOnError
+* DISP-874 - 创建 Dispatcher 配置以打开或关闭 DISP-818 的实施
+* DISP-883 - 在 Dispatcher 中显示 URL 请求分解的跟踪
+* DISP-944 - 预加载虚名 URL
 
 ### 版本 4.3.3（2019 年 10 月 18 日） {#october}
 
