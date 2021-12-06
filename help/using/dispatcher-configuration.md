@@ -2,10 +2,10 @@
 title: 配置 Dispatcher
 description: 了解如何配置 Dispatcher。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 35739785aa835a0b995fab4710a0e37bd0ff62b4
-workflow-type: ht
-source-wordcount: '8512'
-ht-degree: 100%
+source-git-commit: 9ad35121bde90916a0376b33853e190b382ce5cd
+workflow-type: tm+mt
+source-wordcount: '8528'
+ht-degree: 99%
 
 ---
 
@@ -565,6 +565,10 @@ Amazon Elastic Load Balancing (ELB) 就是这样一种服务，可以使用相�
 
 * 首先，拒绝对一切的访问。
 * 在需要时允许访问内容。
+
+>[!NOTE]
+>
+>建议在过滤器规则发生任何更改时清除缓存。
 
 ### 定义筛选条件 {#defining-a-filter}
 
@@ -1339,6 +1343,7 @@ GET /mypage.html?q=5&p=4
 >
 >* 在 `/cache/headers` 部分中添加标头名称。
 >* 在 Dispatcher 相关部分中添加以下 [Apache 指令](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag)：
+
 >
 >```xml
 >FileETag none
