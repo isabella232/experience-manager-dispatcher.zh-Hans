@@ -3,9 +3,9 @@ title: 配置 Dispatcher
 description: 了解如何配置 Dispatcher。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: 9ad35121bde90916a0376b33853e190b382ce5cd
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8528'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -568,7 +568,7 @@ Amazon Elastic Load Balancing (ELB) 就是这样一种服务，可以使用相�
 
 >[!NOTE]
 >
->建议在过滤器规则发生任何更改时清除缓存。
+>建议在筛选规则发生任何更改时清除缓存。
 
 ### 定义筛选条件 {#defining-a-filter}
 
