@@ -13,10 +13,10 @@ redirecttarget: https://helpx.adobe.com/experience-manager/6-4/sites/deploying/u
 index: y
 internal: n
 snippet: y
-source-git-commit: 2ca816ac0776d72be651b76ff4f45e0c3ed1450f
-workflow-type: ht
+source-git-commit: 762f575a58f53d25565fb9f67537e372c760674f
+workflow-type: tm+mt
 source-wordcount: '1134'
-ht-degree: 100%
+ht-degree: 98%
 
 ---
 
@@ -45,6 +45,7 @@ Dispatcher 提供了大量可用于优化性能的内置机制。此部分介绍
 >
 >* 可以缓存可存储为页面并使用 URL 请求的所有内容
 >* 无法存储其他内容，例如 HTTP 标头、cookie、会话数据和表单数据。
+
 >
 >通常，许多缓存策略涉及选择完好的 URL，并且不依赖此类额外数据。
 
@@ -93,7 +94,7 @@ www.myCompany.com/news/main.large.html
 >
 >对于大多数版面，也可以使用样式表和/或客户端脚本。它们通常可以很好地与缓存配合使用。
 >
->这对于打印版本也很有用，您可以在其中使用 URL，例如：&grave;&grave;
+>此外，对于打印版本，在该版本中，您可以使用URL，例如：
 >
 >`www.myCompany.com/news/main.print.html`
 >
@@ -141,6 +142,7 @@ Dispatcher 无法缓存个性化数据，因此建议您仅允许在必要时进
 >
 >* 使用 iFrame 将页面分成两个部分，一个部分是所有用户共用的，另一个部分是用户的所有页面共用的。随后，您可以缓存这两个部分。
 >* 使用客户端 JavaScript 显示个性化的信息。但您必须确保页面在用户禁用 JavaScript 后仍正常显示。
+
 >
 
 
