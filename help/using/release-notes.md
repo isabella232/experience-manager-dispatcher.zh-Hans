@@ -10,9 +10,9 @@ products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
 source-git-commit: bd03499fae4096fe5642735eb466276f1a179dec
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '941'
-ht-degree: 91%
+ht-degree: 100%
 
 ---
 
@@ -50,7 +50,7 @@ Adobe 强烈推荐使用最新版本的 AEM Dispatcher 以便获得最新功能�
 
 **改进功能**：
 
-* DISP-874 — 创建调度程序配置，以通过标记开启或关闭DISP-818的实施 `DispatcherRestrictUncacheableContent`. 默认值为“禁用”。当关闭时，它将删除由mod过期设置的任何不可缓存内容缓存标头。 这与版本4.3.3中的行为不同（但与版本4.3.3之前的版本相同）。 保留 `DispatcherRestrictUncacheableContent`推荐使用默认关闭方法，以便浏览器缓存具有更大的灵活性。 如果您从版本4.3.3升级到4.3.4时希望保持与版本4.3.3中的行为相同，则必须明确设置 `DispatcherRestrictUncacheableContent` 打开。
+* DISP-874 - 创建 Dispatcher 配置以通过 `DispatcherRestrictUncacheableContent` 标志打开或关闭 DISP-818 的实施。默认值为“禁用”。当设置为“禁用”时，系统会删除 mod expires 为不可缓存内容设置的任何缓存标头。这与 4.3.3 版本中的行为不同（但与 4.3.3 之前的版本相同）。推荐的方法是保留 `DispatcherRestrictUncacheableContent` 的“禁用”默认值，以便浏览器缓存具有更大的灵活性。从 4.3.3 版升级到 4.3.4 版时，如果您希望保持与 4.3.3 版相同的行为，则必须将 `DispatcherRestrictUncacheableContent` 明确设置为“启用”。
 * DISP-841 - Dispatcher 不遵循 504 响应代码的 /serverStaleOnError
 * DISP-874 - 创建 Dispatcher 配置以打开或关闭 DISP-818 的实施
 * DISP-883 - 在 Dispatcher 中显示 URL 请求分解的跟踪
