@@ -11,9 +11,9 @@ content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
 source-git-commit: bd03499fae4096fe5642735eb466276f1a179dec
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '3693'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -53,7 +53,7 @@ Comment Type: draft
 
 >[!NOTE]
 >
->专门从版本4.3.3升级到版本4.3.4的客户将注意到在如何为不可缓存内容设置缓存标头方面存在不同的行为。 要了解有关此更改的更多信息，请参阅 [发行说明](/help/using/release-notes.md#nov) 页面。
+>专门从 4.3.3 版升级到 4.3.4 版的客户将会发现为不可缓存内容设置缓存标头的方式行为有所不同。若要详细了解此不同，请阅读[发行说明](/help/using/release-notes.md#nov)页。
 
 每个存档都包含以下文件：
 
@@ -642,7 +642,7 @@ keepalivetimeout="60"
 | 参数 | 描述 |
 |--- |--- |
 | config | 配置文件 `dispatcher.any.` 的位置和名称。 |
-| 日志文件 | 日志文件的位置和名称。 |
+| logfile | 日志文件的位置和名称。 |
 | loglevel | 在将消息写入日志文件时的日志级别：<br/>**0** 错误 <br/>**1** 警告 <br/>**2** 信息 <br/>**3** 调试 <br/>**注意：**&#x200B;建议在安装和测试期间将日志级别设置为 3，在生产环境中运行时将日志级别设置为 0。 |
 | keepalivetimeout | 指定保持活动状态超时时间（以秒为单位）。从 Dispatcher 版本 4.2.0 开始，默认的保持活动状态值为 60。如果值为 0，则禁用保持活动状态。 |
 
