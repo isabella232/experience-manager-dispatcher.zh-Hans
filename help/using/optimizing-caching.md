@@ -14,9 +14,9 @@ index: y
 internal: n
 snippet: y
 source-git-commit: 762f575a58f53d25565fb9f67537e372c760674f
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1134'
-ht-degree: 98%
+ht-degree: 100%
 
 ---
 
@@ -94,7 +94,7 @@ www.myCompany.com/news/main.large.html
 >
 >对于大多数版面，也可以使用样式表和/或客户端脚本。它们通常可以很好地与缓存配合使用。
 >
->此外，对于打印版本，在该版本中，您可以使用URL，例如：
+>这对于打印版本也很有用，您可以在其中使用 URL，例如：
 >
 >`www.myCompany.com/news/main.print.html`
 >
