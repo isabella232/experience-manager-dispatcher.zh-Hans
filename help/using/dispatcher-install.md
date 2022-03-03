@@ -11,7 +11,7 @@ content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
 source-git-commit: d19a27256c44ec00fd440b2f8a2fe408a4a4b7c8
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '3693'
 ht-degree: 100%
 
@@ -642,7 +642,7 @@ keepalivetimeout="60"
 | 参数 | 描述 |
 |--- |--- |
 | config | 配置文件 `dispatcher.any.` 的位置和名称。 |
-| 日志文件 | 日志文件的位置和名称。 |
+| logfile | 日志文件的位置和名称。 |
 | loglevel | 在将消息写入日志文件时的日志级别：<br/>**0** 错误 <br/>**1** 警告 <br/>**2** 信息 <br/>**3** 调试 <br/>**注意：**&#x200B;建议在安装和测试期间将日志级别设置为 3，在生产环境中运行时将日志级别设置为 0。 |
 | keepalivetimeout | 指定保持活动状态超时时间（以秒为单位）。从 Dispatcher 版本 4.2.0 开始，默认的保持活动状态值为 60。如果值为 0，则禁用保持活动状态。 |
 
