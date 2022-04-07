@@ -12,7 +12,7 @@ exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
 source-git-commit: 3f040a4150bc398d25ffa2426f9dd9de99a0b8fc
 workflow-type: tm+mt
 source-wordcount: '977'
-ht-degree: 94%
+ht-degree: 97%
 
 ---
 
@@ -41,12 +41,12 @@ Adobe强烈建议使用最新版本的AEM Dispatcher，以从最新功能、最�
 
 ## 版本历史记录 {#release-history}
 
-### 4.3.5版（2022年4月29日） {#apr}
+### 版本 4.3.5（2022 年 4 月 29 日） {#apr}
 
 **改进功能**：
 
-* DISP-954 — 即使未过期，也支持失效
-* DISP-949 — 即使过滤器阻止POST请求，Dispatcher仍会返回200而不是404
+* DISP-954 - 在未过期的情况下支持失效
+* DISP-949 - 即使在筛选条件阻止 POST 请求时，Dispatcher 也会返回 200，而不是 404
 
 ### 版本 4.3.4（2021 年 11 月 29 日） {#nov}
 
