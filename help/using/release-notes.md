@@ -10,9 +10,9 @@ products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
 source-git-commit: 3f040a4150bc398d25ffa2426f9dd9de99a0b8fc
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '977'
-ht-degree: 97%
+ht-degree: 100%
 
 ---
 
@@ -33,7 +33,7 @@ ht-degree: 97%
 
 有关要求和先决条件的更多信息，请参阅[支持的平台](https://helpx.adobe.com/cn/experience-manager/6-4/sites/deploying/using/technical-requirements.html)页面。
 
-Adobe强烈建议使用最新版本的AEM Dispatcher，以从最新功能、最新错误修复和最佳性能中受益。
+Adobe 强烈推荐使用最新版本的 AEM Dispatcher 以从最新功能、最新错误修复和最佳性能中受益。
 
 ## 安装说明 {#installation-instructions}
 
