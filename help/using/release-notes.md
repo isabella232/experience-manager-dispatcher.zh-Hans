@@ -10,7 +10,7 @@ products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
 source-git-commit: 377a104f7e8e506e2f61002d90851a38657e8fe5
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '977'
 ht-degree: 100%
 
