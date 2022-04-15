@@ -13,7 +13,7 @@ exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
 source-git-commit: 11c3d7d627c96bb6ef647b5a067d3926eca347fc
 workflow-type: tm+mt
 source-wordcount: '829'
-ht-degree: 95%
+ht-degree: 100%
 
 ---
 
@@ -46,7 +46,7 @@ Dispatcher 包含实现权限敏感型缓存的 AuthChecker 模块。在激活�
 
 1. Dispatcher 确定内容未缓存或需要更新。
 1. Dispatcher 将原始请求转发到渲染器。
-1. 呈现会调用AEM授权程序Servlet（这不是Dispatcher AuthChcker Servlet）来执行安全检查。 当用户获得授权时，渲染器将在响应消息的正文中包含渲染的页面。
+1. 渲染器调用 AEM 授权程序 servlet（不是 Dispatcher AuthChcker servlet）以执行安全检查。当用户获得授权时，渲染器将在响应消息的正文中包含渲染的页面。
 1. Dispatcher 将响应转发到浏览器。Dispatcher 将渲染器的响应消息正文添加到缓存。
 
 ## 未向用户授权 {#user-is-not-authorized}
@@ -57,7 +57,7 @@ Dispatcher 包含实现权限敏感型缓存的 AuthChecker 模块。在激活�
 1. Dispatcher 向渲染器发送一条请求消息，其中包含浏览器请求中的所有标头行。
 1. 渲染器调用授权检查程序 servlet 以执行安全检查，检查未通过，渲染器将原始请求转发到 Dispatcher。
 1. Dispatcher 将原始请求转发到渲染器。
-1. 呈现会调用AEM授权程序Servlet（这不是Dispatcher AuthChcker Servlet）来执行安全检查。 当用户获得授权时，渲染器将在响应消息的正文中包含渲染的页面。
+1. 渲染器调用 AEM 授权程序 servlet（不是 Dispatcher AuthChcker servlet）以执行安全检查。当用户获得授权时，渲染器将在响应消息的正文中包含渲染的页面。
 1. Dispatcher 将响应转发到浏览器。Dispatcher 将渲染器的响应消息正文添加到缓存。
 
 
