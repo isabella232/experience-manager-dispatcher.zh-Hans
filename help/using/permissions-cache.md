@@ -11,9 +11,9 @@ content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
 source-git-commit: 18fa55f4be3a93b5484c3a0fa408031a43944f27
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '829'
-ht-degree: 98%
+ht-degree: 100%
 
 ---
 
@@ -157,7 +157,7 @@ dispatcher.any 文件的 auth_checker 部分控制权限敏感型缓存的行为
 
 `AuthChecker: initialized with URL 'configured_url'.`
 
-以下示例auth_checker部分将Dispatcher配置为使用上一个主题的servlet。 过滤器部分可促使仅对安全 HTML 资源执行权限检查。
+以下示例 auth_checker 部分将 Dispatcher 配置为使用上一个主题的 servlet。过滤器部分可促使仅对安全 HTML 资源执行权限检查。
 
 ### 示例配置 {#example-configuration}
 
