@@ -2,8 +2,8 @@
 title: 配置 Dispatcher
 description: 了解如何配置 Dispatcher。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 9ad35121bde90916a0376b33853e190b382ce5cd
-workflow-type: ht
+source-git-commit: deb232be3c4c5e3d11d13cbccb282409d90b93bb
+workflow-type: tm+mt
 source-wordcount: '8528'
 ht-degree: 100%
 
@@ -840,7 +840,7 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 
 ### 测试 Dispatcher 安全性 {#testing-dispatcher-security}
 
-Dispatcher 筛选条件在 AEM 发布实例上应该阻止对以下页面和脚本的访问。使用 Web 浏览器尝试以网站访客身份打开以下页面，并验证是否返回了代码 404。如果获得了其他结果，请调整筛选条件。
+Dispatcher 筛选条件在 AEM 发布实例上应该阻止对以下页面和脚本的访问。使用 Web 浏览器尝试以网站访客身份打开以下页面，并验证是否返回了代码 403。如果获得了其他结果，请调整筛选条件。
 
 请注意，您应该看到对于 `/content/add_valid_page.html?debug=layout` 的正常页面渲染。
 
