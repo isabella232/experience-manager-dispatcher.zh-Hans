@@ -3,7 +3,7 @@ title: 配置 Dispatcher
 description: 了解如何配置 Dispatcher。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: deb232be3c4c5e3d11d13cbccb282409d90b93bb
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8528'
 ht-degree: 100%
 
@@ -19,7 +19,7 @@ ht-degree: 100%
 
 ## 支持 IPv4 和 IPv6 {#support-for-ipv-and-ipv}
 
-AEM 和 Dispatcher 的所有元素都可以安装在 IPv4 和 IPv6 网络中。请参阅 [IPV4 和 IPV6](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/introduction/technical-requirements.html?lang=en#ipv-and-ipv)。
+AEM 和 Dispatcher 的所有元素都可以安装在 IPv4 和 IPv6 网络中。请参阅 [IPV4 和 IPV6](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/introduction/technical-requirements.html?lang=zh-Hans#ipv-and-ipv)。
 
 ## Dispatcher 配置文件 {#dispatcher-configuration-files}
 
@@ -213,9 +213,9 @@ AEM 和 Dispatcher 的所有元素都可以安装在 IPv4 和 IPv6 网络中。�
 
 >[!CAUTION]
 >
->`/homepage` 参数（仅限 IIS）不再有效。您应该改用 [IIS URL 重写模块](https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module)。
+>`/homepage` 参数（仅限 IIS）不再有效。您应该改用 [IIS URL 重写模块](https://docs.microsoft.com/zh-cn/iis/extensions/url-rewrite-module/using-the-url-rewrite-module)。
 >
->如果您在使用 Apache，则应该使用 `mod_rewrite` 模块。有关 `mod_rewrite`（例如，[Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)）的信息，请参阅 Apache 网站文档。在使用 `mod_rewrite` 时，建议使用标记&#x200B;**[“passthrough|PT”（传递到下个处理程序）](https://helpx.adobe.com/dispatcher/kb/DispatcherModReWrite.html)**&#x200B;以强制重写引擎将内部 `request_rec` 结构的 `uri` 字段设置为 `filename` 字段的值。
+>如果您在使用 Apache，则应该使用 `mod_rewrite` 模块。有关 `mod_rewrite`（例如，[Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)）的信息，请参阅 Apache 网站文档。在使用 `mod_rewrite` 时，建议使用标记&#x200B;**[“passthrough|PT”（传递到下个处理程序）](https://helpx.adobe.com/cn/dispatcher/kb/DispatcherModReWrite.html)**&#x200B;以强制重写引擎将内部 `request_rec` 结构的 `uri` 字段设置为 `filename` 字段的值。
 
 <!-- 
 
@@ -408,7 +408,7 @@ Dispatcher 按照以下方法查找很好地匹配的虚拟主机值：
 >
 >在 `/cache` 部分中，`/allowAuthorized` **必须**&#x200B;设置为 `"0"` 以启用此功能。
 
-创建安全会话用于访问渲染场，因此用户需要登录以访问场的任意页面。在登录之后，用户可以访问场中的各个页面。有关将此功能与 CUG 一起使用的信息，请参阅[创建封闭用户组](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/cug.html?lang=en#creating-the-user-group-to-be-used)。此外，在上线之前，请查看 Dispatcher [安全检查清单](/help/using/security-checklist.md)。
+创建安全会话用于访问渲染场，因此用户需要登录以访问场的任意页面。在登录之后，用户可以访问场中的各个页面。有关将此功能与 CUG 一起使用的信息，请参阅[创建封闭用户组](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/cug.html?lang=zh-Hans#creating-the-user-group-to-be-used)。此外，在上线之前，请查看 Dispatcher [安全检查清单](/help/using/security-checklist.md)。
 
 `/sessionmanagement` 属性是 `/farms` 的子属性。
 
@@ -559,7 +559,7 @@ Amazon Elastic Load Balancing (ELB) 就是这样一种服务，可以使用相�
 
 >[!CAUTION]
 >
->请参阅 [Dispatcher 安全检查清单](security-checklist.md)以了解使用 Dispatcher 限制访问时的更多注意事项。有关 AEM 安装的其他安全详细信息，另请阅读 [AEM 安全检查清单](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/security-checklist.html?lang=en#security)。
+>请参阅 [Dispatcher 安全检查清单](security-checklist.md)以了解使用 Dispatcher 限制访问时的更多注意事项。有关 AEM 安装的其他安全详细信息，另请阅读 [AEM 安全检查清单](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/security-checklist.html?lang=zh-Hans#security)。
 
 `/filter` 部分包含一系列规则，这些规则可以根据 HTTP 请求的请求行部分中的模式，拒绝或允许对内容的访问。您应为 `/filter` 部分使用允许列表策略：
 
@@ -808,7 +808,7 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 
 >[!CAUTION]
 >
->如果您在[发布环境中使用报表](https://experienceleague.adobe.com/docs/experience-manager-65/administering/operations/reporting.html?lang=en#using-reports-in-a-publish-environment)，则应配置 Dispatcher 来拒绝外部访客对 `/etc/reports` 的访问。
+>如果您在[发布环境中使用报表](https://experienceleague.adobe.com/docs/experience-manager-65/administering/operations/reporting.html?lang=zh-Hans#using-reports-in-a-publish-environment)，则应配置 Dispatcher 来拒绝外部访客对 `/etc/reports` 的访问。
 
 ### 限制查询字符串 {#restricting-query-strings}
 
@@ -939,7 +939,7 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 
 >[!NOTE]
 >
->如果您的渲染是 AEM 的实例，则必须[从软件分发安装 VanityURLS-Components 程序包](https://experience.adobe.com/#/downloads/content/software-distribution/en/aem.html?package=/content/software-distribution/en/details.html/content/dam/aem/public/adobe/packages/granite/vanityurls-components)以启用虚名 URL 服务。（有关更多详细信息，请参阅[软件分发](https://experienceleague.adobe.com/docs/experience-manager-65/administering/contentmanagement/package-manager.html?lang=en#software-distribution)。）
+>如果您的渲染是 AEM 的实例，则必须[从软件分发安装 VanityURLS-Components 程序包](https://experience.adobe.com/#/downloads/content/software-distribution/en/aem.html?package=/content/software-distribution/en/details.html/content/dam/aem/public/adobe/packages/granite/vanityurls-components)以启用虚名 URL 服务。（有关更多详细信息，请参阅[软件分发](https://experienceleague.adobe.com/docs/experience-manager-65/administering/contentmanagement/package-manager.html?lang=zh-Hans#software-distribution)。）
 
 使用以下过程启用对虚名 URL 的访问。
 
@@ -1169,7 +1169,7 @@ Last Modified Date: 2017-11-13T09:23:24.326-0500
 
 >[!NOTE]
 >
->可以通过发送额外的标头 `CQ-Action-Scope:ResourceOnly` 防止失效。这可用于刷新特定资源而不使缓存的其他部分失效。有关其他详细信息，请参阅[此页面](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html)和[手动使 Dispatcher 缓存失效](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/page-invalidate.html?lang=en#configuring)。
+>可以通过发送额外的标头 `CQ-Action-Scope:ResourceOnly` 防止失效。这可用于刷新特定资源而不使缓存的其他部分失效。有关其他详细信息，请参阅[此页面](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html)和[手动使 Dispatcher 缓存失效](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/page-invalidate.html?lang=zh-Hans#configuring)。
 
 >[!NOTE]
 >
