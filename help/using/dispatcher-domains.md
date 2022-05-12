@@ -12,7 +12,7 @@ content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
 source-git-commit: 9d168ab7139e46b0c768fc3bab37245459eca002
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '2965'
 ht-degree: 100%
 
@@ -311,10 +311,10 @@ Dispatcher initializing (build 4.1.2)
 | 节点路径 | 类型 | 属性 |
 |--- |--- |--- |
 | `/etc/map/http/branda.com` | sling:Mapping | 名称：sling:internalRedirect 类型：字符串 值：/content/sitea |
-| `/etc/map/http/branda.com/libs` | sling：映射 | 名称：sling:internalRedirect <br/>类型：字符串 <br/>值：/libs |
-| `/etc/map/http/branda.com/etc` | sling：映射 |  |
-| `/etc/map/http/branda.com/etc/designs` | sling：映射 | 名称：sling:internalRedirect <br/>类型：字符串 <br/>值：/etc/designs |
-| `/etc/map/http/branda.com/etc/clientlibs` | sling：映射 | 名称：sling:internalRedirect <br/>类型：字符串 <br/>值：/etc/clientlibs |
+| `/etc/map/http/branda.com/libs` | sling:Mapping | 名称：sling:internalRedirect <br/>类型：字符串 <br/>值：/libs |
+| `/etc/map/http/branda.com/etc` | sling:Mapping |  |
+| `/etc/map/http/branda.com/etc/designs` | sling:Mapping | 名称：sling:internalRedirect <br/>类型：字符串 <br/>值：/etc/designs |
+| `/etc/map/http/branda.com/etc/clientlibs` | sling:Mapping | 名称：sling:internalRedirect <br/>类型：字符串 <br/>值：/etc/clientlibs |
 
 ## 配置 Dispatcher Flush 复制代理 {#configuring-the-dispatcher-flush-replication-agent}
 
@@ -504,7 +504,7 @@ DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 
 要重写对具有 .html 或 .htm 以外的扩展名的文件的引用，请创建 Sling 重写器转换器组件并将它添加到默认重写器管道中。
 
-当资源路径无法在 Web 服务器上下文中正确解析时重写引用。例如，当图像生成组件创建链接（例如 /content/sitea/en/products.navimage.png）时，需要使用转换器。[如何创建功能完善的 Internet 网站](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/the-basics.html)的 topnav 组件将创建此类链接。
+当资源路径无法在 Web 服务器上下文中正确解析时重写引用。例如，当图像生成组件创建链接（例如 /content/sitea/en/products.navimage.png）时，需要使用转换器。[如何创建功能完善的 Internet 网站](https://helpx.adobe.com/cn/experience-manager/6-5/sites/developing/using/the-basics.html)的 topnav 组件将创建此类链接。
 
 [Sling 重写器](https://sling.apache.org/documentation/bundles/output-rewriting-pipelines-org-apache-sling-rewriter.html)是一个后处理 Sling 输出的模块。重写器的 SAX 管道实现由一个生成器、一个或多个转换器和一个序列化器组成：
 
@@ -543,7 +543,7 @@ AEM 使用默认管道重写器来处理 text/html 类型的文档：
 
 >[!NOTE]
 >
->使用 [multimodule](https://helpx.adobe.com/experience-manager/aem-previous-versions.html) archetype 的内容包 Maven 插件可创建您的 Maven 项目。POM 自动创建并安装内容包。
+>使用 [multimodule](https://helpx.adobe.com/cn/experience-manager/aem-previous-versions.html) archetype 的内容包 Maven 插件可创建您的 Maven 项目。POM 自动创建并安装内容包。
 
 以下示例实施了重写对图像文件的引用的转换器。
 
