@@ -1,7 +1,7 @@
 ---
 title: Dispatcher 概述
 seo-title: Adobe AEM Dispatcher Overview
-description: 了解如何使用Dispatcher提高AEM云服务的安全性、缓存等功能。
+description: 了解如何使用 Dispatcher 改进 AEM Cloud Services 的安全性、缓存等。
 seo-description: This article provides a general overview of Adobe Experience Manager Dispatcher.
 uuid: 71766f86-5e91-446b-a078-061b179d090d
 pageversionid: 1193211344162
@@ -10,9 +10,9 @@ content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
 source-git-commit: 76f7a3fc8d98657c5f46912f452c05fce1b5be61
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '3190'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -158,7 +158,7 @@ Dispatcher 有一个遵循自动失效机制的文件列表。当请求该列表
 
 ### 确定文档是否实施了缓存
 
-您可以[在配置文件中定义 Dispatcher 缓存的文档](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html)。Dispatcher 根据可缓存文档列表检查请求。如果文档不在此列表中，则 Dispatcher 从 AEM 实例中请求该文档。
+您可以[在配置文件中定义 Dispatcher 缓存的文档](https://helpx.adobe.com/cn/experience-manager/dispatcher/using/dispatcher-configuration.html)。Dispatcher 根据可缓存文档列表检查请求。如果文档不在此列表中，则 Dispatcher 从 AEM 实例中请求该文档。
 
 在以下情况下，Dispatcher *始终*&#x200B;直接从 AEM 实例请求文档：
 
@@ -168,7 +168,7 @@ Dispatcher 有一个遵循自动失效机制的文件列表。当请求该列表
 
 >[!NOTE]
 >
->GET 或 HEAD（针对 HTTP 标头）方法可由 Dispatcher 缓存。有关响应标头缓存的其他信息，请参阅[缓存 HTTP 响应标头](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html)部分。
+>GET 或 HEAD（针对 HTTP 标头）方法可由 Dispatcher 缓存。有关响应标头缓存的其他信息，请参阅[缓存 HTTP 响应标头](https://helpx.adobe.com/cn/experience-manager/dispatcher/using/dispatcher-configuration.html)部分。
 
 ### 确定文档是否已缓存
 
@@ -311,7 +311,7 @@ Dispatcher 可在创作实例之前使用以提高创作性能。要配置创作
 1. 在文本编辑器中打开 `author_dispatcher.any`，并进行以下更改：
 
    1. 将 `/renders` 部分的 `/hostname` 和 `/port` 更改为指向创作实例。
-   1. 将 `/cache` 部分的 `/docroot` 更改为指向缓存目录。如果您将 [AEM 与 Touch UI](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) 一起使用，请查看上面的警告。
+   1. 将 `/cache` 部分的 `/docroot` 更改为指向缓存目录。如果您将 [AEM 与 Touch UI](https://helpx.adobe.com/cn/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) 一起使用，请查看上面的警告。
    1. 保存更改。
 
 1. 删除您在前面配置的 `/cache` > `/docroot` 目录中的所有现有文件。
