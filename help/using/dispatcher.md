@@ -9,10 +9,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
-source-git-commit: 76f7a3fc8d98657c5f46912f452c05fce1b5be61
-workflow-type: ht
-source-wordcount: '3190'
-ht-degree: 100%
+source-git-commit: 85a7f38ecb5f5fe620ff51a7cdbe29f546559288
+workflow-type: tm+mt
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
@@ -27,7 +27,7 @@ Dispatcher 是 Adobe Experience Manager 的缓存和/或负载平衡工具，可
 Dispatcher 的部署流程与所选的 Web 服务器和操作系统平台无关：
 
 1. 了解 Dispatcher（此页面）。另请参阅[有关 Dispatcher 的常见问题解答](https://helpx.adobe.com/cn/experience-manager/using/dispatcher-faq.html)。
-1. 按照 Web 服务器文档安装[支持的 Web 服务器](https://helpx.adobe.com/cn/experience-manager/6-3/sites/deploying/using/technical-requirements.html)。
+1. 按照 Web 服务器文档安装[支持的 Web 服务器](https://helpx.adobe.com/cn/experience-manager/6-5/sites/deploying/using/technical-requirements.html)。
 1. 在 Web 服务器上[安装 Dispatcher 模块](dispatcher-install.md)，并相应地配置 Web 服务器。
 1. [配置 Dispatcher](dispatcher-configuration.md)（dispatcher.any 文件）。
 1. [配置 AEM](page-invalidate.md)，以便内容更新后，使缓存失效。
@@ -158,7 +158,7 @@ Dispatcher 有一个遵循自动失效机制的文件列表。当请求该列表
 
 ### 确定文档是否实施了缓存
 
-您可以[在配置文件中定义 Dispatcher 缓存的文档](https://helpx.adobe.com/cn/experience-manager/dispatcher/using/dispatcher-configuration.html)。Dispatcher 根据可缓存文档列表检查请求。如果文档不在此列表中，则 Dispatcher 从 AEM 实例中请求该文档。
+您可以[在配置文件中定义 Dispatcher 缓存的文档](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html)。Dispatcher 根据可缓存文档列表检查请求。如果文档不在此列表中，则 Dispatcher 从 AEM 实例中请求该文档。
 
 在以下情况下，Dispatcher *始终*&#x200B;直接从 AEM 实例请求文档：
 
@@ -168,7 +168,7 @@ Dispatcher 有一个遵循自动失效机制的文件列表。当请求该列表
 
 >[!NOTE]
 >
->GET 或 HEAD（针对 HTTP 标头）方法可由 Dispatcher 缓存。有关响应标头缓存的其他信息，请参阅[缓存 HTTP 响应标头](https://helpx.adobe.com/cn/experience-manager/dispatcher/using/dispatcher-configuration.html)部分。
+>GET 或 HEAD（针对 HTTP 标头）方法可由 Dispatcher 缓存。有关响应标头缓存的其他信息，请参阅[缓存 HTTP 响应标头](https://helpx.adobe.com/experience-manager/dispatcher/using/dispatcher-configuration.html)部分。
 
 ### 确定文档是否已缓存
 
@@ -311,7 +311,7 @@ Dispatcher 可在创作实例之前使用以提高创作性能。要配置创作
 1. 在文本编辑器中打开 `author_dispatcher.any`，并进行以下更改：
 
    1. 将 `/renders` 部分的 `/hostname` 和 `/port` 更改为指向创作实例。
-   1. 将 `/cache` 部分的 `/docroot` 更改为指向缓存目录。如果您将 [AEM 与 Touch UI](https://helpx.adobe.com/cn/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) 一起使用，请查看上面的警告。
+   1. 将 `/cache` 部分的 `/docroot` 更改为指向缓存目录。如果您将 [AEM 与 Touch UI](https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/touch-ui-concepts.html) 一起使用，请查看上面的警告。
    1. 保存更改。
 
 1. 删除您在前面配置的 `/cache` > `/docroot` 目录中的所有现有文件。
