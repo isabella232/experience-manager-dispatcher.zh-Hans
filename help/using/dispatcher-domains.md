@@ -12,8 +12,8 @@ content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
 source-git-commit: 2aed8101766363834c2fb5b27e0dbd004fc5daf9
-workflow-type: ht
-source-wordcount: '0'
+workflow-type: tm+mt
+source-wordcount: '2965'
 ht-degree: 100%
 
 ---
@@ -311,10 +311,10 @@ Dispatcher initializing (build 4.1.2)
 | 节点路径 | 类型 | 属性 |
 |--- |--- |--- |
 | `/etc/map/http/branda.com` | sling:Mapping | 名称：sling:internalRedirect 类型：字符串 值：/content/sitea |
-| `/etc/map/http/branda.com/libs` | sling:Mapping | 名称：sling:internalRedirect <br/>类型：字符串 <br/>值：/libs |
-| `/etc/map/http/branda.com/etc` | sling:Mapping |  |
-| `/etc/map/http/branda.com/etc/designs` | sling:Mapping | 名称：sling:internalRedirect <br/>类型：字符串 <br/>值：/etc/designs |
-| `/etc/map/http/branda.com/etc/clientlibs` | sling:Mapping | 名称：sling:internalRedirect <br/>类型：字符串 <br/>值：/etc/clientlibs |
+| `/etc/map/http/branda.com/libs` | sling：映射 | 名称：sling:internalRedirect <br/>类型：字符串 <br/>值：/libs |
+| `/etc/map/http/branda.com/etc` | sling：映射 |  |
+| `/etc/map/http/branda.com/etc/designs` | sling：映射 | 名称：sling:internalRedirect <br/>类型：字符串 <br/>值：/etc/designs |
+| `/etc/map/http/branda.com/etc/clientlibs` | sling：映射 | 名称：sling:internalRedirect <br/>类型：字符串 <br/>值：/etc/clientlibs |
 
 ## 配置 Dispatcher Flush 复制代理 {#configuring-the-dispatcher-flush-replication-agent}
 
