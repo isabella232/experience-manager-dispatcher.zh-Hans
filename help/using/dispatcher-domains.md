@@ -11,10 +11,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
-source-git-commit: 7d2d1cbbb2fb444769239d48c9fbff4cfd2373a2
+source-git-commit: c7af1a042b0106fa0a559448398a8dd636d920c2
 workflow-type: tm+mt
-source-wordcount: '2965'
-ht-degree: 100%
+source-wordcount: '2968'
+ht-degree: 98%
 
 ---
 
@@ -62,11 +62,9 @@ ht-degree: 100%
 
 ![](assets/chlimage_1-9.png)
 
-<ol type="a">
-  <li>在 AEM 创作实例上激活页面，并将内容复制到发布实例。</li>
-  <li>Dispatcher Flush 代理调用 Dispatcher 以使复制内容的缓存失效。</li>
-  <li>Dispatcher 处理一个或多个 .stat 文件以使缓存的文件失效。</li>
-</ol>
+* a — 在AEM创作实例上激活页面，并将内容复制到发布实例。
+* b — 调度程序刷新代理调用调度程序以使复制内容的缓存失效。
+* c - Dispatcher处理一个或多个.stat文件，以使缓存文件失效。
 
 要在多个域中使用 Dispatcher，您需要配置 AEM、Dispatcher 和您的 Web 服务器。此页面上描述的解决方案是通用的，适用于大多数环境。由于一些 AEM 拓扑的复杂性，您的解决方案可能需要进一步的自定义配置才能解决特定问题。您可能需要调整示例以符合现有的 IT 基础架构和管理策略。
 
