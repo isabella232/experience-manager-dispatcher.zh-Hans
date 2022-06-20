@@ -11,8 +11,8 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
-source-git-commit: 2aed8101766363834c2fb5b27e0dbd004fc5daf9
-workflow-type: tm+mt
+source-git-commit: 7d2d1cbbb2fb444769239d48c9fbff4cfd2373a2
+workflow-type: ht
 source-wordcount: '2965'
 ht-degree: 100%
 
@@ -62,9 +62,11 @@ ht-degree: 100%
 
 ![](assets/chlimage_1-9.png)
 
-1. 在 AEM 创作实例上激活页面，并将内容复制到发布实例。
-1. Dispatcher Flush 代理调用 Dispatcher 以使复制内容的缓存失效。
-1. Dispatcher 处理一个或多个 .stat 文件以使缓存的文件失效。
+<ol type="a">
+  <li>在 AEM 创作实例上激活页面，并将内容复制到发布实例。</li>
+  <li>Dispatcher Flush 代理调用 Dispatcher 以使复制内容的缓存失效。</li>
+  <li>Dispatcher 处理一个或多个 .stat 文件以使缓存的文件失效。</li>
+</ol>
 
 要在多个域中使用 Dispatcher，您需要配置 AEM、Dispatcher 和您的 Web 服务器。此页面上描述的解决方案是通用的，适用于大多数环境。由于一些 AEM 拓扑的复杂性，您的解决方案可能需要进一步的自定义配置才能解决特定问题。您可能需要调整示例以符合现有的 IT 基础架构和管理策略。
 
@@ -311,10 +313,10 @@ Dispatcher initializing (build 4.1.2)
 | 节点路径 | 类型 | 属性 |
 |--- |--- |--- |
 | `/etc/map/http/branda.com` | sling:Mapping | 名称：sling:internalRedirect 类型：字符串 值：/content/sitea |
-| `/etc/map/http/branda.com/libs` | sling：映射 | 名称：sling:internalRedirect <br/>类型：字符串 <br/>值：/libs |
-| `/etc/map/http/branda.com/etc` | sling：映射 |  |
-| `/etc/map/http/branda.com/etc/designs` | sling：映射 | 名称：sling:internalRedirect <br/>类型：字符串 <br/>值：/etc/designs |
-| `/etc/map/http/branda.com/etc/clientlibs` | sling：映射 | 名称：sling:internalRedirect <br/>类型：字符串 <br/>值：/etc/clientlibs |
+| `/etc/map/http/branda.com/libs` | sling:Mapping | 名称：sling:internalRedirect <br/>类型：字符串 <br/>值：/libs |
+| `/etc/map/http/branda.com/etc` | sling:Mapping |  |
+| `/etc/map/http/branda.com/etc/designs` | sling:Mapping | 名称：sling:internalRedirect <br/>类型：字符串 <br/>值：/etc/designs |
+| `/etc/map/http/branda.com/etc/clientlibs` | sling:Mapping | 名称：sling:internalRedirect <br/>类型：字符串 <br/>值：/etc/clientlibs |
 
 ## 配置 Dispatcher Flush 复制代理 {#configuring-the-dispatcher-flush-replication-agent}
 
