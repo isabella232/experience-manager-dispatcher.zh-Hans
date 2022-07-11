@@ -14,10 +14,10 @@ index: y
 internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
-source-git-commit: a21b527700b3a5c3a11eadaefc729e754ba2b37b
-workflow-type: ht
-source-wordcount: '638'
-ht-degree: 100%
+source-git-commit: 5a387498c7fd83cad1fafdbfded6a78f55acbc14
+workflow-type: tm+mt
+source-wordcount: '639'
+ht-degree: 99%
 
 ---
 
@@ -161,7 +161,7 @@ AEM 提供了一个用于防御跨站点请求伪造攻击的[框架](https://he
 
 要防御点击劫持攻击，建议您将 Web 服务器配置为将 `X-FRAME-OPTIONS` HTTP 标头集提供给 `SAMEORIGIN`。
 
-有关[点击劫持攻击的更多信息，请参阅 OWASP 网站](https://www.owasp.org/index.php/Clickjacking)。
+有关[点击劫持攻击的更多信息，请参阅 OWASP 网站](https://owasp.org/www-community/attacks/Clickjacking)。
 
 ## 执行渗透测试 {#perform-a-penetration-test}
 
