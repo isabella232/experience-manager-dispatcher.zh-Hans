@@ -15,9 +15,9 @@ internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
 source-git-commit: 5a387498c7fd83cad1fafdbfded6a78f55acbc14
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '639'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -38,11 +38,11 @@ Adobe 强烈建议您在开始生产前完成以下核对清单。
 
 >[!CAUTION]
 >
->您还必须在上线之前完成 AEM 版本的安全核对清单。请参阅相应的 [Adobe Experience Manager 文档](https://helpx.adobe.com/experience-manager/6-5/sites/administering/using/security-checklist.html)。
+>您还必须在上线之前完成 AEM 版本的安全核对清单。请参阅相应的 [Adobe Experience Manager 文档](https://helpx.adobe.com/cn/experience-manager/6-5/sites/administering/using/security-checklist.html)。
 
 ## 使用最新版本的 Dispatcher {#use-the-latest-version-of-dispatcher}
 
-您应安装适用于您的平台的最新可用版本。您应将您的 Dispatcher 实例升级到最新版本以使用产品和安全改进功能。请参阅[安装 Dispatcher](dispatcher-install.md)。
+您应该安装适用于您平台的最新可用版本。 您应该升级您的 Dispatcher 实例以使用最新版本以利用产品和安全增强功能。 请参阅[安装 Dispatcher](dispatcher-install.md)。
 
 >[!NOTE]
 >
@@ -85,15 +85,15 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
 请务必使用过滤器阻止对任何管理 URL 的外部访问，例如 Web 控制台。
 
-有关需要阻止的 URL 的列表，请参阅[测试 Dispatcher 安全性](dispatcher-configuration.md#testing-dispatcher-security)。
+有关需要阻止的 URL 列表，请参阅[测试 Dispatcher 安全性](dispatcher-configuration.md#testing-dispatcher-security)。
 
 ## 使用允许列表而非阻止列表 {#use-allowlists-instead-of-blocklists}
 
-允许列表是一种提供访问控制的更好的方式，因为它们本身会假定所有访问请求都应被拒绝（明确属于允许列表的访问请求除外）。此模型可以对在特定配置阶段可能尚未审查或考虑的新请求进行更严格的控制。
+允许列表是提供访问控制的更好方式，因为它们本身会假定所有访问请求都应被拒绝（明确属于允许列表的访问请求除外）。此模型可以对在特定配置阶段可能尚未审查或考虑的新请求进行更严格的控制。
 
 ## 以专用系统用户身份运行 Dispatcher {#run-dispatcher-with-a-dedicated-system-user}
 
-在配置 Dispatcher 时，您应确保 Web 服务器由具有最低权限的专用用户运行。建议只授予对 Dispatcher 缓存文件夹的写访问权限。
+在配置 Dispatcher 时，您应确保 Web 服务器由具有最低权限的专用用户运行。建议只授予对 Dispatcher 缓存文件夹的写入权限。
 
 此外，IIS 用户需要按如下方式配置其网站：
 
@@ -108,7 +108,7 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
 * 使用 mod_rewrite 模块（例如 [Apache 2.4](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html)）执行 URL 验证（如果 URL 模式规则不是太复杂）。
 
-* 通过使用[过滤器](dispatcher-configuration.md#configuring-access-to-conten-tfilter)防止 Dispatcher 缓存带假扩展的 URL。\
+* 通过使用[过滤器](dispatcher-configuration.md#configuring-access-to-conten-tfilter)防止 Dispatcher 缓存带有伪扩展的 URL。\
    例如，更改缓存规则以仅允许缓存预期的 MIME 类型，例如：
 
    * `.html`
