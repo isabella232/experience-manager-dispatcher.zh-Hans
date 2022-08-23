@@ -2,9 +2,9 @@
 title: 配置 Dispatcher
 description: 了解如何配置 Dispatcher。了解对IPv4和IPv6的支持、配置文件、环境变量、实例命名、定义场、识别虚拟主机等。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 385495c76cd770409e9a002c685e8d375b159207
+source-git-commit: d7045fd779bf2c59034247266930e4b79ec2156f
 workflow-type: tm+mt
-source-wordcount: '8573'
+source-wordcount: '8572'
 ht-degree: 99%
 
 ---
@@ -1374,7 +1374,7 @@ GET /mypage.html?q=5&p=4
 
 ### 配置基于时间的缓存失效 - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
-如果设置为1(/enableTTL &quot;1&quot;)，则 `/enableTTL` 属性将评估来自后端的响应标头，以及它们是否包含 `Cache-Control` 最大年龄或 `Expires` 日期时，将创建缓存文件旁的辅助空文件，修改时间等于到期日期。 当请求的缓存文件超过了修改时间之后，将自动从后端重新请求该文件。
+如果设置为1(`/enableTTL "1"`)、 `/enableTTL` 属性将评估来自后端的响应标头，以及它们是否包含 `Cache-Control` 最大年龄或 `Expires` 日期时，将创建缓存文件旁的辅助空文件，修改时间等于到期日期。 当请求的缓存文件超过了修改时间之后，将自动从后端重新请求该文件。
 
 >[!NOTE]
 >
