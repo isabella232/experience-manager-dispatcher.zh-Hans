@@ -1,11 +1,11 @@
 ---
 title: 配置 Dispatcher
-description: 了解如何配置 Dispatcher。了解对IPv4和IPv6的支持、配置文件、环境变量、实例命名、定义场、识别虚拟主机等。
+description: 了解如何配置 Dispatcher。了解对 IPv4 和 IPv6、配置文件、环境变量、命名实例、定义场以及识别虚拟主机等功能的支持。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: d7045fd779bf2c59034247266930e4b79ec2156f
 workflow-type: tm+mt
-source-wordcount: '8572'
-ht-degree: 99%
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
@@ -314,7 +314,7 @@ Comment Type: draft
   }
 ```
 
-## 确定虚拟主机 {#identifying-virtual-hosts-virtualhosts}
+## 识别虚拟主机 {#identifying-virtual-hosts-virtualhosts}
 
 `/virtualhosts` 属性定义 Dispatcher 为此场接受的所有主机名/URI 组合的列表。可以使用星号 (`*`) 字符作为通配符。/`virtualhosts` 属性的值使用以下格式：
 
