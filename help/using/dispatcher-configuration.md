@@ -2,9 +2,9 @@
 title: 配置 Dispatcher
 description: 了解如何配置 Dispatcher。了解对 IPv4 和 IPv6、配置文件、环境变量、命名实例、定义场以及识别虚拟主机等功能的支持。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: d7045fd779bf2c59034247266930e4b79ec2156f
+source-git-commit: 3455a90308d8661725850e19b67d7ff65f6f662f
 workflow-type: ht
-source-wordcount: '8572'
+source-wordcount: '8561'
 ht-degree: 100%
 
 ---
@@ -782,9 +782,10 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 >
 >在用于 Apache 时，根据 Dispatcher 模块的 DispatcherUseProcessedURL 属性设计筛选条件 URL 模式。（请参阅[Apache Web Server - 为 Dispatcher 配置 Apache Web Server](dispatcher-install.md##apache-web-server-configure-apache-web-server-for-dispatcher)。）
 
+<!----
 >[!NOTE]
 >
->有关 Dynamic Media 的筛选条件 `0030` 和 `0031` 适用于 AEM 6.0 和更高版本。
+>Filters `0030` and `0031` regarding Dynamic Media are applicable to AEM 6.0 and higher. -->
 
 如果您选择扩大访问权限，请考虑以下推荐：
 
