@@ -2,10 +2,10 @@
 title: 配置 Dispatcher
 description: 了解如何配置 Dispatcher。了解对 IPv4 和 IPv6、配置文件、环境变量、命名实例、定义场以及识别虚拟主机等功能的支持。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 3455a90308d8661725850e19b67d7ff65f6f662f
+source-git-commit: f379daec71240150706eb90d930dbc756bbf8eb1
 workflow-type: tm+mt
-source-wordcount: '8561'
-ht-degree: 100%
+source-wordcount: '8636'
+ht-degree: 98%
 
 ---
 
@@ -1280,31 +1280,38 @@ printf "%-15s: %s %s" $1 $2 $3>> /opt/dispatcher/logs/invalidate.log
 
 忽略页面的某个参数时，在首次请求页面时缓存该页面。对该页面后续的请求提供缓存的页面，不论请求中的参数值如何。
 
+>[!NOTE]
+>
+>建议您配置 `ignoreUrlParams` 以允许列表方式设置。 因此，将忽略所有查询参数，并且只免除（“拒绝”）已知或预期的查询参数。 有关更多详细信息和示例，请参阅 [本页](https://github.com/adobe/aem-dispatcher-optimizer-tool/blob/main/docs/Rules.md#dot---the-dispatcher-publish-farm-cache-should-have-its-ignoreurlparams-rules-configured-in-an-allow-list-manner).
+
 要指定需要忽略的参数，请将 glob 规则添加到 `ignoreUrlParams` 属性中：
 
-* 要忽略某个参数，请创建允许该参数的 glob 属性。
-* 要防止缓存页面，请创建拒绝该参数的 glob 属性。
+* 要缓存页面，而不考虑包含URL参数的请求，请创建一个允许该参数（被忽略）的全局属性。
+* 要阻止缓存页面，请创建一个全局属性以拒绝参数（要忽略）。
 
-以下示例导致 Dispatcher 忽略 `q` 参数，因此缓存了包含 q 参数的请求 URL：
+以下示例会导致Dispatcher忽略除 `nocache` 参数。 因此，请求包含 `nocache` 参数从不被调度程序缓存：
 
 ```xml
 /ignoreUrlParams
 {
-    /0001 { /glob "*" /type "deny" }
-    /0002 { /glob "q" /type "allow" }
+    # allow-the-url-parameter-nocache-to-bypass-dispatcher-on-every-request
+    /0001 { /glob "nocache" /type "deny" }
+    # all-other-url-parameters-are-ignored-by-dispatcher-and-requests-are-cached
+    /0002 { /glob "*" /type "allow" }
 }
 ```
 
-使用示例 `ignoreUrlParams` 值，以下 HTTP 请求导致缓存了页面，因为 `q` 参数被忽略：
+在 `ignoreUrlParams` 上述配置示例中，以下HTTP请求会导致页面缓存，因为 `willbecached` 参数被忽略：
 
 ```xml
-GET /mypage.html?q=5
+GET /mypage.html?willbecached=true
 ```
 
-使用示例 `ignoreUrlParams` 值，以下 HTTP 请求导致&#x200B;**不**&#x200B;缓存页面，因为未忽略 `p` 参数：
+在 `ignoreUrlParams` 配置示例中，以下HTTP请求会导致页面 **not** 因为 `nocache` 参数不被忽略：
 
 ```xml
-GET /mypage.html?q=5&p=4
+GET /mypage.html?nocache=true
+GET /mypage.html?nocache=true&willbecached=true
 ```
 
 有关 glob 属性的信息，请参阅[为 glob 属性设计模式](#designing-patterns-for-glob-properties)。
