@@ -3,9 +3,9 @@ title: 配置 Dispatcher
 description: 了解如何配置 Dispatcher。了解对 IPv4 和 IPv6、配置文件、环境变量、命名实例、定义场以及识别虚拟主机等功能的支持。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: f379daec71240150706eb90d930dbc756bbf8eb1
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8636'
-ht-degree: 98%
+ht-degree: 100%
 
 ---
 
@@ -1282,14 +1282,14 @@ printf "%-15s: %s %s" $1 $2 $3>> /opt/dispatcher/logs/invalidate.log
 
 >[!NOTE]
 >
->建议您配置 `ignoreUrlParams` 以允许列表方式设置。 因此，将忽略所有查询参数，并且只免除（“拒绝”）已知或预期的查询参数。 有关更多详细信息和示例，请参阅 [本页](https://github.com/adobe/aem-dispatcher-optimizer-tool/blob/main/docs/Rules.md#dot---the-dispatcher-publish-farm-cache-should-have-its-ignoreurlparams-rules-configured-in-an-allow-list-manner).
+>建议您以允许列表的方式配置`ignoreUrlParams`设置。因此，所有查询参数都会被忽略，只有已知或预期的查询参数才不会被忽略（“拒绝”）。更多详情和示例，请参阅[该页面](https://github.com/adobe/aem-dispatcher-optimizer-tool/blob/main/docs/Rules.md#dot---the-dispatcher-publish-farm-cache-should-have-its-ignoreurlparams-rules-configured-in-an-allow-list-manner) 。
 
 要指定需要忽略的参数，请将 glob 规则添加到 `ignoreUrlParams` 属性中：
 
-* 要缓存页面，而不考虑包含URL参数的请求，请创建一个允许该参数（被忽略）的全局属性。
-* 要阻止缓存页面，请创建一个全局属性以拒绝参数（要忽略）。
+* 要缓存包含 URL 参数的请求的页面，请创建允许忽略该参数的 glob 属性。
+* 要防止缓存该页面，请创建一个拒绝该参数的 glob 属性（将被忽略）。
 
-以下示例会导致Dispatcher忽略除 `nocache` 参数。 因此，请求包含 `nocache` 参数从不被调度程序缓存：
+以下示例会导致 Dispatcher 忽略所有参数，`nocache` 参数除外。因此，Dispatcher 不会缓存包含 `nocache` 参数的请求 URL：
 
 ```xml
 /ignoreUrlParams
@@ -1301,13 +1301,13 @@ printf "%-15s: %s %s" $1 $2 $3>> /opt/dispatcher/logs/invalidate.log
 }
 ```
 
-在 `ignoreUrlParams` 上述配置示例中，以下HTTP请求会导致页面缓存，因为 `willbecached` 参数被忽略：
+在上述 `ignoreUrlParams` 配置示例的上下文中，由于 `willbecached` 参数被忽略，以下 HTTP 请求会导致页面被缓存：
 
 ```xml
 GET /mypage.html?willbecached=true
 ```
 
-在 `ignoreUrlParams` 配置示例中，以下HTTP请求会导致页面 **not** 因为 `nocache` 参数不被忽略：
+在上述 `ignoreUrlParams` 配置示例的上下文中，由于 `nocache` 参数不会被忽略，因此以下 HTTP 请求&#x200B;**不**&#x200B;会导致页面被缓存：
 
 ```xml
 GET /mypage.html?nocache=true
