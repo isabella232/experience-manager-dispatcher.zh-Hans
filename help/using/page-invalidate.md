@@ -14,9 +14,9 @@ content-type: reference
 discoiquuid: 79cd94be-a6bc-4d34-bfe9-393b4107925c
 exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
 source-git-commit: f255701f23a628ba0d8b6cd91228462e1b552ffa
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1421'
-ht-degree: 98%
+ht-degree: 100%
 
 ---
 
@@ -67,7 +67,7 @@ Last Modified Date: 2017-05-25T10:37:23.679-0400
 1. 根据需要配置其他参数。
 1. 单击“确定”以激活代理。
 
-或者，您也可以从 [AEM Touch UI](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/replication.html#configuring-a-dispatcher-flush-agent) 访问和配置 Dispatcher Flush 代理。
+或者，您也可以从 [AEM Touch UI](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/replication.html?lang=zh-Hans#configuring-a-dispatcher-flush-agent) 访问和配置 Dispatcher Flush 代理。
 
 有关如何启用对虚名 URL 的访问的其他详细信息，请参阅[启用对虚名 URL 的访问](dispatcher-configuration.md#enabling-access-to-vanity-urls-vanity-urls)。
 
@@ -114,7 +114,7 @@ Dispatcher 刷新由在发布实例上运行的复制代理控制。不过，将
    **注意：**&#x200B;对于 Dispatcher Flush 代理，仅在您使用基于路径的虚拟主机条目来区分场时使用 URI 属性。您可以使用此字段来定位要使其失效的场。例如，场 #1 的虚拟主机为 `www.mysite.com/path1/*`，场 #2 的虚拟主机为 `www.mysite.com/path2/*`。您可以使用 URL `/path1/invalidate.cache` 定位第一个场，使用 `/path2/invalidate.cache` 定位第二个场。有关更多信息，请参阅[在多个域中使用 Dispatcher](dispatcher-domains.md)。
 
 1. 根据需要配置其他参数。
-1. 登录发布实例并验证刷新代理配置。 此外，请确保已启用该功能。
+1. 登录到发布实例并验证刷新代理配置。此外，还要确保启用了它。
 1. 对每个受影响的发布实例重复此操作。
 
 配置后，在激活创作中的页面以进行发布时，此代理将启动标准复制。日志包含指示来自发布服务器的请求的消息，类似于以下示例：
