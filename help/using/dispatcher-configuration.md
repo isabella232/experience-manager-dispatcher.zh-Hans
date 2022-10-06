@@ -3,9 +3,9 @@ title: 配置 Dispatcher
 description: 了解如何配置 Dispatcher。了解对 IPv4 和 IPv6、配置文件、环境变量、命名实例、定义场以及识别虚拟主机等功能的支持。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: 112aa011e7a338be2b397d0c9b785fc2d9905b5d
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8675'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -406,7 +406,7 @@ Dispatcher 按照以下方法查找很好地匹配的虚拟主机值：
 
 >[!CAUTION]
 >
->在 `/allowAuthorized` 部分中，****&#x200B;必须`"0"`设置为 `/cache` 以启用此功能。如 [使用身份验证时缓存](#caching-when-authentication-is-used) 部分，当您设置 `/allowAuthorized 0 ` 包括验证信息的请求是 **not** 缓存。 如果需要权限敏感型缓存，请参阅 [缓存安全内容](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/permissions-cache.html) 页面。
+>**必须**&#x200B;将 `/cache` 部分中的 `/allowAuthorized` 设置为 `"0"` 才能启用此功能。正如[使用身份验证时缓存](#caching-when-authentication-is-used)部分中详述的那样，当设置 `/allowAuthorized 0 ` 后，将&#x200B;**不**&#x200B;缓存包括身份验证信息的请求。如果需要进行区分权限的缓存，请参阅[缓存受保护内容](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/permissions-cache.html)页面。
 
 创建安全会话用于访问渲染场，因此用户需要登录以访问场的任意页面。在登录之后，用户可以访问场中的各个页面。有关将此功能与 CUG 一起使用的信息，请参阅[创建封闭用户组](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/cug.html?lang=zh-Hans#creating-the-user-group-to-be-used)。此外，在上线之前，请查看 Dispatcher [安全检查清单](/help/using/security-checklist.md)。
 
