@@ -11,9 +11,9 @@ content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
 source-git-commit: 63dc6184b502b517238c60ef6223b39bd7594306
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '3693'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -177,7 +177,7 @@ replaceauthorization=0
 
 如果您的网站使用身份验证方法，则必须相应地配置 Flush 复制代理。
 
-1. 打开IIS管理器，并选择您用作调度程序缓存的网站。
+1. 打开 IIS Manager 并选择要用作 Dispatcher 缓存的网站。
 1. 通过使用“功能视图”模式，在 IIS 部分中双击“身份验证”。
 1. 如果未启用“匿名身份验证”，请选择“匿名身份验证”，并在“操作”区域中，单击“启用”。
 
@@ -190,7 +190,7 @@ replaceauthorization=0
 1. 通过使用“功能视图”模式，在 IIS 部分中双击“处理程序映射”。
 1. 在“处理程序映射”页面的“操作”面板中，单击“添加通配符脚本映射”，添加以下属性值，然后单击“确定”：
 
-   * 请求路径： &#42;
+   * 请求路径：&#42;
    * 可执行文件：disp_iis.dll 文件的绝对路径，例如 `C:\inetpub\Scripts\disp_iis.dll`。
    * 名称：处理程序映射的描述性名称，例如 `Dispatcher`。
 
@@ -642,7 +642,7 @@ keepalivetimeout="60"
 | 参数 | 描述 |
 |--- |--- |
 | config | 配置文件 `dispatcher.any.` 的位置和名称。 |
-| 日志文件 | 日志文件的位置和名称。 |
+| logfile | 日志文件的位置和名称。 |
 | loglevel | 在将消息写入日志文件时的日志级别：<br/>**0** 错误 <br/>**1** 警告 <br/>**2** 信息 <br/>**3** 调试 <br/>**注意：**&#x200B;建议在安装和测试期间将日志级别设置为 3，在生产环境中运行时将日志级别设置为 0。 |
 | keepalivetimeout | 指定保持活动状态超时时间（以秒为单位）。从 Dispatcher 版本 4.2.0 开始，默认的保持活动状态值为 60。如果值为 0，则禁用保持活动状态。 |
 
