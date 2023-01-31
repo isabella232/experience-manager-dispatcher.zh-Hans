@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
-source-git-commit: 18fa55f4be3a93b5484c3a0fa408031a43944f27
-workflow-type: ht
-source-wordcount: '829'
-ht-degree: 100%
+source-git-commit: ef395d122b1f248cbcdad5a74ff111872c4d2b00
+workflow-type: tm+mt
+source-wordcount: '856'
+ht-degree: 96%
 
 ---
 
@@ -144,6 +144,10 @@ public class AuthcheckerServlet extends SlingSafeMethodsServlet {
 ```
 
 ## 配置 Dispatcher 以进行权限敏感型缓存 {#configure-dispatcher-for-permission-sensitive-caching}
+
+>[!NOTE]
+>
+>如果您的要求允许缓存已验证的文档，请将/cache部分下的/allowAuthorized属性设置为 `/allowAuthorized 1`. 请参阅 [使用身份验证时缓存](/help/using/dispatcher-configuration.md) 以了解更多详细信息。
 
 dispatcher.any 文件的 auth_checker 部分控制权限敏感型缓存的行为。auth_checker 部分包含以下子部分：
 
