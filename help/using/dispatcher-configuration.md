@@ -3,9 +3,9 @@ title: 配置 Dispatcher
 description: 了解如何配置 Dispatcher。了解对 IPv4 和 IPv6、配置文件、环境变量、命名实例、定义场以及识别虚拟主机等功能的支持。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: 0378cfc2585339920894dd354c59929ef2bf49e0
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8710'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -1287,7 +1287,7 @@ printf "%-15s: %s %s" $1 $2 $3>> /opt/dispatcher/logs/invalidate.log
 
 >[!NOTE]
 >
->配置全局属性时，请注意，它应与查询参数名称匹配。 例如，如果要忽略以下URL中的“p1”参数 `http://example.com/path/test.html?p1=test&p2=v2`，则全局属性应为：
+>在配置 glob 属性时请注意，它应与查询参数名称一致。例如，如果要从 URL `http://example.com/path/test.html?p1=test&p2=v2` 中忽略“p1”参数，则 glob 属性应为：
 > `/0002 { /glob "p1" /type "allow" }`
 
 以下示例会导致 Dispatcher 忽略所有参数，`nocache` 参数除外。因此，Dispatcher 不会缓存包含 `nocache` 参数的请求 URL：
