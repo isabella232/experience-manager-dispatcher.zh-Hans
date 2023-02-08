@@ -10,10 +10,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
-source-git-commit: ef395d122b1f248cbcdad5a74ff111872c4d2b00
-workflow-type: ht
-source-wordcount: '856'
-ht-degree: 100%
+source-git-commit: 31eaa42b17838d97cacd5c535e04be01a3eb6807
+workflow-type: tm+mt
+source-wordcount: '918'
+ht-degree: 93%
 
 ---
 
@@ -60,7 +60,6 @@ Dispatcher 包含实现权限敏感型缓存的 AuthChecker 模块。在激活�
 1. 渲染器调用 AEM 授权程序 servlet（不是 Dispatcher AuthChcker servlet）以执行安全检查。当用户获得授权时，渲染器将在响应消息的正文中包含渲染的页面。
 1. Dispatcher 将响应转发到浏览器。Dispatcher 将渲染器的响应消息正文添加到缓存。
 
-
 ## 实施权限敏感型缓存 {#implementing-permission-sensitive-caching}
 
 要实施权限敏感型缓存，请执行以下任务：
@@ -71,6 +70,11 @@ Dispatcher 包含实现权限敏感型缓存的 AuthChecker 模块。在激活�
 >[!NOTE]
 >
 >通常，安全资源存储在与非安全文件不同的文件夹中。例如，/content/secure/
+
+>[!NOTE]
+>
+>当调度程序前面有CDN（或任何其他缓存）时，您应该相应地设置缓存标头，以便CDN不会缓存专用内容。 例如：`Header always set Cache-Control private`。
+>对于AEMas a Cloud Service，请参阅 [缓存](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching.html) 页面，以了解有关如何设置专用缓存标头的更多详细信息。
 
 ## 创建授权检查程序 servlet {#create-the-auth-checker-servlet}
 
