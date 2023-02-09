@@ -11,9 +11,9 @@ content-type: reference
 discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
 source-git-commit: 31eaa42b17838d97cacd5c535e04be01a3eb6807
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '918'
-ht-degree: 93%
+ht-degree: 100%
 
 ---
 
@@ -73,8 +73,8 @@ Dispatcher 包含实现权限敏感型缓存的 AuthChecker 模块。在激活�
 
 >[!NOTE]
 >
->当调度程序前面有CDN（或任何其他缓存）时，您应该相应地设置缓存标头，以便CDN不会缓存专用内容。 例如：`Header always set Cache-Control private`。
->对于AEMas a Cloud Service，请参阅 [缓存](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching.html) 页面，以了解有关如何设置专用缓存标头的更多详细信息。
+>当 Dispatcher 之前有 CDN（或任何其他缓存）时，您应设置相应的缓存标头，以使 CDN 不缓存私有内容。例如：`Header always set Cache-Control private`。
+>对于 AEM as a Cloud Service，请参阅[缓存](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching.html)页面，了解有关如何设置私有缓存标头的更多详细信息。
 
 ## 创建授权检查程序 servlet {#create-the-auth-checker-servlet}
 
