@@ -2,10 +2,10 @@
 title: 配置 Dispatcher
 description: 了解如何配置 Dispatcher。了解对 IPv4 和 IPv6、配置文件、环境变量、命名实例、定义场以及识别虚拟主机等功能的支持。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 0378cfc2585339920894dd354c59929ef2bf49e0
-workflow-type: ht
-source-wordcount: '8710'
-ht-degree: 100%
+source-git-commit: 0ac7c1cf3fc9330665b7a758cea38410c1958f1c
+workflow-type: tm+mt
+source-wordcount: '8984'
+ht-degree: 96%
 
 ---
 
@@ -1383,7 +1383,31 @@ GET /mypage.html?nocache=true&willbecached=true
 
 ### 配置基于时间的缓存失效 - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
-如果设置为 1（`/enableTTL "1"`），`/enableTTL`属性将会从后端计算响应标头，如果它们包含`Cache-Control`最大年龄或`Expires`日期，则会在缓存文件旁边创建一个辅助空文件，并且其修改时间等于到期日期。当请求的缓存文件超过了修改时间之后，将自动从后端重新请求该文件。
+基于时间的缓存失效取决于 `/enableTTL` 属性和HTTP标准中的常规过期标头的存在。 如果将属性设置为1 (`/enableTTL "1"`)，它会评估来自后端的响应标头，如果标头包含 `Cache-Control`， `max-age` 或 `Expires` 日期，则会在缓存文件旁边创建一个辅助空文件，其修改时间等于到期日期。 当请求的缓存文件超过了修改时间之后，将自动从后端重新请求该文件。
+
+在Dispatcher版本4.3.5之前，TTL失效逻辑仅基于配置的TTL值。 使用Dispatcher版本4.3.5时，设置了TTL **和** 已考虑Dispatcher缓存失效规则。 因此，对于缓存的文件：
+
+1. 如果 `/enableTTL` 设置为1，则会检查文件到期情况。 如果根据所设置的TTL文件已过期，则不执行其他检查并且从后端重新请求缓存的文件。
+2. 如果文件未过期或 `/enableTTL` 如果未配置，则应用标准缓存失效规则，例如由设置的规则 [/statfileslevel](#invalidating-files-by-folder-level) 和 [/无效](#automatically-invalidating-cached-files). 这意味着Dispatcher可以使TTL未过期的文件失效。
+
+此新实施支持文件TTL较长的用例（例如，在CDN上），但即使TTL未过期，文件仍可以失效。 与Dispatcher上的缓存命中率相比，它更支持内容新鲜度。
+
+反过来，如果您需要 **仅限** 随后设置应用于文件的过期逻辑 `/enableTTL` 设置为1，并从标准缓存失效机制中排除该文件。 例如，您可以:
+
+* 配置 [失效规则](#automatically-invalidating-cached-files) 以忽略该文件。 在以下代码片段中，所有文件以 `.example.html` 将被忽略，并且仅在设置的TTL通过时过期。
+
+```xml
+  /invalidate
+  {
+   /0000  { /glob "*" /type "deny" }
+   /0001  { /glob "*.html" /type "allow" }
+   /0002  { /glob "*.example.html" /type "deny" }
+  }
+```
+
+* 设计内容结构以使其可设置高 [/statfilelevel](#invalidating-files-by-folder-level) 因此，文件不会自动失效。
+
+这可确保 `.stat` 未使用文件失效，并且指定的文件只有TTL过期有效。
 
 >[!NOTE]
 >
