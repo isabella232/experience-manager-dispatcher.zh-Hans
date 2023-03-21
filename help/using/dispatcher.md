@@ -9,10 +9,10 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: 1d449ee2-4cdd-4b7a-8b4e-7e6fc0a1d7ee
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
-source-git-commit: e87af532ee3268f0a45679e20031c3febc02de58
-workflow-type: ht
-source-wordcount: '3165'
-ht-degree: 100%
+source-git-commit: 7dd2ba37e149af960ba428421d64a5a24542eeeb
+workflow-type: tm+mt
+source-wordcount: '0'
+ht-degree: 0%
 
 ---
 
@@ -26,7 +26,7 @@ Dispatcher 是 Adobe Experience Manager 与企业级 Web 服务器结合使用�
 
 部署 Dispatcher 的过程与所选的 Web 服务器和操作系统平台无关：
 
-1. 了解 Dispatcher（此页面）。另请参阅[有关 Dispatcher 的常见问题解答](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/troubleshooting/dispatcher-faq.html?lang=zh-Hans)。
+1. 了解 Dispatcher（此页面）。另请参阅[有关 Dispatcher 的常见问题解答](/help/using/dispatcher-faq.md)。
 1. 按照 Web 服务器文档安装[支持的 Web 服务器](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/introduction/technical-requirements.html?lang=zh-Hans)。
 1. 在 Web 服务器上[安装 Dispatcher 模块](dispatcher-install.md)，并相应地配置 Web 服务器。
 1. [配置 Dispatcher](dispatcher-configuration.md)（dispatcher.any 文件）。
@@ -45,7 +45,7 @@ Dispatcher 是 Adobe Experience Manager 与企业级 Web 服务器结合使用�
 
 * [Dispatcher 安全核对清单](security-checklist.md)
 * [Dispatcher 知识库](https://helpx.adobe.com/cn/experience-manager/kb/index/dispatcher.html)
-* [优化网站缓存性能](https://experienceleague.adobe.com/docs/experience-manager-64/deploying/configuring/configuring-performance.html?lang=zh-Hans)
+* [优化网站缓存性能](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/configuring-performance.html)
 * [在多个域中使用 Dispatcher](dispatcher-domains.md)
 * [将 SSL 与 Dispatcher 结合使用](dispatcher-ssl.md)
 * [实施权限敏感型缓存](permissions-cache.md)
@@ -118,7 +118,7 @@ Dispatcher 包含根据动态站点内容生成和更新静态 HTML 的机制。
 
 ### 缓存方法
 
-Dispatcher 有两种主要方法可用于在对网站进行更改后更新缓存内容。
+Dispatcher 有两种主要的方法可在对网站作出更改时更新缓存内容。
 
 * **内容更新**&#x200B;删除已更改的页面以及与其直接关联的文件。
 * **自动失效**&#x200B;在更新后自动使缓存可能已过期的那些部分失效。也就是说，它实际上将相关的页面标为已过期，但不删除任何内容。
@@ -163,7 +163,7 @@ Dispatcher 有一个遵循自动失效机制的文件列表。当请求该列表
 在以下情况下，Dispatcher 始终直接从 AEM 实例请求文档：
 
 * 请求 URI 包含问号“`?`”。此场景一般指示无需缓存的动态页面，如搜索结果。
-* 缺失文件扩展名。Web 服务器需要扩展名来确定文档类型（比如 MIME 类型）。
+* 缺失文件扩展名。Web 服务器需要扩展名以确定文档类型（MIME 类型）。
 * 设置了身份验证标头（可配置）。
 
 >[!NOTE]

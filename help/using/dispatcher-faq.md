@@ -4,8 +4,8 @@ seo-title: Top issues for AEM Dispatcher
 description: AEM Dispatcher 常见问题
 seo-description: Top issues for Adobe AEM Dispatcher
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
-source-git-commit: 26c8edbb142297830c7c8bd068502263c9f0e7eb
-workflow-type: ht
+source-git-commit: f83b02d74a22e055b486305dfe5420e152efb452
+workflow-type: tm+mt
 source-wordcount: '1578'
 ht-degree: 100%
 
@@ -131,7 +131,7 @@ en 目录下任何名为 `_jcr_content` 的目录（如果它存在，则它包�
 
 ### 如何在发布实例上配置 Dispatcher 刷新代理？
 
-请参阅[复制](https://experienceleague.adobe.com/docs/experience-manager-64/deploying/configuring/replication.html?lang=zh-Hans#configuring-your-replication-agents)页面。
+请参阅[复制](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/replication.html?lang=zh-Hans#configuring-your-replication-agents)页面。
 
 ### 如何解决 Dispatcher 刷新问题？
 
