@@ -2,10 +2,10 @@
 title: 配置 Dispatcher
 description: 了解如何配置 Dispatcher。了解对 IPv4 和 IPv6、配置文件、环境变量、命名实例、定义场以及识别虚拟主机等功能的支持。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 26c8edbb142297830c7c8bd068502263c9f0e7eb
-workflow-type: ht
-source-wordcount: '8900'
-ht-degree: 100%
+source-git-commit: 434a17077cea8958a55a637eddd1f4851fc7f2ee
+workflow-type: tm+mt
+source-wordcount: '8941'
+ht-degree: 99%
 
 ---
 
@@ -1411,7 +1411,7 @@ GET /mypage.html?nocache=true&willbecached=true
 
 >[!NOTE]
 >
->请记住，基于 TTL 的缓存是标头缓存的超集，因此也应该正确配置`/headers`属性。
+>请记住以下设置 `/enableTTL` 为1时，仅会在调度程序端启用TTL缓存。 因此，附加文件（见上文）中包含的TTL信息不会提供给从调度程序请求此类文件类型的任何其他用户代理。 如果要向下游系统（如CDN或浏览器）提供缓存标头，则应配置 `/cache/headers` 部分。
 
 >[!NOTE]
 >
@@ -1882,7 +1882,7 @@ HTTP 方法既不是 GET，也不是 HEAD。Dispatcher 假定输出包含不应�
 * **not cacheable: session not valid**
 场的缓存受会话管理器控制（配置包含一个 `sessionmanagement` 节点），而且用户的会话无效或不再有效。
 * **not cacheable: response contains`no_cache`**
-远程服务器返回一个 `Dispatcher: no_cache` 标头，从而禁止 Dispatcher 缓存输出。
-
+远程服务器返回了  
+`Dispatcher: no_cache` 标头，禁止 Dispatcher 缓存输出。
 * **not cacheable: response content length is zero**
-The content length of the response is zero; the Dispatcher does not create a zero-length file.
+响应的内容长度为零，Dispatcher 不创建长度为零的文件。
