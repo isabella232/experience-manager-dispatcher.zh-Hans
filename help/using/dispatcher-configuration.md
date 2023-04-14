@@ -3,9 +3,9 @@ title: 配置 Dispatcher
 description: 了解如何配置 Dispatcher。了解对 IPv4 和 IPv6、配置文件、环境变量、命名实例、定义场以及识别虚拟主机等功能的支持。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: 434a17077cea8958a55a637eddd1f4851fc7f2ee
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8941'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -1411,7 +1411,7 @@ GET /mypage.html?nocache=true&willbecached=true
 
 >[!NOTE]
 >
->请记住以下设置 `/enableTTL` 为1时，仅会在调度程序端启用TTL缓存。 因此，附加文件（见上文）中包含的TTL信息不会提供给从调度程序请求此类文件类型的任何其他用户代理。 如果要向下游系统（如CDN或浏览器）提供缓存标头，则应配置 `/cache/headers` 部分。
+>请记住，将 `/enableTTL` 设置为 1 将仅在 Dispatcher 端启用 TTL 缓存。 因此，附加文件（见上文）中包含的 TTL 信息不会提供给任何其他从 Dispatcher 请求此类文件类型的用户代理。 如果您想向下游系统（如 CDN 或浏览器）提供缓存标头，则应该相应地配置 `/cache/headers` 分区。
 
 >[!NOTE]
 >
