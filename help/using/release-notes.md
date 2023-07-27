@@ -10,9 +10,9 @@ products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
 source-git-commit: f2036e8f73d5f9f58ff713df8f04caad89d660fc
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1063'
-ht-degree: 97%
+ht-degree: 100%
 
 ---
 
@@ -41,13 +41,13 @@ Adobe 强烈推荐使用最新版本的 AEM Dispatcher 以从最新功能、最�
 
 ## 版本历史记录 {#release-history}
 
-### 版本4.3.6（2023年7月25日） {#jyly}
+### 4.3.6 版本（2023 年 7 月 25 日） {#jyly}
 
 **改进功能**：
 
-* DISP-911 AEM-05 - X-Edge-Key可能会在disp_apache2.c中泄漏
-* DISP-937记录所有选择器
-* DISP-998使启动时的虚名url的加载可配置
+* DISP-911 AEM‑05 ‑ X‑Edge‑Key 可能在 disp_apache2.c 中泄露
+* DISP-937 记录所有选择器
+* DISP-998 使启动时的虚名 URL 加载可配置
 
 ### 版本 4.3.5（2022 年 4 月 04 日） {#apr}
 
