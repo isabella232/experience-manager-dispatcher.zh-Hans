@@ -2,10 +2,10 @@
 title: 配置 Dispatcher
 description: 了解如何配置 Dispatcher。了解对 IPv4 和 IPv6、配置文件、环境变量、命名实例、定义场以及识别虚拟主机等功能的支持。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 434a17077cea8958a55a637eddd1f4851fc7f2ee
+source-git-commit: 5fe3bb534b239d5aec892623cab65e84e04c7d10
 workflow-type: tm+mt
 source-wordcount: '8941'
-ht-degree: 100%
+ht-degree: 99%
 
 ---
 
@@ -368,7 +368,7 @@ Dispatcher 按照以下方法查找很好地匹配的虚拟主机值：
     {
     /virtualhosts
       {
-      "www.mycompany.com"
+      "www.mycompany.com/products/*"
       }
     /renders
       {
@@ -380,7 +380,7 @@ Dispatcher 按照以下方法查找很好地匹配的虚拟主机值：
     {
     /virtualhosts
       {
-      "www.mycompany.com/products/*"
+      "www.mycompany.com"
       }
     /renders
       {
@@ -647,7 +647,7 @@ HTTP/1.1 如下所示定义[请求行](https://www.w3.org/Protocols/rfc2616/rfc2
 
 #### 示例筛选条件：允许访问工作流程控制台 {#example-filter-allow-access-to-the-workflow-console}
 
-以下示例显示了用于拒绝外部访问工作流程控制台的筛选条件：
+以下示例显示了一个用于允许外部访问工作流控制台的筛选器：
 
 ```xml
 /filter {
@@ -825,6 +825,7 @@ Last Modified Date: 2015-06-26T04:32:37.986-0400
 >如果某个规则包含 `/query`，则它仅匹配包含查询字符串并与所提供的查询模式匹配的请求。
 >
 >在以上示例中，如果还应该允许对 `/etc` 的没有查询字符串的请求，则需要以下规则：
+>
 
 ```xml
 /filter {  
@@ -1849,40 +1850,38 @@ curl -v -H "X-Dispatcher-Info: true" https://localhost/content/wknd/us/en.html
 以下是包含 `X-Dispatcher-Info` 返回的响应标头的列表：
 
 * **cached**\
-   目标文件包含在缓存中，Dispatcher 已确定可有效地传送它。
+  目标文件包含在缓存中，Dispatcher 已确定可有效地传送它。
 * **caching**\
-   目标文件未包含在缓存中，Dispatcher 已确定可有效地缓存输出并传送它。
+  目标文件未包含在缓存中，Dispatcher 已确定可有效地缓存输出并传送它。
 * **caching: stat file is more recent**
 目标文件包含在缓存中，但是更新的 stat 文件使它失效。Dispatcher 删除目标文件，从输出重新创建它并传送它。
 * **not cacheable: no document root**
-场的配置不包含文档根（配置元素 
-`cache.docroot`）。
+场的配置不包含文档根（配置元素 `cache.docroot`).
 * **not cacheable: cache file path too long**\
-   目标文件（文档根与 URL 文件的连接）超过了系统上允许的最长文件名。
+  目标文件（文档根与 URL 文件的连接）超过了系统上允许的最长文件名。
 * **not cacheable: temporary file path too long**\
-   临时文件名模板超过了系统上允许的最长文件名。Dispatcher 首先创建一个临时文件，然后再真正地创建或覆盖缓存的文件。该临时文件名是目标文件名追加 `_YYYYXXXXXX` 字符，其中替换 `Y` 和 `X` 以创建唯一名称。
+  临时文件名模板超过了系统上允许的最长文件名。Dispatcher 首先创建一个临时文件，然后再真正地创建或覆盖缓存的文件。该临时文件名是目标文件名追加 `_YYYYXXXXXX` 字符，其中替换 `Y` 和 `X` 以创建唯一名称。
 * **not cacheable: request URL has no extension**\
-   请求的 URL 没有扩展名，或者文件扩展名后跟路径，例如：`/test.html/a/path`。
+  请求的 URL 没有扩展名，或者文件扩展名后跟路径，例如：`/test.html/a/path`。
 * **not cacheable: request wasn&#39;t a GET or HEAD**
 HTTP 方法既不是 GET，也不是 HEAD。Dispatcher 假定输出包含不应缓存的动态数据。
 * **not cacheable: request contained a query string**\
-   请求包含查询字符串。Dispatcher 假定输出取决于给出的查询字符串，并因此不缓存。
+  请求包含查询字符串。Dispatcher 假定输出取决于给出的查询字符串，并因此不缓存。
 * **not cacheable: session manager didn&#39;t authenticate**\
-   场的缓存受会话管理器控制（该配置包含一个 `sessionmanagement` 节点），请求不包含相应的身份验证信息。
+  场的缓存受会话管理器控制（该配置包含一个 `sessionmanagement` 节点），请求不包含相应的身份验证信息。
 * **not cacheable: request contains authorization**\
-   场不允许缓存输出 (`allowAuthorized 0`) 并且请求包含身份验证信息。
+  场不允许缓存输出 (`allowAuthorized 0`) 并且请求包含身份验证信息。
 * **not cacheable: target is a directory**\
-   目标文件是目录。此位置可能会指向某种概念性的错误，其中 URL 和某些子 URL 都包含可缓存的输出。例如，如果对 `/test.html/a/file.ext` 的请求排在第一位，并且包含可缓存的输出，则 Dispatcher 无法缓存对 `/test.html` 的后续请求的输出。
+  目标文件是目录。此位置可能会指向某种概念性的错误，其中 URL 和某些子 URL 都包含可缓存的输出。例如，如果对 `/test.html/a/file.ext` 的请求排在第一位，并且包含可缓存的输出，则 Dispatcher 无法缓存对 `/test.html` 的后续请求的输出。
 * **not cacheable: request URL has a trailing slash**\
-   请求 URL 有结尾斜杠。
+  请求 URL 有结尾斜杠。
 * **not cacheable: request URL not in cache rules**\
-   场的缓存规则明确拒绝了缓存某些请求 URL 的输出。
+  场的缓存规则明确拒绝了缓存某些请求 URL 的输出。
 * **not cacheable: authorization checker denied access**\
-   场的授权检查程序拒绝访问缓存的文件。
+  场的授权检查程序拒绝访问缓存的文件。
 * **not cacheable: session not valid**
 场的缓存受会话管理器控制（配置包含一个 `sessionmanagement` 节点），而且用户的会话无效或不再有效。
 * **not cacheable: response contains`no_cache`**
-远程服务器返回了  
-`Dispatcher: no_cache` 标头，禁止 Dispatcher 缓存输出。
+远程服务器返回了 `Dispatcher: no_cache` 标头，禁止 Dispatcher 缓存输出。
 * **not cacheable: response content length is zero**
 响应的内容长度为零，Dispatcher 不创建长度为零的文件。
