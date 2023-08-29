@@ -3,9 +3,9 @@ title: 配置 Dispatcher
 description: 了解如何配置 Dispatcher。了解对 IPv4 和 IPv6、配置文件、环境变量、命名实例、定义场以及识别虚拟主机等功能的支持。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: 5fe3bb534b239d5aec892623cab65e84e04c7d10
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8941'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -647,7 +647,7 @@ HTTP/1.1 如下所示定义[请求行](https://www.w3.org/Protocols/rfc2616/rfc2
 
 #### 示例筛选条件：允许访问工作流程控制台 {#example-filter-allow-access-to-the-workflow-console}
 
-以下示例显示了一个用于允许外部访问工作流控制台的筛选器：
+以下示例显示用于允许从外部访问工作流控制台的筛选条件：
 
 ```xml
 /filter {
@@ -1855,8 +1855,8 @@ curl -v -H "X-Dispatcher-Info: true" https://localhost/content/wknd/us/en.html
   目标文件未包含在缓存中，Dispatcher 已确定可有效地缓存输出并传送它。
 * **caching: stat file is more recent**
 目标文件包含在缓存中，但是更新的 stat 文件使它失效。Dispatcher 删除目标文件，从输出重新创建它并传送它。
-* **not cacheable: no document root**
-场的配置不包含文档根（配置元素 `cache.docroot`).
+* **不可缓存：没有文档根**
+场的配置不包含文档根（配置元素 `cache.docroot`）。
 * **not cacheable: cache file path too long**\
   目标文件（文档根与 URL 文件的连接）超过了系统上允许的最长文件名。
 * **not cacheable: temporary file path too long**\
@@ -1883,5 +1883,5 @@ HTTP 方法既不是 GET，也不是 HEAD。Dispatcher 假定输出包含不应�
 场的缓存受会话管理器控制（配置包含一个 `sessionmanagement` 节点），而且用户的会话无效或不再有效。
 * **not cacheable: response contains`no_cache`**
 远程服务器返回了 `Dispatcher: no_cache` 标头，禁止 Dispatcher 缓存输出。
-* **not cacheable: response content length is zero**
-响应的内容长度为零，Dispatcher 不创建长度为零的文件。
+* **不可缓存：响应内容长度为零**
+响应的内容长度为零，Dispatcher 无法创建长度为零的文件。
