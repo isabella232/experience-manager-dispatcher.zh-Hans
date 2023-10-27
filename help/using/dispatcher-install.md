@@ -10,9 +10,9 @@ topic-tags: dispatcher
 content-type: reference
 discoiquuid: f00ad751-6b95-4365-8500-e1e0108d9536
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
-source-git-commit: 663e493f3e1ae26c264e574cec4e0b271a971809
-workflow-type: tm+mt
-source-wordcount: '3693'
+source-git-commit: 3bb9cb81ac98147bf12e9370d02002dd91ee374e
+workflow-type: ht
+source-wordcount: '3726'
 ht-degree: 100%
 
 ---
@@ -314,9 +314,9 @@ Dispatcher 的提供形式为：
 
    * **Windows**：放置 `disp_apache<x.y>.dll` `<APACHE_ROOT>/modules`
    * **Unix**：根据安装找到 `<APACHE_ROOT>/libexec` 或 `<APACHE_ROOT>/modules` 目录。\
-      将 `dispatcher-apache<options>.so` 复制到此目录中。\
-      要简化长期维护，您还可以创建指向 Dispatcher 的名为 `mod_dispatcher.so` 的符号链接：\
-      `ln -s dispatcher-apache<x>-<os>-<rel-nr>.so mod_dispatcher.so`
+     将 `dispatcher-apache<options>.so` 复制到此目录中。\
+     要简化长期维护，您还可以创建指向 Dispatcher 的名为 `mod_dispatcher.so` 的符号链接：\
+     `ln -s dispatcher-apache<x>-<os>-<rel-nr>.so mod_dispatcher.so`
 
 1. 将 dispatcher.any 文件复制到 `<APACHE_ROOT>/conf` 目录。
 
@@ -362,10 +362,10 @@ semanage fcontext -a -t httpd_sys_rw_content_t "[path to the docroot](/.*)?"
 
    * Apache Server 以 root 身份启动，但子进程作为守护进程启动（出于安全目的）。DocumentRoot (`<APACHE_ROOT>/htdocs`) 必须属于用户守护进程：
 
-      ```xml
-      cd <APACHE_ROOT>  
-      chown -R daemon:daemon htdocs
-      ```
+     ```xml
+     cd <APACHE_ROOT>  
+     chown -R daemon:daemon htdocs
+     ```
 
 **LoadModule**
 
@@ -400,6 +400,10 @@ DispatcherKeepAliveTimeout 60
 </IfModule>
 ...
 ```
+
+>[!NOTE]
+>
+>专门从 4.3.3 版升级到 4.3.4 版的客户将会发现为不可缓存内容设置缓存标头的方式行为有所不同。若要详细了解此不同，请阅读[发行说明](/help/using/release-notes.md#nov)页。
 
 单个配置参数：
 
