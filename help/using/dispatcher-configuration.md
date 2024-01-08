@@ -2,10 +2,10 @@
 title: 配置 Dispatcher
 description: 了解如何配置 Dispatcher。了解对 IPv4 和 IPv6、配置文件、环境变量、命名实例、定义场以及识别虚拟主机等功能的支持。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 5fe3bb534b239d5aec892623cab65e84e04c7d10
-workflow-type: ht
-source-wordcount: '8941'
-ht-degree: 100%
+source-git-commit: 410346694a134c0f32a24de905623655f15269b4
+workflow-type: tm+mt
+source-wordcount: '8857'
+ht-degree: 99%
 
 ---
 
@@ -1296,10 +1296,10 @@ printf "%-15s: %s %s" $1 $2 $3>> /opt/dispatcher/logs/invalidate.log
 ```xml
 /ignoreUrlParams
 {
+    # ignore-all-url-parameters-by-dispatcher-and-requests-are-cached
+    /0001 { /glob "*" /type "allow" }
     # allow-the-url-parameter-nocache-to-bypass-dispatcher-on-every-request
-    /0001 { /glob "nocache" /type "deny" }
-    # all-other-url-parameters-are-ignored-by-dispatcher-and-requests-are-cached
-    /0002 { /glob "*" /type "allow" }
+    /0002 { /glob "nocache" /type "deny" }
 }
 ```
 
@@ -1384,7 +1384,7 @@ GET /mypage.html?nocache=true&willbecached=true
 
 ### 配置基于时间的缓存失效 - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
-基于时间的缓存失效依靠 `/enableTTL` 属性以及存在来自 HTTP 标准的常规到期标头。如果将该属性设置为 1 (`/enableTTL "1"`)，则它从后端计算得出响应标头。如果这些标头包含 `Cache-Control`、`max-age` 或 `Expires` 日期，则将在缓存的文件旁创建一个空文件，其修改时间等于到期日期。当在修改时间之后请求缓存的文件时，将自动从后端重新请求该文件。
+基于时间的缓存失效依靠 `/enableTTL` 属性以及存在来自 HTTP 标准的常规到期标头。如果将属性设置为1 (`/enableTTL "1"`)，它会评估来自后端的响应标头。 如果标头包含 `Cache-Control`， `max-age` 或 `Expires` 日期，在缓存的文件旁边创建一个辅助空文件，其修改时间等于到期日期。 当在修改时间之后请求缓存的文件时，将自动从后端重新请求该文件。
 
 在 Dispatcher 4.3.5 之前，TTL 失效逻辑仅基于所配置的 TTL 值。在 Dispatcher 4.3.5 中，将所设置的 TTL **和** Dispatcher 缓存失效规则都考虑在内。因此，对于缓存的文件：
 
@@ -1881,7 +1881,7 @@ HTTP 方法既不是 GET，也不是 HEAD。Dispatcher 假定输出包含不应�
   场的授权检查程序拒绝访问缓存的文件。
 * **not cacheable: session not valid**
 场的缓存受会话管理器控制（配置包含一个 `sessionmanagement` 节点），而且用户的会话无效或不再有效。
-* **not cacheable: response contains`no_cache`**
-远程服务器返回了 `Dispatcher: no_cache` 标头，禁止 Dispatcher 缓存输出。
+* **not cacheable： response contains`no_cache`**
+远程服务器返回了 `Dispatcher: no_cache` 标头，禁止Dispatcher缓存输出。
 * **不可缓存：响应内容长度为零**
 响应的内容长度为零，Dispatcher 无法创建长度为零的文件。
